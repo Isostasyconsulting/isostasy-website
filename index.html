@@ -472,11 +472,15 @@ header{
 }
 .nav-row{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 10px 8px;gap:14px;}
 .logo-badge{
-  background:#fff;border-radius:var(--r-md);padding:6px 12px;display:flex;align-items:center;margin-right:4px;
+  background:#fff;border-radius:var(--r-md);padding:6px 12px;display:flex;align-items:center;margin-right:4px;flex-shrink:0;
 }
-.logo-badge img{height:52px;width:auto;display:block;}
+.logo-badge img{height:52px;width:auto;display:block;flex-shrink:0;}
 nav.primary{
   display:flex;flex-wrap:wrap;column-gap:14px;row-gap:6px;flex:1;align-items:center;
+}
+@media (min-width:1101px){
+  nav.primary{flex-wrap:nowrap;column-gap:8px;}
+  nav.primary a{padding:.4em .5em;}
 }
 nav.primary a{
   position:relative;
@@ -490,7 +494,7 @@ nav.primary a::after{
 }
 nav.primary a.nav-active::after,
 nav.primary a:hover::after{display:none;}
-.nav-cta{display:flex;align-items:center;gap:10px;}
+.nav-cta{display:flex;align-items:center;gap:10px;flex-shrink:0;}
 .nav-admin-link{
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);color:#fff;
   font-family:'Montserrat',sans-serif;font-weight:700;font-size:var(--fs-xs);padding:.55em 1em;
@@ -547,17 +551,17 @@ nav.primary a.nav-active,
 }
 html[dir="rtl"]{direction:rtl;}
 html[dir="rtl"] .lang-menu{right:auto;left:0;}
-.burger{display:none;background:none;border:0;color:#fff;font-size:var(--fs-2xl);cursor:pointer;}
+.burger{display:none;background:none;border:0;color:#fff;font-size:var(--fs-2xl);cursor:pointer;flex-shrink:0;}
 .nav-quick-link{display:none;}
 .nav-quick-faisons{
   align-items:center;color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;
-  font-size:var(--fs-xs);padding:.4em .7em;border-radius:var(--r-md);white-space:nowrap;transition:background .2s ease;
+  font-size:11px;padding:.4em .5em;border-radius:var(--r-md);white-space:nowrap;transition:background .2s ease;flex-shrink:0;
 }
 .nav-quick-faisons:hover{background:rgba(255,255,255,.12);}
-.nav-quick-apropos{position:relative;}
+.nav-quick-apropos{position:relative;flex-shrink:0;}
 .nav-quick-apropos .nav-more-btn{
-  color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:var(--fs-xs);
-  padding:.4em .7em;border-radius:var(--r-md);white-space:nowrap;background:none;border:none;cursor:pointer;
+  color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;
+  padding:.4em .5em;border-radius:var(--r-md);white-space:nowrap;background:none;border:none;cursor:pointer;
   display:flex;align-items:center;gap:3px;transition:background .2s ease;
 }
 .nav-quick-apropos .nav-more-btn:hover,
@@ -573,8 +577,8 @@ html[dir="rtl"] .lang-menu{right:auto;left:0;}
 }
 .nav-quick-apropos .nav-more-menu a:hover{background:var(--paper);}
 .nav-quick-contact{
-  color:#fff!important;font-family:'Montserrat',sans-serif;font-weight:600;font-size:var(--fs-xs);
-  padding:.4em .7em;border-radius:var(--r-md);white-space:nowrap;transition:background .2s ease;
+  color:#fff!important;font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;
+  padding:.4em .6em;border-radius:var(--r-md);white-space:nowrap;transition:background .2s ease;flex-shrink:0;
 }
 .nav-quick-contact:hover{background:rgba(255,255,255,.12);}
 /* Telephone paysage : Ce que nous faisons + À propos de nous a droite du burger */
