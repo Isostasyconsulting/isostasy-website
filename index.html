@@ -602,7 +602,7 @@ html[dir="rtl"] .lang-menu{right:auto;left:0;}
   }
   nav.primary.open{max-height:calc(100vh - 70px);visibility:visible;transition:max-height .3s ease, visibility 0s linear 0s;}
   nav.primary a{padding:.65em 0;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;width:100%;}
-  .nav-more{width:100%;text-align:left;}
+  nav.primary .nav-more{width:100%;text-align:left;}
   .nav-more-btn{justify-content:flex-start;}
   .burger{display:block;}
   .nav-cta .btn-primary{display:none;}
@@ -1715,7 +1715,7 @@ window.Isostasy = window.Isostasy || {};
         <span class="hero-hook" data-i18n="hero_hook">La rigueur des données. Le sens de l'impact.</span>
         <p class="lead" data-i18n="hero_lead">Nous concevons vos systèmes de suivi‑évaluation, analysons vos données et digitalisons vos outils — pour des décisions fiables et un impact mesurable.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary" data-i18n="hero_cta1">Demander un devis gratuit</a>
+          <a href="#contact" class="btn btn-primary" data-i18n="hero_cta1">Décrire mon besoin</a>
           <a href="#expertises" class="btn btn-outline" data-i18n="hero_cta2">Découvrir nos expertises</a>
         </div>
       </div>
@@ -1731,6 +1731,25 @@ window.Isostasy = window.Isostasy || {};
         <span>Union européenne</span>
         <span>Union africaine</span>
       </div>
+    </div>
+  </div>
+
+  <!-- NOTRE OFFRE (vue d'ensemble, sans détail) -->
+  <div class="wrap" style="margin-top:48px;">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Notre offre</span>
+      <h2>Ce que nous mettons à votre service</h2>
+    </div>
+    <div class="pill-grid" style="justify-content:center;">
+      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg>Suivi‑Évaluation (MEAL)</span>
+      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Data &amp; digitalisation</span>
+      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>Études &amp; rapports</span>
+      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>Gestion de projet</span>
+      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Cartographie &amp; SIG</span>
+      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg>Formations &amp; accompagnement</span>
+    </div>
+    <div style="text-align:center;margin-top:20px;">
+      <a href="#ce-que-nous-faisons" class="btn btn-outline">Voir le détail de notre offre →</a>
     </div>
   </div>
 
@@ -1757,25 +1776,6 @@ window.Isostasy = window.Isostasy || {};
       </div>
     </div>
   </div>
-  </div>
-
-  <!-- NOTRE OFFRE (vue d'ensemble, sans détail) -->
-  <div class="wrap" style="margin-top:48px;">
-    <div class="section-head center reveal">
-      <span class="eyebrow">Notre offre</span>
-      <h2>Ce que nous mettons à votre service</h2>
-    </div>
-    <div class="pill-grid" style="justify-content:center;">
-      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg>Suivi‑Évaluation (MEAL)</span>
-      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Data &amp; digitalisation</span>
-      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>Études &amp; rapports</span>
-      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>Gestion de projet</span>
-      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Cartographie &amp; SIG</span>
-      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg>Formations &amp; accompagnement</span>
-    </div>
-    <div style="text-align:center;margin-top:20px;">
-      <a href="#ce-que-nous-faisons" class="btn btn-outline">Voir le détail de notre offre →</a>
-    </div>
   </div>
 
   <!-- À DÉCOUVRIR (teaser accueil) -->
@@ -4300,7 +4300,7 @@ window.Isostasy = window.Isostasy || {};
       hero_intro:"Isostasy Consulting est un cabinet d'études, de conseil et d'innovation qui accompagne les organisations dans la conception, la gestion, le suivi, l'évaluation, la communication, la digitalisation et l'amélioration de l'impact des projets de développement.",
       hero_hook:"La rigueur des données. Le sens de l'impact.",
       hero_lead:"Cabinet spécialisé en suivi‑évaluation digitalisé et pilotage de la performance des projets — pour des décisions fiables et un impact mesurable.",
-      hero_cta1:"Demander un devis gratuit", hero_cta2:"Découvrir nos expertises",
+      hero_cta1:"Décrire mon besoin", hero_cta2:"Découvrir nos expertises",
       id_title:"Identité du cabinet", id_slogan:"Des données, des solutions, de l'impact",
       id_li1:"Cabinet d'études, de conseil et d'innovation",
       id_li2:"Fondé par Teddy Junior MAGBE, statisticien‑économiste et data analyst",
@@ -7577,12 +7577,6 @@ window.Isostasy = window.Isostasy || {};
      Le texte est propre à chaque page : une invitation générique répétée
      quinze fois ne convertit pas, elle lasse. */
   var PASSERELLES = {
-    accueil: {
-      titre: "Un besoin d'évaluation, de données ou de pilotage ?",
-      sous: "Décrivez-le en quelques lignes. Nous vous dirons franchement si nous sommes le bon interlocuteur.",
-      bouton: "Décrire mon besoin",
-      objet: "Demande de devis"
-    },
     apropos: {
       titre: "Vous vous demandez si nous correspondons à votre besoin ?",
       sous: "Un échange de trente minutes suffit généralement à le savoir, sans engagement.",
