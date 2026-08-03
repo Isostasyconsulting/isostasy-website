@@ -552,9 +552,9 @@ html[dir="rtl"] .lang-menu{right:auto;left:0;}
   nav.primary{
     position:absolute;top:100%;left:0;right:0;background:var(--navy);
     flex-direction:column;flex-wrap:nowrap;padding:14px 24px 22px;gap:4px;
-    max-height:0;overflow:hidden;overflow-y:auto;transition:max-height .3s ease;
+    max-height:0;overflow:hidden;overflow-y:auto;visibility:hidden;transition:max-height .3s ease, visibility 0s linear .3s;
   }
-  nav.primary.open{max-height:calc(100vh - 70px);}
+  nav.primary.open{max-height:calc(100vh - 70px);visibility:visible;transition:max-height .3s ease, visibility 0s linear 0s;}
   nav.primary a{padding:.65em 0;border-bottom:1px solid rgba(255,255,255,.08);}
   .nav-more{width:100%;}
   .burger{display:block;}
@@ -890,7 +890,7 @@ section.alt::before{
 .hero-dash-ticker .ticker-track span{margin-right:48px;}
 .hero-dash-ticker .ticker-track b{color:var(--sky);font-weight:800;margin-right:5px;}
 .hero-dash-ticker:hover .ticker-track{animation-play-state:paused;}
-@media (max-width:760px){.hero-dash-ticker{display:none;}}
+
 .pill{
   background:#fff;border:1px solid var(--line);border-radius:var(--r-full);
   padding:.6em 1.1em;font-size:var(--fs-sm);font-weight:600;color:var(--navy);
@@ -1502,32 +1502,10 @@ html{scroll-behavior:smooth;}
 }
 </style>
 
-<!-- Performance mobile : ne pas transporter ce qui ne sera pas affiche -->
+<!-- Performance mobile -->
 <script>
 (function(){
   'use strict';
-  // Le carrousel est masque en dessous de 760 px par la feuille de style.
-  // Les 17 bandeaux restaient malgre tout dans la page : sur telephone,
-  // on retire leurs sources avant tout telechargement.
-  if(window.matchMedia('(max-width:760px)').matches){
-    var n = 0;
-    document.querySelectorAll('#bannerCarousel .banner-slide').forEach(function(img){
-      if(img.getAttribute('src')){
-        img.dataset.src = img.getAttribute('src');
-        img.removeAttribute('src');
-        n++;
-      }
-    });
-    // Si la fenetre s'elargit (rotation, tablette), on les restitue.
-    if(n){
-      window.matchMedia('(min-width:761px)').addEventListener('change', function(e){
-        if(!e.matches) return;
-        document.querySelectorAll('#bannerCarousel .banner-slide[data-src]').forEach(function(img){
-          img.setAttribute('src', img.dataset.src);
-        });
-      });
-    }
-  }
 })();
 </script>
 <script>
