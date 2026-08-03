@@ -470,7 +470,7 @@ header{
   background:rgba(0,73,118,.97);
   backdrop-filter:blur(6px);
 }
-.nav-row{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 10px 8px;gap:8px;overflow-x:auto;scrollbar-width:none;}
+.nav-row{display:flex;align-items:center;padding:10px 16px 10px 8px;gap:8px;overflow-x:auto;scrollbar-width:none;}
 .nav-row::-webkit-scrollbar{display:none;}
 .logo-badge{
   background:#fff;border-radius:var(--r-md);padding:6px 12px;display:flex;align-items:center;margin-right:4px;flex-shrink:0;
@@ -495,7 +495,7 @@ nav.primary a::after{
 }
 nav.primary a.nav-active::after,
 nav.primary a:hover::after{display:none;}
-.nav-cta{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.nav-cta{display:flex;align-items:center;gap:10px;flex-shrink:0;margin-left:auto;}
 .nav-admin-link{
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);color:#fff;
   font-family:'Montserrat',sans-serif;font-weight:700;font-size:var(--fs-xs);padding:.55em 1em;
@@ -582,13 +582,17 @@ html[dir="rtl"] .lang-menu{right:auto;left:0;}
   padding:.4em .6em;border-radius:var(--r-md);white-space:nowrap;transition:background .2s ease;flex-shrink:0;
 }
 .nav-quick-contact:hover{background:rgba(255,255,255,.12);}
-/* Paysage (telephone ou tablette, jusqu'a 1100px) OU tablette portrait (601-1100px) :
-   les 3 liens rapides s'affichent a droite du burger. Telephone portrait (<=600px) : etat initial. */
-@media (max-width:1100px) and (orientation:landscape),
-       (min-width:601px) and (max-width:1100px) and (orientation:portrait){
+/* Regle par defaut sous 1100px : les 3 liens rapides s'affichent a droite du burger. */
+@media (max-width:1100px){
   .nav-quick-faisons,.nav-quick-apropos,.nav-quick-contact{display:inline-flex;}
   #navItemFaisons,#navGroupApropos{display:none;}
   #primaryNav .nav-contact-link{display:none;}
+}
+/* Exception : telephone strictement en portrait (<=600px) = etat initial, tout dans le burger. */
+@media (max-width:600px) and (orientation:portrait){
+  .nav-quick-faisons,.nav-quick-apropos,.nav-quick-contact{display:none;}
+  #navItemFaisons,#navGroupApropos{display:block;}
+  #primaryNav .nav-contact-link{display:inline-block;}
 }
 @media (max-width:1100px){
   nav.primary{
