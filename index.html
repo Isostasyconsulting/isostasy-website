@@ -584,15 +584,15 @@ html[dir="rtl"] .lang-menu{right:auto;left:0;}
 /* Regle par defaut sous 1100px : le groupe (Ce que nous faisons + A propos + Nous contacter)
    s'affiche a droite du burger, toujours ensemble sur la meme ligne. */
 @media (max-width:1100px){
-  .nav-quick-group{display:flex;}
-  #navItemFaisons,#navGroupApropos{display:none;}
-  #primaryNav .nav-contact-link{display:none;}
+  .nav-quick-group{display:flex!important;}
+  #navItemFaisons,#navGroupApropos{display:none!important;}
+  #primaryNav .nav-contact-link{display:none!important;}
 }
 /* Exception : telephone strictement en portrait (<=600px) = etat initial, tout dans le burger. */
 @media (max-width:600px) and (orientation:portrait){
-  .nav-quick-group{display:none;}
-  #navItemFaisons,#navGroupApropos{display:block;}
-  #primaryNav .nav-contact-link{display:inline-block;}
+  .nav-quick-group{display:none!important;}
+  #navItemFaisons,#navGroupApropos{display:block!important;}
+  #primaryNav .nav-contact-link{display:inline-block!important;}
 }
 @media (max-width:1100px){
   nav.primary{
