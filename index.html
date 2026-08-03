@@ -549,34 +549,47 @@ html[dir="rtl"]{direction:rtl;}
 html[dir="rtl"] .lang-menu{right:auto;left:0;}
 .burger{display:none;background:none;border:0;color:#fff;font-size:var(--fs-2xl);cursor:pointer;}
 .nav-quick-link{display:none;}
-@media (max-width:1100px){
-  .nav-quick-faisons{
-    display:inline-flex;align-items:center;color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;
-    font-size:var(--fs-xs);padding:.4em .7em;border-radius:var(--r-md);white-space:nowrap;transition:background .2s ease;
-  }
-  .nav-quick-faisons:hover{background:rgba(255,255,255,.12);}
-  #navItemFaisons{display:none;}
+.nav-quick-faisons{
+  align-items:center;color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;
+  font-size:var(--fs-xs);padding:.4em .7em;border-radius:var(--r-md);white-space:nowrap;transition:background .2s ease;
 }
-@media (min-width:761px) and (max-width:1100px){
-  .nav-quick-apropos{display:inline-flex;position:relative;}
-  .nav-quick-apropos .nav-more-btn{
-    color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:var(--fs-xs);
-    padding:.4em .7em;border-radius:var(--r-md);white-space:nowrap;background:none;border:none;cursor:pointer;
-    display:flex;align-items:center;gap:3px;transition:background .2s ease;
-  }
-  .nav-quick-apropos .nav-more-btn:hover,
-  .nav-quick-apropos.open .nav-more-btn{background:rgba(255,255,255,.12);}
-  .nav-quick-apropos .nav-more-menu{
-    position:absolute;top:calc(100% + 10px);left:0;background:#fff;border-radius:var(--r-md);
-    box-shadow:var(--sh-3);padding:6px;min-width:190px;display:none;z-index:200;text-align:left;
-  }
-  .nav-quick-apropos.open .nav-more-menu{display:block;}
-  .nav-quick-apropos .nav-more-menu a{
-    display:block;color:var(--ink2)!important;font-family:'Open Sans',sans-serif!important;font-weight:400!important;
-    font-size:var(--fs-sm)!important;padding:.6em .8em;border-radius:var(--r-sm);white-space:nowrap;
-  }
-  .nav-quick-apropos .nav-more-menu a:hover{background:var(--paper);}
+.nav-quick-faisons:hover{background:rgba(255,255,255,.12);}
+.nav-quick-apropos{position:relative;}
+.nav-quick-apropos .nav-more-btn{
+  color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:var(--fs-xs);
+  padding:.4em .7em;border-radius:var(--r-md);white-space:nowrap;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;gap:3px;transition:background .2s ease;
+}
+.nav-quick-apropos .nav-more-btn:hover,
+.nav-quick-apropos.open .nav-more-btn{background:rgba(255,255,255,.12);}
+.nav-quick-apropos .nav-more-menu{
+  position:absolute;top:calc(100% + 10px);left:0;background:#fff;border-radius:var(--r-md);
+  box-shadow:var(--sh-3);padding:6px;min-width:190px;display:none;z-index:200;text-align:left;
+}
+.nav-quick-apropos.open .nav-more-menu{display:block;}
+.nav-quick-apropos .nav-more-menu a{
+  display:block;color:var(--ink2)!important;font-family:'Open Sans',sans-serif!important;font-weight:400!important;
+  font-size:var(--fs-sm)!important;padding:.6em .8em;border-radius:var(--r-sm);white-space:nowrap;
+}
+.nav-quick-apropos .nav-more-menu a:hover{background:var(--paper);}
+.nav-quick-contact{
+  color:#fff!important;font-family:'Montserrat',sans-serif;font-weight:600;font-size:var(--fs-xs);
+  padding:.4em .7em;border-radius:var(--r-md);white-space:nowrap;transition:background .2s ease;
+}
+.nav-quick-contact:hover{background:rgba(255,255,255,.12);}
+/* Telephone paysage : Ce que nous faisons + À propos de nous a droite du burger */
+/* Tablette portrait : les deux precedents + Nous contacter a droite du burger */
+@media (max-width:760px) and (orientation:landscape),
+       (min-width:761px) and (max-width:1100px) and (orientation:portrait){
+  .nav-quick-faisons{display:inline-flex;}
+  .nav-quick-apropos{display:inline-flex;}
+  #navItemFaisons{display:none;}
   #navGroupApropos{display:none;}
+}
+@media (max-width:760px) and (orientation:landscape),
+       (min-width:761px) and (max-width:1100px) and (orientation:portrait){
+  .nav-quick-contact{display:inline-flex;}
+  #primaryNav .nav-contact-link{display:none;}
 }
 @media (max-width:1100px){
   nav.primary{
@@ -1615,6 +1628,8 @@ window.Isostasy = window.Isostasy || {};
         <a href="#temoignages" data-i18n="nav_temoignages">Témoignages</a>
       </div>
     </div>
+    <a href="#contact" class="btn btn-primary btn-sm nav-quick-link nav-quick-contact">Nous contacter</a>
+    <a href="#contact" class="nav-quick-link nav-quick-contact">Nous contacter</a>
     <nav class="primary" id="primaryNav">
       <a href="#ce-que-nous-faisons" id="navItemFaisons">Ce que nous faisons</a>
       <div class="nav-more" id="navGroupPublicite">
