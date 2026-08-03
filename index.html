@@ -541,7 +541,7 @@ nav.primary a.nav-active,
 .nav-more-menu a::after{display:none!important;}
 .nav-more-menu a:hover{background:var(--paper);color:var(--ink2)!important;}
 @media (max-width:1100px){
-  .nav-more-menu{position:static;box-shadow:none;display:none;padding:0 0 0 12px;min-width:0;}
+  .nav-more-menu{position:static;box-shadow:none;display:none;padding:0 12px 0 0;min-width:0;text-align:right;}
   .nav-more.open .nav-more-menu{display:block;}
   .nav-more-btn{display:flex;width:100%;justify-content:space-between;padding:.65em 0;border-bottom:1px solid rgba(255,255,255,.08);}
 }
@@ -555,8 +555,9 @@ html[dir="rtl"] .lang-menu{right:auto;left:0;}
     max-height:0;overflow:hidden;overflow-y:auto;visibility:hidden;transition:max-height .3s ease, visibility 0s linear .3s;
   }
   nav.primary.open{max-height:calc(100vh - 70px);visibility:visible;transition:max-height .3s ease, visibility 0s linear 0s;}
-  nav.primary a{padding:.65em 0;border-bottom:1px solid rgba(255,255,255,.08);}
-  .nav-more{width:100%;}
+  nav.primary a{padding:.65em 0;border-bottom:1px solid rgba(255,255,255,.08);text-align:right;}
+  .nav-more{width:100%;text-align:right;}
+  .nav-more-btn{justify-content:flex-end;}
   .burger{display:block;}
   .nav-cta .btn-primary{display:none;}
   .nav-cta .nav-admin-link{display:none;}
@@ -885,7 +886,7 @@ section.alt::before{
 .standards-group h4{font-size:var(--fs-md);color:var(--navy);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line);}
 .ico-svg{width:16px;height:16px;vertical-align:-3px;margin-right:6px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;display:inline-block;}
 .ico-svg-lg{width:30px;height:30px;stroke:var(--sky-texte);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;display:block;margin-bottom:10px;}
-.hero-dash-ticker{position:absolute;top:0;left:0;right:0;z-index:7;background:rgba(0,18,36,.9);overflow:hidden;white-space:nowrap;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.12);}
+.hero-dash-ticker{position:relative;z-index:7;background:rgba(0,18,36,.9);overflow:hidden;white-space:nowrap;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.12);}
 .hero-dash-ticker .ticker-track{display:inline-block;padding-left:100%;animation:ticker-scroll 34s linear infinite;color:#fff;font-family:'Montserrat',sans-serif;font-size:var(--fs-sm);font-weight:600;}
 .hero-dash-ticker .ticker-track span{margin-right:48px;}
 .hero-dash-ticker .ticker-track b{color:var(--sky);font-weight:800;margin-right:5px;}
@@ -1632,19 +1633,19 @@ window.Isostasy = window.Isostasy || {};
 <!-- HERO -->
 <section id="accueil" class="hero page-view active-view" style="padding-bottom:0;">
   <h1 class="sr-only" data-i18n="hero_h1">Cabinet centrafricain de suivi-évaluation digitalisé et de pilotage de projets de développement</h1>
+  <div class="hero-dash-ticker">
+    <div class="ticker-track">
+      <span>🎓 Formations proposées : <b id="dashFormations">…</b></span>
+      <span>👥 Personnes formées : <b id="dashPersonnes">…</b></span>
+      <span>📋 Certificats délivrés : <b id="dashCertificats">…</b></span>
+      <span>📄 Appels d'offres publiés : <b id="dashAppels">…</b></span>
+      <span>📑 Rapports publiés : <b id="dashRapports">…</b></span>
+      <span>✉️ Abonnés au bulletin : <b id="dashAbonnes">…</b></span>
+    </div>
+  </div>
   <div class="banner-carousel" id="bannerCarousel">
     <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp" class="banner-slide active" alt="Isostasy Consulting — Des données, des solutions, de l'impact" loading="eager">
     <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau.webp" class="banner-slide" alt="Isostasy Consulting — Des données, des solutions, de l'impact" loading="lazy">
-    <div class="hero-dash-ticker">
-      <div class="ticker-track">
-        <span>🎓 Formations proposées : <b id="dashFormations">…</b></span>
-        <span>👥 Personnes formées : <b id="dashPersonnes">…</b></span>
-        <span>📋 Certificats délivrés : <b id="dashCertificats">…</b></span>
-        <span>📄 Appels d'offres publiés : <b id="dashAppels">…</b></span>
-        <span>📑 Rapports publiés : <b id="dashRapports">…</b></span>
-        <span>✉️ Abonnés au bulletin : <b id="dashAbonnes">…</b></span>
-      </div>
-    </div>
   </div>
   <div class="wrap">
     <div class="hero-grid">
