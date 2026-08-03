@@ -541,8 +541,9 @@ nav.primary a.nav-active,
 .nav-more-menu a::after{display:none!important;}
 .nav-more-menu a:hover{background:var(--paper);color:var(--ink2)!important;}
 @media (max-width:1100px){
-  .nav-more-menu{position:static;box-shadow:none;display:block;padding:0 0 0 12px;min-width:0;}
-  .nav-more-btn{display:none;}
+  .nav-more-menu{position:static;box-shadow:none;display:none;padding:0 0 0 12px;min-width:0;}
+  .nav-more.open .nav-more-menu{display:block;}
+  .nav-more-btn{display:flex;width:100%;justify-content:space-between;padding:.65em 0;border-bottom:1px solid rgba(255,255,255,.08);}
 }
 html[dir="rtl"]{direction:rtl;}
 html[dir="rtl"] .lang-menu{right:auto;left:0;}
@@ -587,7 +588,6 @@ html[dir="rtl"] .lang-menu{right:auto;left:0;}
 
 /* Carrousel de bannières */
 .banner-carousel{position:relative;width:100%;aspect-ratio:1933/828;overflow:hidden;background:var(--navy);}
-@media (max-width:760px){.banner-carousel{display:none;}}
 .banner-slide{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
   opacity:0;transition:opacity 1.2s ease;
