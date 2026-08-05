@@ -1619,9 +1619,9 @@ window.Isostasy = window.Isostasy || {};
     <a href="#accueil" class="logo-badge"><img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/images/isostasy-consulting-e9715d45.webp" alt="Isostasy Consulting" loading="lazy" decoding="async" width="620" height="310"></a>
     <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu">☰</button>
     <div class="nav-quick-group">
-      <a href="#ce-que-nous-faisons" class="nav-quick-link nav-quick-faisons">Ce que nous faisons</a>
+      <a href="#ce-que-nous-faisons" class="nav-quick-link nav-quick-faisons" data-i18n="nav_faisons">Ce que nous faisons</a>
       <div class="nav-more nav-quick-link nav-quick-apropos" id="navQuickApropos">
-        <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false">À propos de nous ▾</button>
+        <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false" data-i18n="nav_group_apropos">À propos de nous ▾</button>
         <div class="nav-more-menu">
           <a href="#apropos" data-i18n="nav_apropos">Aperçu global</a>
           <a href="#philosophie" data-i18n="nav_philo">Philosophie</a>
@@ -1635,9 +1635,9 @@ window.Isostasy = window.Isostasy || {};
       <a href="#contact" class="nav-quick-link nav-quick-contact">Nous contacter</a>
     </div>
     <nav class="primary" id="primaryNav">
-      <a href="#ce-que-nous-faisons" id="navItemFaisons">Ce que nous faisons</a>
+      <a href="#ce-que-nous-faisons" id="navItemFaisons" data-i18n="nav_faisons">Ce que nous faisons</a>
       <div class="nav-more" id="navGroupPublicite">
-        <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false">Offres &amp; opportunités ▾</button>
+        <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false" data-i18n="nav_group_offres">Offres &amp; opportunités ▾</button>
         <div class="nav-more-menu">
           <a href="#formations" data-i18n="nav_formations">Formations</a>
           <a href="#appels" data-i18n="nav_appels">Appels d'offres</a>
@@ -1646,7 +1646,7 @@ window.Isostasy = window.Isostasy || {};
         </div>
       </div>
       <div class="nav-more" id="navGroupInfo">
-        <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false">Info ▾</button>
+        <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false" data-i18n="nav_group_info">Info ▾</button>
         <div class="nav-more-menu">
           <a href="#blog" data-i18n="nav_blog">Blog</a>
           <a href="#newsday" data-i18n="nav_actualite">Actualité</a>
@@ -1654,7 +1654,7 @@ window.Isostasy = window.Isostasy || {};
         </div>
       </div>
       <div class="nav-more" id="navGroupPublication">
-        <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false">Publication ▾</button>
+        <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false" data-i18n="nav_group_publication">Publication ▾</button>
         <div class="nav-more-menu">
           <a href="#rapports" data-i18n="nav_rapports">Rapports</a>
           <a href="#donnees-ouvertes" data-i18n="nav_donnees">Données ouvertes</a>
@@ -1662,7 +1662,7 @@ window.Isostasy = window.Isostasy || {};
         </div>
       </div>
       <div class="nav-more" id="navGroupApropos">
-        <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false">À propos de nous ▾</button>
+        <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false" data-i18n="nav_group_apropos">À propos de nous ▾</button>
         <div class="nav-more-menu">
           <a href="#apropos" data-i18n="nav_apropos">Aperçu global</a>
           <a href="#philosophie" data-i18n="nav_philo">Philosophie</a>
@@ -1674,7 +1674,7 @@ window.Isostasy = window.Isostasy || {};
         </div>
       </div>
       <a href="#contact" class="btn btn-primary btn-sm nav-contact-link" data-i18n="nav_contact">Nous contacter</a>
-      <a href="#admin" class="nav-admin-link-mobile">Espace équipe</a>
+      <a href="#admin" class="nav-admin-link-mobile" data-i18n="nav_admin">Espace équipe</a>
     </nav>
     <div class="nav-cta">
       <div class="lang-switcher" id="langSwitcher">
@@ -1684,7 +1684,7 @@ window.Isostasy = window.Isostasy || {};
           <button type="button" data-lang="en">🇬🇧 English</button>
         </div>
       </div>
-      <a href="#admin" class="nav-admin-link" id="adminNavLink">Espace équipe</a>
+      <a href="#admin" class="nav-admin-link" id="adminNavLink" data-i18n="nav_admin">Espace équipe</a>
     </div>
   </div>
 </header>
@@ -1706,8 +1706,8 @@ window.Isostasy = window.Isostasy || {};
     </div>
   </div>
   <div class="banner-carousel" id="bannerCarousel">
-    <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp" class="banner-slide active" alt="Isostasy Consulting — Des données, des solutions, de l'impact" loading="eager">
-    <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau.webp" class="banner-slide" alt="Isostasy Consulting — Des données, des solutions, de l'impact" loading="lazy">
+    <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp" data-src-fr="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp" data-src-en="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2-en.webp" class="banner-slide active" alt="Isostasy Consulting — Des données, des solutions, de l'impact" loading="eager">
+    <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau.webp" data-src-fr="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau.webp" data-src-en="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-en.webp" class="banner-slide" alt="Isostasy Consulting — Des données, des solutions, de l'impact" loading="lazy">
   </div>
   <div class="wrap">
     <div class="hero-grid">
@@ -1824,125 +1824,125 @@ window.Isostasy = window.Isostasy || {};
 <section id="apropos" class="page-view">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow" data-content-key="apropos_h0_eyebrow">À propos d'Isostasy Consulting</span>
-      <h1 class="nowrap-title" data-content-key="apropos_h0_title">Un cabinet centrafricain, une exigence internationale.</h1>
+      <span class="eyebrow" data-content-key="apropos_h0_eyebrow" data-i18n="apropos_h0_eyebrow">À propos d'Isostasy Consulting</span>
+      <h1 class="nowrap-title" data-content-key="apropos_h0_title" data-i18n="apropos_h0_title">Un cabinet centrafricain, une exigence internationale.</h1>
     </div>
 
     <div class="philo-intro-grid reveal-stagger">
       <div class="philo-intro-box">
-        <p>Isostasy Consulting est un cabinet d'études, de conseil et d'innovation qui accompagne les organisations dans la conception, la gestion, le suivi, l'évaluation, la communication, la digitalisation et l'amélioration de l'impact des projets de développement.</p>
+        <p data-i18n="apropos_intro1">Isostasy Consulting est un cabinet d'études, de conseil et d'innovation qui accompagne les organisations dans la conception, la gestion, le suivi, l'évaluation, la communication, la digitalisation et l'amélioration de l'impact des projets de développement.</p>
       </div>
       <div class="philo-intro-box">
-        <p>Concrètement, cela signifie que le cabinet intervient à chaque étape de la vie d'un projet : avant son lancement (études de faisabilité, diagnostics), pendant sa mise en œuvre (collecte de données, suivi des indicateurs, communication), et après son achèvement (évaluation des résultats, capitalisation des leçons apprises). Cette couverture complète du cycle de projet permet aux partenaires d'Isostasy Consulting de s'appuyer sur un seul interlocuteur plutôt que de multiplier les prestataires spécialisés.</p>
+        <p data-i18n="apropos_intro2">Concrètement, cela signifie que le cabinet intervient à chaque étape de la vie d'un projet : avant son lancement (études de faisabilité, diagnostics), pendant sa mise en œuvre (collecte de données, suivi des indicateurs, communication), et après son achèvement (évaluation des résultats, capitalisation des leçons apprises). Cette couverture complète du cycle de projet permet aux partenaires d'Isostasy Consulting de s'appuyer sur un seul interlocuteur plutôt que de multiplier les prestataires spécialisés.</p>
       </div>
     </div>
 
     <div class="philo-callout reveal" style="margin:32px 0;">
-      <span class="eyebrow" style="color:var(--sky-texte)">Promesse de valeur</span>
-      <p>Transformer les données, les idées et les technologies en décisions utiles, en outils opérationnels et en résultats visibles pour les organisations et les communautés.</p>
+      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="apropos_promise_eyebrow">Promesse de valeur</span>
+      <p data-i18n="apropos_promise_text">Transformer les données, les idées et les technologies en décisions utiles, en outils opérationnels et en résultats visibles pour les organisations et les communautés.</p>
     </div>
 
-    <p class="reveal">Cette promesse se traduit par une méthode simple : chaque mission commence par une écoute attentive du besoin, se poursuit par un travail rigoureux de collecte et d'analyse, et se conclut par la livraison d'outils concrets — rapports, tableaux de bord, applications ou supports de communication — directement utilisables par les équipes du client.</p>
+    <p class="reveal" data-i18n="apropos_method_p">Cette promesse se traduit par une méthode simple : chaque mission commence par une écoute attentive du besoin, se poursuit par un travail rigoureux de collecte et d'analyse, et se conclut par la livraison d'outils concrets — rapports, tableaux de bord, applications ou supports de communication — directement utilisables par les équipes du client.</p>
 
     <div class="stats-row reveal-stagger">
-      <div class="stats-row-item"><b>16</b><span>Pôles de services</span></div>
-      <div class="stats-row-item"><b>9</b><span>Secteurs d'intervention</span></div>
-      <div class="stats-row-item"><b>5</b><span>Pôles techniques</span></div>
-      <div class="stats-row-item"><b>6</b><span>Étapes méthodologiques</span></div>
+      <div class="stats-row-item"><b>16</b><span data-i18n="apropos_stat1">Pôles de services</span></div>
+      <div class="stats-row-item"><b>9</b><span data-i18n="apropos_stat2">Secteurs d'intervention</span></div>
+      <div class="stats-row-item"><b>5</b><span data-i18n="apropos_stat3">Pôles techniques</span></div>
+      <div class="stats-row-item"><b>6</b><span data-i18n="apropos_stat4">Étapes méthodologiques</span></div>
     </div>
 
     <div class="philo-callout philo-callout-dark reveal" style="text-align:left;">
-      <span class="eyebrow" style="color:var(--sky-texte)">À propos d'Isostasy Consulting</span>
-      <p style="font-size:var(--fs-md);font-weight:400;">Isostasy Consulting est un cabinet d'études, de conseil et d'innovation qui transforme des données fiables en décisions stratégiques et en résultats durables. À l'image de l'isostasie, nous croyons que les impacts les plus visibles reposent sur un travail de fond rigoureux, méthodique et souvent invisible. De la collecte des données à l'aide à la décision, nous mettons la science des données, l'expertise technique et l'innovation au service du développement. Fidèle à notre signature — « Des données aux décisions » — nous accompagnons les organisations dans la conception de solutions fondées sur des preuves, afin de produire un impact mesurable, durable et responsable.</p>
+      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="apropos_dark_eyebrow">À propos d'Isostasy Consulting</span>
+      <p style="font-size:var(--fs-md);font-weight:400;" data-i18n="apropos_dark_text">Isostasy Consulting est un cabinet d'études, de conseil et d'innovation qui transforme des données fiables en décisions stratégiques et en résultats durables. À l'image de l'isostasie, nous croyons que les impacts les plus visibles reposent sur un travail de fond rigoureux, méthodique et souvent invisible. De la collecte des données à l'aide à la décision, nous mettons la science des données, l'expertise technique et l'innovation au service du développement. Fidèle à notre signature — « Des données aux décisions » — nous accompagnons les organisations dans la conception de solutions fondées sur des preuves, afin de produire un impact mesurable, durable et responsable.</p>
     </div>
 
     <div class="founder reveal">
       <div class="av">TM</div>
       <div>
         <h4>Teddy Junior MAGBE</h4>
-        <span class="role">Fondateur — CEO, statisticien‑économiste</span>
-        <p>Environ quinze années d'expérience continue en suivi‑évaluation en Afrique centrale, dont un poste de Représentant Pays a.i. à Search for Common Ground et un rôle de Spécialiste Suivi‑Évaluation à l'UNOPS. Parcours documenté par des rapports publiés pour des bailleurs du Département d'État américain (DRL, CSO).</p>
+        <span class="role" data-i18n="apropos_founder_role">Fondateur — CEO, statisticien‑économiste</span>
+        <p data-i18n="apropos_founder_bio">Environ quinze années d'expérience continue en suivi‑évaluation en Afrique centrale, dont un poste de Représentant Pays a.i. à Search for Common Ground et un rôle de Spécialiste Suivi‑Évaluation à l'UNOPS. Parcours documenté par des rapports publiés pour des bailleurs du Département d'État américain (DRL, CSO).</p>
       </div>
     </div>
 
     <div class="section-head reveal" style="margin-top:40px;">
-      <span class="eyebrow">Publications vérifiables</span>
-      <h3>Contributions du fondateur</h3>
+      <span class="eyebrow" data-i18n="apropos_pub_eyebrow">Publications vérifiables</span>
+      <h3 data-i18n="apropos_pub_title">Contributions du fondateur</h3>
     </div>
     <div class="train-card" style="max-width:560px;">
       <div class="train-body" style="padding:20px;">
-        <h4 style="margin:0 0 6px;">Rapport de profilage des personnes déplacées internes (PDIs) — Préfecture de Bamingui-Bangoran, République Centrafricaine (2011)</h4>
-        <p style="font-size:var(--fs-xs);color:var(--texte-2);margin:0 0 14px;">Étude commanditée par le Conseil danois pour les réfugiés (DRC), en partenariat avec JIPS, UNFPA, HCR et le Bureau Central de Recensement de l'ICASEES.</p>
-        <a href="https://www.jips.org/uploads/2019/03/CAR-BaminguiBangoran-Rapport-Profilage.pdf" class="btn btn-outline-navy btn-sm" target="_blank" rel="noopener">Consulter le rapport (JIPS) →</a>
+        <h4 style="margin:0 0 6px;" data-i18n="apropos_report_title">Rapport de profilage des personnes déplacées internes (PDIs) — Préfecture de Bamingui-Bangoran, République Centrafricaine (2011)</h4>
+        <p style="font-size:var(--fs-xs);color:var(--texte-2);margin:0 0 14px;" data-i18n="apropos_report_desc">Étude commanditée par le Conseil danois pour les réfugiés (DRC), en partenariat avec JIPS, UNFPA, HCR et le Bureau Central de Recensement de l'ICASEES.</p>
+        <a href="https://www.jips.org/uploads/2019/03/CAR-BaminguiBangoran-Rapport-Profilage.pdf" class="btn btn-outline-navy btn-sm" target="_blank" rel="noopener" data-i18n="apropos_report_link">Consulter le rapport (JIPS) →</a>
       </div>
     </div>
 
     <div class="vmv reveal-stagger" style="margin-top:50px;">
       <div class="vmv-card reveal-stagger">
-        <h4>Vision</h4>
-        <p>Être un cabinet de référence dans les études, le suivi‑évaluation, la data, la communication, la cartographie, la digitalisation et l'innovation appliquée aux projets de développement.</p>
+        <h4 data-i18n="apropos_vision_title">Vision</h4>
+        <p data-i18n="apropos_vision_text">Être un cabinet de référence dans les études, le suivi‑évaluation, la data, la communication, la cartographie, la digitalisation et l'innovation appliquée aux projets de développement.</p>
       </div>
       <div class="vmv-card fam-vert reveal-stagger">
-        <h4>Mission</h4>
-        <p>Accompagner les organisations publiques, privées, humanitaires, sociales, environnementales et de développement dans la production de données fiables, l'amélioration de la performance et l'adoption de solutions innovantes.</p>
+        <h4 data-i18n="apropos_mission_title">Mission</h4>
+        <p data-i18n="apropos_mission_text">Accompagner les organisations publiques, privées, humanitaires, sociales, environnementales et de développement dans la production de données fiables, l'amélioration de la performance et l'adoption de solutions innovantes.</p>
       </div>
       <div class="vmv-card fam-rouge reveal-stagger">
-        <h4>Valeurs</h4>
-        <p>Rigueur, intégrité, redevabilité, innovation responsable, équité de genre et engagement au service de l'impact des communautés.</p>
+        <h4 data-i18n="apropos_values_title">Valeurs</h4>
+        <p data-i18n="apropos_values_text">Rigueur, intégrité, redevabilité, innovation responsable, équité de genre et engagement au service de l'impact des communautés.</p>
       </div>
     </div>
 
     <div class="philo-intro-grid reveal-stagger" style="margin-top:70px;">
       <div class="philo-intro-box">
-        <span class="eyebrow">Notre raison d'être</span>
-        <h3 class="obj-box-title">Objectif général</h3>
-        <p>Contribuer à l'amélioration de la qualité, de l'efficacité et de l'impact des projets de développement à travers des services professionnels d'études, de conseil, de suivi‑évaluation, de communication, de digitalisation, de cartographie et d'innovation, dans une logique de gestion axée sur les résultats, sensible au genre et alignée sur les Objectifs de Développement Durable.</p>
+        <span class="eyebrow" data-i18n="apropos_obj_gen_eyebrow">Notre raison d'être</span>
+        <h3 class="obj-box-title" data-i18n="apropos_obj_gen_title">Objectif général</h3>
+        <p data-i18n="apropos_obj_gen_text">Contribuer à l'amélioration de la qualité, de l'efficacité et de l'impact des projets de développement à travers des services professionnels d'études, de conseil, de suivi‑évaluation, de communication, de digitalisation, de cartographie et d'innovation, dans une logique de gestion axée sur les résultats, sensible au genre et alignée sur les Objectifs de Développement Durable.</p>
       </div>
       <div class="philo-intro-box">
-        <span class="eyebrow">Dans le détail</span>
-        <h3 class="obj-box-title">Objectifs spécifiques</h3>
-        <p>Ces objectifs traduisent l'objectif général en axes de travail concrets. Chacun correspond à un domaine de compétence mobilisable indépendamment ou en combinaison, selon les besoins spécifiques de chaque mission.</p>
+        <span class="eyebrow" data-i18n="apropos_obj_spec_eyebrow">Dans le détail</span>
+        <h3 class="obj-box-title" data-i18n="apropos_obj_spec_title">Objectifs spécifiques</h3>
+        <p data-i18n="apropos_obj_spec_text">Ces objectifs traduisent l'objectif général en axes de travail concrets. Chacun correspond à un domaine de compétence mobilisable indépendamment ou en combinaison, selon les besoins spécifiques de chaque mission.</p>
       </div>
     </div>
     <ul class="specific-goals reveal-stagger">
-      <li>Appuyer les organisations dans la conception, la planification, la mise en œuvre, le suivi et l'évaluation de leurs projets, selon les principes de la gestion axée sur les résultats (GAR).</li>
-      <li>Produire des données fiables, désagrégées par sexe et par âge lorsque pertinent, exploitables et utiles à la prise de décision.</li>
-      <li>Renforcer les systèmes de suivi‑évaluation, de redevabilité et d'apprentissage, en intégrant systématiquement une analyse sensible au genre.</li>
-      <li>Concevoir et mettre en place des outils numériques adaptés à la gestion des projets.</li>
-      <li>Améliorer la communication institutionnelle, opérationnelle et communautaire des projets.</li>
-      <li>Développer des solutions de cartographie, de géolocalisation, d'analyse spatiale et d'intelligence artificielle.</li>
-      <li>Contribuer, à travers chaque mission, à l'atteinte des Objectifs de Développement Durable (ODD) pertinents pour le contexte et le secteur d'intervention du client.</li>
+      <li data-i18n="apropos_goal1">Appuyer les organisations dans la conception, la planification, la mise en œuvre, le suivi et l'évaluation de leurs projets, selon les principes de la gestion axée sur les résultats (GAR).</li>
+      <li data-i18n="apropos_goal2">Produire des données fiables, désagrégées par sexe et par âge lorsque pertinent, exploitables et utiles à la prise de décision.</li>
+      <li data-i18n="apropos_goal3">Renforcer les systèmes de suivi‑évaluation, de redevabilité et d'apprentissage, en intégrant systématiquement une analyse sensible au genre.</li>
+      <li data-i18n="apropos_goal4">Concevoir et mettre en place des outils numériques adaptés à la gestion des projets.</li>
+      <li data-i18n="apropos_goal5">Améliorer la communication institutionnelle, opérationnelle et communautaire des projets.</li>
+      <li data-i18n="apropos_goal6">Développer des solutions de cartographie, de géolocalisation, d'analyse spatiale et d'intelligence artificielle.</li>
+      <li data-i18n="apropos_goal7">Contribuer, à travers chaque mission, à l'atteinte des Objectifs de Développement Durable (ODD) pertinents pour le contexte et le secteur d'intervention du client.</li>
     </ul>
 
     <!-- Pourquoi nous choisir -->
     <div class="section-head center reveal" style="margin-top:70px;">
-      <span class="eyebrow" data-content-key="apropos_h1_eyebrow">Nos atouts</span>
-      <h2 data-content-key="apropos_h1_title">Pourquoi choisir Isostasy Consulting ?</h2>
-      <p data-content-key="apropos_h1_text">Au‑delà de la liste des services, ce qui distingue le cabinet tient à quatre caractéristiques concrètes, vérifiables dès la première mission.</p>
+      <span class="eyebrow" data-content-key="apropos_h1_eyebrow" data-i18n="apropos_h1_eyebrow">Nos atouts</span>
+      <h2 data-content-key="apropos_h1_title" data-i18n="apropos_h1_title">Pourquoi choisir Isostasy Consulting ?</h2>
+      <p data-content-key="apropos_h1_text" data-i18n="apropos_h1_text">Au‑delà de la liste des services, ce qui distingue le cabinet tient à quatre caractéristiques concrètes, vérifiables dès la première mission.</p>
     </div>
     <div class="why-grid reveal-stagger">
       <div class="why-card">
         <span class="why-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><path d="M17 3.13a4 4 0 0 1 0 7.75M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
-        <h4>Équipe pluridisciplinaire</h4>
-        <p>Expertise technique (data, MEAL, SIG, IA) alliée à une connaissance fine du contexte centrafricain et régional.</p>
+        <h4 data-i18n="apropos_why1_title">Équipe pluridisciplinaire</h4>
+        <p data-i18n="apropos_why1_text">Expertise technique (data, MEAL, SIG, IA) alliée à une connaissance fine du contexte centrafricain et régional.</p>
       </div>
       <div class="why-card">
         <span class="why-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
-        <h4>Offre intégrée</h4>
-        <p>Toute la chaîne de valeur, de la conception à l'évaluation finale — un seul partenaire pour éviter la dispersion.</p>
+        <h4 data-i18n="apropos_why2_title">Offre intégrée</h4>
+        <p data-i18n="apropos_why2_text">Toute la chaîne de valeur, de la conception à l'évaluation finale — un seul partenaire pour éviter la dispersion.</p>
       </div>
       <div class="why-card">
         <span class="why-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-        <h4>Outils numériques modernes</h4>
-        <p>KoboToolbox, Power BI, Looker Studio, applications sur mesure — des livrables directement exploitables.</p>
+        <h4 data-i18n="apropos_why3_title">Outils numériques modernes</h4>
+        <p data-i18n="apropos_why3_text">KoboToolbox, Power BI, Looker Studio, applications sur mesure — des livrables directement exploitables.</p>
       </div>
       <div class="why-card">
         <span class="why-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
-        <h4>Ancrage local, portée régionale</h4>
-        <p>Basé à Bangui, avec une capacité d'intervention à distance et en régions — réactivité sans sacrifier la portée.</p>
+        <h4 data-i18n="apropos_why4_title">Ancrage local, portée régionale</h4>
+        <p data-i18n="apropos_why4_text">Basé à Bangui, avec une capacité d'intervention à distance et en régions — réactivité sans sacrifier la portée.</p>
       </div>
     </div>
-    <p class="one-line-p reveal" style="margin-top:24px;text-align:center;color:var(--texte-2);">À cela s'ajoutent trois engagements transversaux détaillés plus loin sur le site : l'intégration de l'intelligence artificielle dans nos outils (page <a href="#expertises">Expertises</a>), un transfert de compétences systématique en fin de mission (page <a href="#methodologie">Méthodologie</a>), et la conformité aux standards internationaux d'évaluation (page <a href="#methodologie">Référentiels appliqués</a>).</p>
+    <p class="one-line-p reveal" style="margin-top:24px;text-align:center;color:var(--texte-2);" data-i18n-html="apropos_footer_note">À cela s'ajoutent trois engagements transversaux détaillés plus loin sur le site : l'intégration de l'intelligence artificielle dans nos outils (page <a href="#expertises">Expertises</a>), un transfert de compétences systématique en fin de mission (page <a href="#methodologie">Méthodologie</a>), et la conformité aux standards internationaux d'évaluation (page <a href="#methodologie">Référentiels appliqués</a>).</p>
   </div>
 </section>
 
@@ -4296,6 +4296,9 @@ window.Isostasy = window.Isostasy || {};
       nav_donnees:"Données ouvertes", nav_actualite:"Actualité", nav_sommets:"Sommets", nav_formations:"Formations",
       nav_boutique:"Boutique", nav_annonces:"Annonces", nav_notions:"Notion du jour", nav_blog:"Blog",
       nav_temoignages:"Témoignages", nav_contact:"Nous contacter",
+      nav_faisons:"Ce que nous faisons", nav_admin:"Espace équipe",
+      nav_group_apropos:"À propos de nous ▾", nav_group_offres:"Offres & opportunités ▾",
+      nav_group_info:"Info ▾", nav_group_publication:"Publication ▾",
       hero_h1:"Cabinet centrafricain de suivi-évaluation digitalisé et de pilotage de projets de développement",
       hero_intro:"Isostasy Consulting est un cabinet d'études, de conseil et d'innovation qui accompagne les organisations dans la conception, la gestion, le suivi, l'évaluation, la communication, la digitalisation et l'amélioration de l'impact des projets de développement.",
       hero_hook:"La rigueur des données. Le sens de l'impact.",
@@ -4307,7 +4310,52 @@ window.Isostasy = window.Isostasy || {};
       id_li3:"Basé à Bangui, République Centrafricaine",
       id_footer:"Cabinet d'études, de conseil et d'innovation — Bangui, RCA",
       disc_eyebrow:"Le saviez-vous ?", disc_title:"Isostasy Consulting, ce n'est pas qu'un cabinet de conseil",
-      disc_text:"C'est aussi une veille permanente sur les données mondiales, l'actualité internationale et les grands sommets diplomatiques — mise à jour en continu."
+      disc_text:"C'est aussi une veille permanente sur les données mondiales, l'actualité internationale et les grands sommets diplomatiques — mise à jour en continu.",
+      apropos_h0_eyebrow:"À propos d'Isostasy Consulting",
+      apropos_h0_title:"Un cabinet centrafricain, une exigence internationale.",
+      apropos_intro1:"Isostasy Consulting est un cabinet d'études, de conseil et d'innovation qui accompagne les organisations dans la conception, la gestion, le suivi, l'évaluation, la communication, la digitalisation et l'amélioration de l'impact des projets de développement.",
+      apropos_intro2:"Concrètement, cela signifie que le cabinet intervient à chaque étape de la vie d'un projet : avant son lancement (études de faisabilité, diagnostics), pendant sa mise en œuvre (collecte de données, suivi des indicateurs, communication), et après son achèvement (évaluation des résultats, capitalisation des leçons apprises). Cette couverture complète du cycle de projet permet aux partenaires d'Isostasy Consulting de s'appuyer sur un seul interlocuteur plutôt que de multiplier les prestataires spécialisés.",
+      apropos_promise_eyebrow:"Promesse de valeur",
+      apropos_promise_text:"Transformer les données, les idées et les technologies en décisions utiles, en outils opérationnels et en résultats visibles pour les organisations et les communautés.",
+      apropos_method_p:"Cette promesse se traduit par une méthode simple : chaque mission commence par une écoute attentive du besoin, se poursuit par un travail rigoureux de collecte et d'analyse, et se conclut par la livraison d'outils concrets — rapports, tableaux de bord, applications ou supports de communication — directement utilisables par les équipes du client.",
+      apropos_stat1:"Pôles de services", apropos_stat2:"Secteurs d'intervention",
+      apropos_stat3:"Pôles techniques", apropos_stat4:"Étapes méthodologiques",
+      apropos_dark_eyebrow:"À propos d'Isostasy Consulting",
+      apropos_dark_text:"Isostasy Consulting est un cabinet d'études, de conseil et d'innovation qui transforme des données fiables en décisions stratégiques et en résultats durables. À l'image de l'isostasie, nous croyons que les impacts les plus visibles reposent sur un travail de fond rigoureux, méthodique et souvent invisible. De la collecte des données à l'aide à la décision, nous mettons la science des données, l'expertise technique et l'innovation au service du développement. Fidèle à notre signature — « Des données aux décisions » — nous accompagnons les organisations dans la conception de solutions fondées sur des preuves, afin de produire un impact mesurable, durable et responsable.",
+      apropos_founder_role:"Fondateur — CEO, statisticien‑économiste",
+      apropos_founder_bio:"Environ quinze années d'expérience continue en suivi‑évaluation en Afrique centrale, dont un poste de Représentant Pays a.i. à Search for Common Ground et un rôle de Spécialiste Suivi‑Évaluation à l'UNOPS. Parcours documenté par des rapports publiés pour des bailleurs du Département d'État américain (DRL, CSO).",
+      apropos_pub_eyebrow:"Publications vérifiables", apropos_pub_title:"Contributions du fondateur",
+      apropos_report_title:"Rapport de profilage des personnes déplacées internes (PDIs) — Préfecture de Bamingui-Bangoran, République Centrafricaine (2011)",
+      apropos_report_desc:"Étude commanditée par le Conseil danois pour les réfugiés (DRC), en partenariat avec JIPS, UNFPA, HCR et le Bureau Central de Recensement de l'ICASEES.",
+      apropos_report_link:"Consulter le rapport (JIPS) →",
+      apropos_vision_title:"Vision",
+      apropos_vision_text:"Être un cabinet de référence dans les études, le suivi‑évaluation, la data, la communication, la cartographie, la digitalisation et l'innovation appliquée aux projets de développement.",
+      apropos_mission_title:"Mission",
+      apropos_mission_text:"Accompagner les organisations publiques, privées, humanitaires, sociales, environnementales et de développement dans la production de données fiables, l'amélioration de la performance et l'adoption de solutions innovantes.",
+      apropos_values_title:"Valeurs",
+      apropos_values_text:"Rigueur, intégrité, redevabilité, innovation responsable, équité de genre et engagement au service de l'impact des communautés.",
+      apropos_obj_gen_eyebrow:"Notre raison d'être", apropos_obj_gen_title:"Objectif général",
+      apropos_obj_gen_text:"Contribuer à l'amélioration de la qualité, de l'efficacité et de l'impact des projets de développement à travers des services professionnels d'études, de conseil, de suivi‑évaluation, de communication, de digitalisation, de cartographie et d'innovation, dans une logique de gestion axée sur les résultats, sensible au genre et alignée sur les Objectifs de Développement Durable.",
+      apropos_obj_spec_eyebrow:"Dans le détail", apropos_obj_spec_title:"Objectifs spécifiques",
+      apropos_obj_spec_text:"Ces objectifs traduisent l'objectif général en axes de travail concrets. Chacun correspond à un domaine de compétence mobilisable indépendamment ou en combinaison, selon les besoins spécifiques de chaque mission.",
+      apropos_goal1:"Appuyer les organisations dans la conception, la planification, la mise en œuvre, le suivi et l'évaluation de leurs projets, selon les principes de la gestion axée sur les résultats (GAR).",
+      apropos_goal2:"Produire des données fiables, désagrégées par sexe et par âge lorsque pertinent, exploitables et utiles à la prise de décision.",
+      apropos_goal3:"Renforcer les systèmes de suivi‑évaluation, de redevabilité et d'apprentissage, en intégrant systématiquement une analyse sensible au genre.",
+      apropos_goal4:"Concevoir et mettre en place des outils numériques adaptés à la gestion des projets.",
+      apropos_goal5:"Améliorer la communication institutionnelle, opérationnelle et communautaire des projets.",
+      apropos_goal6:"Développer des solutions de cartographie, de géolocalisation, d'analyse spatiale et d'intelligence artificielle.",
+      apropos_goal7:"Contribuer, à travers chaque mission, à l'atteinte des Objectifs de Développement Durable (ODD) pertinents pour le contexte et le secteur d'intervention du client.",
+      apropos_h1_eyebrow:"Nos atouts", apropos_h1_title:"Pourquoi choisir Isostasy Consulting ?",
+      apropos_h1_text:"Au‑delà de la liste des services, ce qui distingue le cabinet tient à quatre caractéristiques concrètes, vérifiables dès la première mission.",
+      apropos_why1_title:"Équipe pluridisciplinaire",
+      apropos_why1_text:"Expertise technique (data, MEAL, SIG, IA) alliée à une connaissance fine du contexte centrafricain et régional.",
+      apropos_why2_title:"Offre intégrée",
+      apropos_why2_text:"Toute la chaîne de valeur, de la conception à l'évaluation finale — un seul partenaire pour éviter la dispersion.",
+      apropos_why3_title:"Outils numériques modernes",
+      apropos_why3_text:"KoboToolbox, Power BI, Looker Studio, applications sur mesure — des livrables directement exploitables.",
+      apropos_why4_title:"Ancrage local, portée régionale",
+      apropos_why4_text:"Basé à Bangui, avec une capacité d'intervention à distance et en régions — réactivité sans sacrifier la portée.",
+      apropos_footer_note:"À cela s'ajoutent trois engagements transversaux détaillés plus loin sur le site : l'intégration de l'intelligence artificielle dans nos outils (page <a href=\"#expertises\">Expertises</a>), un transfert de compétences systématique en fin de mission (page <a href=\"#methodologie\">Méthodologie</a>), et la conformité aux standards internationaux d'évaluation (page <a href=\"#methodologie\">Référentiels appliqués</a>)."
     },
     en: {
       nav_apropos:"About", nav_philo:"Philosophy", nav_domaines:"Sectors", nav_expertises:"Expertise",
@@ -4315,6 +4363,9 @@ window.Isostasy = window.Isostasy || {};
       nav_donnees:"Open data", nav_actualite:"News", nav_sommets:"Summits", nav_formations:"Training",
       nav_boutique:"Shop", nav_annonces:"Announcements", nav_notions:"Concept of the day", nav_blog:"Blog",
       nav_temoignages:"Testimonials", nav_contact:"Contact us",
+      nav_faisons:"What we do", nav_admin:"Team area",
+      nav_group_apropos:"About us ▾", nav_group_offres:"Offers & opportunities ▾",
+      nav_group_info:"Info ▾", nav_group_publication:"Publications ▾",
       hero_h1:"Central African firm for digitalized monitoring & evaluation and development project performance management",
       hero_intro:"Isostasy Consulting is a research, consulting and innovation firm that supports organizations in designing, managing, monitoring, evaluating, communicating, digitalizing and improving the impact of development projects.",
       hero_hook:"The rigor of data. The meaning of impact.",
@@ -4326,7 +4377,52 @@ window.Isostasy = window.Isostasy || {};
       id_li3:"Based in Bangui, Central African Republic",
       id_footer:"Research, consulting and innovation firm — Bangui, CAR",
       disc_eyebrow:"Did you know?", disc_title:"Isostasy Consulting is more than a consulting firm",
-      disc_text:"It's also a continuous watch on global data, international news and major diplomatic summits — updated around the clock."
+      disc_text:"It's also a continuous watch on global data, international news and major diplomatic summits — updated around the clock.",
+      apropos_h0_eyebrow:"About Isostasy Consulting",
+      apropos_h0_title:"A Central African firm, held to international standards.",
+      apropos_intro1:"Isostasy Consulting is a research, consulting and innovation firm that supports organizations in designing, managing, monitoring, evaluating, communicating, digitalizing and improving the impact of development projects.",
+      apropos_intro2:"In practice, this means the firm is involved at every stage of a project's life: before launch (feasibility studies, diagnostics), during implementation (data collection, indicator monitoring, communication), and after completion (results evaluation, lessons-learned capitalization). This full coverage of the project cycle allows Isostasy Consulting's partners to rely on a single point of contact rather than multiple specialized providers.",
+      apropos_promise_eyebrow:"Value proposition",
+      apropos_promise_text:"Turning data, ideas and technology into useful decisions, operational tools and visible results for organizations and communities.",
+      apropos_method_p:"This promise translates into a simple method: every assignment begins with careful listening to the need, continues with rigorous data collection and analysis, and concludes with the delivery of concrete tools — reports, dashboards, applications or communication materials — that client teams can use right away.",
+      apropos_stat1:"Service areas", apropos_stat2:"Sectors of activity",
+      apropos_stat3:"Technical units", apropos_stat4:"Methodological steps",
+      apropos_dark_eyebrow:"About Isostasy Consulting",
+      apropos_dark_text:"Isostasy Consulting is a research, consulting and innovation firm that turns reliable data into strategic decisions and lasting results. Like isostasy itself, we believe the most visible impacts rest on rigorous, methodical and often invisible groundwork. From data collection to decision support, we put data science, technical expertise and innovation at the service of development. True to our signature — \"From data to decisions\" — we help organizations design evidence-based solutions to deliver measurable, sustainable and accountable impact.",
+      apropos_founder_role:"Founder — CEO, statistician-economist",
+      apropos_founder_bio:"About fifteen years of continuous monitoring & evaluation experience in Central Africa, including a stint as interim Country Representative at Search for Common Ground and a Monitoring & Evaluation Specialist role at UNOPS. Career backed by published reports for U.S. State Department donors (DRL, CSO).",
+      apropos_pub_eyebrow:"Verifiable publications", apropos_pub_title:"Founder's contributions",
+      apropos_report_title:"Internally Displaced Persons (IDP) Profiling Report — Bamingui-Bangoran Prefecture, Central African Republic (2011)",
+      apropos_report_desc:"Study commissioned by the Danish Refugee Council (DRC), in partnership with JIPS, UNFPA, UNHCR and ICASEES's Central Census Bureau.",
+      apropos_report_link:"View the report (JIPS) →",
+      apropos_vision_title:"Vision",
+      apropos_vision_text:"To be a benchmark firm in research, monitoring & evaluation, data, communication, mapping, digitalization and innovation applied to development projects.",
+      apropos_mission_title:"Mission",
+      apropos_mission_text:"To support public, private, humanitarian, social, environmental and development organizations in producing reliable data, improving performance and adopting innovative solutions.",
+      apropos_values_title:"Values",
+      apropos_values_text:"Rigor, integrity, accountability, responsible innovation, gender equity and commitment to community impact.",
+      apropos_obj_gen_eyebrow:"Our purpose", apropos_obj_gen_title:"Overall objective",
+      apropos_obj_gen_text:"To help improve the quality, effectiveness and impact of development projects through professional research, consulting, monitoring & evaluation, communication, digitalization, mapping and innovation services, within a results-based, gender-sensitive management approach aligned with the Sustainable Development Goals.",
+      apropos_obj_spec_eyebrow:"In detail", apropos_obj_spec_title:"Specific objectives",
+      apropos_obj_spec_text:"These objectives translate the overall objective into concrete lines of work. Each corresponds to an area of expertise that can be deployed independently or in combination, depending on each assignment's specific needs.",
+      apropos_goal1:"Support organizations in the design, planning, implementation, monitoring and evaluation of their projects, following results-based management (RBM) principles.",
+      apropos_goal2:"Produce reliable data, disaggregated by sex and age where relevant, that is usable and useful for decision-making.",
+      apropos_goal3:"Strengthen monitoring, evaluation, accountability and learning systems, systematically integrating gender-sensitive analysis.",
+      apropos_goal4:"Design and deploy digital tools suited to project management.",
+      apropos_goal5:"Improve projects' institutional, operational and community-facing communication.",
+      apropos_goal6:"Develop mapping, geolocation, spatial analysis and artificial intelligence solutions.",
+      apropos_goal7:"Contribute, through every assignment, to the relevant Sustainable Development Goals (SDGs) for the client's context and sector.",
+      apropos_h1_eyebrow:"Our strengths", apropos_h1_title:"Why choose Isostasy Consulting?",
+      apropos_h1_text:"Beyond the list of services, what sets the firm apart comes down to four concrete traits, verifiable from the very first assignment.",
+      apropos_why1_title:"Multidisciplinary team",
+      apropos_why1_text:"Technical expertise (data, MEAL, GIS, AI) combined with in-depth knowledge of the Central African and regional context.",
+      apropos_why2_title:"Integrated offer",
+      apropos_why2_text:"The full value chain, from design to final evaluation — a single partner to avoid fragmentation.",
+      apropos_why3_title:"Modern digital tools",
+      apropos_why3_text:"KoboToolbox, Power BI, Looker Studio, custom applications — deliverables ready to use from day one.",
+      apropos_why4_title:"Local roots, regional reach",
+      apropos_why4_text:"Based in Bangui, with the ability to operate remotely and in the regions — responsiveness without sacrificing reach.",
+      apropos_footer_note:"To this we add three cross-cutting commitments detailed further on the site: integrating artificial intelligence into our tools (<a href=\"#expertises\">Expertise</a> page), systematic skills transfer at the end of each assignment (<a href=\"#methodologie\">Methodology</a> page), and compliance with international evaluation standards (<a href=\"#methodologie\">Applied Standards</a> page)."
     }
   };
 
@@ -4335,6 +4431,14 @@ window.Isostasy = window.Isostasy || {};
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if(dict[key]) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if(dict[key]) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.banner-slide[data-src-fr]').forEach(img => {
+      const src = lang === 'en' ? img.getAttribute('data-src-en') : img.getAttribute('data-src-fr');
+      if(src && img.getAttribute('src') !== src) img.setAttribute('src', src);
     });
     document.documentElement.setAttribute('lang', lang);
     document.documentElement.setAttribute('dir', 'ltr');
