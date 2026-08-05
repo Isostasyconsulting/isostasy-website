@@ -1477,6 +1477,9 @@ footer a:hover{color:#fff;}
 .contact-form{display:flex;flex-direction:column;gap:12px;margin-top:6px;}
 .cf-row{display:flex;gap:12px;flex-wrap:wrap;}
 .cf-row .cf-field{flex:1 1 160px;}
+.cf-tel-row{display:flex;gap:8px;}
+.cf-tel-row input#cfTelCode{flex:0 0 68px;text-align:center;color:var(--texte-2);background:var(--pale);}
+.cf-tel-row input#cfTel{flex:1;min-width:0;}
 .cf-field{display:flex;flex-direction:column;gap:5px;}
 .cf-field label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:var(--fs-xs);color:var(--navy);}
 .cf-field label span{color:var(--erreur);}
@@ -3387,30 +3390,30 @@ window.Isostasy = window.Isostasy || {};
 <section id="accreditations" class="page-view">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="eyebrow" data-content-key="accreditations_h1_eyebrow">Crédibilité institutionnelle</span>
-      <h1 data-content-key="accreditations_h1_title">Accréditations & registres</h1>
-      <p data-content-key="accreditations_h1_text">Isostasy Consulting engage les démarches nécessaires pour accéder aux marchés institutionnels internationaux.</p>
+      <span class="eyebrow" data-content-key="accreditations_h1_eyebrow" data-i18n="accreditations_h1_eyebrow">Crédibilité institutionnelle</span>
+      <h1 data-content-key="accreditations_h1_title" data-i18n="accreditations_h1_title">Accréditations & registres</h1>
+      <p data-content-key="accreditations_h1_text" data-i18n="accreditations_h1_text">Isostasy Consulting engage les démarches nécessaires pour accéder aux marchés institutionnels internationaux.</p>
     </div>
     <div class="usecases reveal-stagger">
       <div class="usecase">
         <div class="ico">UN</div>
         <h4>UNGM</h4>
-        <p>Enregistrement en cours au registre des fournisseurs des Nations Unies.</p>
+        <p data-i18n="accred_ungm_text">Enregistrement en cours au registre des fournisseurs des Nations Unies.</p>
       </div>
       <div class="usecase">
         <div class="ico">BM</div>
-        <h4>Banque mondiale</h4>
-        <p>Démarches en cours pour le fichier fournisseurs (World Bank Group roster).</p>
+        <h4 data-i18n="accred_bm_title">Banque mondiale</h4>
+        <p data-i18n="accred_bm_text">Démarches en cours pour le fichier fournisseurs (World Bank Group roster).</p>
       </div>
       <div class="usecase">
         <div class="ico">EU</div>
-        <h4>PADOR (UE)</h4>
-        <p>Enregistrement en cours sur le portail des partenaires de la Commission européenne.</p>
+        <h4 data-i18n="accred_pador_title">PADOR (UE)</h4>
+        <p data-i18n="accred_pador_text">Enregistrement en cours sur le portail des partenaires de la Commission européenne.</p>
       </div>
       <div class="usecase">
         <div class="ico">CM</div>
         <h4>ConsultaMétrics</h4>
-        <p>Partenariat actif — accès facilité au marché européen via notre allié en France.</p>
+        <p data-i18n="accred_cm_text">Partenariat actif — accès facilité au marché européen via notre allié en France.</p>
       </div>
     </div>
   </div>
@@ -3447,27 +3450,27 @@ window.Isostasy = window.Isostasy || {};
 <section id="rejoignez-nous" class="page-view">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="eyebrow">Construisons ensemble</span>
-      <h1>Rejoignez l'aventure Isostasy Consulting</h1>
+      <span class="eyebrow" data-i18n="rejoignez_eyebrow">Construisons ensemble</span>
+      <h1 data-i18n="rejoignez_h1">Rejoignez l'aventure Isostasy Consulting</h1>
     </div>
     <div class="partner-card" style="grid-template-columns:1fr 1fr;">
       <div class="partner-side" style="background:var(--green);">
-        <h3>Rejoindre notre équipe</h3>
-        <p>Consultants, statisticiens, data analysts, graphistes, développeurs — nous sommes toujours ouverts aux profils rigoureux et engagés.</p>
+        <h3 data-i18n="rejoignez_team_title">Rejoindre notre équipe</h3>
+        <p data-i18n="rejoignez_team_text">Consultants, statisticiens, data analysts, graphistes, développeurs — nous sommes toujours ouverts aux profils rigoureux et engagés.</p>
       </div>
       <div class="partner-body">
-        <p style="font-size:var(--fs-sm);color:var(--texte-2);">Envoyez-nous votre CV et une courte lettre de motivation ; nous étudions chaque candidature avec attention, y compris pour des collaborations ponctuelles ou des stages.</p>
-        <a href="mailto:careers@isostasyconsulting.com" class="btn btn-primary btn-sm" style="margin-top:14px;">Envoyer ma candidature</a>
+        <p style="font-size:var(--fs-sm);color:var(--texte-2);" data-i18n="rejoignez_team_text2">Envoyez-nous votre CV et une courte lettre de motivation ; nous étudions chaque candidature avec attention, y compris pour des collaborations ponctuelles ou des stages.</p>
+        <a href="mailto:careers@isostasyconsulting.com" class="btn btn-primary btn-sm" style="margin-top:14px;" data-i18n="rejoignez_team_cta">Envoyer ma candidature</a>
       </div>
     </div>
     <div class="partner-card" style="grid-template-columns:1fr 1fr;margin-top:22px;">
       <div class="partner-side" style="background:var(--rouge-2);">
-        <h3>Devenir partenaire</h3>
-        <p>Cabinet, organisation ou bailleur : proposez une collaboration, un consortium ou une alliance de marque avec Isostasy Consulting.</p>
+        <h3 data-i18n="rejoignez_partner_title">Devenir partenaire</h3>
+        <p data-i18n="rejoignez_partner_text">Cabinet, organisation ou bailleur : proposez une collaboration, un consortium ou une alliance de marque avec Isostasy Consulting.</p>
       </div>
       <div class="partner-body">
-        <p style="font-size:var(--fs-sm);color:var(--texte-2);">Décrivez-nous brièvement votre structure et votre proposition de collaboration ; notre équipe reviendra vers vous pour en discuter.</p>
-        <a href="mailto:partnerships@isostasyconsulting.com" class="btn btn-outline-navy btn-sm" style="margin-top:14px;">Proposer un partenariat</a>
+        <p style="font-size:var(--fs-sm);color:var(--texte-2);" data-i18n="rejoignez_partner_text2">Décrivez-nous brièvement votre structure et votre proposition de collaboration ; notre équipe reviendra vers vous pour en discuter.</p>
+        <a href="mailto:partnerships@isostasyconsulting.com" class="btn btn-outline-navy btn-sm" style="margin-top:14px;" data-i18n="rejoignez_partner_cta">Proposer un partenariat</a>
       </div>
     </div>
   </div>
@@ -3477,29 +3480,29 @@ window.Isostasy = window.Isostasy || {};
 <section id="cas-usage" class="alt page-view">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="eyebrow" data-content-key="cas-usage_h1_eyebrow">Preuves par l'exemple</span>
-      <h1 data-content-key="cas-usage_h1_title">Démonstrations de capacité</h1>
-      <p data-content-key="cas-usage_h1_text">Les deux fiches ci-dessous présentent des travaux réalisés en pilote interne, avant toute mission bailleur formalisée. Elles ne remplacent pas des références clients, mais donnent une preuve concrète et vérifiable du niveau technique du cabinet sur ses deux expertises phares.</p>
+      <span class="eyebrow" data-content-key="cas-usage_h1_eyebrow" data-i18n="casusage_h1_eyebrow">Preuves par l'exemple</span>
+      <h1 data-content-key="cas-usage_h1_title" data-i18n="casusage_h1_title">Démonstrations de capacité</h1>
+      <p data-content-key="cas-usage_h1_text" data-i18n="casusage_h1_text">Les deux fiches ci-dessous présentent des travaux réalisés en pilote interne, avant toute mission bailleur formalisée. Elles ne remplacent pas des références clients, mais donnent une preuve concrète et vérifiable du niveau technique du cabinet sur ses deux expertises phares.</p>
     </div>
     <div class="demo-grid reveal-stagger">
       <div class="demo-card">
         <span class="badge badge-blue" style="margin-bottom:12px;">Data &amp; Dashboards</span>
-        <h4>Tableau de bord KPI marketing &amp; ventes</h4>
-        <p><strong>Contexte :</strong> besoin d'un outil de pilotage unique regroupant les indicateurs commerciaux et marketing, initialement dispersés sur plusieurs fichiers.</p>
-        <p><strong>Réalisation :</strong> tableau de bord interactif en français, indicateurs clés de performance segmentés, filtres dynamiques, interface pensée pour une lecture rapide par une direction non technique.</p>
-        <p><strong>Compétences démontrées :</strong> structuration de données, conception d'indicateurs, visualisation interactive, restitution orientée décision.</p>
+        <h4 data-i18n="casusage_c1_title">Tableau de bord KPI marketing &amp; ventes</h4>
+        <p data-i18n-html="casusage_c1_p1"><strong>Contexte :</strong> besoin d'un outil de pilotage unique regroupant les indicateurs commerciaux et marketing, initialement dispersés sur plusieurs fichiers.</p>
+        <p data-i18n-html="casusage_c1_p2"><strong>Réalisation :</strong> tableau de bord interactif en français, indicateurs clés de performance segmentés, filtres dynamiques, interface pensée pour une lecture rapide par une direction non technique.</p>
+        <p data-i18n-html="casusage_c1_p3"><strong>Compétences démontrées :</strong> structuration de données, conception d'indicateurs, visualisation interactive, restitution orientée décision.</p>
       </div>
       <div class="demo-card">
         <span class="badge badge-green" style="margin-bottom:12px;">MEAL &amp; Agriculture</span>
-        <h4>Plan financier — exploitation maraîchère irriguée</h4>
-        <p><strong>Contexte :</strong> évaluation de la viabilité d'un projet d'exploitation maraîchère irriguée de 3 hectares en République Centrafricaine.</p>
-        <p><strong>Réalisation :</strong> plan financier détaillé (investissement, charges, projections de production et de revenus) et plan d'installation opérationnel sur 12 semaines.</p>
-        <p><strong>Compétences démontrées :</strong> diagnostic de faisabilité, modélisation financière, planification opérationnelle, connaissance du contexte agricole centrafricain.</p>
+        <h4 data-i18n="casusage_c2_title">Plan financier — exploitation maraîchère irriguée</h4>
+        <p data-i18n-html="casusage_c2_p1"><strong>Contexte :</strong> évaluation de la viabilité d'un projet d'exploitation maraîchère irriguée de 3 hectares en République Centrafricaine.</p>
+        <p data-i18n-html="casusage_c2_p2"><strong>Réalisation :</strong> plan financier détaillé (investissement, charges, projections de production et de revenus) et plan d'installation opérationnel sur 12 semaines.</p>
+        <p data-i18n-html="casusage_c2_p3"><strong>Compétences démontrées :</strong> diagnostic de faisabilité, modélisation financière, planification opérationnelle, connaissance du contexte agricole centrafricain.</p>
       </div>
     </div>
     <div class="philo-callout reveal" style="text-align:left;margin-top:36px;">
-      <span class="eyebrow" style="color:var(--sky-texte)">Portefeuille de références en construction</span>
-      <p style="font-size:var(--fs-md);font-weight:400;">Ces deux démonstrations constituent un point de départ, pas un aboutissement. Elles seront complétées par des références de missions réelles au fur et à mesure de leur réalisation.</p>
+      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="casusage_callout_eyebrow">Portefeuille de références en construction</span>
+      <p style="font-size:var(--fs-md);font-weight:400;" data-i18n="casusage_callout_text">Ces deux démonstrations constituent un point de départ, pas un aboutissement. Elles seront complétées par des références de missions réelles au fur et à mesure de leur réalisation.</p>
     </div>
   </div>
 </section>
@@ -3508,26 +3511,26 @@ window.Isostasy = window.Isostasy || {};
 <section id="partenaires" class="page-view">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="eyebrow" data-content-key="partenaires_h1_eyebrow">Collaboration</span>
-      <h1 data-content-key="partenaires_h1_title">Partenaires</h1>
-      <p data-content-key="partenaires_h1_text">Une logique de collaboration avec d'autres cabinets pour répondre à des besoins que ni l'un ni l'autre ne pourrait couvrir seul.</p>
+      <span class="eyebrow" data-content-key="partenaires_h1_eyebrow" data-i18n="partenaires_h1_eyebrow">Collaboration</span>
+      <h1 data-content-key="partenaires_h1_title" data-i18n="partenaires_h1_title">Partenaires</h1>
+      <p data-content-key="partenaires_h1_text" data-i18n="partenaires_h1_text">Une logique de collaboration avec d'autres cabinets pour répondre à des besoins que ni l'un ni l'autre ne pourrait couvrir seul.</p>
     </div>
     <div class="partner-card">
       <div class="partner-side">
         <h3>ConsultaMétrics</h3>
-        <p>Chelles, France (Île‑de‑France) — cabinet spécialisé en suivi‑évaluation de projets, analyse statistique et tableaux de bord interactifs.</p>
+        <p data-i18n="partenaires_cm_text">Chelles, France (Île‑de‑France) — cabinet spécialisé en suivi‑évaluation de projets, analyse statistique et tableaux de bord interactifs.</p>
       </div>
       <div class="partner-body">
-        <p style="font-size:var(--fs-sm);color:var(--texte-2);">L'ancrage terrain centrafricain d'Isostasy Consulting combiné à l'accès au marché européen et à l'expertise méthodologique de ConsultaMétrics, selon une collaboration progressive en trois phases :</p>
+        <p style="font-size:var(--fs-sm);color:var(--texte-2);" data-i18n="partenaires_cm_intro">L'ancrage terrain centrafricain d'Isostasy Consulting combiné à l'accès au marché européen et à l'expertise méthodologique de ConsultaMétrics, selon une collaboration progressive en trois phases :</p>
         <div class="partner-phases">
-          <div class="phase"><span class="pn">01</span><p>Apport d'affaires croisé entre les deux cabinets.</p></div>
-          <div class="phase"><span class="pn">02</span><p>Premier consortium conjoint sur une mission pilote.</p></div>
-          <div class="phase"><span class="pn">03</span><p>Alliance de marque selon les résultats obtenus.</p></div>
+          <div class="phase"><span class="pn">01</span><p data-i18n="partenaires_phase1">Apport d'affaires croisé entre les deux cabinets.</p></div>
+          <div class="phase"><span class="pn">02</span><p data-i18n="partenaires_phase2">Premier consortium conjoint sur une mission pilote.</p></div>
+          <div class="phase"><span class="pn">03</span><p data-i18n="partenaires_phase3">Alliance de marque selon les résultats obtenus.</p></div>
         </div>
       </div>
     </div>
     <div style="text-align:center;margin-top:32px;">
-      <button class="btn btn-primary" id="openCollabModalBtn" type="button">Devenir collaborateur →</button>
+      <button class="btn btn-primary" id="openCollabModalBtn" type="button" data-i18n="partenaires_cta">Devenir collaborateur →</button>
     </div>
   </div>
 </section>
@@ -3536,14 +3539,14 @@ window.Isostasy = window.Isostasy || {};
 <div class="modal-overlay" id="collabModal">
   <div class="modal-box">
     <button class="modal-close" id="collabModalClose" aria-label="Fermer">✕</button>
-    <h3>Devenir collaborateur d'Isostasy Consulting</h3>
-    <p class="modal-sub">Cabinet, organisation, consultant indépendant : décrivez votre structure et votre proposition de collaboration.</p>
+    <h3 data-i18n="collab_modal_title">Devenir collaborateur d'Isostasy Consulting</h3>
+    <p class="modal-sub" data-i18n="collab_modal_sub">Cabinet, organisation, consultant indépendant : décrivez votre structure et votre proposition de collaboration.</p>
     <div style="display:flex;flex-direction:column;gap:10px;">
-      <input aria-label="Nom complet" placeholder="Nom complet" style="padding:.8em 1em;border-radius:8px;border:1px solid var(--line);font-family:'Open Sans',sans-serif;">
-      <input aria-label="Organisation ou cabinet" placeholder="Organisation / cabinet" style="padding:.8em 1em;border-radius:8px;border:1px solid var(--line);font-family:'Open Sans',sans-serif;">
-      <input aria-label="Adresse e-mail" placeholder="Adresse e-mail" style="padding:.8em 1em;border-radius:8px;border:1px solid var(--line);font-family:'Open Sans',sans-serif;">
-      <textarea aria-label="Votre proposition de collaboration" placeholder="Décrivez votre proposition de collaboration" rows="4" style="padding:.8em 1em;border-radius:8px;border:1px solid var(--line);font-family:'Open Sans',sans-serif;resize:vertical;"></textarea>
-      <button class="btn btn-primary" id="submitCollabBtn" style="justify-content:center;">Envoyer ma demande</button>
+      <input aria-label="Nom complet" placeholder="Nom complet" data-i18n-placeholder="collab_ph_nom" style="padding:.8em 1em;border-radius:8px;border:1px solid var(--line);font-family:'Open Sans',sans-serif;">
+      <input aria-label="Organisation ou cabinet" placeholder="Organisation / cabinet" data-i18n-placeholder="collab_ph_org" style="padding:.8em 1em;border-radius:8px;border:1px solid var(--line);font-family:'Open Sans',sans-serif;">
+      <input aria-label="Adresse e-mail" placeholder="Adresse e-mail" data-i18n-placeholder="collab_ph_email" style="padding:.8em 1em;border-radius:8px;border:1px solid var(--line);font-family:'Open Sans',sans-serif;">
+      <textarea aria-label="Votre proposition de collaboration" placeholder="Décrivez votre proposition de collaboration" data-i18n-placeholder="collab_ph_message" rows="4" style="padding:.8em 1em;border-radius:8px;border:1px solid var(--line);font-family:'Open Sans',sans-serif;resize:vertical;"></textarea>
+      <button class="btn btn-primary" id="submitCollabBtn" style="justify-content:center;" data-i18n="collab_submit">Envoyer ma demande</button>
     </div>
   </div>
 </div>
@@ -3920,7 +3923,7 @@ window.Isostasy = window.Isostasy || {};
         <h1 data-i18n="contact_h1">Nous joindre</h1>
         <p style="color:var(--texte-2);" data-i18n="contact_intro">Basé à Bangui, République Centrafricaine — nous intervenons sur l'ensemble du territoire national et en appui régional.</p>
         <div class="pill-grid" style="margin-top:18px;">
-          <span class="pill">isostasyconsulting@gmail.com</span>
+          <span class="pill">contact@isostasyconsulting.com</span>
           <span class="pill">+236 74 25 71 21</span>
           <span class="pill">www.isostasyconsulting.com</span>
           <span class="pill" data-i18n="foot_address">Bangui, RCA</span>
@@ -3934,7 +3937,7 @@ window.Isostasy = window.Isostasy || {};
           <a href="https://www.youtube.com/@IsostasyConsulting" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.01s-4 0-6.8.15c-.4.05-1.25.05-2 .85-.6.6-.8 2-.8 2S2.2 8.8 2.2 10.4v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.75.8 1.75.77 2.2.86 1.6.15 6.8.2 6.8.2s4 0 6.8-.16c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5c0-1.6-.2-3.25-.2-3.25zM9.9 14.1V8.6l5.2 2.76-5.2 2.74z"/></svg></a>
           <a href="https://wa.me/23674257121" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38a9.86 9.86 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.13-2.9-7A9.82 9.82 0 0 0 12.04 2zm0 18.03a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.1.81.83-3.03-.2-.31a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.23-8.23a8.2 8.2 0 0 1 8.22 8.24c0 4.54-3.69 8.22-8.23 8.22zm4.5-6.16c-.25-.12-1.46-.72-1.69-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.96-.14.17-.28.19-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.17 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg></a>
         </div>
-        <p class="dept-note" style="margin-top:16px;color:var(--texte-4);" data-i18n="contact_dept_note">Contacts spécialisés : meal@isostasyconsulting.com · data@isostasyconsulting.com · partnerships@isostasyconsulting.com · careers@isostasyconsulting.com</p>
+        <p class="dept-note" style="margin-top:16px;color:var(--texte-4);" data-i18n="contact_dept_note">Contacts spécialisés : admin@isostasyconsulting.com · info@isostasyconsulting.com · careers@isostasyconsulting.com · partnerships@isostasyconsulting.com · research@isostasyconsulting.com · meal@isostasyconsulting.com · data@isostasyconsulting.com · tech@isostasyconsulting.com · com@isostasyconsulting.com · finance@isostasyconsulting.com · hr@isostasyconsulting.com · sales@isostasyconsulting.com · support@isostasyconsulting.com</p>
       </div>
       <div class="equil-card" style="background:var(--paper);color:var(--ink);border:1px solid var(--line);">
         <h3 style="color:var(--navy);" data-i18n="contact_form_title">Formulaire de contact</h3>
@@ -3954,8 +3957,222 @@ window.Isostasy = window.Isostasy || {};
               <input type="email" id="cfEmail" name="email" autocomplete="email" required>
             </div>
             <div class="cf-field">
+              <label for="cfTelCountry" data-i18n="contact_label_pays">Pays</label>
+              <select id="cfTelCountry" aria-label="Pays">
+                <option value="+236" selected>🇨🇫 Centrafrique</option>
+                <optgroup label="Afrique">
+                  <option value="+27">🇿🇦 Afrique du Sud</option>
+                  <option value="+213">🇩🇿 Algérie</option>
+                  <option value="+244">🇦🇴 Angola</option>
+                  <option value="+229">🇧🇯 Bénin</option>
+                  <option value="+267">🇧🇼 Botswana</option>
+                  <option value="+226">🇧🇫 Burkina Faso</option>
+                  <option value="+257">🇧🇮 Burundi</option>
+                  <option value="+238">🇨🇻 Cabo Verde</option>
+                  <option value="+237">🇨🇲 Cameroun</option>
+                  <option value="+269">🇰🇲 Comores</option>
+                  <option value="+242">🇨🇬 Congo</option>
+                  <option value="+243">🇨🇩 Congo (RD)</option>
+                  <option value="+225">🇨🇮 Côte d'Ivoire</option>
+                  <option value="+253">🇩🇯 Djibouti</option>
+                  <option value="+20">🇪🇬 Égypte</option>
+                  <option value="+291">🇪🇷 Érythrée</option>
+                  <option value="+268">🇸🇿 Eswatini</option>
+                  <option value="+251">🇪🇹 Éthiopie</option>
+                  <option value="+241">🇬🇦 Gabon</option>
+                  <option value="+220">🇬🇲 Gambie</option>
+                  <option value="+233">🇬🇭 Ghana</option>
+                  <option value="+224">🇬🇳 Guinée</option>
+                  <option value="+245">🇬🇼 Guinée-Bissau</option>
+                  <option value="+240">🇬🇶 Guinée équatoriale</option>
+                  <option value="+254">🇰🇪 Kenya</option>
+                  <option value="+266">🇱🇸 Lesotho</option>
+                  <option value="+231">🇱🇷 Liberia</option>
+                  <option value="+218">🇱🇾 Libye</option>
+                  <option value="+261">🇲🇬 Madagascar</option>
+                  <option value="+265">🇲🇼 Malawi</option>
+                  <option value="+223">🇲🇱 Mali</option>
+                  <option value="+212">🇲🇦 Maroc</option>
+                  <option value="+230">🇲🇺 Maurice</option>
+                  <option value="+222">🇲🇷 Mauritanie</option>
+                  <option value="+258">🇲🇿 Mozambique</option>
+                  <option value="+264">🇳🇦 Namibie</option>
+                  <option value="+227">🇳🇪 Niger</option>
+                  <option value="+234">🇳🇬 Nigeria</option>
+                  <option value="+256">🇺🇬 Ouganda</option>
+                  <option value="+250">🇷🇼 Rwanda</option>
+                  <option value="+239">🇸🇹 Sao Tomé-et-Principe</option>
+                  <option value="+221">🇸🇳 Sénégal</option>
+                  <option value="+248">🇸🇨 Seychelles</option>
+                  <option value="+232">🇸🇱 Sierra Leone</option>
+                  <option value="+252">🇸🇴 Somalie</option>
+                  <option value="+249">🇸🇩 Soudan</option>
+                  <option value="+211">🇸🇸 Soudan du Sud</option>
+                  <option value="+255">🇹🇿 Tanzanie</option>
+                  <option value="+235">🇹🇩 Tchad</option>
+                  <option value="+228">🇹🇬 Togo</option>
+                  <option value="+216">🇹🇳 Tunisie</option>
+                  <option value="+260">🇿🇲 Zambie</option>
+                  <option value="+263">🇿🇼 Zimbabwe</option>
+                </optgroup>
+                <optgroup label="Europe">
+                  <option value="+355">🇦🇱 Albanie</option>
+                  <option value="+49">🇩🇪 Allemagne</option>
+                  <option value="+376">🇦🇩 Andorre</option>
+                  <option value="+43">🇦🇹 Autriche</option>
+                  <option value="+32">🇧🇪 Belgique</option>
+                  <option value="+375">🇧🇾 Biélorussie</option>
+                  <option value="+387">🇧🇦 Bosnie-Herzégovine</option>
+                  <option value="+359">🇧🇬 Bulgarie</option>
+                  <option value="+357">🇨🇾 Chypre</option>
+                  <option value="+385">🇭🇷 Croatie</option>
+                  <option value="+45">🇩🇰 Danemark</option>
+                  <option value="+34">🇪🇸 Espagne</option>
+                  <option value="+372">🇪🇪 Estonie</option>
+                  <option value="+358">🇫🇮 Finlande</option>
+                  <option value="+33">🇫🇷 France</option>
+                  <option value="+30">🇬🇷 Grèce</option>
+                  <option value="+36">🇭🇺 Hongrie</option>
+                  <option value="+353">🇮🇪 Irlande</option>
+                  <option value="+354">🇮🇸 Islande</option>
+                  <option value="+39">🇮🇹 Italie</option>
+                  <option value="+383">🇽🇰 Kosovo</option>
+                  <option value="+371">🇱🇻 Lettonie</option>
+                  <option value="+423">🇱🇮 Liechtenstein</option>
+                  <option value="+370">🇱🇹 Lituanie</option>
+                  <option value="+352">🇱🇺 Luxembourg</option>
+                  <option value="+389">🇲🇰 Macédoine du Nord</option>
+                  <option value="+356">🇲🇹 Malte</option>
+                  <option value="+373">🇲🇩 Moldavie</option>
+                  <option value="+377">🇲🇨 Monaco</option>
+                  <option value="+382">🇲🇪 Monténégro</option>
+                  <option value="+47">🇳🇴 Norvège</option>
+                  <option value="+31">🇳🇱 Pays-Bas</option>
+                  <option value="+48">🇵🇱 Pologne</option>
+                  <option value="+351">🇵🇹 Portugal</option>
+                  <option value="+40">🇷🇴 Roumanie</option>
+                  <option value="+44">🇬🇧 Royaume-Uni</option>
+                  <option value="+7">🇷🇺 Russie</option>
+                  <option value="+378">🇸🇲 Saint-Marin</option>
+                  <option value="+381">🇷🇸 Serbie</option>
+                  <option value="+421">🇸🇰 Slovaquie</option>
+                  <option value="+386">🇸🇮 Slovénie</option>
+                  <option value="+46">🇸🇪 Suède</option>
+                  <option value="+41">🇨🇭 Suisse</option>
+                  <option value="+420">🇨🇿 Tchéquie</option>
+                  <option value="+380">🇺🇦 Ukraine</option>
+                  <option value="+379">🇻🇦 Vatican</option>
+                </optgroup>
+                <optgroup label="Amériques">
+                  <option value="+1268">🇦🇬 Antigua-et-Barbuda</option>
+                  <option value="+54">🇦🇷 Argentine</option>
+                  <option value="+1242">🇧🇸 Bahamas</option>
+                  <option value="+1246">🇧🇧 Barbade</option>
+                  <option value="+501">🇧🇿 Belize</option>
+                  <option value="+591">🇧🇴 Bolivie</option>
+                  <option value="+55">🇧🇷 Brésil</option>
+                  <option value="+1">🇨🇦 Canada</option>
+                  <option value="+56">🇨🇱 Chili</option>
+                  <option value="+57">🇨🇴 Colombie</option>
+                  <option value="+506">🇨🇷 Costa Rica</option>
+                  <option value="+53">🇨🇺 Cuba</option>
+                  <option value="+1767">🇩🇲 Dominique</option>
+                  <option value="+593">🇪🇨 Équateur</option>
+                  <option value="+1">🇺🇸 États-Unis</option>
+                  <option value="+1473">🇬🇩 Grenade</option>
+                  <option value="+502">🇬🇹 Guatemala</option>
+                  <option value="+592">🇬🇾 Guyana</option>
+                  <option value="+509">🇭🇹 Haïti</option>
+                  <option value="+504">🇭🇳 Honduras</option>
+                  <option value="+1876">🇯🇲 Jamaïque</option>
+                  <option value="+52">🇲🇽 Mexique</option>
+                  <option value="+505">🇳🇮 Nicaragua</option>
+                  <option value="+507">🇵🇦 Panama</option>
+                  <option value="+595">🇵🇾 Paraguay</option>
+                  <option value="+51">🇵🇪 Pérou</option>
+                  <option value="+1809">🇩🇴 République dominicaine</option>
+                  <option value="+1869">🇰🇳 Saint-Christophe-et-Niévès</option>
+                  <option value="+1758">🇱🇨 Sainte-Lucie</option>
+                  <option value="+1784">🇻🇨 Saint-Vincent-et-les-Grenadines</option>
+                  <option value="+503">🇸🇻 Salvador</option>
+                  <option value="+597">🇸🇷 Suriname</option>
+                  <option value="+1868">🇹🇹 Trinité-et-Tobago</option>
+                  <option value="+598">🇺🇾 Uruguay</option>
+                  <option value="+58">🇻🇪 Venezuela</option>
+                </optgroup>
+                <optgroup label="Asie">
+                  <option value="+93">🇦🇫 Afghanistan</option>
+                  <option value="+966">🇸🇦 Arabie saoudite</option>
+                  <option value="+374">🇦🇲 Arménie</option>
+                  <option value="+994">🇦🇿 Azerbaïdjan</option>
+                  <option value="+973">🇧🇭 Bahreïn</option>
+                  <option value="+880">🇧🇩 Bangladesh</option>
+                  <option value="+975">🇧🇹 Bhoutan</option>
+                  <option value="+673">🇧🇳 Brunei</option>
+                  <option value="+855">🇰🇭 Cambodge</option>
+                  <option value="+86">🇨🇳 Chine</option>
+                  <option value="+850">🇰🇵 Corée du Nord</option>
+                  <option value="+82">🇰🇷 Corée du Sud</option>
+                  <option value="+971">🇦🇪 Émirats arabes unis</option>
+                  <option value="+995">🇬🇪 Géorgie</option>
+                  <option value="+91">🇮🇳 Inde</option>
+                  <option value="+62">🇮🇩 Indonésie</option>
+                  <option value="+964">🇮🇶 Irak</option>
+                  <option value="+98">🇮🇷 Iran</option>
+                  <option value="+972">🇮🇱 Israël</option>
+                  <option value="+81">🇯🇵 Japon</option>
+                  <option value="+962">🇯🇴 Jordanie</option>
+                  <option value="+7">🇰🇿 Kazakhstan</option>
+                  <option value="+996">🇰🇬 Kirghizistan</option>
+                  <option value="+965">🇰🇼 Koweït</option>
+                  <option value="+856">🇱🇦 Laos</option>
+                  <option value="+961">🇱🇧 Liban</option>
+                  <option value="+60">🇲🇾 Malaisie</option>
+                  <option value="+960">🇲🇻 Maldives</option>
+                  <option value="+976">🇲🇳 Mongolie</option>
+                  <option value="+95">🇲🇲 Myanmar</option>
+                  <option value="+977">🇳🇵 Népal</option>
+                  <option value="+968">🇴🇲 Oman</option>
+                  <option value="+998">🇺🇿 Ouzbékistan</option>
+                  <option value="+92">🇵🇰 Pakistan</option>
+                  <option value="+63">🇵🇭 Philippines</option>
+                  <option value="+974">🇶🇦 Qatar</option>
+                  <option value="+65">🇸🇬 Singapour</option>
+                  <option value="+94">🇱🇰 Sri Lanka</option>
+                  <option value="+963">🇸🇾 Syrie</option>
+                  <option value="+992">🇹🇯 Tadjikistan</option>
+                  <option value="+886">🇹🇼 Taïwan</option>
+                  <option value="+66">🇹🇭 Thaïlande</option>
+                  <option value="+670">🇹🇱 Timor oriental</option>
+                  <option value="+993">🇹🇲 Turkménistan</option>
+                  <option value="+90">🇹🇷 Turquie</option>
+                  <option value="+84">🇻🇳 Vietnam</option>
+                  <option value="+967">🇾🇪 Yémen</option>
+                </optgroup>
+                <optgroup label="Océanie">
+                  <option value="+61">🇦🇺 Australie</option>
+                  <option value="+679">🇫🇯 Fidji</option>
+                  <option value="+686">🇰🇮 Kiribati</option>
+                  <option value="+692">🇲🇭 Îles Marshall</option>
+                  <option value="+691">🇫🇲 Micronésie</option>
+                  <option value="+674">🇳🇷 Nauru</option>
+                  <option value="+64">🇳🇿 Nouvelle-Zélande</option>
+                  <option value="+680">🇵🇼 Palaos</option>
+                  <option value="+675">🇵🇬 Papouasie-Nouvelle-Guinée</option>
+                  <option value="+677">🇸🇧 Salomon</option>
+                  <option value="+685">🇼🇸 Samoa</option>
+                  <option value="+676">🇹🇴 Tonga</option>
+                  <option value="+688">🇹🇻 Tuvalu</option>
+                  <option value="+678">🇻🇺 Vanuatu</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="cf-field">
               <label for="cfTel" data-i18n="contact_label_tel">Téléphone</label>
-              <input type="tel" id="cfTel" name="telephone" autocomplete="tel">
+              <div class="cf-tel-row">
+                <input type="text" id="cfTelCode" value="+236" readonly aria-label="Indicatif du pays">
+                <input type="tel" id="cfTel" name="telephone" autocomplete="tel" placeholder="74 25 71 21">
+              </div>
             </div>
           </div>
           <div class="cf-field">
@@ -4017,7 +4234,7 @@ window.Isostasy = window.Isostasy || {};
       <div>
         <h5>Contact</h5>
         <ul>
-          <li><a href="#contact" style="color:inherit;">isostasyconsulting@gmail.com</a></li>
+          <li><a href="#contact" style="color:inherit;">contact@isostasyconsulting.com</a></li>
           <li>+236 74 25 71 21</li>
           <li data-i18n="foot_address">Bangui, RCA</li>
         </ul>
@@ -4724,15 +4941,60 @@ window.Isostasy = window.Isostasy || {};
       sommets_b5_cat:"Russie-Corée du Nord", sommets_b5_title:"Coopération militaire et diplomatique Russie-Corée du Nord", sommets_b5_text:"Partenariat renforcé depuis 2023-2024 dans le contexte de la guerre en Ukraine ; pas de sommet formel de haut niveau confirmé pour 2026 à ce jour.",
       sommets_note1:"Cette liste n'est pas exhaustive : au-delà de ces rencontres emblématiques, des dizaines de visites d'État et rencontres bilatérales se tiennent chaque mois entre chefs d'État et de gouvernement du monde entier. Notre veille (Actualité) en relaie les développements les plus significatifs au fil de l'actualité.",
       sommets_note2:"Sources : Union africaine, FMI, Banque mondiale, Saint-Siège, présidence française du G7, OTAN, ONU, CCNUCC, G20.org. Calendrier non exhaustif, à mettre à jour au fil de l'année.",
+      accreditations_h1_eyebrow:"Crédibilité institutionnelle", accreditations_h1_title:"Accréditations &amp; registres",
+      accreditations_h1_text:"Isostasy Consulting engage les démarches nécessaires pour accéder aux marchés institutionnels internationaux.",
+      accred_ungm_text:"Enregistrement en cours au registre des fournisseurs des Nations Unies.",
+      accred_bm_title:"Banque mondiale", accred_bm_text:"Démarches en cours pour le fichier fournisseurs (World Bank Group roster).",
+      accred_pador_title:"PADOR (UE)", accred_pador_text:"Enregistrement en cours sur le portail des partenaires de la Commission européenne.",
+      accred_cm_text:"Partenariat actif — accès facilité au marché européen via notre allié en France.",
+      rejoignez_eyebrow:"Construisons ensemble", rejoignez_h1:"Rejoignez l'aventure Isostasy Consulting",
+      rejoignez_team_title:"Rejoindre notre équipe",
+      rejoignez_team_text:"Consultants, statisticiens, data analysts, graphistes, développeurs — nous sommes toujours ouverts aux profils rigoureux et engagés.",
+      rejoignez_team_text2:"Envoyez-nous votre CV et une courte lettre de motivation ; nous étudions chaque candidature avec attention, y compris pour des collaborations ponctuelles ou des stages.",
+      rejoignez_team_cta:"Envoyer ma candidature",
+      rejoignez_partner_title:"Devenir partenaire",
+      rejoignez_partner_text:"Cabinet, organisation ou bailleur : proposez une collaboration, un consortium ou une alliance de marque avec Isostasy Consulting.",
+      rejoignez_partner_text2:"Décrivez-nous brièvement votre structure et votre proposition de collaboration ; notre équipe reviendra vers vous pour en discuter.",
+      rejoignez_partner_cta:"Proposer un partenariat",
+      casusage_h1_eyebrow:"Preuves par l'exemple", casusage_h1_title:"Démonstrations de capacité",
+      casusage_h1_text:"Les deux fiches ci-dessous présentent des travaux réalisés en pilote interne, avant toute mission bailleur formalisée. Elles ne remplacent pas des références clients, mais donnent une preuve concrète et vérifiable du niveau technique du cabinet sur ses deux expertises phares.",
+      casusage_c1_title:"Tableau de bord KPI marketing &amp; ventes",
+      casusage_c1_p1:"<strong>Contexte :</strong> besoin d'un outil de pilotage unique regroupant les indicateurs commerciaux et marketing, initialement dispersés sur plusieurs fichiers.",
+      casusage_c1_p2:"<strong>Réalisation :</strong> tableau de bord interactif en français, indicateurs clés de performance segmentés, filtres dynamiques, interface pensée pour une lecture rapide par une direction non technique.",
+      casusage_c1_p3:"<strong>Compétences démontrées :</strong> structuration de données, conception d'indicateurs, visualisation interactive, restitution orientée décision.",
+      casusage_c2_title:"Plan financier — exploitation maraîchère irriguée",
+      casusage_c2_p1:"<strong>Contexte :</strong> évaluation de la viabilité d'un projet d'exploitation maraîchère irriguée de 3 hectares en République Centrafricaine.",
+      casusage_c2_p2:"<strong>Réalisation :</strong> plan financier détaillé (investissement, charges, projections de production et de revenus) et plan d'installation opérationnel sur 12 semaines.",
+      casusage_c2_p3:"<strong>Compétences démontrées :</strong> diagnostic de faisabilité, modélisation financière, planification opérationnelle, connaissance du contexte agricole centrafricain.",
+      casusage_callout_eyebrow:"Portefeuille de références en construction",
+      casusage_callout_text:"Ces deux démonstrations constituent un point de départ, pas un aboutissement. Elles seront complétées par des références de missions réelles au fur et à mesure de leur réalisation.",
+      partenaires_h1_eyebrow:"Collaboration", partenaires_h1_title:"Partenaires",
+      partenaires_h1_text:"Une logique de collaboration avec d'autres cabinets pour répondre à des besoins que ni l'un ni l'autre ne pourrait couvrir seul.",
+      partenaires_cm_text:"Chelles, France (Île‑de‑France) — cabinet spécialisé en suivi‑évaluation de projets, analyse statistique et tableaux de bord interactifs.",
+      partenaires_cm_intro:"L'ancrage terrain centrafricain d'Isostasy Consulting combiné à l'accès au marché européen et à l'expertise méthodologique de ConsultaMétrics, selon une collaboration progressive en trois phases :",
+      partenaires_phase1:"Apport d'affaires croisé entre les deux cabinets.",
+      partenaires_phase2:"Premier consortium conjoint sur une mission pilote.",
+      partenaires_phase3:"Alliance de marque selon les résultats obtenus.",
+      partenaires_cta:"Devenir collaborateur →",
+      collab_modal_title:"Devenir collaborateur d'Isostasy Consulting",
+      collab_modal_sub:"Cabinet, organisation, consultant indépendant : décrivez votre structure et votre proposition de collaboration.",
+      collab_ph_nom:"Nom complet", collab_ph_org:"Organisation / cabinet", collab_ph_email:"Adresse e-mail",
+      collab_ph_message:"Décrivez votre proposition de collaboration", collab_submit:"Envoyer ma demande",
+      donnees_source_label:"Source : ", donnees_gender_men:"Hommes", donnees_gender_women:"Femmes",
+      donnees_gender_split_prefix:"Désagrégation par sexe — ", donnees_age_split_prefix:"Par tranche d'âge — ",
+      donnees_region_split:"Par région du monde", donnees_world_fallback:"Monde",
+      donnees_notcovered_region:"Aucune donnée agrégée n'est disponible à l'échelle d'un continent ou d'une région — sélectionnez un pays précis dans le menu ci-dessus pour afficher ses données.",
+      donnees_notcovered_country:"Les données détaillées pour ce pays ne sont pas encore chargées dans cette démonstration.",
+      donnees_notcovered_cta:"Demander une étude sur mesure",
       contact_cta_title:"Parlons de votre prochain projet.",
       contact_cta_text:"Devis, note conceptuelle ou simple échange — notre équipe répond sous 48h.",
       contact_eyebrow:"Contact", contact_h1:"Nous joindre",
       contact_intro:"Basé à Bangui, République Centrafricaine — nous intervenons sur l'ensemble du territoire national et en appui régional.",
-      contact_dept_note:"Contacts spécialisés : meal@isostasyconsulting.com · data@isostasyconsulting.com · partnerships@isostasyconsulting.com · careers@isostasyconsulting.com",
+      contact_dept_note:"Contacts spécialisés : admin@isostasyconsulting.com · info@isostasyconsulting.com · careers@isostasyconsulting.com · partnerships@isostasyconsulting.com · research@isostasyconsulting.com · meal@isostasyconsulting.com · data@isostasyconsulting.com · tech@isostasyconsulting.com · com@isostasyconsulting.com · finance@isostasyconsulting.com · hr@isostasyconsulting.com · sales@isostasyconsulting.com · support@isostasyconsulting.com",
       contact_form_title:"Formulaire de contact",
       contact_form_text:"Décrivez votre besoin, nous revenons vers vous sous 48 heures ouvrées.",
       contact_label_nom:"Nom complet", contact_label_org:"Organisation", contact_label_email:"Adresse e-mail",
-      contact_label_tel:"Téléphone", contact_label_objet:"Objet de la demande", contact_label_message:"Votre message",
+      contact_label_tel:"Téléphone", contact_label_pays:"Pays", contact_label_objet:"Objet de la demande", contact_label_message:"Votre message",
       contact_opt_placeholder:"— Choisir —",
       contact_opt_devis:"Demande de devis", contact_opt_meal:"Suivi-évaluation / MEAL",
       contact_opt_data:"Analyse de données et tableaux de bord", contact_opt_etude:"Étude ou enquête",
@@ -5239,15 +5501,60 @@ window.Isostasy = window.Isostasy || {};
       sommets_b5_cat:"Russia-North Korea", sommets_b5_title:"Russia-North Korea Military and Diplomatic Cooperation", sommets_b5_text:"Partnership strengthened since 2023-2024 amid the war in Ukraine; no formal high-level summit confirmed for 2026 to date.",
       sommets_note1:"This list is not exhaustive: beyond these emblematic meetings, dozens of state visits and bilateral meetings take place every month between heads of state and government worldwide. Our monitoring (News) relays the most significant developments as they happen.",
       sommets_note2:"Sources: African Union, IMF, World Bank, Holy See, French G7 presidency, NATO, UN, UNFCCC, G20.org. Non-exhaustive calendar, to be updated throughout the year.",
+      accreditations_h1_eyebrow:"Institutional credibility", accreditations_h1_title:"Accreditations &amp; registries",
+      accreditations_h1_text:"Isostasy Consulting is undertaking the steps needed to access international institutional markets.",
+      accred_ungm_text:"Registration in progress with the United Nations supplier registry.",
+      accred_bm_title:"World Bank", accred_bm_text:"Steps underway for the supplier roster (World Bank Group roster).",
+      accred_pador_title:"PADOR (EU)", accred_pador_text:"Registration in progress on the European Commission's partner portal.",
+      accred_cm_text:"Active partnership — facilitated access to the European market via our ally in France.",
+      rejoignez_eyebrow:"Let's build together", rejoignez_h1:"Join the Isostasy Consulting adventure",
+      rejoignez_team_title:"Join our team",
+      rejoignez_team_text:"Consultants, statisticians, data analysts, designers, developers — we're always open to rigorous, committed profiles.",
+      rejoignez_team_text2:"Send us your CV and a short cover letter; we review every application carefully, including for one-off collaborations or internships.",
+      rejoignez_team_cta:"Send my application",
+      rejoignez_partner_title:"Become a partner",
+      rejoignez_partner_text:"Firm, organization or donor: propose a collaboration, a consortium or a brand alliance with Isostasy Consulting.",
+      rejoignez_partner_text2:"Briefly describe your organization and your collaboration proposal; our team will get back to you to discuss it.",
+      rejoignez_partner_cta:"Propose a partnership",
+      casusage_h1_eyebrow:"Proof by example", casusage_h1_title:"Capability demonstrations",
+      casusage_h1_text:"The two sheets below present work carried out as an internal pilot, ahead of any formal donor assignment. They don't replace client references, but offer concrete, verifiable proof of the firm's technical level in its two flagship areas of expertise.",
+      casusage_c1_title:"Marketing &amp; sales KPI dashboard",
+      casusage_c1_p1:"<strong>Context:</strong> need for a single steering tool bringing together sales and marketing indicators, initially scattered across several files.",
+      casusage_c1_p2:"<strong>Delivered:</strong> interactive dashboard, segmented key performance indicators, dynamic filters, interface designed for quick reading by a non-technical management team.",
+      casusage_c1_p3:"<strong>Skills demonstrated:</strong> data structuring, indicator design, interactive visualization, decision-oriented reporting.",
+      casusage_c2_title:"Financial plan — irrigated market garden operation",
+      casusage_c2_p1:"<strong>Context:</strong> viability assessment of a 3-hectare irrigated market garden project in the Central African Republic.",
+      casusage_c2_p2:"<strong>Delivered:</strong> detailed financial plan (investment, expenses, production and revenue projections) and a 12-week operational setup plan.",
+      casusage_c2_p3:"<strong>Skills demonstrated:</strong> feasibility diagnostics, financial modeling, operational planning, knowledge of the Central African agricultural context.",
+      casusage_callout_eyebrow:"A growing portfolio of references",
+      casusage_callout_text:"These two demonstrations are a starting point, not an end point. They will be complemented by references from real assignments as they are carried out.",
+      partenaires_h1_eyebrow:"Collaboration", partenaires_h1_title:"Partners",
+      partenaires_h1_text:"A collaborative approach with other firms to meet needs that neither could cover alone.",
+      partenaires_cm_text:"Chelles, France (Île-de-France) — a firm specialized in project monitoring &amp; evaluation, statistical analysis and interactive dashboards.",
+      partenaires_cm_intro:"Isostasy Consulting's field presence in the Central African Republic combined with ConsultaMétrics's access to the European market and methodological expertise, through a gradual three-phase collaboration:",
+      partenaires_phase1:"Cross-referral of business between the two firms.",
+      partenaires_phase2:"First joint consortium on a pilot assignment.",
+      partenaires_phase3:"Brand alliance based on results achieved.",
+      partenaires_cta:"Become a collaborator →",
+      collab_modal_title:"Become an Isostasy Consulting collaborator",
+      collab_modal_sub:"Firm, organization, independent consultant: describe your organization and your collaboration proposal.",
+      collab_ph_nom:"Full name", collab_ph_org:"Organization / firm", collab_ph_email:"Email address",
+      collab_ph_message:"Describe your collaboration proposal", collab_submit:"Send my request",
+      donnees_source_label:"Source: ", donnees_gender_men:"Men", donnees_gender_women:"Women",
+      donnees_gender_split_prefix:"Gender breakdown — ", donnees_age_split_prefix:"By age group — ",
+      donnees_region_split:"By world region", donnees_world_fallback:"World",
+      donnees_notcovered_region:"No aggregated data is available at continent or region level — select a specific country from the menu above to display its data.",
+      donnees_notcovered_country:"Detailed data for this country is not yet loaded in this demo.",
+      donnees_notcovered_cta:"Request a custom study",
       contact_cta_title:"Let's talk about your next project.",
       contact_cta_text:"Quote, concept note or just a conversation — our team responds within 48h.",
       contact_eyebrow:"Contact", contact_h1:"Get in touch",
       contact_intro:"Based in Bangui, Central African Republic — we operate across the national territory and provide regional support.",
-      contact_dept_note:"Specialized contacts: meal@isostasyconsulting.com · data@isostasyconsulting.com · partnerships@isostasyconsulting.com · careers@isostasyconsulting.com",
+      contact_dept_note:"Specialized contacts: admin@isostasyconsulting.com · info@isostasyconsulting.com · careers@isostasyconsulting.com · partnerships@isostasyconsulting.com · research@isostasyconsulting.com · meal@isostasyconsulting.com · data@isostasyconsulting.com · tech@isostasyconsulting.com · com@isostasyconsulting.com · finance@isostasyconsulting.com · hr@isostasyconsulting.com · sales@isostasyconsulting.com · support@isostasyconsulting.com",
       contact_form_title:"Contact form",
       contact_form_text:"Describe your need, and we'll get back to you within 48 business hours.",
       contact_label_nom:"Full name", contact_label_org:"Organization", contact_label_email:"Email address",
-      contact_label_tel:"Phone", contact_label_objet:"Subject of your request", contact_label_message:"Your message",
+      contact_label_tel:"Phone", contact_label_pays:"Country", contact_label_objet:"Subject of your request", contact_label_message:"Your message",
       contact_opt_placeholder:"— Select —",
       contact_opt_devis:"Quote request", contact_opt_meal:"Monitoring & evaluation / MEAL",
       contact_opt_data:"Data analysis and dashboards", contact_opt_etude:"Study or survey",
@@ -5348,6 +5655,7 @@ window.Isostasy = window.Isostasy || {};
     if(window.isostasyUpdateScopeLabel) window.isostasyUpdateScopeLabel();
     if(window.isostasyRenderPasserelles) window.isostasyRenderPasserelles();
     if(window.isostasyRefreshPublicArticles) window.isostasyRefreshPublicArticles();
+    if(window.isostasyRenderSectorPanel) window.isostasyRenderSectorPanel();
     const label = document.getElementById('langBtnLabel');
     if(label) label.textContent = lang.toUpperCase();
     document.querySelectorAll('#langMenu button').forEach(b => {
@@ -5508,6 +5816,103 @@ window.Isostasy = window.Isostasy || {};
     }
 
   };
+  const openDataEN = {
+    monde: {
+      demographie: [["8.2 Bn","Total world population","UN / Population Division"],["50.3%","Share of men in the world population","UN"],["49.7%","Share of women in the world population","UN"],["17.1","World birth rate (‰)","UN"],["8.6","World death rate (‰)","UN"],["2.3","World total fertility rate (children/woman)","UN"],["73 years","World life expectancy, women","WHO"],["68 years","World life expectancy, men","WHO"],["30.3 years","Median age of the world population","UN"],["25%","World population under 15","UN"],["10.3%","World population aged 65 and over","UN"],["57%","World urban population","UN-Habitat"],["66/km²","Average world population density","UN"],["0.8%","Annual world population growth rate","UN"],["3.2 Bn","World working-age population (15-64)","ILO"],["1.2 Bn","Young people aged 15 to 24 worldwide","UN"],["703 M","People aged 65 and over worldwide","UN"],["4.7 Bn","Population living in Asia","UN"],["1.5 Bn","Population living in Africa","UN"],["2050","Year Africa is projected to reach 2.5 billion inhabitants","UN"]],
+      sante: [["76%","Child vaccination coverage (DTP3)","WHO / UNICEF"],["1 in 3","Births attended by skilled health staff (low-income countries)","WHO"],["71 years","Average world life expectancy","WHO, 2024"],["4.9 M","Deaths of children under 5 per year","UNICEF"],["38.4 M","People living with HIV worldwide","UNAIDS"],["249 M","Malaria cases recorded per year","WHO"],["10 M","New tuberculosis cases per year","WHO"],["930 M","People without universal health coverage","WHO"],["6.7%","Average share of world GDP spent on health","WHO"],["1 in 4","Pregnant women with anemia worldwide","WHO"],["45%","World population with access to mental health services","WHO"],["13.7","Doctors per 10,000 people (world average)","WHO"],["2.3 M","Deaths linked to air pollution per year","WHO"],["15 M","Premature births per year","WHO"],["663 M","People without access to improved drinking water","WHO / UNICEF"],["87%","Global measles vaccine coverage","WHO"],["41%","Women of reproductive age using modern contraception","UN Women"],["1.3 M","Deaths from road accidents per year","WHO"],["5.4 M","Suspected cholera cases recorded in 2025","WHO"],["9.9 M","Cancer-related deaths per year","WHO"]],
+      education: [["87%","Adult literacy rate","UNESCO"],["258 M","Out-of-school children and youth worldwide","UNESCO"],["4.3%","Average share of GDP spent on education","World Bank"],["91%","World net primary enrollment rate","UNESCO"],["66%","World secondary completion rate","UNESCO"],["1:23","Average pupil-teacher ratio (primary)","UNESCO"],["617 M","Children not reaching minimum reading proficiency","UNESCO"],["130 M","Girls out of school worldwide","UNESCO"],["40%","Tertiary education enrollment rate","UNESCO"],["773 M","Illiterate adults worldwide","UNESCO"],["12 years","Average years of schooling worldwide","UNDP"],["63%","Primary schools with access to electricity","UNESCO"],["1.6 M","Additional teachers needed by 2030","UNESCO"],["$265","Average annual spending per pupil (low-income countries)","World Bank"],["55%","Digital literacy rate among youth","ITU"],["84%","World primary completion rate","UNESCO"],["2 in 3","Countries reaching gender parity at primary level","UNESCO"],["244 M","School-age children out of school","UNESCO"],["70%","Youth with basic digital skills","ITU"],["121 M","Adolescent girls out of school","UNESCO"]],
+      environnement: [["1.2°C","Average warming since pre-industrial era","IPCC / WMO"],["37 Gt","Global CO2 emissions (2024)","IEA"],["17%","Land area under protected status","UNEP"],["10 M ha","Forest cover lost per year","FAO"],["8%","Animal species threatened with extinction","IUCN"],["1.8%","Annual growth of renewable energy (excl. hydro)","IEA"],["2.3 Bn t","Plastic waste produced per year","UNEP"],["40%","World population affected by water scarcity","UN-Water"],["26%","Targeted reduction in global emissions by 2030","UNFCCC"],["8 Mt","Plastic dumped into oceans each year","UNEP"],["55%","Urban population exposed to excessive air pollution","WHO"],["3.6 Bn","People living in highly climate-vulnerable contexts","IPCC"],["$90 Bn","International climate finance mobilized per year","OECD"],["1 in 3","World's rivers heavily polluted","UNEP"],["420 ppm","Atmospheric CO2 concentration","WMO"],["60%","Coral reefs threatened worldwide","UNEP"],["2.5°C","Current warming trajectory by 2100","IPCC"],["15%","Global emissions from deforestation","IPCC"],["100","Countries that have adopted a net-zero target","UNFCCC"],["771","Wetlands of international importance (Ramsar)","UNEP"]],
+      infrastructure: [["91%","World population with access to electricity","World Bank"],["67%","World population using the Internet","ITU"],["$4.3 Bn","Annual infrastructure investment needs (developing countries)","AfDB / World Bank"],["55%","World population living in urban areas","UN-Habitat"],["85%","World population covered by a 4G mobile network","ITU"],["2.6 Bn","People without access to basic sanitation","WHO / UNICEF"],["15%","Rural roads passable year-round (low-income countries)","World Bank"],["1.2 Bn","People living without decent housing","UN-Habitat"],["40%","World population without a waste management system","UN-Habitat"],["4.2 Bn","Active mobile Internet users","ITU"],["60%","World port infrastructure concentrated in 20 countries","UNCTAD"],["96%","World urban population covered by an electrical grid","World Bank"],["30%","Infrastructure investment financed by the private sector","AfDB"],["1.5 Bn","People more than 2 km from a passable road","World Bank"],["90+","Countries where 5G is deployed","ITU"],["70%","World freight transported by sea","UNCTAD"],["2.5 Bn","Additional people living in cities by 2050","UN-Habitat"],["43%","African rural areas connected to the electrical grid","World Bank"],["100","Major cities with a climate resilience plan","UN-Habitat"],["900 M","People living in slums","UN-Habitat"]],
+      agriculture: [["735 M","People undernourished worldwide","FAO"],["33%","World workforce employed in agriculture","FAO"],["9%","Share of world arable land","FAO"],["2.4 Bn","People depending on agriculture for their income","FAO"],["33%","World food produced that is lost or wasted","FAO"],["258 M","People in acute food insecurity","WFP"],["70%","World freshwater used for agriculture","FAO"],["500 M","Smallholder farms worldwide","FAO"],["12%","Degraded farmland worldwide","FAO"],["3.2%","Average annual growth of world agricultural production","FAO"],["40%","World food supply from staple crops","FAO"],["1 in 9","People suffering from hunger worldwide","FAO"],["80%","World food produced by small family farms","FAO"],["1.3 Bn t","Food wasted every year","FAO"],["60%","Increase in agricultural production needed by 2050","FAO"],["$500 Bn","Annual economic losses from land degradation","FAO"],["30%","Women in the world agricultural workforce","FAO"],["50%","World calories provided by three crops (rice, wheat, maize)","FAO"],["42%","World farmland that is irrigated","FAO"],["828 M","People affected by hunger in 2024","FAO"]],
+      economie: [["3.2%","Projected global GDP growth","IMF"],["6.9%","Average global inflation","IMF"],["105%","Global public debt as a share of GDP","IMF"],["8.5%","Global youth unemployment rate","ILO"],["$105,000 Bn","Global nominal GDP","IMF"],["3.9%","Global trade growth","WTO"],["60%","World trade handled by the top 20 economies","WTO"],["1.4 Bn","Adults without a bank account worldwide","World Bank"],["15%","Global minimum corporate tax rate (OECD agreement)","OECD"],["$47 Bn","Foreign direct investment flows to Africa","UNCTAD"],["4.7%","Global unemployment rate","ILO"],["$685 Bn","Migrant remittances to low- and middle-income countries","World Bank"],["3.3 Bn","Workers in the global economy","ILO"],["60%","Global jobs in the informal sector","ILO"],["190","IMF member countries","IMF"],["2.3%","Projected growth for Sub-Saharan Africa","IMF"],["10%","Share of world trade conducted in Africa","UNCTAD"],["$7.5 Bn","Average daily foreign exchange market turnover","BIS"],["$700 Bn","Combined BRICS foreign exchange reserves","BRICS"],["37","OECD member countries","OECD"]],
+      humanitaire: [["300 M","People requiring humanitarian assistance","OCHA"],["$43.4 Bn","Global humanitarian funding requirements","OCHA"],["117 M","People forcibly displaced worldwide","UNHCR"],["43.3 M","Refugee and displaced children worldwide","UNICEF"],["45","Countries affected by an acute food crisis","WFP"],["339","Humanitarian response plans coordinated by the UN","OCHA"],["62%","Global humanitarian needs covered by funding received","OCHA"],["22","Priority humanitarian crises tracked by the UN","OCHA"],["1 in 73","People worldwide in need of humanitarian aid","OCHA"],["168 M","People targeted by UN humanitarian response plans","OCHA"],["30,000","Humanitarian workers deployed worldwide","OCHA"],["33.6 M","Children displaced by conflict or disasters","UNICEF"],["108","Countries benefiting from WFP programs","WFP"],["71%","Displaced people living in low- or middle-income countries","UNHCR"],["2 in 3","Internally displaced people living in just 10 countries","UNHCR / IDMC"],["20 years","Average duration of protracted displacement situations","UNHCR"],["$12 Bn","Historical U.S. humanitarian aid (2024 reference)","OCHA"],["605","Humanitarian workers killed on mission (recent cumulative total)","Aid Worker Security DB"],["130","International NGOs active in humanitarian coordination","ICVA"],["9.1 M","Children suffering from severe acute malnutrition","UNICEF"]],
+      immigration: [["281 M","International migrants worldwide","IOM"],["3.6%","Share of migrants in the world population","IOM / UN"],["36.4 M","Refugees under UNHCR's mandate","UNHCR"],["68.3 M","Internally displaced people worldwide","UNHCR / IDMC"],["$830 Bn","Global migrant remittances (2024)","World Bank"],["52%","Male international migrants","IOM"],["40%","International migrants aged 25 to 44","IOM"],["5","Main migrant destination countries","IOM"],["8,300","Migrant deaths recorded in 2025","IOM"],["6 M","Asylum applications being processed worldwide","UNHCR"],["4.4 M","Stateless people recorded worldwide","UNHCR"],["100 M","Forcibly displaced people (threshold crossed in 2022)","UNHCR"],["87%","Refugees hosted by countries neighboring their country of origin","UNHCR"],["20","Countries hosting 76% of the world's refugees","UNHCR"],["1 in 4","International migrants living in Europe","IOM"],["38%","South-South migration within global migration flows","IOM"],["15 years","Average duration of a protracted displacement cycle","UNHCR"],["5.4 M","Voluntary returns of internally displaced people recorded","UNHCR"],["43%","International migrants in high-income countries","IOM"],["30 M","Migrant children worldwide","UNICEF"]],
+      social: [["9.2%","World population in extreme poverty","World Bank"],["0.63","Average world Gini index (inequality)","UNDP"],["0.74","Average world Human Development Index","UNDP"],["2 Bn","People living on less than $3.65/day","World Bank"],["8.5%","World youth unemployment rate","ILO"],["1 in 5","Children living in multidimensional poverty","UNICEF"],["736 M","Women who have experienced physical or sexual violence","UN Women"],["40%","World population without social protection","ILO"],["1.1 Bn","People in multidimensional poverty","UNDP"],["60%","Informal jobs worldwide","ILO"],["26.5%","Parliamentary seats held by women worldwide","UN Women"],["771 M","Illiterate people worldwide","UNESCO"],["3.3 Bn","People without access to basic social protection","ILO"],["76%","Share of world wealth held by the top 10%","UNDP"],["100 M","People pushed into poverty since 2020","World Bank"],["1 in 10","Children engaged in child labor","ILO / UNICEF"],["6.3%","World unemployment rate among women","ILO"],["2.3 Bn","People in moderate or severe food insecurity","FAO"],["130","Countries with a legal minimum wage","ILO"],["79 years","Life expectancy in high-income countries (vs 63 in low-income)","WHO"]],
+      developpement: [["17","Sustainable Development Goals tracked","UN"],["35%","SDG targets deemed on track","UN, 2025 SDG Report"],["162","Countries with a national plan aligned with the SDGs","UNDP"],["2030","Target horizon for achieving the SDGs","UN"],["$4,200 Bn","Annual SDG financing gap in developing countries","UNCTAD"],["0.33%","Average official development assistance as share of donor GNI (0.7% target)","OECD"],["$223.7 Bn","Total global official development assistance","OECD"],["46","Least developed countries (LDCs) recognized by the UN","UN"],["12%","SDG targets on track in Sub-Saharan Africa","UNDP"],["$1.3 Bn","Financing mobilized via green and social bonds in 2025","World Bank"],["189","Member countries of the World Bank Group","World Bank"],["8","Priority areas of the Addis Ababa Action Agenda","UN"],["55%","SDG targets lacking sufficient data to be measured","UN"],["$700 Bn","Annual investment needed for universal water and sanitation","UN-Water"],["100","Countries that have presented a voluntary national SDG review","UN"],["6%","Annual growth needed in LDCs to achieve the SDGs","UNCTAD"],["3","Major international conferences on development financing since 2015","UN"],["79","Countries eligible for IDA concessional financing","World Bank"],["1.5 Bn","People living in fragile or conflict-affected settings","World Bank"],["40%","World official development assistance directed to Africa","OECD"]],
+      diplomatie: [["193","UN member states","UN"],["125","Active UN peacekeeping and special political missions","UN"],["12","Major multilateral summits held in 2025 (G7, G20, AU, UN…)","Isostasy Consulting monitoring"],["15","Members of the UN Security Council","UN"],["5","Permanent members of the Security Council","UN"],["79,000","Uniformed personnel deployed in UN peace operations","UN"],["42","Diplomatic missions accredited to the African Union","AU"],["125","States parties to the Rome Statute of the ICC","ICC"],["27","European Union member states","EU"],["55","African Union member states","AU"],["8","G20 summits held since 2008 (historical reference)","G20"],["3","New states to have joined the UN since 2000","UN"],["195","Parties to the Paris Agreement on climate","UNFCCC"],["40","Embassies and missions accredited in Bangui (estimate)","MFA, CAR"],["900+","Multilateral treaties deposited with the UN Secretary-General","UN"],["6","Official UN languages","UN"],["10","Non-permanent members elected to the Security Council","UN"],["70%","Security Council resolutions adopted unanimously (2025)","UN"],["4","Africa-Europe or Africa-China summits held since 2020","Isostasy Consulting monitoring"],["15","Regional organizations active in Africa (AU, CEMAC, ECCAS, ECOWAS, UEMOA, SADC…)","AU"]],
+      geopolitique: [["59","Active armed conflicts recorded worldwide","Uppsala Conflict Data Program"],["4","Regional economic blocs covering Central and West Africa","African Union"],["11","Expanded BRICS+ members","BRICS"],["$2,443 Bn","Global military spending (2024)","SIPRI"],["9","States possessing nuclear weapons","SIPRI"],["45%","World population living in a conflict-affected country","World Bank"],["108.4 M","People displaced by conflict or violence","UNHCR"],["25","UN peacekeeping operations conducted since 1948","UN"],["2.4%","Global military spending as a share of world GDP","SIPRI"],["39","Countries under unilateral or multilateral international sanctions","UN"],["6","Strategic global straits under heightened geopolitical watch","Isostasy Consulting monitoring"],["3","Security Council powers involved in active tensions","SIPRI"],["17","African Union peace missions deployed since 2002","AU"],["60%","World's critical mineral resources located in Africa","World Bank"],["1.3 Bn","Population of the African continent, of growing geopolitical weight","UN"],["5","Non-permanent seats allocated by regional rotation on the Security Council","UN"],["70%","World cocoa produced by four West African countries","Agence Ecofin"],["8","Strategic global energy corridors monitored","IEA"],["2","African regional monetary blocs (CFA zones BEAC and BCEAO)","BEAC / BCEAO"],["12","Foreign military bases present on the African continent (estimate)","Isostasy Consulting monitoring"]]
+    },
+    rca: {
+      demographie: [["4.6 M","Total population (latest census)","ICASEES, census"],["48.8%","Share of men in the population","ICASEES, census"],["51.2%","Share of women in the population","ICASEES, census"],["36.9","Birth rate (‰)","ICASEES / UN, CAR"],["12.9","Death rate (‰)","ICASEES / UN, CAR"],["4.7","Total fertility rate (children/woman)","ICASEES, CAR"],["55 years","Life expectancy, women","WHO, CAR"],["51 years","Life expectancy, men","WHO, CAR"],["18 years","Median age of the population","ICASEES, census"],["43%","Population under 15","ICASEES, census"],["3%","Population aged 65 and over","ICASEES, census"],["40%","Urban population","UN-Habitat, CAR"],["7.4/km²","Average population density","ICASEES, census"],["3.5%","Annual population growth rate","ICASEES, census"],["2.3 M","Estimated working-age population (15-64)","ICASEES, CAR"],["950,000","Young people aged 15 to 24","ICASEES, CAR"],["138,000","People aged 65 and over","ICASEES, CAR"],["16","Prefectures and communes recorded in the latest census","ICASEES"],["Bangui","Most populous prefecture in the country","ICASEES, census"],["2024-2026","Period of preparation for the next general census","ICASEES"]],
+      sante: [["76%","Child vaccination coverage (DTP3)","WHO / UNICEF, CAR"],["1 in 3","Births attended by skilled health staff","WHO, CAR"],["53 years","Life expectancy at birth","World Bank, CAR"],["882","Maternal deaths per 100,000 live births","WHO, CAR"],["116","Infant mortality rate per 1,000 live births","UNICEF, CAR"],["40%","Children under 5 suffering from stunting","UNICEF, CAR"],["1.6 M","Malaria cases recorded per year","WHO, CAR"],["0.3","Doctors per 10,000 people","WHO, CAR"],["60%","Population more than 5 km from a health center","Ministry of Health, CAR"],["4.3%","HIV prevalence among adults","UNAIDS, CAR"],["35%","Pregnant women attending at least 4 antenatal visits","UNICEF, CAR"],["10","Measles outbreaks recorded in five years","WHO, CAR"],["68%","Population without access to improved drinking water","UNICEF, CAR"],["27%","Children fully vaccinated before their first birthday","UNICEF, CAR"],["3","Major national referral hospitals (Bangui)","Ministry of Health, CAR"],["41%","Births attended in a medical facility","WHO, CAR"],["15","Health facilities destroyed or non-functional since 2013","WHO, CAR"],["620,000","People who received care via humanitarian NGOs in 2025","OCHA, CAR"],["22%","Global acute malnutrition rate in some prefectures","UNICEF, CAR"],["3.8%","National budget allocated to health","Ministry of Finance, CAR"]],
+      education: [["71%","Net primary enrollment rate","UNESCO, CAR"],["37%","Secondary completion rate","UNESCO, CAR"],["1:62","Pupil-teacher ratio (primary)","UNESCO, CAR"],["37%","Adult literacy rate","UNESCO, CAR"],["47%","Girls among primary school pupils","UNESCO, CAR"],["1 in 2","Primary schools functional following security crises","UNICEF, CAR"],["900,000","School-age children out of school","UNICEF, CAR"],["14%","Qualified teachers in primary school","UNESCO, CAR"],["6 years","Average years of schooling","UNDP, CAR"],["3%","National budget allocated to education","Ministry of Education, CAR"],["25%","Secondary enrollment rate","UNESCO, CAR"],["400","Schools closed for security reasons (crisis peak)","UNICEF, CAR"],["18%","Girls completing secondary school","UNESCO, CAR"],["1","National public university (University of Bangui)","Ministry of Education, CAR"],["60%","Displaced children who lost a school year","UNICEF, CAR"],["8%","Youth with access to technical or vocational training","UNDP, CAR"],["33%","Classrooms built with durable materials","UNICEF, CAR"],["2","Official languages of instruction (French, Sango)","Ministry of Education, CAR"],["55%","Primary teachers not trained in basic pedagogy","UNESCO, CAR"],["12%","Primary completion rate in rural areas","UNICEF, CAR"]],
+      environnement: [["36%","National forest cover","FAO, CAR"],["3","Protected areas of international importance","UNESCO / UNEP"],["68%","Population dependent on wood energy","UNDP, CAR"],["5","Classified national parks (incl. Manovo-Gounda St Floris, Dzanga-Sangha)","UNESCO, CAR"],["15%","Forest cover lost since 2000","FAO, CAR"],["1","UNESCO World Heritage site in danger","UNESCO"],["80%","Rural population directly dependent on forest resources","FAO, CAR"],["3.6 M ha","Area of the South-West forest massif (Congo Basin)","FAO, CAR"],["12%","National territory under protected status","UNEP, CAR"],["90%","Domestic energy from biomass","UNDP, CAR"],["25","Threatened animal species recorded (incl. forest elephants)","IUCN, CAR"],["3,000","Forest elephants estimated in protected areas","WWF / IUCN"],["1","Transboundary ecological corridor (Sangha Trinational)","UNESCO"],["40%","Estimated decline in wildlife in some reserves since 2000","IUCN"],["0.3 t","CO2 emissions per capita (very low carbon footprint)","IEA, CAR"],["2","Major rivers shaping the territory (Oubangui, Chari)","Ministry of Environment, CAR"],["60%","Access challenges linked to forest track conditions","Ministry of Environment, CAR"],["5%","National budget allocated to environmental protection","Ministry of Environment, CAR"],["1","UNESCO-recognized biosphere reserve (Basse-Lobaye)","UNESCO"],["30 years","Age of the main national forestry legal framework","Ministry of Environment, CAR"]],
+      infrastructure: [["28%","Population with access to electricity","World Bank, CAR"],["700 km","Paved roads passable year-round","Ministry of Infrastructure, CAR"],["31%","Mobile / internet network coverage","ITU, CAR"],["7%","Rural population with access to electricity","World Bank, CAR"],["1","International airport (Bangui M'Poko)","ASECNA, CAR"],["10,000 km","Total national road network (mostly unpaved)","Ministry of Infrastructure, CAR"],["15%","Roads passable year-round in the rainy season","World Bank, CAR"],["3%","Population connected to a collective sanitation network","UN-Habitat, CAR"],["1","Major commercial waterway (Oubangui River)","Ministry of Transport, CAR"],["45%","Urban population (mostly concentrated in Bangui)","UN-Habitat, CAR"],["12%","Households with home Internet access","ITU, CAR"],["2","Main hydroelectric dams (Boali I and II)","Ministry of Energy, CAR"],["60 MW","Total installed electricity generation capacity (estimate)","Ministry of Energy, CAR"],["1,500 km","Average distance for import transport from coastal ports","World Bank, CAR"],["20%","Households using a 3G / 4G mobile connection","ITU, CAR"],["8","Prefectures without a direct paved road to Bangui","Ministry of Infrastructure, CAR"],["5%","Urban homes connected to a running water network","UN-Habitat, CAR"],["1","Douala-Bangui road corridor under rehabilitation","AfDB, CAR"],["65%","Estimated logistics cost share of final import prices","World Bank, CAR"],["3","Active mobile phone operators in the national market","ARCEP, CAR"]],
+      agriculture: [["55%","Working population employed in agriculture","FAO, CAR"],["43%","Population in acute food insecurity","WFP / Cadre Harmonisé"],["15%","Arable land cultivated","FAO, CAR"],["1","Main staple crop (cassava), basis of the national diet","FAO, CAR"],["25%","National GDP from the agricultural sector","World Bank, CAR"],["3 M ha","Total farmed agricultural area","FAO, CAR"],["60%","Rural households practicing subsistence farming","FAO, CAR"],["2","Major agricultural export sectors (cotton, coffee)","Ministry of Agriculture, CAR"],["40%","Decline in agricultural production since the crises began (2013)","FAO, CAR"],["1.2 M","People in severe food insecurity","WFP, CAR"],["10%","Irrigated farmland","FAO, CAR"],["5","Prefectures classified in food emergency phase","WFP, CAR"],["30%","Rural women heading farming operations","FAO, CAR"],["700,000 t","Estimated annual cassava production","FAO, CAR"],["2","Main farming seasons per year","Ministry of Agriculture, CAR"],["20%","National livestock herd lost since 2013 (looting, insecurity)","FAO, CAR"],["1","Main transhumance livestock zone (northern corridor)","Ministry of Livestock, CAR"],["65%","Rural households affected by lower crop yields in 2025","WFP, CAR"],["4%","Mechanized farmland","FAO, CAR"],["50,000 t","Estimated annual coffee production (historical sector)","Ministry of Agriculture, CAR"]],
+      economie: [["2.1%","Projected real GDP growth","IMF, CAR"],["71%","Population below the poverty line","World Bank, CAR"],["$3.8 Bn","Annual official development assistance received","OECD, CAR"],["$550","GDP per capita (estimate)","World Bank, CAR"],["4.5%","Average annual inflation","IMF, CAR"],["45%","Public debt as a share of GDP","IMF, CAR"],["15%","Formal employment in the workforce","ILO, CAR"],["1","Common currency (CFA franc BEAC) shared with CEMAC countries","BEAC"],["40%","National budget revenue dependent on foreign aid","IMF, CAR"],["3","Main export products (diamonds, gold, timber)","Ministry of Mines, CAR"],["60%","Estimated informal economy as a share of national GDP","IMF, CAR"],["188th","World ranking on the Human Development Index","UNDP, CAR"],["12%","Adult population with a bank account","World Bank, CAR"],["2","Major commercial banks active in the country","BEAC, CAR"],["$250 M","Estimated annual revenue from the formal mining sector","Ministry of Mines, CAR"],["5%","Telecommunications sector growth","ITU, CAR"],["Partial","Compliance with the Kimberley Process for diamond exports","Kimberley Process"],["30%","Informal sector share of urban employment","ILO, CAR"],["6","Member countries of the CEMAC monetary zone","BEAC"],["$100 M","Annual foreign direct investment (estimate)","UNCTAD, CAR"]],
+      humanitaire: [["2.8 M","People requiring humanitarian assistance","OCHA, CAR"],["$510 M","2026 humanitarian response plan","OCHA, CAR"],["737,000","Internally displaced people","UNHCR / CMP, CAR"],["63%","Humanitarian needs covered by funding received in 2025","OCHA, CAR"],["1.1 M","Children requiring humanitarian protection","UNICEF, CAR"],["130","Humanitarian organizations active in the country","OCHA, CAR"],["15","Prefectures out of 20 affected by an active humanitarian crisis","OCHA, CAR"],["43%","Total population requiring humanitarian assistance","OCHA, CAR"],["8","Internally displaced persons sites recorded in and around Bangui","OCHA, CAR"],["5 years","Average duration of internal displacement","UNHCR, CAR"],["40","International NGOs active in the humanitarian response","OCHA, CAR"],["620,000","People assisted with emergency food security in 2025","WFP, CAR"],["1.3 M","Children requiring nutritional support","UNICEF, CAR"],["3","Active priority humanitarian clusters","OCHA, CAR"],["25%","Women and girls among protection program beneficiaries","UN Women, CAR"],["10 years","Age of the protracted humanitarian crisis (2013 reference)","OCHA, CAR"],["70%","Humanitarian aid transported by road from Cameroon","WFP, CAR"],["200,000","People returned to their area of origin in 2025","UNHCR, CAR"],["5","Main humanitarian donors active in the country","OCHA, CAR"],["900","Security incidents affecting humanitarian access recorded per year","OCHA, CAR"]],
+      immigration: [["740,000","Central African refugees in neighboring countries","UNHCR"],["110,000","Refugees hosted on Central African territory","UNHCR, CAR"],["6","Neighboring countries affected by cross-border movements","IOM, CAR"],["4","Main host countries for Central African refugees","UNHCR"],["15 years","Average duration of exile for Central African refugees","UNHCR"],["60%","Central African refugees under 18","UNICEF / UNHCR"],["12","Refugee sites recorded in Cameroon hosting Central Africans","UNHCR"],["500,000","Spontaneous returns of Central African refugees recorded since 2018","UNHCR"],["25%","Central African refugees living in organized camps","UNHCR"],["8,000","Asylum applications from Central Africans registered abroad per year","UNHCR"],["3","Main cross-border migration corridors","IOM, CAR"],["40%","Women and girls among Central African refugees","UNHCR"],["1","Regional UNHCR operation dedicated to the Central African situation","UNHCR"],["200,000","People voluntarily repatriated since 2015","UNHCR"],["5","Main border entry points monitored by IOM","IOM, CAR"],["30%","Internally displaced people who also have refugee relatives abroad","UNHCR / IOM"],["2","Bilateral migration cooperation agreements signed","MFA, CAR"],["100,000","Foreign nationals residing in CAR (estimate)","IOM, CAR"],["6 years","Average age of Central African refugee children","UNICEF"],["1","Regional durable solutions framework (Cameroon-Chad-CAR-Congo)","UNHCR"]],
+      social: [["71%","Population below the national poverty line","World Bank, CAR"],["0.404","Human Development Index (HDI)","UNDP, CAR"],["188th","World HDI ranking (out of 193 countries)","UNDP, CAR"],["4.6 M","Total population (latest census)","ICASEES, census"],["63%","Population under 25","ICASEES, census"],["2.3","Children per woman in urban areas (estimate)","ICASEES, census"],["37%","Adult literacy rate","UNESCO, CAR"],["30%","Women in paid employment outside subsistence agriculture","UN Women, CAR"],["1 in 2","Children in multidimensional poverty","UNICEF, CAR"],["12%","Parliamentary seats held by women","UN Women, CAR"],["40%","Urban population concentrated in Bangui","ICASEES, census"],["22%","Prevalence of child marriage (before age 18)","UNICEF, CAR"],["3.5%","Annual population growth","ICASEES, census"],["55 years","Health-adjusted life expectancy","WHO, CAR"],["65%","Households without formal social protection","ILO, CAR"],["20","Main ethnolinguistic groups recorded","ICASEES, census"],["80%","Rural population living outside major urban centers","ICASEES, census"],["2","Official national languages (French, Sango)","Constitution, CAR"],["15%","Population with access to formal health coverage","Ministry of Health, CAR"],["2003","Year of the last general census","ICASEES"]],
+      developpement: [["6","Priority areas of the National Development Plan","CAR Government / UNDP"],["4.6 M","Total population (latest census)","ICASEES, census"],["2003","Year of the last comprehensive general census","ICASEES, census"],["2024-2028","Period covered by the current National Development Plan","CAR Government"],["12","Technical and financial partners active in the country","UNDP, CAR"],["3","Strategic pillars of the recovery and peacebuilding framework","UNDP / World Bank"],["40%","National budget dependent on external financing","IMF, CAR"],["5","Priority sectors identified for international investment","Ministry of Planning, CAR"],["0.404","National Human Development Index","UNDP, CAR"],["188th","World HDI ranking","UNDP, CAR"],["2","Poverty reduction strategy papers produced since 2000","World Bank, CAR"],["60%","National plan targets deemed partially achieved at midterm","UNDP, CAR"],["15","World Bank-funded development projects currently active","World Bank, CAR"],["1","Recovery and Peacebuilding Assessment framework (RCPCA)","UNDP / EU / World Bank"],["$3.2 Bn","Amount mobilized at the donor roundtable (historical reference)","UNDP, CAR"],["8","UN agencies present in the country","UN System, CAR"],["2","General censuses planned since 2003 but postponed","ICASEES"],["25%","Budget execution rate for development projects","Ministry of Planning, CAR"],["46","Least developed countries CAR belongs to","UN"],["5","Priority economic zones identified in the national plan","Ministry of Planning, CAR"]],
+      diplomatie: [["1","Active UN peacekeeping mission (MINUSCA)","UN"],["15,000+","Civilian and uniformed MINUSCA personnel","UN"],["CEMAC / ECCAS","Regional blocs CAR belongs to","African Union"],["2014","Year MINUSCA was deployed","UN"],["20","Embassies and diplomatic missions present in Bangui (estimate)","MFA, CAR"],["3","Major troop-contributing countries to MINUSCA (reference)","UN"],["1","Political peace and reconciliation agreement signed in 2019 (Khartoum)","UN / AU"],["6","CEMAC member states, including CAR","CEMAC"],["11","ECCAS member states, including CAR","ECCAS"],["2","Seats held by CAR in African Union bodies","AU"],["1","CAR permanent representation to the UN in New York","MFA, CAR"],["5","Major bilateral partners active in CAR","MFA, CAR"],["30 years","Age of CAR-UN peacekeeping cooperation (since 1997)","UN"],["1","Integrated UN office that preceded MINUSCA (BINUCA)","UN"],["4","Security Council resolutions renewing MINUSCA's mandate (2025-2026)","UN"],["2","Active bilateral military cooperation agreements","MFA, CAR"],["1","Seat held by CAR at the UN General Assembly","UN"],["15","Active Central African diplomatic missions abroad","MFA, CAR"],["3","ECCAS / CEMAC regional summits hosted by Bangui since 2015","ECCAS"],["1","National inclusive political dialogue framework relaunched in 2025","CAR Government / AU"]],
+      geopolitique: [["Active","Ongoing peace process (Khartoum Political Agreement and follow-up)","UN / AU"],["5","Signatory armed groups monitored under the DDRR process","MINUSCA"],["3","Major international partners present","Isostasy Consulting monitoring"],["14","Active armed groups recorded in the territory (historical peak, declining)","MINUSCA"],["60%","National territory progressively under defense and security force control","MINUSCA"],["4","Zones under residual armed group influence (Northeast, Northwest)","MINUSCA"],["2","Outside powers with strong strategic interests in the country","Isostasy Consulting monitoring"],["1","National DDRR process (disarmament, demobilization, reintegration) underway","MINUSCA / UNDP"],["3,000","Ex-combatants engaged in the DDRR process since 2021","UNDP, CAR"],["6","Neighboring countries directly affected by CAR's regional stability","AU"],["2","Main strategic minerals (diamonds, gold) at the heart of security issues","Kimberley Process"],["Partial","Compliance with the Kimberley Process for diamond exports","Kimberley Process"],["5","Mining zones under disputed control between armed actors and the state","MINUSCA"],["10 years","Age of the protracted security crisis (2013 reference)","UN"],["3","Regional mediation frameworks involved (AU, ECCAS, UN)","AU / ECCAS / UN"],["1","Partial arms embargo on CAR, progressively eased","UN Security Council"],["40%","Decline in major security incidents recorded since 2021","MINUSCA"],["2","Strategic road corridors under enhanced security surveillance","MINUSCA"],["1","Regional roadmap for the stabilization of Central Africa","ECCAS"],["6","Local and referendum elections organized or planned since 2020","CAR Government / UN"]]
+    },
+    cameroun: {
+      demographie: [["29.1 M","Total population (2024)","World Bank"],["2.6%","Annual population growth (2024)","World Bank"],["18.2 years","Median age of the population (2024)","UN, WPP 2024"],["4.26","Total fertility rate (children/woman, 2024)","World Bank, WPP 2024"],["41.1%","Population under 15 (2025)","UN, WPP 2024"]],
+      sante: [["63.7 years","Life expectancy at birth (2023)","World Bank / Our World in Data"],["6.5%","Under-5 mortality (2024)","Our World in Data, UN IGME"],["82.5%","DTP3 vaccination coverage (2023-2024)","UNICEF Cameroon"],["437.8","Maternal mortality ratio per 100,000 births (2020)","WHO, MMEIG"],["28%","Population without access to electricity (2023)","World Bank"]],
+      education: [["86%","Youth literacy 15-24 (2020)","UNESCO / World Bank"],["78%","Adult literacy (2020)","UNESCO / World Bank"]],
+      environnement: [["43%","National forest cover","World Bank / FAO"],["1.5 M ha","Designated community forests","World Bank"]],
+      infrastructure: [["72.0%","Access to electricity, national (2023)","Africa Energy Portal / World Bank"],["37.3%","Access to electricity, rural areas (2023)","Africa Energy Portal"],["95.8%","Access to electricity, urban areas (2023)","Africa Energy Portal"],["1,579 MW","Installed electricity capacity (2023)","Africa Energy Portal"]],
+      agriculture: [["43%","Working population employed in agriculture (2023)","World Bank / ILO"],["2.6 M","People in projected acute food insecurity, June-August 2025","OCHA / Cadre Harmonisé, March 2025"]],
+      economie: [["$51 Bn","Current GDP (2024)","World Bank"],["3.5%","GDP growth (2024)","World Bank"],["$1,467","GDP per capita (2024)","World Bank"],["4.5%","Inflation, end of 2024","World Bank"],["43.4%","Public debt as a share of GDP (2024)","World Bank"]],
+      humanitaire: [["3.3 M","People needing humanitarian aid and protection (2025)","OCHA, HNO 2025"],["845,000+","Internally displaced people","OCHA"],["13%","Humanitarian funding covered in 2025 (vs 23% in 2024)","OCHA, June 30, 2025"]],
+      immigration: [["407,968","Refugees hosted (January 2026), mostly from CAR (67%) and Nigeria (29%)","UNHCR"],["≈791,000","Returnees","OCHA"]],
+      social: [["0.649","Human Development Index (2023), 23rd in Africa","UNDP, 2025"],["≈40%","Population below the national poverty line","World Bank"],["23.0%","International extreme poverty (2021)","World Bank"]],
+      developpement: [["$940 M","Net official development assistance received (2023)","World Bank / OECD"],["SND30","Current national development strategy","Government / World Bank"]],
+      diplomatie: [["CEMAC, ECCAS, AU","Regional organizations of membership","CEMAC"]],
+      geopolitique: [["3 crises","Boko Haram (Far North), Anglophone crisis (North/South-West), CAR refugees (East)","World Bank / OCHA"]]
+    },
+    tchad: {
+      demographie: [["19.5-21 M","Total population (2024-2025)","IMF 2024 / UNFPA 2025"],["15.7 years","Median age of the population (2024), the youngest in the group","UN, WPP 2024"],["5.94-6.12","Total fertility rate (children/woman, 2023-2025)","UN, WPP 2024"],["55.1 years","Life expectancy at birth (2023)","Our World in Data"]],
+      sante: [["9.7%","Under-5 mortality (2024)","Our World in Data, UN IGME"],["1,063.5","Maternal mortality ratio per 100,000, among the highest in the world (2020)","WHO, MMEIG"],["55-58%","DTP3 vaccination coverage, up 3 points in 2025","WHO / Gavi"]],
+      education: [["26.8-36%","Adult literacy (2022), among the lowest in the world","UNESCO / World Bank"]],
+      environnement: [["—","Shrinking of Lake Chad, desertification, recurring droughts and floods","IMF"],["3.8%","Artisanal gold mining, share of GDP in 2025","IMF"]],
+      infrastructure: [["12%","Access to electricity (2023), among the lowest in the world","World Bank"],["13.2%","Internet users (2025), or 2.74 M people","DataReportal, Digital 2025"]],
+      agriculture: [["71.74%","Working population employed in agriculture (2023), among the highest in Africa","World Bank / ILO"],["22.6%","Agriculture's share of GDP","World Bank"],["≈3.0 M","People in acute food insecurity, 2025 peak","IPC / FEWS NET"]],
+      economie: [["$14 Bn","Current GDP (2024)","World Bank"],["5.0% / 3.4%","GDP growth, 2024 / 2025 projected","AfDB"],["5.1% / 3.9%","Inflation, 2024 / 2025 projected","AfDB"],["32%","Public debt as a share of GDP, end of 2024","AfDB / IMF"]],
+      humanitaire: [["5.5 M","People targeted by the humanitarian response (2025)","OCHA"],["3.7 M","People in critical food insecurity, southern Chad","OCHA"],["1.8 M","Children suffering from malnutrition","OCHA"],["$553.7 M","Emergency funding sought for the Sudanese crisis","UNHCR"]],
+      immigration: [["≈2.26 M","People forcibly displaced, end of June 2026","UNHCR"],["≈1.55 M","Refugees and asylum seekers, mostly Sudanese, June 2026","UNHCR"],["≈219,600","Internally displaced people","UNHCR"]],
+      social: [["0.416","Human Development Index (2023), 190th/193, the lowest in the group","UNDP, HDR 2025"],["$1,748","Gross national income per capita, PPP (2021)","UNDP, HDR 2025"],["42%+","Population below the national poverty line (2019)","World Bank"]],
+      developpement: [["$1,138 M","Net official development assistance received (2023), up from $702 M in 2022","World Bank / OECD"],["$30 Bn","Financing needs of the National Development Plan","AfDB"]],
+      diplomatie: [["2024","End of military cooperation with France","SIPRI"]],
+      geopolitique: [["$558 M (+43%)","Military spending 2024, the sharpest increase in Africa — 3.0% of GDP","SIPRI, April 2025"],["13.7%","Oil's share of GDP, nationalized extraction since 2023","IMF"]]
+    },
+    gabon: {
+      demographie: [["2.6 M","Total population (2025)","UNFPA"],["2.1%","Population growth (2025)","World Bank"],["1,116","Positive net migration (2025)","World Bank"],["69 years","Life expectancy at birth (2024)","World Bank"]],
+      sante: [["226.6","Maternal mortality ratio per 100,000 (2020)","WHO, MMEIG"]],
+      education: [["91%","Adult literacy (2022)","UNESCO / World Bank"]],
+      environnement: [["91.2%","National forest cover (2022), one of the most forested countries in the world","World Bank / FAO"],["140 M t/yr","Net CO2 absorption, carbon sink","UNDP"],["13","National parks (protected areas)","UNDP"]],
+      infrastructure: [["71.9%","Internet users (2025), or 1.84 M people","DataReportal, Digital 2025"],["20.3%","Unemployment rate (2023, estimate)","World Bank / ILO"]],
+      agriculture: [["29.2%","Working population employed in agriculture","World Bank"],["6.5%","Agriculture's share of GDP","World Bank"]],
+      economie: [["$24,128","GDP per capita, PPP (2024), the highest in the group","IMF"],["3.4%","GDP growth (2024)","World Bank"],["1.6%","Inflation (March 2025)","World Bank"],["≈4.6%","Projected budget deficit as a share of GDP, 2026-27","World Bank"]],
+      social: [["0.763","Human Development Index (2023), 7th in Africa","UNDP, 2025"],["33.4%","Population below the national basic needs threshold (2017)","World Bank"],["≈36%","Unemployment rate, estimate, social fragility","IMF"]],
+      developpement: [["Green Gabon","National environmental agenda, target of 125,000 jobs","UNDP"],["$214.50 M","Active World Bank portfolio, 3 projects","World Bank"]],
+      diplomatie: [["April 2025","Election of General Oligui Nguema, Fifth Republic","World Bank"],["2025","Maritime dispute settled by the ICJ in favor of Gabon","World Bank"]]
+    },
+    guineeequatoriale: {
+      demographie: [["1,892,516","Total population (2024)","World Bank"],["60.7 years","Life expectancy at birth","World Bank"]],
+      sante: [["212.3","Maternal mortality ratio per 100,000 (2020)","WHO, MMEIG"],["72%","DTP3 vaccination coverage, children 0-23 months (2024)","UNICEF"],["32.4%","Population without access to running water","World Bank"]],
+      education: [["98%","Adult literacy (2010, older data)","UNESCO / World Bank"]],
+      infrastructure: [["24%","Population without access to electricity (2024), despite oil revenues","World Bank"],["60.4%","Internet users (2025), or 1.16 M people","DataReportal, Digital 2025"]],
+      agriculture: [["43-44%","Working population employed in agriculture (2023)","World Bank / ILO"]],
+      economie: [["$6,745","GDP per capita (2024)","World Bank"],["$4,134","Gross national income per capita, sharply down from $14,560 in 2008","World Bank"],["-5.4%","GDP growth (2024), economic contraction","World Bank"],["13.7%","Unemployment rate","World Bank"],["38.5","Gini index, inequality (2022)","World Bank"]],
+      social: [["0.674","Human Development Index (2023), 12th in Africa","UNDP, 2025"],["≈50%","National monetary poverty, 2024 survey","World Bank / INEGE"],["17%","Formal jobs only, low formalization","World Bank"]],
+      developpement: [["INEGE","National statistics institute created with World Bank support","World Bank"]],
+      diplomatie: [["Since 1979","President Obiang in power, re-elected in 2022 (94.9% of the vote)","World Bank"],["2026","Ciudad de la Paz declared new official capital by decree","World Bank"]]
+    },
+    congo: {
+      demographie: [["6.1 M","Total population","World Bank"],["47%","Population under 18","World Bank"],["≈53 years","Life expectancy at birth","US Census Bureau, 2024"]],
+      sante: [["282.4","Maternal mortality ratio per 100,000 (2020)","WHO, MMEIG"]],
+      education: [["82%","Adult literacy (2021)","UNESCO / World Bank"]],
+      environnement: [["69%+","National forest cover, tropical forests and peatlands","World Bank"],["≈16 Bn t","Forest carbon stock","World Bank"]],
+      infrastructure: [["38.4%","Internet users (2025), or 2.46 M people","DataReportal, Digital 2025"],["13.5%","Non-performing loans (2025), banking sector fragility","World Bank"]],
+      agriculture: [["30.17%","Working population employed in agriculture (2023)","World Bank / ILO"],["59%","Population in severe food insecurity (2023)","World Bank"]],
+      economie: [["$15.72 Bn","Current GDP (2024)","World Bank"],["2.6%","GDP growth (2024), first rise in per capita income since 2016","World Bank"],["2.9%","Inflation (2025)","World Bank"],["93.6%","Public debt as a share of GDP (2024), country in debt distress","World Bank"],["25.1%","Total state revenue as a share of GDP (2024)","World Bank"]],
+      social: [["46.8%","Population below the poverty line (2023), up from 33.5% in 2015","AfDB"],["48.9","Gini index, high inequality","AfDB"],["0.593","Human Development Index, 149th/193 (2022), declining since 2015","UNDP"]],
+      developpement: [["≈$453 M","Net official development assistance received (2023)","OECD"],["NDP 2022-2026","National development plan, economic diversification","World Bank"],["$224 Bn","Total national wealth (2020): human capital 39%, natural capital 38%","World Bank, CWON 2024"]],
+      diplomatie: [["$1.63 Bn","Eurobonds issued, Nov 2025-Feb 2026, to refinance debt","World Bank"]]
+    }
+  };
   const sectorLabels = {demographie:"Démographie",sante:"Santé",education:"Éducation",environnement:"Environnement",infrastructure:"Infrastructure",agriculture:"Agriculture",economie:"Économie & Finance",humanitaire:"Humanitaire",immigration:"Immigration",social:"Social",developpement:"Développement",diplomatie:"Diplomatie",geopolitique:"Géopolitique"};
   const sectorColors = ['--secondary','--sky','--green','--rouge-2','--orange-dark','--secondary','--green','--rouge-2','--orange-dark','--sky','--green','--rouge-2','--orange-dark'];
   const geoData = {
@@ -5658,21 +6063,22 @@ window.Isostasy = window.Isostasy || {};
 
   function renderSectorPanel(){
     const panel = document.getElementById('dataPanel');
+    const lang = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'fr';
+    const dict = translations[lang] || translations.fr;
     const hasStatic = !!openData[currentScope];
     const hasLive = !!(liveStats[currentScope] && Object.keys(liveStats[currentScope]).length);
     const scopeKey = (hasStatic || hasLive) ? currentScope : 'monde';
     const notCovered = (currentScope !== 'monde' && !hasStatic && !hasLive);
     if(notCovered){
       const isRegionOnly = currentScope === 'region-only';
-      const message = isRegionOnly
-        ? "Aucune donnée agrégée n'est disponible à l'échelle d'un continent ou d'une région — sélectionnez un pays précis dans le menu ci-dessus pour afficher ses données."
-        : "Les données détaillées pour ce pays ne sont pas encore chargées dans cette démonstration.";
+      const message = isRegionOnly ? dict.donnees_notcovered_region : dict.donnees_notcovered_country;
       panel.innerHTML = '<div style="grid-column:1/-1;background:var(--paper);border:1px dashed var(--line);border-radius:12px;padding:30px;text-align:center;">'
         + '<p style="margin:0;color:var(--texte-2);">' + message + '</p>'
-        + (isRegionOnly ? '' : '<a href="#contact" class="btn btn-outline-navy btn-sm" style="margin-top:12px;">Demander une étude sur mesure</a>') + '</div>';
+        + (isRegionOnly ? '' : '<a href="#contact" class="btn btn-outline-navy btn-sm" style="margin-top:12px;">' + dict.donnees_notcovered_cta + '</a>') + '</div>';
       return;
     }
-    const staticItems = (openData[scopeKey] && openData[scopeKey][currentSector]) || [];
+    const dataSource = (lang === 'en' && openDataEN[scopeKey]) ? openDataEN : openData;
+    const staticItems = (dataSource[scopeKey] && dataSource[scopeKey][currentSector]) || [];
     const liveItems = (liveStats[scopeKey] && liveStats[scopeKey][currentSector]) || null;
     // Si des statistiques existent côté Supabase pour ce périmètre/secteur, elles remplacent
     // entièrement la version codée en dur (pour éviter les doublons une fois la migration faite).
@@ -5683,22 +6089,23 @@ window.Isostasy = window.Isostasy || {};
     if(currentSector === 'demographie' && genderSplit[scopeKey]){
       const gender = genderSplit[scopeKey];
       const genderSegments = [
-        { label: 'Hommes', pct: gender.men, color: 'var(--sky)' },
-        { label: 'Femmes', pct: gender.women, color: 'var(--rouge-2)' }
+        { label: dict.donnees_gender_men, pct: gender.men, color: 'var(--sky)' },
+        { label: dict.donnees_gender_women, pct: gender.women, color: 'var(--rouge-2)' }
       ];
-      let genderBlock = renderSplitPie('Désagrégation par sexe — ' + (countryDisplayNames[scopeKey] || liveScopeLabels[scopeKey] || 'Monde'), genderSegments, 'chart_sexe_image');
-      let ageBlock = ageSplit[scopeKey] ? renderSplitPie('Par tranche d\'âge — ' + (countryDisplayNames[scopeKey] || liveScopeLabels[scopeKey] || 'Monde'), ageSplit[scopeKey], 'chart_age_image') : '';
-      let regionBlock = regionSplit[scopeKey] ? renderVerticalBar('Par région du monde', regionSplit[scopeKey], 'chart_region_image') : '';
+      let genderBlock = renderSplitPie(dict.donnees_gender_split_prefix + (countryDisplayNames[scopeKey] || liveScopeLabels[scopeKey] || dict.donnees_world_fallback), genderSegments, 'chart_sexe_image');
+      let ageBlock = ageSplit[scopeKey] ? renderSplitPie(dict.donnees_age_split_prefix + (countryDisplayNames[scopeKey] || liveScopeLabels[scopeKey] || dict.donnees_world_fallback), ageSplit[scopeKey], 'chart_age_image') : '';
+      let regionBlock = regionSplit[scopeKey] ? renderVerticalBar(dict.donnees_region_split, regionSplit[scopeKey], 'chart_region_image') : '';
       genderHTML = '<div class="gender-split-row">' + genderBlock + ageBlock + regionBlock + '</div>';
     }
     panel.innerHTML = genderHTML + items.map(([num, lbl, source]) => (
       '<div class="mini-stat" style="border-left-color:var(' + colorVar + ')">'
       + '<div class="num" style="color:var(' + colorVar + ')">' + num + '</div>'
       + '<div class="lbl">' + lbl + '</div>'
-      + '<div class="mini-source">Source : ' + source + '</div>'
+      + '<div class="mini-source">' + dict.donnees_source_label + source + '</div>'
       + '</div>'
     )).join('');
   }
+  window.isostasyRenderSectorPanel = renderSectorPanel;
 
   document.querySelectorAll('#dataTabs .tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -6638,137 +7045,242 @@ window.Isostasy = window.Isostasy || {};
     },
 
     sig: {
-      label: "Mapping & géolocalisation (SIG)", catClass: "cat-bleu", badgeClass: "badge-blue",
+      label: "Mapping & géolocalisation (SIG)", label_en: "Mapping & geolocation (GIS)", catClass: "cat-bleu", badgeClass: "badge-blue",
       notions: [
         { title: "Les systèmes de coordonnées en cartographie",
           teaser: "Pourquoi deux cartes du même terrain peuvent afficher des points à des dizaines de mètres d'écart.",
-          detail: "Le système WGS84 (utilisé par le GPS et la majorité des outils numériques) est le plus courant. Le problème survient quand des données sont fournies dans des systèmes différents sans conversion explicite : deux couches peuvent sembler alignées à l'écran tout en étant décalées de plusieurs dizaines de mètres sur le terrain réel." },
+          detail: "Le système WGS84 (utilisé par le GPS et la majorité des outils numériques) est le plus courant. Le problème survient quand des données sont fournies dans des systèmes différents sans conversion explicite : deux couches peuvent sembler alignées à l'écran tout en étant décalées de plusieurs dizaines de mètres sur le terrain réel.",
+          title_en: "Coordinate systems in mapping",
+          teaser_en: "Why two maps of the same terrain can show points tens of meters apart.",
+          detail_en: "The WGS84 system (used by GPS and most digital tools) is the most common. The problem arises when data is provided in different systems without explicit conversion: two layers can look aligned on screen while being offset by dozens of meters on the actual ground." },
         { title: "Le SIG participatif",
           teaser: "Impliquer directement les communautés dans la cartographie de leur propre territoire.",
-          detail: "Le SIG participatif fait cartographier par les habitants eux-mêmes des éléments qu'eux seuls connaissent précisément (limites coutumières, ressources locales, zones à risque). Au-delà de la précision des données obtenues, cette démarche renforce l'appropriation locale des résultats — un enjeu souvent aussi important que la donnée elle-même." },
+          detail: "Le SIG participatif fait cartographier par les habitants eux-mêmes des éléments qu'eux seuls connaissent précisément (limites coutumières, ressources locales, zones à risque). Au-delà de la précision des données obtenues, cette démarche renforce l'appropriation locale des résultats — un enjeu souvent aussi important que la donnée elle-même.",
+          title_en: "Participatory GIS",
+          teaser_en: "Directly involving communities in mapping their own territory.",
+          detail_en: "Participatory GIS has residents themselves map elements only they know precisely (customary boundaries, local resources, risk areas). Beyond the accuracy of the data obtained, this approach strengthens local ownership of the results — an issue often as important as the data itself." },
         { title: "La télédétection (imagerie satellite)",
           teaser: "Suivre l'évolution d'un territoire à distance, sans mission de terrain systématique.",
-          detail: "L'imagerie satellite permet de suivre la déforestation, l'évolution des surfaces cultivées ou l'étendue d'une inondation, y compris dans des zones d'accès difficile ou dangereux. Elle complète mais ne remplace jamais totalement la vérification terrain — certains éléments (usage réel d'une parcelle, qualité d'un sol) restent invisibles depuis l'espace." },
+          detail: "L'imagerie satellite permet de suivre la déforestation, l'évolution des surfaces cultivées ou l'étendue d'une inondation, y compris dans des zones d'accès difficile ou dangereux. Elle complète mais ne remplace jamais totalement la vérification terrain — certains éléments (usage réel d'une parcelle, qualité d'un sol) restent invisibles depuis l'espace.",
+          title_en: "Remote sensing (satellite imagery)",
+          teaser_en: "Tracking a territory's changes remotely, without systematic field missions.",
+          detail_en: "Satellite imagery can track deforestation, changes in cultivated area, or the extent of flooding, including in hard-to-reach or dangerous areas. It complements but never fully replaces field verification — some elements (actual use of a plot, soil quality) remain invisible from space." },
         { title: "Le géocodage d'adresses",
           teaser: "Transformer une adresse texte en coordonnées géographiques exploitables sur une carte.",
-          detail: "Le géocodage convertit une adresse (« Quartier Sica 3, Bangui ») en coordonnées GPS utilisables pour une analyse spatiale. Dans des contextes où l'adressage formel est incomplet ou informel, le géocodage précis reste un défi technique réel, souvent sous-estimé par rapport à des contextes urbains occidentaux bien cartographiés." },
+          detail: "Le géocodage convertit une adresse (« Quartier Sica 3, Bangui ») en coordonnées GPS utilisables pour une analyse spatiale. Dans des contextes où l'adressage formel est incomplet ou informel, le géocodage précis reste un défi technique réel, souvent sous-estimé par rapport à des contextes urbains occidentaux bien cartographiés.",
+          title_en: "Address geocoding",
+          teaser_en: "Turning a text address into usable geographic coordinates on a map.",
+          detail_en: "Geocoding converts an address (\"Sica 3 district, Bangui\") into GPS coordinates usable for spatial analysis. In contexts where formal addressing is incomplete or informal, precise geocoding remains a real technical challenge, often underestimated compared to well-mapped Western urban contexts." },
         { title: "Les cartes de chaleur (heatmaps)",
           teaser: "Visualiser instantanément où se concentre un phénomène, sans lire un seul chiffre.",
-          detail: "Une carte de chaleur traduit une densité de points (incidents, bénéficiaires, cas signalés) en dégradé de couleur, révélant immédiatement les zones de concentration. Utile pour une présentation rapide à un décideur, elle doit néanmoins rester adossée aux données brutes pour toute décision opérationnelle précise, car elle lisse volontairement le détail." },
+          detail: "Une carte de chaleur traduit une densité de points (incidents, bénéficiaires, cas signalés) en dégradé de couleur, révélant immédiatement les zones de concentration. Utile pour une présentation rapide à un décideur, elle doit néanmoins rester adossée aux données brutes pour toute décision opérationnelle précise, car elle lisse volontairement le détail.",
+          title_en: "Heatmaps",
+          teaser_en: "Instantly visualizing where a phenomenon is concentrated, without reading a single figure.",
+          detail_en: "A heatmap translates a density of points (incidents, beneficiaries, reported cases) into a color gradient, immediately revealing concentration areas. Useful for a quick presentation to a decision-maker, it should nonetheless remain backed by raw data for any precise operational decision, since it intentionally smooths out detail." },
         { title: "Les drones en cartographie de terrain",
           teaser: "Une résolution bien supérieure au satellite, pour une zone limitée et un coût maîtrisé.",
-          detail: "Un drone produit des images à très haute résolution sur une zone ciblée (un site agricole, une zone sinistrée), avec un niveau de détail impossible à obtenir par satellite. Son usage reste soumis à une réglementation aérienne locale qu'il faut vérifier avant toute mission, particulièrement dans des zones sensibles ou proches de frontières." },
+          detail: "Un drone produit des images à très haute résolution sur une zone ciblée (un site agricole, une zone sinistrée), avec un niveau de détail impossible à obtenir par satellite. Son usage reste soumis à une réglementation aérienne locale qu'il faut vérifier avant toute mission, particulièrement dans des zones sensibles ou proches de frontières.",
+          title_en: "Drones in field mapping",
+          teaser_en: "Resolution far superior to satellite, for a limited area and controlled cost.",
+          detail_en: "A drone produces very high-resolution images of a targeted area (an agricultural site, a disaster zone), with a level of detail impossible to obtain by satellite. Its use remains subject to local aviation regulations that must be checked before any mission, particularly in sensitive areas or near borders." },
         { title: "La superposition de couches (overlay analysis)",
           teaser: "Croiser plusieurs cartes pour révéler des zones de convergence invisibles séparément.",
-          detail: "Superposer une carte de vulnérabilité climatique avec une carte de densité de population, par exemple, révèle les zones où les deux facteurs se cumulent — souvent les priorités d'intervention les plus pertinentes. Cette analyse suppose que toutes les couches partagent le même système de coordonnées, sans quoi le croisement produit des résultats faussés." }
+          detail: "Superposer une carte de vulnérabilité climatique avec une carte de densité de population, par exemple, révèle les zones où les deux facteurs se cumulent — souvent les priorités d'intervention les plus pertinentes. Cette analyse suppose que toutes les couches partagent le même système de coordonnées, sans quoi le croisement produit des résultats faussés.",
+          title_en: "Layer overlay analysis",
+          teaser_en: "Cross-referencing several maps to reveal convergence areas invisible on their own.",
+          detail_en: "Overlaying a climate vulnerability map with a population density map, for example, reveals areas where both factors combine — often the most relevant intervention priorities. This analysis assumes all layers share the same coordinate system, otherwise the overlay produces skewed results." }
       ]
     },
 
     infrastructure: {
-      label: "Infrastructure & aménagement", catClass: "cat-bleu", badgeClass: "badge-blue",
+      label: "Infrastructure & aménagement", label_en: "Infrastructure & planning", catClass: "cat-bleu", badgeClass: "badge-blue",
       notions: [
         { title: "L'étude de faisabilité technique",
           teaser: "Vérifier qu'un projet d'infrastructure est réalisable avant d'engager les fonds de construction.",
-          detail: "Une étude de faisabilité examine les conditions du sol, l'accès au site, la disponibilité de matériaux locaux et les contraintes climatiques avant tout engagement financier majeur. Sauter cette étape pour gagner du temps est une des causes les plus fréquentes de surcoûts ou d'abandon de projets d'infrastructure en cours de réalisation." },
+          detail: "Une étude de faisabilité examine les conditions du sol, l'accès au site, la disponibilité de matériaux locaux et les contraintes climatiques avant tout engagement financier majeur. Sauter cette étape pour gagner du temps est une des causes les plus fréquentes de surcoûts ou d'abandon de projets d'infrastructure en cours de réalisation.",
+          title_en: "Technical feasibility study",
+          teaser_en: "Verifying that an infrastructure project is achievable before committing construction funds.",
+          detail_en: "A feasibility study examines soil conditions, site access, availability of local materials and climate constraints before any major financial commitment. Skipping this step to save time is one of the most frequent causes of cost overruns or abandoned infrastructure projects mid-construction." },
         { title: "Le diagnostic d'infrastructure existante",
           teaser: "Avant de construire du neuf, évaluer précisément l'état de l'existant.",
-          detail: "Un diagnostic d'infrastructure documente l'état structurel réel (fissures, usure, non-conformités) plutôt que de se fier à l'âge apparent ou aux dires d'usage. Il oriente la décision entre réhabilitation et reconstruction, un arbitrage souvent plus économique et plus rapide que la construction neuve lorsqu'il est correctement évalué en amont." },
+          detail: "Un diagnostic d'infrastructure documente l'état structurel réel (fissures, usure, non-conformités) plutôt que de se fier à l'âge apparent ou aux dires d'usage. Il oriente la décision entre réhabilitation et reconstruction, un arbitrage souvent plus économique et plus rapide que la construction neuve lorsqu'il est correctement évalué en amont.",
+          title_en: "Diagnosing existing infrastructure",
+          teaser_en: "Before building new, precisely assessing the state of what already exists.",
+          detail_en: "An infrastructure diagnostic documents the actual structural condition (cracks, wear, non-compliance) rather than relying on apparent age or hearsay. It guides the choice between rehabilitation and reconstruction, a trade-off often more economical and faster than new construction when properly assessed upstream." },
         { title: "L'aménagement du territoire",
           teaser: "Penser un espace dans son ensemble, pas infrastructure par infrastructure isolée.",
-          detail: "L'aménagement du territoire coordonne routes, points d'eau, marchés et zones d'habitation pour maximiser leur usage combiné, plutôt que de les planifier indépendamment. Une école bien construite mais mal positionnée par rapport aux zones de population reste sous-utilisée malgré la qualité de sa construction." },
+          detail: "L'aménagement du territoire coordonne routes, points d'eau, marchés et zones d'habitation pour maximiser leur usage combiné, plutôt que de les planifier indépendamment. Une école bien construite mais mal positionnée par rapport aux zones de population reste sous-utilisée malgré la qualité de sa construction.",
+          title_en: "Territorial planning",
+          teaser_en: "Thinking about a space as a whole, not piece of infrastructure by isolated piece of infrastructure.",
+          detail_en: "Territorial planning coordinates roads, water points, markets and residential areas to maximize their combined use, rather than planning them independently. A well-built school poorly positioned relative to population areas remains underused despite the quality of its construction." },
         { title: "La résilience climatique des infrastructures",
           teaser: "Construire pour le climat de demain, pas seulement pour les normes d'hier.",
-          detail: "Intégrer la résilience climatique dès la conception (drainage renforcé face aux pluies plus intenses, matériaux résistants à des températures plus élevées) coûte generalement moins cher que de réparer ou reconstruire après un sinistre. Les zones d'intervention du cabinet sont souvent particulièrement exposées à ces risques climatiques croissants." },
+          detail: "Intégrer la résilience climatique dès la conception (drainage renforcé face aux pluies plus intenses, matériaux résistants à des températures plus élevées) coûte generalement moins cher que de réparer ou reconstruire après un sinistre. Les zones d'intervention du cabinet sont souvent particulièrement exposées à ces risques climatiques croissants.",
+          title_en: "Climate resilience of infrastructure",
+          teaser_en: "Building for tomorrow's climate, not just yesterday's standards.",
+          detail_en: "Integrating climate resilience from the design stage (reinforced drainage for heavier rains, materials resistant to higher temperatures) generally costs less than repairing or rebuilding after a disaster. The firm's operating areas are often particularly exposed to these growing climate risks." },
         { title: "Les normes de construction locales",
           teaser: "Une infrastructure conforme aux standards internationaux mais ignorant les normes locales reste juridiquement fragile.",
-          detail: "Les codes de construction locaux définissent des exigences minimales (matériaux, résistance sismique, accessibilité) qui varient d'un pays à l'autre. Les connaître et les respecter, au-delà des standards de bailleurs internationaux, sécurise juridiquement le projet et facilite son intégration dans le tissu réglementaire local existant." },
+          detail: "Les codes de construction locaux définissent des exigences minimales (matériaux, résistance sismique, accessibilité) qui varient d'un pays à l'autre. Les connaître et les respecter, au-delà des standards de bailleurs internationaux, sécurise juridiquement le projet et facilite son intégration dans le tissu réglementaire local existant.",
+          title_en: "Local building codes",
+          teaser_en: "Infrastructure compliant with international standards but ignoring local codes remains legally fragile.",
+          detail_en: "Local building codes set minimum requirements (materials, seismic resistance, accessibility) that vary from country to country. Knowing and respecting them, beyond international donor standards, legally secures the project and eases its integration into the existing local regulatory framework." },
         { title: "La gestion des marchés de travaux",
           teaser: "Le processus d'appel d'offres détermine autant la qualité finale que le cahier des charges initial.",
-          detail: "Un marché de travaux mal cadré (spécifications techniques vagues, critères de sélection peu clairs) ouvre la porte à des offres non comparables entre elles et à des litiges en cours de chantier. Un cahier des charges technique précis, associé à des critères d'évaluation transparents, reste le meilleur levier de qualité en amont." },
+          detail: "Un marché de travaux mal cadré (spécifications techniques vagues, critères de sélection peu clairs) ouvre la porte à des offres non comparables entre elles et à des litiges en cours de chantier. Un cahier des charges technique précis, associé à des critères d'évaluation transparents, reste le meilleur levier de qualité en amont.",
+          title_en: "Managing construction contracts",
+          teaser_en: "The tendering process determines the final quality as much as the initial specifications.",
+          detail_en: "A poorly scoped construction contract (vague technical specifications, unclear selection criteria) opens the door to non-comparable bids and disputes during construction. Precise technical specifications, combined with transparent evaluation criteria, remain the best upstream lever for quality." },
         { title: "Le suivi de chantier",
           teaser: "La supervision régulière d'un chantier prévient des non-conformités bien plus coûteuses à corriger après coup.",
-          detail: "Un suivi de chantier documente l'avancement réel par rapport au planning et vérifie la conformité des matériaux effectivement utilisés par rapport aux spécifications contractuelles. Une visite de supervision manquée en phase de fondations, par exemple, peut rendre un défaut invisible et irréversible une fois la structure achevée." }
+          detail: "Un suivi de chantier documente l'avancement réel par rapport au planning et vérifie la conformité des matériaux effectivement utilisés par rapport aux spécifications contractuelles. Une visite de supervision manquée en phase de fondations, par exemple, peut rendre un défaut invisible et irréversible une fois la structure achevée.",
+          title_en: "Construction site monitoring",
+          teaser_en: "Regular site supervision prevents non-compliance that is far more costly to fix afterward.",
+          detail_en: "Site monitoring documents actual progress against the schedule and checks that materials actually used comply with contractual specifications. A missed supervision visit during the foundation phase, for example, can make a defect invisible and irreversible once the structure is completed." }
       ]
     },
 
     gestionprojets: {
-      label: "Conception & gestion de projets", catClass: "cat-jaune", badgeClass: "badge-jaune",
+      label: "Conception & gestion de projets", label_en: "Project design & management", catClass: "cat-jaune", badgeClass: "badge-jaune",
       notions: [
         { title: "La théorie du changement",
           teaser: "Expliciter le raisonnement caché derrière chaque projet, avant même de définir les activités.",
-          detail: "Une théorie du changement explique le raisonnement logique reliant les activités d'un projet à l'impact recherché, en rendant explicites les hypothèses sous-jacentes : « Si nous faisons X, ALORS Y se produira, PARCE QUE [hypothèse] ». Elle se construit avant le cadre logique, qui en est la traduction opérationnelle et mesurable." },
+          detail: "Une théorie du changement explique le raisonnement logique reliant les activités d'un projet à l'impact recherché, en rendant explicites les hypothèses sous-jacentes : « Si nous faisons X, ALORS Y se produira, PARCE QUE [hypothèse] ». Elle se construit avant le cadre logique, qui en est la traduction opérationnelle et mesurable.",
+          title_en: "Theory of change",
+          teaser_en: "Making explicit the hidden reasoning behind every project, before even defining activities.",
+          detail_en: "A theory of change explains the logical reasoning linking a project's activities to its intended impact, making underlying assumptions explicit: \"If we do X, THEN Y will happen, BECAUSE [assumption].\" It is built before the logical framework, which is its operational, measurable translation." },
         { title: "Le cycle de projet",
           teaser: "Un projet passe par des phases distinctes — confondre identification et mise en œuvre mène à des erreurs classiques.",
-          detail: "Identification, formulation, mise en œuvre, suivi, clôture et capitalisation : chaque phase a sa logique propre. Vouloir accélérer directement vers la mise en œuvre sans phase d'identification rigoureuse est une cause fréquente de projets mal ajustés aux besoins réels du contexte d'intervention." },
+          detail: "Identification, formulation, mise en œuvre, suivi, clôture et capitalisation : chaque phase a sa logique propre. Vouloir accélérer directement vers la mise en œuvre sans phase d'identification rigoureuse est une cause fréquente de projets mal ajustés aux besoins réels du contexte d'intervention.",
+          title_en: "The project cycle",
+          teaser_en: "A project goes through distinct phases — confusing identification and implementation leads to classic mistakes.",
+          detail_en: "Identification, formulation, implementation, monitoring, closure and capitalization: each phase has its own logic. Trying to jump straight to implementation without a rigorous identification phase is a frequent cause of projects poorly adjusted to the actual needs of the operating context." },
         { title: "La matrice des risques",
           teaser: "Anticiper ce qui pourrait mal tourner, avant que cela ne se produise réellement.",
-          detail: "Une matrice des risques liste les risques potentiels d'un projet, évalue leur probabilité et leur impact, et définit des mesures d'atténuation pour chacun. Un projet sans matrice des risques documentée découvre souvent ses obstacles majeurs en cours de route, au moment le moins opportun pour s'y préparer sereinement." },
+          detail: "Une matrice des risques liste les risques potentiels d'un projet, évalue leur probabilité et leur impact, et définit des mesures d'atténuation pour chacun. Un projet sans matrice des risques documentée découvre souvent ses obstacles majeurs en cours de route, au moment le moins opportun pour s'y préparer sereinement.",
+          title_en: "The risk matrix",
+          teaser_en: "Anticipating what could go wrong, before it actually happens.",
+          detail_en: "A risk matrix lists a project's potential risks, assesses their likelihood and impact, and defines mitigation measures for each. A project without a documented risk matrix often discovers its major obstacles along the way, at the least convenient time to prepare for them calmly." },
         { title: "La gestion axée sur les résultats (GAR)",
           teaser: "Piloter un projet par ses résultats attendus, pas seulement par ses activités réalisées.",
-          detail: "La GAR structure la gestion autour d'une chaîne de résultats (extrants → effets → impact) plutôt qu'autour d'une simple liste d'activités cochées. Un projet peut réaliser 100% de ses activités planifiées tout en n'atteignant pas les effets escomptés — la GAR garde ce risque au centre de l'attention tout au long de la mise en œuvre." },
+          detail: "La GAR structure la gestion autour d'une chaîne de résultats (extrants → effets → impact) plutôt qu'autour d'une simple liste d'activités cochées. Un projet peut réaliser 100% de ses activités planifiées tout en n'atteignant pas les effets escomptés — la GAR garde ce risque au centre de l'attention tout au long de la mise en œuvre.",
+          title_en: "Results-based management (RBM)",
+          teaser_en: "Steering a project by its expected results, not just its completed activities.",
+          detail_en: "RBM structures management around a results chain (outputs → outcomes → impact) rather than a simple list of checked-off activities. A project can complete 100% of its planned activities while still missing its intended outcomes — RBM keeps this risk at the center of attention throughout implementation." },
         { title: "Le diagramme de Gantt",
           teaser: "L'outil visuel classique pour planifier et suivre le calendrier d'un projet.",
-          detail: "Un diagramme de Gantt représente les tâches d'un projet sur une ligne de temps, avec leurs dépendances et leur durée. Son utilité dépend de sa mise à jour régulière — un Gantt figé au démarrage du projet et jamais réactualisé perd rapidement toute valeur de pilotage réel pour l'équipe." },
+          detail: "Un diagramme de Gantt représente les tâches d'un projet sur une ligne de temps, avec leurs dépendances et leur durée. Son utilité dépend de sa mise à jour régulière — un Gantt figé au démarrage du projet et jamais réactualisé perd rapidement toute valeur de pilotage réel pour l'équipe.",
+          title_en: "The Gantt chart",
+          teaser_en: "The classic visual tool for planning and tracking a project's schedule.",
+          detail_en: "A Gantt chart represents a project's tasks on a timeline, with their dependencies and duration. Its usefulness depends on regular updating — a Gantt chart frozen at project start and never refreshed quickly loses any real steering value for the team." },
         { title: "L'analyse des parties prenantes",
           teaser: "Identifier qui a un intérêt dans le projet, avant qu'un acteur oublié ne devienne un obstacle imprévu.",
-          detail: "Cartographier les parties prenantes (bénéficiaires, autorités locales, partenaires, concurrents potentiels) selon leur niveau d'influence et d'intérêt oriente la stratégie d'engagement de chacune. Négliger un acteur local influent, même modeste en apparence, est une cause fréquente de blocages inattendus en cours de mise en œuvre." },
+          detail: "Cartographier les parties prenantes (bénéficiaires, autorités locales, partenaires, concurrents potentiels) selon leur niveau d'influence et d'intérêt oriente la stratégie d'engagement de chacune. Négliger un acteur local influent, même modeste en apparence, est une cause fréquente de blocages inattendus en cours de mise en œuvre.",
+          title_en: "Stakeholder analysis",
+          teaser_en: "Identifying who has a stake in the project, before an overlooked actor becomes an unforeseen obstacle.",
+          detail_en: "Mapping stakeholders (beneficiaries, local authorities, partners, potential competitors) by their level of influence and interest guides the engagement strategy for each. Overlooking an influential local actor, even a seemingly minor one, is a frequent cause of unexpected blockages during implementation." },
         { title: "La clôture et la capitalisation de projet",
           teaser: "La phase la plus souvent négligée — et pourtant celle qui permet à l'organisation d'apprendre pour la suite.",
-          detail: "La clôture d'un projet inclut le bilan financier, la restitution aux parties prenantes, et surtout la capitalisation : documenter explicitement ce qui a fonctionné, ce qui n'a pas fonctionné, et pourquoi. Sans cette étape, une organisation répète souvent les mêmes erreurs d'un projet à l'autre, faute de mémoire institutionnelle formalisée." }
+          detail: "La clôture d'un projet inclut le bilan financier, la restitution aux parties prenantes, et surtout la capitalisation : documenter explicitement ce qui a fonctionné, ce qui n'a pas fonctionné, et pourquoi. Sans cette étape, une organisation répète souvent les mêmes erreurs d'un projet à l'autre, faute de mémoire institutionnelle formalisée.",
+          title_en: "Project closure and capitalization",
+          teaser_en: "The most often neglected phase — and yet the one that lets an organization learn for next time.",
+          detail_en: "Project closure includes the financial report, debriefing stakeholders, and above all capitalization: explicitly documenting what worked, what didn't, and why. Without this step, an organization often repeats the same mistakes from one project to the next, for lack of formalized institutional memory." }
       ]
     },
 
     marketing: {
-      label: "Marketing & positionnement", catClass: "cat-orange", badgeClass: "badge-soon",
+      label: "Marketing & positionnement", label_en: "Marketing & positioning", catClass: "cat-orange", badgeClass: "badge-soon",
       notions: [
         { title: "Le positionnement de marque",
           teaser: "Répondre clairement à une question simple : pourquoi vous, plutôt qu'un autre cabinet ?",
-          detail: "Le positionnement définit la place qu'une organisation occupe dans l'esprit de ses clients par rapport à ses concurrents — sur quels critères elle choisit d'être reconnue en priorité (rigueur méthodologique, réactivité, ancrage local). Un positionnement flou, qui tente de plaire à tout le monde, finit généralement par ne se différencier de personne." },
+          detail: "Le positionnement définit la place qu'une organisation occupe dans l'esprit de ses clients par rapport à ses concurrents — sur quels critères elle choisit d'être reconnue en priorité (rigueur méthodologique, réactivité, ancrage local). Un positionnement flou, qui tente de plaire à tout le monde, finit généralement par ne se différencier de personne.",
+          title_en: "Brand positioning",
+          teaser_en: "Clearly answering a simple question: why you, rather than another firm?",
+          detail_en: "Positioning defines the place an organization occupies in its clients' minds relative to competitors — which criteria it chooses to be recognized for first (methodological rigor, responsiveness, local roots). A vague positioning that tries to please everyone usually ends up standing out to no one." },
         { title: "L'étude de marché",
           teaser: "Comprendre ses clients potentiels et ses concurrents avant de définir une offre, pas après.",
-          detail: "Une étude de marché identifie les besoins non satisfaits, la structure de la concurrence et la disposition à payer des clients potentiels. Lancer une offre de service sans cette étape préalable revient à parier sur des hypothèses non vérifiées — un risque évitable avec un travail de recherche relativement modeste en amont." },
+          detail: "Une étude de marché identifie les besoins non satisfaits, la structure de la concurrence et la disposition à payer des clients potentiels. Lancer une offre de service sans cette étape préalable revient à parier sur des hypothèses non vérifiées — un risque évitable avec un travail de recherche relativement modeste en amont.",
+          title_en: "Market research",
+          teaser_en: "Understanding potential clients and competitors before defining an offer, not after.",
+          detail_en: "Market research identifies unmet needs, the competitive landscape, and potential clients' willingness to pay. Launching a service offer without this preliminary step amounts to betting on unverified assumptions — an avoidable risk with relatively modest upfront research." },
         { title: "La proposition de valeur",
           teaser: "La phrase qui résume pourquoi un client devrait choisir votre offre plutôt qu'une alternative.",
-          detail: "Une proposition de valeur claire répond à trois questions : quel problème est résolu, pour qui, et en quoi la solution proposée est meilleure que les alternatives disponibles. Une proposition de valeur qui décrit uniquement ce que fait l'organisation, sans dire en quoi c'est mieux pour le client, reste incomplète." },
+          detail: "Une proposition de valeur claire répond à trois questions : quel problème est résolu, pour qui, et en quoi la solution proposée est meilleure que les alternatives disponibles. Une proposition de valeur qui décrit uniquement ce que fait l'organisation, sans dire en quoi c'est mieux pour le client, reste incomplète.",
+          title_en: "The value proposition",
+          teaser_en: "The sentence that sums up why a client should choose your offer over an alternative.",
+          detail_en: "A clear value proposition answers three questions: what problem is solved, for whom, and why the proposed solution is better than available alternatives. A value proposition that only describes what the organization does, without saying why it's better for the client, remains incomplete." },
         { title: "La segmentation de marché",
           teaser: "Tous les clients potentiels n'ont pas les mêmes besoins — les regrouper permet d'adapter l'offre.",
-          detail: "Segmenter un marché consiste à regrouper des clients potentiels aux besoins similaires (ex. ONG internationales vs administrations nationales vs entreprises privées), pour adapter le message et l'offre à chaque segment plutôt que de proposer un discours unique et générique à des publics aux attentes très différentes." },
+          detail: "Segmenter un marché consiste à regrouper des clients potentiels aux besoins similaires (ex. ONG internationales vs administrations nationales vs entreprises privées), pour adapter le message et l'offre à chaque segment plutôt que de proposer un discours unique et générique à des publics aux attentes très différentes.",
+          title_en: "Market segmentation",
+          teaser_en: "Not all potential clients have the same needs — grouping them allows the offer to be tailored.",
+          detail_en: "Segmenting a market means grouping potential clients with similar needs (e.g. international NGOs vs national administrations vs private companies), to tailor the message and offer to each segment rather than proposing a single, generic pitch to audiences with very different expectations." },
         { title: "Le marketing de contenu",
           teaser: "Attirer des clients en démontrant son expertise, plutôt qu'en le clamant directement.",
-          detail: "Le marketing de contenu (articles de blog, études de cas, notions expliquées) construit la crédibilité progressivement, en montrant une expertise réelle plutôt qu'en l'affirmant par la seule publicité. Il demande de la constance dans la durée, mais construit une confiance plus durable qu'une communication purement promotionnelle ponctuelle." },
+          detail: "Le marketing de contenu (articles de blog, études de cas, notions expliquées) construit la crédibilité progressivement, en montrant une expertise réelle plutôt qu'en l'affirmant par la seule publicité. Il demande de la constance dans la durée, mais construit une confiance plus durable qu'une communication purement promotionnelle ponctuelle.",
+          title_en: "Content marketing",
+          teaser_en: "Attracting clients by demonstrating expertise, rather than claiming it directly.",
+          detail_en: "Content marketing (blog articles, case studies, explained concepts) builds credibility gradually, by showing real expertise rather than asserting it through advertising alone. It requires consistency over time, but builds more lasting trust than one-off, purely promotional communication." },
         { title: "L'image de marque (branding)",
           teaser: "Ce que les gens ressentent et racontent d'une organisation quand elle n'est pas dans la pièce.",
-          detail: "L'image de marque dépasse le logo et la charte graphique : elle inclut la réputation, la cohérence du discours et l'expérience vécue par les clients à chaque point de contact. Une identité visuelle soignée ne compense jamais durablement un service qui ne tient pas les promesses implicites de cette image." },
+          detail: "L'image de marque dépasse le logo et la charte graphique : elle inclut la réputation, la cohérence du discours et l'expérience vécue par les clients à chaque point de contact. Une identité visuelle soignée ne compense jamais durablement un service qui ne tient pas les promesses implicites de cette image.",
+          title_en: "Brand image (branding)",
+          teaser_en: "What people feel and say about an organization when it's not in the room.",
+          detail_en: "Brand image goes beyond the logo and brand guidelines: it includes reputation, consistency of messaging, and the experience clients have at every touchpoint. A polished visual identity never durably compensates for a service that fails to keep that image's implicit promises." },
         { title: "La stratégie tarifaire",
           teaser: "Le prix communique autant sur la valeur perçue d'un service que sur son coût réel de production.",
-          detail: "Un prix trop bas peut signaler, à tort ou à raison, un manque de qualité ou d'expertise perçue. Une stratégie tarifaire réfléchie prend en compte les coûts réels, les prix pratiqués par la concurrence, et la valeur perçue par le client — pas seulement une marge appliquée mécaniquement sur le coût de revient." }
+          detail: "Un prix trop bas peut signaler, à tort ou à raison, un manque de qualité ou d'expertise perçue. Une stratégie tarifaire réfléchie prend en compte les coûts réels, les prix pratiqués par la concurrence, et la valeur perçue par le client — pas seulement une marge appliquée mécaniquement sur le coût de revient.",
+          title_en: "Pricing strategy",
+          teaser_en: "Price communicates as much about a service's perceived value as about its actual cost of production.",
+          detail_en: "A price set too low can signal, rightly or wrongly, a lack of quality or perceived expertise. A thoughtful pricing strategy factors in actual costs, competitors' prices, and the value perceived by the client — not just a margin mechanically applied to the cost price." }
       ]
     },
 
     renforcement: {
-      label: "Renforcement de capacités", catClass: "cat-rouge", badgeClass: "badge-blue",
+      label: "Renforcement de capacités", label_en: "Capacity building", catClass: "cat-rouge", badgeClass: "badge-blue",
       notions: [
         { title: "Le diagnostic des besoins en formation",
           teaser: "Une formation conçue sans diagnostic préalable risque de répondre à un besoin qui n'existe pas vraiment.",
-          detail: "Un diagnostic des besoins identifie l'écart réel entre les compétences actuelles d'une équipe et celles requises pour ses missions, plutôt que de partir d'une offre de formation standard préexistante. Il évite de former une équipe sur des sujets déjà maîtrisés, au détriment de ses véritables lacunes opérationnelles." },
+          detail: "Un diagnostic des besoins identifie l'écart réel entre les compétences actuelles d'une équipe et celles requises pour ses missions, plutôt que de partir d'une offre de formation standard préexistante. Il évite de former une équipe sur des sujets déjà maîtrisés, au détriment de ses véritables lacunes opérationnelles.",
+          title_en: "Training needs assessment",
+          teaser_en: "Training designed without a prior diagnosis risks addressing a need that doesn't really exist.",
+          detail_en: "A needs assessment identifies the actual gap between a team's current skills and those required for its work, rather than starting from a pre-existing standard training offer. It avoids training a team on topics they already master, at the expense of their real operational gaps." },
         { title: "L'andragogie (l'apprentissage chez l'adulte)",
           teaser: "Former des adultes professionnels ne suit pas les mêmes principes pédagogiques que former des enfants.",
-          detail: "Contrairement à la pédagogie classique, l'andragogie part du principe qu'un adulte apprend mieux quand le contenu est directement applicable à ses problèmes concrets, et quand son expérience professionnelle antérieure est valorisée plutôt qu'ignorée. Une formation qui traite des professionnels expérimentés comme des débutants complets échoue généralement à les engager." },
+          detail: "Contrairement à la pédagogie classique, l'andragogie part du principe qu'un adulte apprend mieux quand le contenu est directement applicable à ses problèmes concrets, et quand son expérience professionnelle antérieure est valorisée plutôt qu'ignorée. Une formation qui traite des professionnels expérimentés comme des débutants complets échoue généralement à les engager.",
+          title_en: "Andragogy (adult learning)",
+          teaser_en: "Training working adults doesn't follow the same pedagogical principles as teaching children.",
+          detail_en: "Unlike traditional pedagogy, andragogy starts from the premise that an adult learns best when content is directly applicable to their concrete problems, and when their prior professional experience is valued rather than ignored. Training that treats experienced professionals as complete beginners generally fails to engage them." },
         { title: "La formation en cascade",
           teaser: "Former des formateurs qui forment à leur tour d'autres personnes — un modèle puissant, mais fragile.",
-          detail: "La formation en cascade démultiplie la portée d'une formation initiale en formant des relais qui transmettent ensuite le contenu à d'autres. Son principal risque est la déperdition de qualité à chaque niveau de transmission — un accompagnement et des supports standardisés pour les formateurs relais limitent ce risque sans jamais l'éliminer totalement." },
+          detail: "La formation en cascade démultiplie la portée d'une formation initiale en formant des relais qui transmettent ensuite le contenu à d'autres. Son principal risque est la déperdition de qualité à chaque niveau de transmission — un accompagnement et des supports standardisés pour les formateurs relais limitent ce risque sans jamais l'éliminer totalement.",
+          title_en: "Cascade training",
+          teaser_en: "Training trainers who in turn train others — a powerful but fragile model.",
+          detail_en: "Cascade training multiplies the reach of an initial training by training relay trainers who then pass the content on to others. Its main risk is quality loss at each level of transmission — coaching and standardized materials for relay trainers limit this risk without ever fully eliminating it." },
         { title: "L'évaluation de formation (modèle Kirkpatrick)",
           teaser: "Mesurer la satisfaction des participants ne suffit pas à prouver qu'une formation a été utile.",
-          detail: "Le modèle Kirkpatrick distingue quatre niveaux d'évaluation : la réaction (satisfaction immédiate), l'apprentissage (connaissances acquises), le comportement (application réelle au travail), et les résultats (impact organisationnel final). La plupart des formations ne mesurent que le premier niveau, le plus facile mais aussi le moins informatif sur l'utilité réelle." },
+          detail: "Le modèle Kirkpatrick distingue quatre niveaux d'évaluation : la réaction (satisfaction immédiate), l'apprentissage (connaissances acquises), le comportement (application réelle au travail), et les résultats (impact organisationnel final). La plupart des formations ne mesurent que le premier niveau, le plus facile mais aussi le moins informatif sur l'utilité réelle.",
+          title_en: "Training evaluation (the Kirkpatrick model)",
+          teaser_en: "Measuring participant satisfaction isn't enough to prove a training was useful.",
+          detail_en: "The Kirkpatrick model distinguishes four levels of evaluation: reaction (immediate satisfaction), learning (knowledge acquired), behavior (actual application at work), and results (final organizational impact). Most training only measures the first level, the easiest but also the least informative about real usefulness." },
         { title: "Le coaching post-formation",
           teaser: "Une formation sans accompagnement de suivi voit souvent ses acquis s'effriter en quelques semaines.",
-          detail: "Sans renforcement après la session (coaching individuel, points de suivi réguliers), une grande partie des connaissances acquises en formation n'est jamais appliquée durablement dans le travail quotidien. Un accompagnement post-formation, même léger, augmente sensiblement le taux de mise en pratique effective des compétences transmises." },
+          detail: "Sans renforcement après la session (coaching individuel, points de suivi réguliers), une grande partie des connaissances acquises en formation n'est jamais appliquée durablement dans le travail quotidien. Un accompagnement post-formation, même léger, augmente sensiblement le taux de mise en pratique effective des compétences transmises.",
+          title_en: "Post-training coaching",
+          teaser_en: "Training without follow-up support often sees its gains fade within a few weeks.",
+          detail_en: "Without reinforcement after the session (individual coaching, regular check-ins), much of the knowledge gained in training is never durably applied in day-to-day work. Post-training support, even light, significantly increases the actual rate at which skills taught are put into practice." },
         { title: "La communauté de pratique",
           teaser: "Un groupe de pairs qui continue d'échanger et de s'entraider bien après la fin officielle d'une formation.",
-          detail: "Une communauté de pratique (groupe WhatsApp, rencontres régulières, forum en ligne) permet aux anciens participants d'une formation de continuer à résoudre ensemble des problèmes concrets rencontrés dans l'application de ce qu'ils ont appris. Elle prolonge l'effet d'une formation bien au-delà de sa date de clôture officielle." },
+          detail: "Une communauté de pratique (groupe WhatsApp, rencontres régulières, forum en ligne) permet aux anciens participants d'une formation de continuer à résoudre ensemble des problèmes concrets rencontrés dans l'application de ce qu'ils ont appris. Elle prolonge l'effet d'une formation bien au-delà de sa date de clôture officielle.",
+          title_en: "The community of practice",
+          teaser_en: "A peer group that keeps exchanging and helping each other well after a training officially ends.",
+          detail_en: "A community of practice (WhatsApp group, regular meetups, online forum) allows former training participants to keep solving concrete problems together as they apply what they learned. It extends a training's effect well beyond its official closing date." },
         { title: "La certification professionnelle",
           teaser: "Un signal de compétence reconnu, qui a de la valeur seulement s'il est réellement exigeant à obtenir.",
-          detail: "Une certification n'a de valeur sur le marché que si elle repose sur une évaluation réelle des compétences, pas sur la simple présence à une formation. Une certification délivrée systématiquement à tous les participants, sans évaluation rigoureuse, perd rapidement sa crédibilité et sa valeur de signal auprès des employeurs ou clients potentiels." }
+          detail: "Une certification n'a de valeur sur le marché que si elle repose sur une évaluation réelle des compétences, pas sur la simple présence à une formation. Une certification délivrée systématiquement à tous les participants, sans évaluation rigoureuse, perd rapidement sa crédibilité et sa valeur de signal auprès des employeurs ou clients potentiels.",
+          title_en: "Professional certification",
+          teaser_en: "A recognized signal of competence, valuable only if it is genuinely demanding to obtain.",
+          detail_en: "A certification only has market value if it rests on a real assessment of skills, not mere attendance at a training. A certification awarded systematically to all participants, without rigorous assessment, quickly loses its credibility and signaling value to potential employers or clients." }
       ]
     }
   };
@@ -8252,7 +8764,23 @@ window.Isostasy = window.Isostasy || {};
 
   var statut = document.getElementById('cfStatus');
   var bouton = document.getElementById('cfSubmit');
-  var EMAIL_CABINET = 'isostasyconsulting@gmail.com';
+  var EMAIL_CABINET = 'contact@isostasyconsulting.com';
+
+  var telCountry = document.getElementById('cfTelCountry');
+  var telCode = document.getElementById('cfTelCode');
+  var telInput = document.getElementById('cfTel');
+  if(telCountry && telCode && telInput){
+    telCountry.addEventListener('change', function(){
+      telCode.value = telCountry.value;
+      telInput.focus();
+    });
+    form.addEventListener('reset', function(){
+      setTimeout(function(){
+        telCountry.value = '+236';
+        telCode.value = '+236';
+      }, 0);
+    });
+  }
 
   function champs(){
     return {
@@ -8285,12 +8813,18 @@ window.Isostasy = window.Isostasy || {};
     return ok;
   }
 
+  function telephoneComplet(){
+    var num = (telInput && telInput.value.trim()) || '';
+    if(!num) return '';
+    return ((telCode && telCode.value) || '') + ' ' + num;
+  }
+
   function corpsMessage(){
     var d = new FormData(form), l = [];
     l.push('Nom : ' + (d.get('nom') || ''));
     if(d.get('organisation')) l.push('Organisation : ' + d.get('organisation'));
     l.push('E-mail : ' + (d.get('email') || ''));
-    if(d.get('telephone')) l.push('Téléphone : ' + d.get('telephone'));
+    if(telephoneComplet()) l.push('Téléphone : ' + telephoneComplet());
     l.push('Objet : ' + (d.get('objet') || ''));
     l.push('');
     l.push(d.get('message') || '');
@@ -8316,7 +8850,7 @@ window.Isostasy = window.Isostasy || {};
     var d = new FormData(form);
     var charge = {
       nom: d.get('nom'), organisation: d.get('organisation') || null,
-      email: d.get('email'), telephone: d.get('telephone') || null,
+      email: d.get('email'), telephone: telephoneComplet() || null,
       objet: d.get('objet'), message: d.get('message'),
       source: (location.hash || '#accueil').replace('#','')
     };
