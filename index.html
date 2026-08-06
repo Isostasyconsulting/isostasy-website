@@ -832,6 +832,19 @@ section.alt::before{
 @media (max-width:640px){.key-expertise-grid[style]{grid-template-columns:1fr 1fr !important;}}
 @media (max-width:420px){.key-expertise-grid[style]{grid-template-columns:1fr !important;}}
 
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media (max-width:760px){.team-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto;}}
+.team-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:26px 20px;text-align:center;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, border-color .3s ease;
+}
+.team-card:hover{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:var(--sky);}
+.team-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;margin:0 auto 14px;display:block;border:3px solid var(--pale);}
+.team-card h4{font-size:var(--fs-md);margin-bottom:2px;color:var(--navy);}
+.team-role{display:block;font-size:var(--fs-xs);font-weight:700;color:var(--sky-texte);text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;}
+.team-post{display:block;font-size:var(--fs-xs);font-weight:600;color:var(--navy);margin:-4px 0 10px;}
+.team-card p{font-size:var(--fs-xs);color:var(--texte-2);margin:0;}
+
 .expert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 @media (max-width:860px){.expert-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:560px){.expert-grid{grid-template-columns:1fr;}}
@@ -2140,6 +2153,35 @@ window.Isostasy = window.Isostasy || {};
         <span class="ke-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
         <h4 data-i18n="expertises_k8_title">Blockchain</h4>
         <p data-i18n="expertises_k8_text">Traçabilité, transparence et solutions décentralisées</p>
+      </div>
+    </div>
+
+    <div class="section-head center reveal" style="margin-top:60px;">
+      <span class="eyebrow" data-i18n="team_eyebrow">Visages du cabinet</span>
+      <h2 data-i18n="team_title">Nos experts</h2>
+      <p class="one-line-p" data-i18n="team_text">Une équipe pluridisciplinaire, chacun responsable d'un ou plusieurs pôles techniques du cabinet.</p>
+    </div>
+    <div class="team-grid reveal-stagger">
+      <div class="team-card">
+        <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/images/expert-teddy-magbe.jpg" alt="Teddy Junior Magbe" class="team-photo" loading="lazy">
+        <h4>Teddy Junior Magbe</h4>
+        <span class="team-role" data-i18n="team_teddy_role">CEO — Fondateur</span>
+        <span class="team-post" data-i18n="team_teddy_post">Responsable MEAL &amp; Évaluation, Data Analytics, Tableaux de bord et Cartographie SIG</span>
+        <p data-i18n="team_teddy_text">Statisticien-économiste diplômé de l'ISSEA de Yaoundé, avec 15 ans d'expérience continue en suivi-évaluation en Afrique centrale. A été Spécialiste Suivi-Évaluation à l'UNOPS et Représentant Pays a.i. à Search for Common Ground. Expert en systèmes MEAL digitalisés, cadres logiques et gestion axée sur les résultats. Maîtrise l'analyse de données, Power BI et la cartographie SIG. Fondateur et dirigeant d'Isostasy Consulting.</p>
+      </div>
+      <div class="team-card">
+        <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/images/expert-dikers-amoko.jpg" alt="Dikers Amoko" class="team-photo" loading="lazy">
+        <h4>Dikers Amoko</h4>
+        <span class="team-role" data-i18n="team_amoko_role">Data Scientist</span>
+        <span class="team-post" data-i18n="team_amoko_post">Responsable Applications Web, Intelligence Artificielle et Blockchain</span>
+        <p data-i18n="team_amoko_text">Data Scientist et statisticien, plus de 10 ans d'expérience en banque, énergie, statistique publique et études. A travaillé pour LCL, RTE, l'INSEE et SAUR sur des projets de data science et de fiabilisation des données. Expert en Machine Learning, MLOps, agents IA et technologies blockchain. Auteur d'un ouvrage sur l'orchestration des systèmes d'agents IA et créateur du package statAfrikR. Basé à Chelles, en France, il pilote les projets numériques du cabinet.</p>
+      </div>
+      <div class="team-card">
+        <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/images/expert-aymar-tombet.jpg" alt="Crochet Aymard Tombet" class="team-photo" loading="lazy">
+        <h4>Crochet Aymard Tombet</h4>
+        <span class="team-role" data-i18n="team_aymar_role">Ingénieur des travaux forestiers</span>
+        <span class="team-post" data-i18n="team_aymar_post">Responsable développement communautaire</span>
+        <p data-i18n="team_aymar_text">Ingénieur des travaux forestiers, diplômé de l'ISDR de Mbaïki, avec 7 ans d'expérience en développement local et gestion des ressources naturelles. A travaillé sur le Projet de Gouvernance des Ressources Naturelles (PGRN) financé par la Banque mondiale. Spécialiste en planification participative et en plans de gestion des groupes vulnérables. A conduit le suivi-évaluation du programme FAO-PAM pour Plan International. Coordonne les activités de développement communautaire du cabinet.</p>
       </div>
     </div>
   </div>
@@ -4793,6 +4835,17 @@ window.Isostasy = window.Isostasy || {};
       expertises_k6_title:"Cartographie SIG", expertises_k6_text:"Analyses spatiales et gestion des territoires",
       expertises_k7_title:"Communication", expertises_k7_text:"Stratégie, plaidoyer et communication digitale",
       expertises_k8_title:"Blockchain", expertises_k8_text:"Traçabilité, transparence et solutions décentralisées",
+      team_eyebrow:"Visages du cabinet", team_title:"Nos experts",
+      team_text:"Une équipe pluridisciplinaire, chacun responsable d'un ou plusieurs pôles techniques du cabinet.",
+      team_teddy_role:"CEO — Fondateur",
+      team_teddy_post:"Responsable MEAL &amp; Évaluation, Data Analytics, Tableaux de bord et Cartographie SIG",
+      team_teddy_text:"Statisticien-économiste diplômé de l'ISSEA de Yaoundé, avec 15 ans d'expérience continue en suivi-évaluation en Afrique centrale. A été Spécialiste Suivi-Évaluation à l'UNOPS et Représentant Pays a.i. à Search for Common Ground. Expert en systèmes MEAL digitalisés, cadres logiques et gestion axée sur les résultats. Maîtrise l'analyse de données, Power BI et la cartographie SIG. Fondateur et dirigeant d'Isostasy Consulting.",
+      team_amoko_role:"Data Scientist",
+      team_amoko_post:"Responsable Applications Web, Intelligence Artificielle et Blockchain",
+      team_amoko_text:"Data Scientist et statisticien, plus de 10 ans d'expérience en banque, énergie, statistique publique et études. A travaillé pour LCL, RTE, l'INSEE et SAUR sur des projets de data science et de fiabilisation des données. Expert en Machine Learning, MLOps, agents IA et technologies blockchain. Auteur d'un ouvrage sur l'orchestration des systèmes d'agents IA et créateur du package statAfrikR. Basé à Chelles, en France, il pilote les projets numériques du cabinet.",
+      team_aymar_role:"Ingénieur des travaux forestiers",
+      team_aymar_post:"Responsable développement communautaire",
+      team_aymar_text:"Ingénieur des travaux forestiers, diplômé de l'ISDR de Mbaïki, avec 7 ans d'expérience en développement local et gestion des ressources naturelles. A travaillé sur le Projet de Gouvernance des Ressources Naturelles (PGRN) financé par la Banque mondiale. Spécialiste en planification participative et en plans de gestion des groupes vulnérables. A conduit le suivi-évaluation du programme FAO-PAM pour Plan International. Coordonne les activités de développement communautaire du cabinet.",
       methodologie_h1_eyebrow:"Notre approche", methodologie_h1_title:"Une même trame en six étapes, pour chaque mission",
       methodologie_h1_text:"Cette structure garantit la traçabilité du travail réalisé et permet au client de savoir, à tout moment, où en est sa mission.",
       methodologie_phase1:"Des données", methodologie_phase2:"Des solutions", methodologie_phase3:"De l'impact",
@@ -5355,6 +5408,17 @@ window.Isostasy = window.Isostasy || {};
       expertises_k6_title:"GIS Mapping", expertises_k6_text:"Spatial analysis and territory management",
       expertises_k7_title:"Communication", expertises_k7_text:"Strategy, advocacy and digital communication",
       expertises_k8_title:"Blockchain", expertises_k8_text:"Traceability, transparency and decentralized solutions",
+      team_eyebrow:"The people behind the firm", team_title:"Our experts",
+      team_text:"A multidisciplinary team, each responsible for one or more of the firm's technical units.",
+      team_teddy_role:"CEO — Founder",
+      team_teddy_post:"Leads MEAL &amp; Evaluation, Data Analytics, Dashboards and GIS Mapping",
+      team_teddy_text:"Statistician-economist trained at ISSEA Yaoundé, with 15 years of continuous monitoring & evaluation experience in Central Africa. Served as Monitoring & Evaluation Specialist at UNOPS and interim Country Representative at Search for Common Ground. Expert in digitalized MEAL systems, logical frameworks and results-based management. Skilled in data analysis, Power BI and GIS mapping. Founder and head of Isostasy Consulting.",
+      team_amoko_role:"Data Scientist",
+      team_amoko_post:"Leads Web Applications, Artificial Intelligence and Blockchain",
+      team_amoko_text:"Data Scientist and statistician with over 10 years of experience in banking, energy, public statistics and research. Worked with LCL, RTE, INSEE and SAUR on data science and data reliability projects. Expert in Machine Learning, MLOps, AI agents and blockchain technologies. Author of a book on orchestrating AI agent systems and creator of the statAfrikR package. Based in Chelles, France, he leads the firm's digital projects.",
+      team_aymar_role:"Forestry Works Engineer",
+      team_aymar_post:"Leads community development",
+      team_aymar_text:"Forestry works engineer, trained at ISDR Mbaïki, with 7 years of experience in local development and natural resource management. Worked on the World Bank-funded Natural Resources Governance Project (PGRN). Specialist in participatory planning and vulnerable-groups management plans. Led monitoring & evaluation for the FAO-WFP program at Plan International. Coordinates the firm's community development activities.",
       methodologie_h1_eyebrow:"Our approach", methodologie_h1_title:"The same six-step framework, for every assignment",
       methodologie_h1_text:"This structure ensures traceability of the work done and lets the client know, at any time, where their assignment stands.",
       methodologie_phase1:"Data", methodologie_phase2:"Solutions", methodologie_phase3:"Impact",
