@@ -927,6 +927,7 @@ section.alt::before{
 .demo-card p strong{color:var(--navy);}
 
 .pill-grid{display:flex;flex-wrap:wrap;gap:10px;}
+.pill-list-col{display:flex;flex-direction:column;align-items:flex-start;gap:8px;}
 .standards-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:26px;}
 @media (max-width:760px){.standards-groups{grid-template-columns:1fr;}}
 .standards-group h4{font-size:var(--fs-md);color:var(--navy);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line);}
@@ -3921,12 +3922,28 @@ window.Isostasy = window.Isostasy || {};
       <div>
         <span class="eyebrow" data-i18n="contact_eyebrow">Contact</span>
         <h1 data-i18n="contact_h1">Nous joindre</h1>
+        <a href="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/documents/isostasy-consulting-identite-numerique.pdf" class="btn btn-outline-navy btn-sm" style="margin:10px 0 16px;" download data-i18n="contact_download_addresses">Télécharger le référentiel officiel des adresses →</a>
         <p style="color:var(--texte-2);" data-i18n="contact_intro">Basé à Bangui, République Centrafricaine — nous intervenons sur l'ensemble du territoire national et en appui régional.</p>
-        <div class="pill-grid" style="margin-top:18px;">
+        <div class="pill-list-col" style="margin-top:18px;">
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <span class="pill">+236 74 25 71 21</span>
+            <span class="pill" data-i18n="foot_address">Bangui, RCA</span>
+          </div>
           <span class="pill">contact@isostasyconsulting.com</span>
-          <span class="pill">+236 74 25 71 21</span>
+          <span class="pill">admin@isostasyconsulting.com</span>
+          <span class="pill">info@isostasyconsulting.com</span>
+          <span class="pill">careers@isostasyconsulting.com</span>
+          <span class="pill">partnerships@isostasyconsulting.com</span>
+          <span class="pill">research@isostasyconsulting.com</span>
+          <span class="pill">meal@isostasyconsulting.com</span>
+          <span class="pill">data@isostasyconsulting.com</span>
+          <span class="pill">tech@isostasyconsulting.com</span>
+          <span class="pill">com@isostasyconsulting.com</span>
+          <span class="pill">finance@isostasyconsulting.com</span>
+          <span class="pill">hr@isostasyconsulting.com</span>
+          <span class="pill">sales@isostasyconsulting.com</span>
+          <span class="pill">support@isostasyconsulting.com</span>
           <span class="pill">www.isostasyconsulting.com</span>
-          <span class="pill" data-i18n="foot_address">Bangui, RCA</span>
         </div>
         <div class="social-row" style="margin-top:18px;">
           <a href="https://www.facebook.com/people/Isostasy-Consulting/61591363447812/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.25-1.5 1.5-1.5h1.7V3.9c-.3-.04-1.3-.13-2.4-.13-2.3 0-3.9 1.42-3.9 4.02V10H7.7v3h2.7v8h3.1z"/></svg></a>
@@ -3937,7 +3954,6 @@ window.Isostasy = window.Isostasy || {};
           <a href="https://www.youtube.com/@IsostasyConsulting" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.01s-4 0-6.8.15c-.4.05-1.25.05-2 .85-.6.6-.8 2-.8 2S2.2 8.8 2.2 10.4v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.75.8 1.75.77 2.2.86 1.6.15 6.8.2 6.8.2s4 0 6.8-.16c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5c0-1.6-.2-3.25-.2-3.25zM9.9 14.1V8.6l5.2 2.76-5.2 2.74z"/></svg></a>
           <a href="https://wa.me/23674257121" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38a9.86 9.86 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.13-2.9-7A9.82 9.82 0 0 0 12.04 2zm0 18.03a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.1.81.83-3.03-.2-.31a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.23-8.23a8.2 8.2 0 0 1 8.22 8.24c0 4.54-3.69 8.22-8.23 8.22zm4.5-6.16c-.25-.12-1.46-.72-1.69-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.96-.14.17-.28.19-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.17 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg></a>
         </div>
-        <p class="dept-note" style="margin-top:16px;color:var(--texte-4);" data-i18n="contact_dept_note">Contacts spécialisés : admin@isostasyconsulting.com · info@isostasyconsulting.com · careers@isostasyconsulting.com · partnerships@isostasyconsulting.com · research@isostasyconsulting.com · meal@isostasyconsulting.com · data@isostasyconsulting.com · tech@isostasyconsulting.com · com@isostasyconsulting.com · finance@isostasyconsulting.com · hr@isostasyconsulting.com · sales@isostasyconsulting.com · support@isostasyconsulting.com</p>
       </div>
       <div class="equil-card" style="background:var(--paper);color:var(--ink);border:1px solid var(--line);">
         <h3 style="color:var(--navy);" data-i18n="contact_form_title">Formulaire de contact</h3>
@@ -4990,7 +5006,7 @@ window.Isostasy = window.Isostasy || {};
       contact_cta_text:"Devis, note conceptuelle ou simple échange — notre équipe répond sous 48h.",
       contact_eyebrow:"Contact", contact_h1:"Nous joindre",
       contact_intro:"Basé à Bangui, République Centrafricaine — nous intervenons sur l'ensemble du territoire national et en appui régional.",
-      contact_dept_note:"Contacts spécialisés : admin@isostasyconsulting.com · info@isostasyconsulting.com · careers@isostasyconsulting.com · partnerships@isostasyconsulting.com · research@isostasyconsulting.com · meal@isostasyconsulting.com · data@isostasyconsulting.com · tech@isostasyconsulting.com · com@isostasyconsulting.com · finance@isostasyconsulting.com · hr@isostasyconsulting.com · sales@isostasyconsulting.com · support@isostasyconsulting.com",
+      contact_download_addresses:"Télécharger le référentiel officiel des adresses →",
       contact_form_title:"Formulaire de contact",
       contact_form_text:"Décrivez votre besoin, nous revenons vers vous sous 48 heures ouvrées.",
       contact_label_nom:"Nom complet", contact_label_org:"Organisation", contact_label_email:"Adresse e-mail",
@@ -5550,7 +5566,7 @@ window.Isostasy = window.Isostasy || {};
       contact_cta_text:"Quote, concept note or just a conversation — our team responds within 48h.",
       contact_eyebrow:"Contact", contact_h1:"Get in touch",
       contact_intro:"Based in Bangui, Central African Republic — we operate across the national territory and provide regional support.",
-      contact_dept_note:"Specialized contacts: admin@isostasyconsulting.com · info@isostasyconsulting.com · careers@isostasyconsulting.com · partnerships@isostasyconsulting.com · research@isostasyconsulting.com · meal@isostasyconsulting.com · data@isostasyconsulting.com · tech@isostasyconsulting.com · com@isostasyconsulting.com · finance@isostasyconsulting.com · hr@isostasyconsulting.com · sales@isostasyconsulting.com · support@isostasyconsulting.com",
+      contact_download_addresses:"Download the official address directory →",
       contact_form_title:"Contact form",
       contact_form_text:"Describe your need, and we'll get back to you within 48 business hours.",
       contact_label_nom:"Full name", contact_label_org:"Organization", contact_label_email:"Email address",
