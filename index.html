@@ -251,7 +251,7 @@
   --anneau-focus:0 0 0 3px rgba(0,146,209,.15);
 }
 *{box-sizing:border-box;}
-html,body{max-width:100%;overflow-x:hidden;}
+html,body{max-width:100%;overflow-x:clip;}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 html{scroll-behavior:smooth;}
 body{
@@ -1258,7 +1258,8 @@ section.alt::before{
 .chat-panel{position:absolute;right:0;bottom:72px;width:340px;max-width:calc(100vw - 32px);height:460px;max-height:70vh;background:#fff;border-radius:16px;box-shadow:0 12px 40px rgba(0,20,40,.25);display:flex;flex-direction:column;overflow:hidden;opacity:0;pointer-events:none;transform:translateY(12px) scale(.97);transition:opacity .2s ease,transform .2s ease;}
 .chat-widget.open .chat-panel{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
 .chat-header{background:var(--navy);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0;}
-.chat-header-logo{width:34px;height:34px;border-radius:50%;background:var(--sky);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;flex-shrink:0;}
+.chat-header-logo{width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}
+.chat-header-logo img{width:100%;height:100%;object-fit:cover;display:block;}
 .chat-header strong{display:block;font-family:'Montserrat',sans-serif;font-size:var(--fs-sm);}
 .chat-header span{display:block;font-size:11px;opacity:.8;}
 .chat-body{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--paper);}
@@ -4376,7 +4377,7 @@ window.Isostasy = window.Isostasy || {};
 
 <!-- CTA collant — En savoir plus (présentation institutionnelle PPTX) -->
 <div class="about-cta" id="aboutCta">
-  <button type="button" id="aboutDocsBtn"><span>📄</span><span class="long">En savoir plus</span></button>
+  <button type="button" id="aboutDocsBtn"><span>📄</span><span class="long" data-i18n="cta_learn_more">En savoir plus</span></button>
 </div>
 
 <!-- Modale — choix des documents institutionnels -->
@@ -4458,10 +4459,10 @@ window.Isostasy = window.Isostasy || {};
 <!-- Bandeau de consentement aux cookies -->
 <div class="cookie-banner" id="cookieBanner">
   <div class="cookie-banner-inner">
-    <p>Ce site utilise uniquement des cookies nécessaires à son fonctionnement (ex. maintien de votre connexion à l'Espace équipe). Nous n'utilisons aucun cookie publicitaire ou de suivi tiers. <a href="#" id="cookieMoreInfo">En savoir plus</a></p>
+    <p data-i18n="cookie_text">Ce site utilise uniquement des cookies nécessaires à son fonctionnement (ex. maintien de votre connexion à l'Espace équipe). Nous n'utilisons aucun cookie publicitaire ou de suivi tiers. <a href="#" id="cookieMoreInfo" data-i18n="cta_learn_more">En savoir plus</a></p>
     <div class="cookie-banner-actions">
-      <button type="button" class="btn btn-outline-navy btn-sm" id="cookieRefuse">Refuser</button>
-      <button type="button" class="btn btn-outline-navy btn-sm" id="cookieAccept" style="border-color:var(--white);">Accepter</button>
+      <button type="button" class="btn btn-outline-navy btn-sm" id="cookieRefuse" data-i18n="cookie_refuse">Refuser</button>
+      <button type="button" class="btn btn-outline-navy btn-sm" id="cookieAccept" style="border-color:var(--white);" data-i18n="cookie_accept">Accepter</button>
     </div>
   </div>
 </div>
@@ -4470,17 +4471,17 @@ window.Isostasy = window.Isostasy || {};
 <div class="modal-overlay" id="cookiePolicyModal">
   <div class="modal-box">
     <button class="modal-close" id="cookiePolicyModalClose" aria-label="Fermer">✕</button>
-    <h3>Politique de cookies</h3>
-    <p class="modal-sub">Isostasy Consulting utilise un seul type de cookie sur ce site.</p>
+    <h3 data-i18n="cookie_policy_title">Politique de cookies</h3>
+    <p class="modal-sub" data-i18n="cookie_policy_sub">Isostasy Consulting utilise un seul type de cookie sur ce site.</p>
     <div class="channel-list">
       <div class="channel-item" style="cursor:default;">
         <div>
-          <div class="cname">Cookie de session (nécessaire)</div>
-          <div class="ctype">Maintient votre connexion active dans l'Espace équipe pendant votre visite. Sans lui, vous seriez déconnecté à chaque changement de page. Durée : le temps de la session, ou jusqu'à déconnexion.</div>
+          <div class="cname" data-i18n="cookie_policy_cname">Cookie de session (nécessaire)</div>
+          <div class="ctype" data-i18n="cookie_policy_ctype">Maintient votre connexion active dans l'Espace équipe pendant votre visite. Sans lui, vous seriez déconnecté à chaque changement de page. Durée : le temps de la session, ou jusqu'à déconnexion.</div>
         </div>
       </div>
     </div>
-    <p class="modal-sub" style="margin-top:16px;">
+    <p class="modal-sub" style="margin-top:16px;" data-i18n="cookie_policy_detail">
       Aucun cookie publicitaire, de mesure d'audience tierce ou de réseau social n'est déposé. Nous mesurons la fréquentation du site avec nos propres moyens, sans cookie et sans transmettre quoi que ce soit à un service extérieur : pages consultées, provenance générale et type d'appareil, rattachés à un identifiant de visite aléatoire effacé à la fermeture de l'onglet. Ni votre adresse IP, ni aucune donnée permettant de vous identifier n'est conservée, et le signal « Ne pas me pister » de votre navigateur désactive entièrement cette mesure. Votre choix (accepter/refuser) est lui-même mémorisé localement dans votre navigateur pendant 12 mois, après quoi ce bandeau réapparaîtra. Vous pouvez modifier votre choix à tout moment via le lien "Gérer les cookies" en bas de chaque page.
     </p>
   </div>
@@ -5146,6 +5147,14 @@ window.Isostasy = window.Isostasy || {};
       contact_opt_devis:"Demande de devis", contact_opt_meal:"Suivi-évaluation / MEAL",
       contact_opt_data:"Analyse de données et tableaux de bord", contact_opt_etude:"Étude ou enquête",
       contact_opt_appels:"Appels d'offres", contact_opt_rapports:"Rapports",
+      cta_learn_more:"En savoir plus",
+      cookie_text:"Ce site utilise uniquement des cookies nécessaires à son fonctionnement (ex. maintien de votre connexion à l'Espace équipe). Nous n'utilisons aucun cookie publicitaire ou de suivi tiers.",
+      cookie_refuse:"Refuser", cookie_accept:"Accepter",
+      cookie_policy_title:"Politique de cookies",
+      cookie_policy_sub:"Isostasy Consulting utilise un seul type de cookie sur ce site.",
+      cookie_policy_cname:"Cookie de session (nécessaire)",
+      cookie_policy_ctype:"Maintient votre connexion active dans l'Espace équipe pendant votre visite. Sans lui, vous seriez déconnecté à chaque changement de page. Durée : le temps de la session, ou jusqu'à déconnexion.",
+      cookie_policy_detail:"Aucun cookie publicitaire, de mesure d'audience tierce ou de réseau social n'est déposé. Nous mesurons la fréquentation du site avec nos propres moyens, sans cookie et sans transmettre quoi que ce soit à un service extérieur : pages consultées, provenance générale et type d'appareil, rattachés à un identifiant de visite aléatoire effacé à la fermeture de l'onglet. Ni votre adresse IP, ni aucune donnée permettant de vous identifier n'est conservée, et le signal « Ne pas me pister » de votre navigateur désactive entièrement cette mesure. Votre choix (accepter/refuser) est lui-même mémorisé localement dans votre navigateur pendant 12 mois, après quoi ce bandeau réapparaîtra. Vous pouvez modifier votre choix à tout moment via le lien \"Gérer les cookies\" en bas de chaque page.",
       contact_opt_formation:"Formation", contact_opt_synthese:"Commande de synthèses (Données ouvertes)",
       contact_opt_partenariat:"Partenariat", contact_opt_autre:"Autre",
       contact_consent:"J'accepte que ces informations soient utilisées pour traiter ma demande.",
@@ -5736,6 +5745,14 @@ window.Isostasy = window.Isostasy || {};
       contact_opt_devis:"Quote request", contact_opt_meal:"Monitoring & evaluation / MEAL",
       contact_opt_data:"Data analysis and dashboards", contact_opt_etude:"Study or survey",
       contact_opt_appels:"Tenders", contact_opt_rapports:"Reports",
+      cta_learn_more:"Learn more",
+      cookie_text:"This site only uses cookies necessary for its operation (e.g. keeping you logged into the Team area). We do not use any advertising or third-party tracking cookies.",
+      cookie_refuse:"Decline", cookie_accept:"Accept",
+      cookie_policy_title:"Cookie policy",
+      cookie_policy_sub:"Isostasy Consulting uses a single type of cookie on this site.",
+      cookie_policy_cname:"Session cookie (necessary)",
+      cookie_policy_ctype:"Keeps you logged into the Team area during your visit. Without it, you would be logged out every time you change page. Duration: for the session, or until you log out.",
+      cookie_policy_detail:"No advertising, third-party audience measurement or social media cookies are used. We measure site traffic using our own means, without cookies and without transmitting anything to an external service: pages viewed, general origin and device type, linked to a random visit identifier deleted when the tab is closed. Neither your IP address nor any data that could identify you is retained, and your browser's \"Do Not Track\" signal fully disables this measurement. Your choice (accept/decline) is itself stored locally in your browser for 12 months, after which this banner will reappear. You can change your choice at any time via the \"Manage cookies\" link at the bottom of each page.",
       contact_opt_formation:"Training", contact_opt_synthese:"Summary order (Open data)",
       contact_opt_partenariat:"Partnership", contact_opt_autre:"Other",
       contact_consent:"I agree that this information may be used to process my request.",
@@ -9822,7 +9839,7 @@ window.Isostasy = window.Isostasy || {};
   </button>
   <div class="chat-panel">
     <div class="chat-header">
-      <span class="chat-header-logo">JG</span>
+      <span class="chat-header-logo"><img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/images/logo-isostasy-fc692a53.webp" alt="Isostasy Consulting"></span>
       <div>
         <strong>Isostasy Consulting</strong>
         <span data-i18n="chat_header_sub">Répond généralement sous 48h ouvrées</span>
