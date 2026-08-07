@@ -342,7 +342,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 /* CTA collant — En savoir plus (présentation institutionnelle) — section À propos de nous */
 .about-cta{
-  position:fixed;bottom:22px;left:22px;z-index:800;
+  position:fixed;bottom:calc(22px + env(safe-area-inset-bottom, 0px));left:22px;z-index:800;
   opacity:0;transform:translateY(16px) scale(.94);pointer-events:none;
   transition:opacity .3s ease, transform .3s ease;
 }
@@ -355,7 +355,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   transition:.2s;
 }
 .about-cta a:hover{background:#e6ac00;transform:translateY(-2px);}
-@media (max-width:640px){.about-cta{left:16px;bottom:16px;}.about-cta a span.long{display:none;}}
+@media (max-width:640px){.about-cta{left:16px;bottom:calc(24px + env(safe-area-inset-bottom, 0px));}.about-cta a span.long{display:none;}}
 
 /* --- Sélecteur + visionneuse de documents institutionnels --- */
 .about-cta button{
