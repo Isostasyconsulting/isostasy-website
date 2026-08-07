@@ -460,6 +460,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .hero .btn-outline{border-color:var(--navy);color:var(--navy);}
 .hero .btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
 .btn-outline:hover{background:rgba(255,255,255,.12);border-color:#fff;}
+.btn-offer-cta{background:var(--navy);color:#fff;border-color:var(--navy);}
+.btn-offer-cta:hover{background:#fff;color:var(--navy);border-color:var(--navy);}
 .btn-outline-navy{border-color:var(--navy);color:var(--navy);background:transparent;}
 .btn-outline-navy:hover{background:var(--navy);color:#fff;}
 .btn-sm{padding:.55em 1.2em;font-size:var(--fs-xs);}
@@ -1249,9 +1251,11 @@ section.alt::before{
 @media (max-width:600px){.wa-float{right:14px;bottom:14px;width:52px;height:52px;}.wa-float svg{width:26px;height:26px;}}
 
 .chat-widget{position:fixed;right:20px;bottom:20px;z-index:900;font-family:'Open Sans',sans-serif;}
-.chat-toggle{width:58px;height:58px;border-radius:50%;background:var(--navy);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.28);transition:transform .2s ease;position:relative;}
+.chat-toggle{width:58px;height:58px;border-radius:50%;background:var(--navy);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.28);transition:transform .2s ease,background .2s ease;position:relative;}
 .chat-toggle:hover{transform:scale(1.08);}
-.chat-toggle svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;position:absolute;transition:opacity .15s ease,transform .15s ease;}
+.chat-toggle svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;position:absolute;transition:opacity .15s ease,transform .15s ease,stroke .2s ease;}
+.chat-widget.inverted .chat-toggle{background:#fff;}
+.chat-widget.inverted .chat-toggle svg{stroke:var(--navy);}
 .chat-toggle .chat-ico-close{opacity:0;transform:scale(.6);}
 .chat-widget.open .chat-toggle .chat-ico-open{opacity:0;transform:scale(.6);}
 .chat-widget.open .chat-toggle .chat-ico-close{opacity:1;transform:scale(1);}
@@ -1794,9 +1798,12 @@ window.Isostasy = window.Isostasy || {};
       <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span data-i18n="home_offer_pill4">Gestion de projet</span></span>
       <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg><span data-i18n="home_offer_pill5">Cartographie &amp; SIG</span></span>
       <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg><span data-i18n="home_offer_pill6">Formations &amp; accompagnement</span></span>
+      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2.5 0 0 1 2.5-1h.5a2.25 2.25 0 0 1 0 4.5h-1a2.25 2.25 0 0 0 0 4.5h.5a2.5 2.5 0 0 0 2.5-1"/></svg><span data-i18n="home_offer_pill7">Finance</span></span>
+      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span data-i18n="home_offer_pill8">Communication &amp; infographie</span></span>
+      <span class="pill"><svg class="ico-svg" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5Z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n="home_offer_pill9">Sauvegardes E&amp;S</span></span>
     </div>
-    <div style="text-align:center;margin-top:20px;">
-      <a href="#ce-que-nous-faisons" class="btn btn-outline" data-i18n="home_offer_cta">Voir le détail de notre offre →</a>
+    <div style="text-align:center;margin-top:20px;margin-bottom:44px;">
+      <a href="#ce-que-nous-faisons" class="btn btn-offer-cta" data-i18n="home_offer_cta">Voir le détail de notre offre →</a>
     </div>
   </div>
 
@@ -1885,7 +1892,7 @@ window.Isostasy = window.Isostasy || {};
     </div>
 
     <div class="philo-callout reveal" style="margin:32px 0;">
-      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="apropos_promise_eyebrow">Promesse de valeur</span>
+      <span class="eyebrow" style="color:var(--pale)" data-i18n="apropos_promise_eyebrow">Promesse de valeur</span>
       <p data-i18n="apropos_promise_text">Transformer les données, les idées et les technologies en décisions utiles, en outils opérationnels et en résultats visibles pour les organisations et les communautés.</p>
     </div>
 
@@ -1899,7 +1906,7 @@ window.Isostasy = window.Isostasy || {};
     </div>
 
     <div class="philo-callout philo-callout-dark reveal" style="text-align:left;">
-      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="apropos_dark_eyebrow">À propos d'Isostasy Consulting</span>
+      <span class="eyebrow" style="color:var(--pale)" data-i18n="apropos_dark_eyebrow">À propos d'Isostasy Consulting</span>
       <p style="font-size:var(--fs-md);font-weight:400;" data-i18n="apropos_dark_text">Isostasy Consulting est un cabinet d'études, de conseil et d'innovation qui transforme des données fiables en décisions stratégiques et en résultats durables. À l'image de l'isostasie, nous croyons que les impacts les plus visibles reposent sur un travail de fond rigoureux, méthodique et souvent invisible. De la collecte des données à l'aide à la décision, nous mettons la science des données, l'expertise technique et l'innovation au service du développement. Fidèle à notre signature — « Des données aux décisions » — nous accompagnons les organisations dans la conception de solutions fondées sur des preuves, afin de produire un impact mesurable, durable et responsable.</p>
     </div>
 
@@ -2059,7 +2066,7 @@ window.Isostasy = window.Isostasy || {};
     </div>
 
     <div class="philo-callout reveal">
-      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="philosophie_callout1_eyebrow">L'idée centrale</span>
+      <span class="eyebrow" style="color:var(--pale)" data-i18n="philosophie_callout1_eyebrow">L'idée centrale</span>
       <p data-i18n="philosophie_callout1_text">Les meilleurs résultats visibles reposent toujours sur un travail invisible de grande qualité. C'est cette partie immergée que le client voit rarement, mais qui garantit la solidité de toutes les recommandations.</p>
     </div>
 
@@ -2088,7 +2095,7 @@ window.Isostasy = window.Isostasy || {};
     </div>
 
     <div class="philo-callout philo-callout-dark reveal">
-      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="philosophie_callout2_eyebrow">Principe fondateur</span>
+      <span class="eyebrow" style="color:var(--pale)" data-i18n="philosophie_callout2_eyebrow">Principe fondateur</span>
       <p data-i18n="philosophie_callout2_text">L'impact visible dépend toujours de la qualité du travail invisible.</p>
     </div>
   </div>
@@ -2099,8 +2106,8 @@ window.Isostasy = window.Isostasy || {};
   <div class="wrap">
     <div class="section-head center reveal max-w-1180">
       <span class="eyebrow" data-content-key="expertises_h1_eyebrow" data-i18n="expertises_h1_eyebrow">Ce que nous faisons</span>
-      <h1 data-content-key="expertises_h1_title" data-i18n="expertises_h1_title">Deux expertises phares, quatorze capacités complémentaires</h1>
-      <p data-content-key="expertises_h1_text" style="font-size:var(--fs-md);" data-i18n="expertises_h1_text">Isostasy Consulting est avant tout identifié pour deux expertises : le suivi‑évaluation (MEAL) et l'analyse de données / tableaux de bord. C'est là que se concentre l'essentiel du savoir‑faire démontré du cabinet, y compris à travers la marque de formation Tedjunior. Les quatorze autres pôles présentés plus bas sont mobilisables en complément — mais ne sont pas mis en avant à égalité : un cabinet identifié pour une chose précise inspire davantage confiance qu'un cabinet qui affiche tout au même niveau.</p>
+      <h1 data-content-key="expertises_h1_title" data-i18n="expertises_h1_title">Deux expertises phares, quinze capacités complémentaires</h1>
+      <p data-content-key="expertises_h1_text" style="font-size:var(--fs-md);" data-i18n="expertises_h1_text">Isostasy Consulting est avant tout identifié pour deux expertises : le suivi‑évaluation (MEAL) et l'analyse de données / tableaux de bord. C'est là que se concentre l'essentiel du savoir‑faire démontré du cabinet, y compris à travers la marque de formation Tedjunior. Les quinze autres pôles présentés plus bas sont mobilisables en complément — mais ne sont pas mis en avant à égalité : un cabinet identifié pour une chose précise inspire davantage confiance qu'un cabinet qui affiche tout au même niveau.</p>
     </div>
 
     <div class="flagships">
@@ -2132,10 +2139,12 @@ window.Isostasy = window.Isostasy || {};
       <span class="pill" data-i18n="expertises_p12">Conception &amp; gestion de projets</span>
       <span class="pill" data-i18n="expertises_p13">Marketing &amp; positionnement</span>
       <span class="pill" data-i18n="expertises_p14">Renforcement de capacités</span>
+      <span class="pill" data-i18n="expertises_p15">Gestion financière</span>
+      <span class="pill" data-i18n="expertises_p16">Sauvegardes E&amp;S</span>
     </div>
 
     <div class="philo-callout reveal" style="text-align:left;margin-top:36px;">
-      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="expertises_callout_eyebrow">Principe de l'offre intégrée</span>
+      <span class="eyebrow" style="color:var(--pale)" data-i18n="expertises_callout_eyebrow">Principe de l'offre intégrée</span>
       <p style="font-size:var(--fs-md);font-weight:400;" data-i18n="expertises_callout_text">Le cabinet peut intervenir sur une mission ciblée — le plus souvent MEAL ou data — ou accompagner un projet de bout en bout en mobilisant les capacités complémentaires nécessaires : conception, communication, digitalisation, cartographie, reporting.</p>
     </div>
 
@@ -2183,6 +2192,16 @@ window.Isostasy = window.Isostasy || {};
         <span class="ke-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
         <h4 data-i18n="expertises_k8_title">Blockchain</h4>
         <p data-i18n="expertises_k8_text">Traçabilité, transparence et solutions décentralisées</p>
+      </div>
+      <div class="key-expertise-card">
+        <span class="ke-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2.5 0 0 1 2.5-1h.5a2.25 2.25 0 0 1 0 4.5h-1a2.25 2.25 0 0 0 0 4.5h.5a2.5 2.5 0 0 0 2.5-1"/></svg></span>
+        <h4 data-i18n="expertises_k9_title">Gestion financière</h4>
+        <p data-i18n="expertises_k9_text">Budgétisation, contrôle de gestion et reporting financier</p>
+      </div>
+      <div class="key-expertise-card">
+        <span class="ke-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h4 data-i18n="expertises_k10_title">Sauvegardes E&amp;S</h4>
+        <p data-i18n="expertises_k10_text">EIES, plans de réinstallation et conformité environnementale</p>
       </div>
     </div>
 
@@ -2268,7 +2287,7 @@ window.Isostasy = window.Isostasy || {};
     </div>
 
     <div class="philo-callout reveal" style="text-align:left;margin-top:36px;">
-      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="methodologie_callout_eyebrow">Pourquoi la 6e étape compte</span>
+      <span class="eyebrow" style="color:var(--pale)" data-i18n="methodologie_callout_eyebrow">Pourquoi la 6e étape compte</span>
       <p style="font-size:var(--fs-md);font-weight:400;" data-i18n="methodologie_callout_text">Contrairement à une prestation qui s'arrête à la remise du rapport, Isostasy Consulting intègre systématiquement un temps de transfert de compétences afin que les équipes du client puissent, par la suite, s'approprier et faire évoluer elles‑mêmes les outils livrés.</p>
     </div>
 
@@ -2348,47 +2367,57 @@ window.Isostasy = window.Isostasy || {};
     <div class="section-head center reveal max-w-1180">
       <span class="eyebrow" data-content-key="organisation_h1_eyebrow" data-i18n="organisation_h1_eyebrow">Comment nous sommes organisés</span>
       <h1 data-content-key="organisation_h1_title" data-i18n="organisation_h1_title">Organisation</h1>
-      <p data-content-key="organisation_h1_text" style="max-width:none;" data-i18n-html="organisation_h1_text"><span class="hi-line">L'équipe d'Isostasy Consulting est structurée en cinq pôles techniques complémentaires. Cette organisation permet de mobiliser rapidement la bonne</span><br><span class="hi-line">combinaison de compétences selon la nature de chaque mission, plutôt que de dépendre d'un profil généraliste unique.</span></p>
+      <p data-content-key="organisation_h1_text" style="max-width:none;" data-i18n-html="organisation_h1_text"><span class="hi-line">L'équipe d'Isostasy Consulting est structurée en sept pôles techniques complémentaires. Cette organisation permet de mobiliser rapidement la bonne</span><br><span class="hi-line">combinaison de compétences selon la nature de chaque mission, plutôt que de dépendre d'un profil généraliste unique.</span></p>
     </div>
 
     <div class="reveal" style="display:flex;justify-content:center;margin:10px 0 40px;">
-      <svg viewBox="0 0 460 460" style="width:100%;max-width:420px;height:auto;" role="img" aria-label="Schéma circulaire des cinq pôles techniques d'Isostasy Consulting autour du cœur du cabinet">
+      <svg viewBox="0 0 460 460" style="width:100%;max-width:420px;height:auto;" role="img" aria-label="Schéma circulaire des sept pôles techniques d'Isostasy Consulting autour du cœur du cabinet">
         <circle cx="230" cy="230" r="205" fill="none" stroke="var(--line)" stroke-width="1"/>
         <g font-family="Montserrat,sans-serif" font-weight="700" font-size="13" text-anchor="middle">
           <g>
-            <circle cx="230" cy="55" r="62" fill="var(--navy)"/>
-            <text x="230" y="50" fill="#fff" font-size="12" data-i18n="organisation_svg1a">Études &amp;</text>
-            <text x="230" y="65" fill="#fff" font-size="12" data-i18n="organisation_svg1b">suivi‑évaluation</text>
+            <circle cx="230" cy="65" r="60" fill="var(--navy)"/>
+            <text x="230" y="60" fill="#fff" font-size="12" data-i18n="organisation_svg1a">Études &amp;</text>
+            <text x="230" y="75" fill="#fff" font-size="12" data-i18n="organisation_svg1b">suivi‑évaluation</text>
           </g>
           <g>
-            <circle cx="391" cy="150" r="62" fill="var(--sky)"/>
-            <text x="391" y="145" fill="#fff" font-size="12" data-i18n="organisation_svg2a">Data &amp;</text>
-            <text x="391" y="160" fill="#fff" font-size="12" data-i18n="organisation_svg2b">dashboards</text>
+            <circle cx="359" cy="127" r="60" fill="var(--sky)"/>
+            <text x="359" y="122" fill="#fff" font-size="12" data-i18n="organisation_svg2a">Data &amp;</text>
+            <text x="359" y="137" fill="#fff" font-size="12" data-i18n="organisation_svg2b">dashboards</text>
           </g>
           <g>
-            <circle cx="333" cy="360" r="62" fill="var(--orange-1)"/>
-            <text x="333" y="355" fill="#fff" font-size="12" data-i18n="organisation_svg3a">Communication</text>
-            <text x="333" y="370" fill="#fff" font-size="12" data-i18n="organisation_svg3b">&amp; design</text>
+            <circle cx="391" cy="267" r="60" fill="var(--orange-1)"/>
+            <text x="391" y="262" fill="#fff" font-size="12" data-i18n="organisation_svg3a">Communication</text>
+            <text x="391" y="277" fill="#fff" font-size="12" data-i18n="organisation_svg3b">&amp; design</text>
           </g>
           <g>
-            <circle cx="127" cy="360" r="62" fill="var(--sky-texte)"/>
-            <text x="127" y="355" fill="#fff" font-size="12" data-i18n="organisation_svg4a">Digital,</text>
-            <text x="127" y="370" fill="#fff" font-size="12" data-i18n="organisation_svg4b">apps &amp; IA</text>
+            <circle cx="302" cy="379" r="60" fill="var(--sky-texte)"/>
+            <text x="302" y="374" fill="#fff" font-size="12" data-i18n="organisation_svg4a">Digital,</text>
+            <text x="302" y="389" fill="#fff" font-size="12" data-i18n="organisation_svg4b">apps &amp; IA</text>
           </g>
           <g>
-            <circle cx="69" cy="150" r="62" fill="var(--pale)"/>
-            <text x="69" y="145" fill="var(--navy)" font-size="12" data-i18n="organisation_svg5a">Mapping &amp;</text>
-            <text x="69" y="160" fill="var(--navy)" font-size="12" data-i18n="organisation_svg5b">cartographie</text>
+            <circle cx="158" cy="379" r="60" fill="var(--pale)"/>
+            <text x="158" y="374" fill="var(--navy)" font-size="12" data-i18n="organisation_svg5a">Mapping &amp;</text>
+            <text x="158" y="389" fill="var(--navy)" font-size="12" data-i18n="organisation_svg5b">cartographie</text>
+          </g>
+          <g>
+            <circle cx="69" cy="267" r="60" fill="var(--green)"/>
+            <text x="69" y="262" fill="#fff" font-size="12" data-i18n="organisation_svg6a">Gestion</text>
+            <text x="69" y="277" fill="#fff" font-size="12" data-i18n="organisation_svg6b">financière</text>
+          </g>
+          <g>
+            <circle cx="101" cy="127" r="60" fill="var(--rouge-2)"/>
+            <text x="101" y="122" fill="#fff" font-size="12" data-i18n="organisation_svg7a">Sauvegardes</text>
+            <text x="101" y="137" fill="#fff" font-size="12" data-i18n="organisation_svg7b">E&amp;S</text>
           </g>
         </g>
         <circle cx="230" cy="230" r="70" fill="#fff" stroke="var(--navy)" stroke-width="2"/>
         <text x="230" y="222" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800" font-size="13" fill="var(--navy)">ISOSTASY</text>
-        <text x="230" y="240" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" fill="var(--texte-2)" data-i18n="organisation_svg_center1">5 pôles</text>
+        <text x="230" y="240" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" fill="var(--texte-2)" data-i18n="organisation_svg_center1">7 pôles</text>
         <text x="230" y="253" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="600" font-size="10" fill="var(--texte-2)" data-i18n="organisation_svg_center2">complémentaires</text>
       </svg>
     </div>
 
-    <div class="key-expertise-grid reveal-stagger" style="grid-template-columns:repeat(5,1fr);">
+    <div class="key-expertise-grid reveal-stagger" style="grid-template-columns:repeat(7,1fr);">
       <div class="key-expertise-card">
         <span class="ke-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></span>
         <h4 data-i18n="organisation_c1_title">Études, enquêtes et suivi‑évaluation</h4>
@@ -2413,6 +2442,16 @@ window.Isostasy = window.Isostasy || {};
         <span class="ke-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></span>
         <h4 data-i18n="organisation_c5_title">Mapping et cartographie</h4>
         <p data-i18n="organisation_c5_text">Géolocalisation, SIG, cartes thématiques, suivi spatial et analyse cartographique.</p>
+      </div>
+      <div class="key-expertise-card">
+        <span class="ke-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2.5 0 0 1 2.5-1h.5a2.25 2.25 0 0 1 0 4.5h-1a2.25 2.25 0 0 0 0 4.5h.5a2.5 2.5 0 0 0 2.5-1"/></svg></span>
+        <h4 data-i18n="organisation_c6_title">Gestion financière</h4>
+        <p data-i18n="organisation_c6_text">Budgétisation, comptabilité de projet, contrôle de gestion et reporting financier bailleurs.</p>
+      </div>
+      <div class="key-expertise-card">
+        <span class="ke-ico"><svg class="ico-svg-lg" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h4 data-i18n="organisation_c7_title">Sauvegardes E&amp;S</h4>
+        <p data-i18n="organisation_c7_text">EIES, plans de réinstallation, CGES et conformité aux standards environnementaux et sociaux.</p>
       </div>
     </div>
 
@@ -2510,6 +2549,24 @@ window.Isostasy = window.Isostasy || {};
           <span class="pill" data-i18n="organisation_grp6_p5">Guides d'utilisation</span>
         </div>
       </div>
+      <div class="standards-group">
+        <h4 data-i18n="organisation_grp7_title">Finance</h4>
+        <div class="pill-grid">
+          <span class="pill" data-i18n="organisation_grp7_p1">Budgets prévisionnels</span>
+          <span class="pill" data-i18n="organisation_grp7_p2">Rapports financiers bailleurs</span>
+          <span class="pill" data-i18n="organisation_grp7_p3">Plans de trésorerie</span>
+          <span class="pill" data-i18n="organisation_grp7_p4">Outils de contrôle de gestion</span>
+        </div>
+      </div>
+      <div class="standards-group">
+        <h4 data-i18n="organisation_grp8_title">Sauvegardes E&amp;S</h4>
+        <div class="pill-grid">
+          <span class="pill" data-i18n="organisation_grp8_p1">EIES</span>
+          <span class="pill" data-i18n="organisation_grp8_p2">Plans d'action de réinstallation (PAR)</span>
+          <span class="pill" data-i18n="organisation_grp8_p3">CGES</span>
+          <span class="pill" data-i18n="organisation_grp8_p4">Certificats de conformité environnementale</span>
+        </div>
+      </div>
     </div>
 
     <div class="section-head reveal mt-60 max-w-1180">
@@ -2603,10 +2660,47 @@ window.Isostasy = window.Isostasy || {};
           <li data-i18n="faisons_c6_li3">Capitalisation d'expérience et notes d'apprentissage</li>
         </ul>
       </div>
+
+      <div class="expert-card">
+        <h5><svg class="ico-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2.5 0 0 1 2.5-1h.5a2.25 2.25 0 0 1 0 4.5h-1a2.25 2.25 0 0 0 0 4.5h.5a2.5 2.5 0 0 0 2.5-1"/></svg><span data-i18n="faisons_c7_title">Finance</span></h5>
+        <ul class="train-list">
+          <li data-i18n="faisons_c7_li1">Audits financiers et organisationnels</li>
+          <li data-i18n="faisons_c7_li2">Budgétisation et planification financière de projets</li>
+          <li data-i18n="faisons_c7_li3">Comptabilité de projet et suivi des dépenses</li>
+          <li data-i18n="faisons_c7_li4">Contrôle de gestion et analyse des coûts</li>
+          <li data-i18n="faisons_c7_li5">Élaboration de rapports financiers pour bailleurs</li>
+          <li data-i18n="faisons_c7_li6">Plans de trésorerie et prévisions budgétaires</li>
+          <li data-i18n="faisons_c7_li7">Appui à la conformité financière (procédures bailleurs)</li>
+        </ul>
+      </div>
+
+      <div class="expert-card">
+        <h5><svg class="ico-svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span data-i18n="faisons_c8_title">Communication &amp; infographie</span></h5>
+        <ul class="train-list">
+          <li data-i18n="faisons_c8_li1">Conception d'infographies et de visuels de données</li>
+          <li data-i18n="faisons_c8_li2">Création de supports de communication (affiches, brochures, fiches projets)</li>
+          <li data-i18n="faisons_c8_li3">Design de présentations et rapports illustrés</li>
+          <li data-i18n="faisons_c8_li4">Habillage graphique de documents institutionnels</li>
+          <li data-i18n="faisons_c8_li5">Production de contenus visuels pour réseaux sociaux</li>
+          <li data-i18n="faisons_c8_li6">Charte graphique et identité visuelle</li>
+        </ul>
+      </div>
+
+      <div class="expert-card">
+        <h5><svg class="ico-svg" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5Z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n="faisons_c9_title">Sauvegardes environnementales &amp; sociales</span></h5>
+        <ul class="train-list">
+          <li data-i18n="faisons_c9_li1">Réalisation d'EIES et de plans d'action de réinstallation (PAR)</li>
+          <li data-i18n="faisons_c9_li2">Élaboration de CGES et de manuels de procédures</li>
+          <li data-i18n="faisons_c9_li3">Audits de conformité environnementale et sociale</li>
+          <li data-i18n="faisons_c9_li4">Alignement aux standards CES/NES (Banque mondiale) et SSI (BAD)</li>
+          <li data-i18n="faisons_c9_li5">Identification des dangers et évaluation des risques (HIRA)</li>
+          <li data-i18n="faisons_c9_li6">Surveillance E&amp;S de chantiers et gestion des mécanismes de plaintes (MGP)</li>
+        </ul>
+      </div>
     </div>
 
     <div class="philo-callout reveal" style="text-align:left;margin-top:36px;">
-      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="faisons_callout_eyebrow">Une offre modulable</span>
+      <span class="eyebrow" style="color:var(--pale)" data-i18n="faisons_callout_eyebrow">Une offre modulable</span>
       <p style="font-size:var(--fs-md);font-weight:400;" data-i18n="faisons_callout_text">Chaque service peut être mobilisé isolément ou combiné dans le cadre d'un accompagnement de bout en bout — de la conception du projet jusqu'à la capitalisation des résultats.</p>
     </div>
 
@@ -2621,8 +2715,8 @@ window.Isostasy = window.Isostasy || {};
   <div class="wrap">
     <div class="section-head center reveal max-w-1180">
       <span class="eyebrow" data-content-key="domaines_h1_eyebrow" data-i18n="domaines_h1_eyebrow">Où nous intervenons</span>
-      <h1 data-content-key="domaines_h1_title" data-i18n="domaines_h1_title">Neuf secteurs, trois familles complémentaires</h1>
-      <p data-content-key="domaines_h1_text" style="font-size:var(--fs-md);" data-i18n="domaines_h1_text">Isostasy Consulting intervient dans les secteurs où les données, l'innovation, la communication et la qualité de gestion des projets sont essentielles pour produire un impact durable. Ces neuf domaines ne sont pas cloisonnés : un même projet en combine souvent plusieurs — par exemple une évaluation en éducation intégrant une composante cartographique, ou un diagnostic agricole s'appuyant sur une enquête de résilience communautaire.</p>
+      <h1 data-content-key="domaines_h1_title" data-i18n="domaines_h1_title">Onze secteurs, trois familles complémentaires</h1>
+      <p data-content-key="domaines_h1_text" style="font-size:var(--fs-md);" data-i18n="domaines_h1_text">Isostasy Consulting intervient dans les secteurs où les données, l'innovation, la communication et la qualité de gestion des projets sont essentielles pour produire un impact durable. Ces onze domaines ne sont pas cloisonnés : un même projet en combine souvent plusieurs — par exemple une évaluation en éducation intégrant une composante cartographique, ou un diagnostic agricole s'appuyant sur une enquête de résilience communautaire.</p>
     </div>
 
     <div class="domain-fam fam-rouge">
@@ -2663,6 +2757,11 @@ window.Isostasy = window.Isostasy || {};
           <div class="domain-card-head"><h5 data-i18n="domaines_d6_title">Infrastructure</h5><span class="odd-tag" data-i18n="domaines_d6_odd">ODD 9</span></div>
           <p data-i18n="domaines_d6_text">Études de faisabilité technique, diagnostics d'ouvrages, cartographie, suivi de chantiers.</p>
         </div>
+        <div class="domain-card">
+          <div class="sector-visual"><span><svg class="ico-svg-lg" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5Z"/><path d="m9 12 2 2 4-4"/></svg></span></div>
+          <div class="domain-card-head"><h5 data-i18n="domaines_d11_title">Sauvegardes environnementales &amp; sociales</h5><span class="odd-tag" data-i18n="domaines_d11_odd">ODD 13 · ODD 16</span></div>
+          <p data-i18n="domaines_d11_text">EIES, plans de réinstallation, CGES et conformité aux standards des bailleurs (Banque mondiale, BAD).</p>
+        </div>
       </div>
     </div>
     <div class="domain-fam fam-orange">
@@ -2683,6 +2782,11 @@ window.Isostasy = window.Isostasy || {};
           <div class="domain-card-head"><h5 data-i18n="domaines_d9_title">Blockchain</h5><span class="odd-tag" data-i18n="domaines_d9_odd">ODD 9 · ODD 16</span></div>
           <p data-i18n="domaines_d9_text">Traçabilité, certification numérique des données, registres décentralisés, vote sécurisé.</p>
         </div>
+        <div class="domain-card">
+          <div class="sector-visual"><span><svg class="ico-svg-lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2.5 0 0 1 2.5-1h.5a2.25 2.25 0 0 1 0 4.5h-1a2.25 2.25 0 0 0 0 4.5h.5a2.5 2.5 0 0 0 2.5-1"/></svg></span></div>
+          <div class="domain-card-head"><h5 data-i18n="domaines_d10_title">Finance</h5><span class="odd-tag" data-i18n="domaines_d10_odd">ODD 1 · ODD 8</span></div>
+          <p data-i18n="domaines_d10_text">Budgétisation, contrôle de gestion, reporting financier bailleurs et plans de trésorerie.</p>
+        </div>
       </div>
     </div>
 
@@ -2693,12 +2797,12 @@ window.Isostasy = window.Isostasy || {};
     </div>
 
     <div class="philo-callout reveal" style="text-align:left;margin-bottom:40px;">
-      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="domaines_callout_eyebrow">Deux ODD transversaux</span>
+      <span class="eyebrow" style="color:var(--pale)" data-i18n="domaines_callout_eyebrow">Deux ODD transversaux</span>
       <p style="font-size:var(--fs-md);font-weight:400;" data-i18n="domaines_callout_text">L'ODD 5 (Égalité entre les sexes) et l'ODD 17 (Partenariats pour la réalisation des objectifs) s'appliquent à l'ensemble des domaines d'intervention : chaque mission intègre une analyse sensible au genre, et privilégie une approche partenariale plutôt qu'une logique de prestataire isolé.</p>
     </div>
 
     <div class="philo-intro-box reveal" style="max-width:100%;">
-      <p data-i18n="domaines_closing">Ces neuf domaines se regroupent en réalité en trois grandes familles qui structurent la manière dont Isostasy Consulting aborde un projet. La première, <strong>sociale et humaine</strong>, rassemble le développement social, l'éducation et la santé communautaire, et l'action humanitaire : elle place les bénéficiaires et leur redevabilité au centre de l'intervention. La deuxième, <strong>territoriale et environnementale</strong>, réunit l'environnement, l'agriculture et l'infrastructure : elle s'appuie fortement sur la cartographie et les diagnostics techniques. La troisième, <strong>institutionnelle et économique</strong>, regroupe la gouvernance, le marketing et la blockchain : elle répond aux besoins de transparence, de positionnement et de confiance numérique des organisations. Cette lecture en trois familles aide à identifier rapidement, face à un nouveau besoin client, quels pôles techniques et quels profils sectoriels mobiliser en priorité.</p>
+      <p data-i18n="domaines_closing">Ces onze domaines se regroupent en réalité en trois grandes familles qui structurent la manière dont Isostasy Consulting aborde un projet. La première, <strong>sociale et humaine</strong>, rassemble le développement social, l'éducation et la santé communautaire, et l'action humanitaire : elle place les bénéficiaires et leur redevabilité au centre de l'intervention. La deuxième, <strong>territoriale et environnementale</strong>, réunit l'environnement, l'agriculture, l'infrastructure et les sauvegardes environnementales et sociales : elle s'appuie fortement sur la cartographie, les diagnostics techniques et la conformité aux standards des bailleurs. La troisième, <strong>institutionnelle et économique</strong>, regroupe la gouvernance, le marketing, la blockchain et la finance : elle répond aux besoins de transparence, de positionnement, de confiance numérique et de rigueur financière des organisations. Cette lecture en trois familles aide à identifier rapidement, face à un nouveau besoin client, quels pôles techniques et quels profils sectoriels mobiliser en priorité.</p>
     </div>
   </div>
 </section>
@@ -3602,7 +3706,7 @@ window.Isostasy = window.Isostasy || {};
       </div>
     </div>
     <div class="philo-callout reveal" style="text-align:left;margin-top:36px;">
-      <span class="eyebrow" style="color:var(--sky-texte)" data-i18n="casusage_callout_eyebrow">Portefeuille de références en construction</span>
+      <span class="eyebrow" style="color:var(--pale)" data-i18n="casusage_callout_eyebrow">Portefeuille de références en construction</span>
       <p style="font-size:var(--fs-md);font-weight:400;" data-i18n="casusage_callout_text">Ces deux démonstrations constituent un point de départ, pas un aboutissement. Elles seront complétées par des références de missions réelles au fur et à mesure de leur réalisation.</p>
     </div>
   </div>
@@ -4642,6 +4746,8 @@ window.Isostasy = window.Isostasy || {};
       home_offer_pill1:"Suivi‑Évaluation (MEAL)", home_offer_pill2:"Data & digitalisation",
       home_offer_pill3:"Études & rapports", home_offer_pill4:"Gestion de projet",
       home_offer_pill5:"Cartographie & SIG", home_offer_pill6:"Formations & accompagnement",
+      home_offer_pill7:"Finance", home_offer_pill8:"Communication & infographie",
+      home_offer_pill9:"Sauvegardes E&amp;S",
       home_offer_cta:"Voir le détail de notre offre →",
       disc1_title:"Données ouvertes", disc1_text:"Santé, éducation, économie, démographie... 12 domaines, chiffrés et sourcés, filtrables par pays.", disc1_link:"Explorer le tableau de bord →",
       disc2_title:"Actualité", disc2_text:"L'actualité mondiale résumée et remise à jour en continu, façon RFI ou France 24.", disc2_link:"Suivre l'actualité →",
@@ -4682,6 +4788,28 @@ window.Isostasy = window.Isostasy || {};
       faisons_c6_title:"Études & rapports",
       faisons_c6_li1:"Réalisation de diverses études", faisons_c6_li2:"Rédaction de rapports d'étude, d'évaluation et de projet",
       faisons_c6_li3:"Capitalisation d'expérience et notes d'apprentissage",
+      faisons_c7_title:"Finance",
+      faisons_c7_li1:"Audits financiers et organisationnels",
+      faisons_c7_li2:"Budgétisation et planification financière de projets",
+      faisons_c7_li3:"Comptabilité de projet et suivi des dépenses",
+      faisons_c7_li4:"Contrôle de gestion et analyse des coûts",
+      faisons_c7_li5:"Élaboration de rapports financiers pour bailleurs",
+      faisons_c7_li6:"Plans de trésorerie et prévisions budgétaires",
+      faisons_c7_li7:"Appui à la conformité financière (procédures bailleurs)",
+      faisons_c8_title:"Communication &amp; infographie",
+      faisons_c8_li1:"Conception d'infographies et de visuels de données",
+      faisons_c8_li2:"Création de supports de communication (affiches, brochures, fiches projets)",
+      faisons_c8_li3:"Design de présentations et rapports illustrés",
+      faisons_c8_li4:"Habillage graphique de documents institutionnels",
+      faisons_c8_li5:"Production de contenus visuels pour réseaux sociaux",
+      faisons_c8_li6:"Charte graphique et identité visuelle",
+      faisons_c9_title:"Sauvegardes environnementales &amp; sociales",
+      faisons_c9_li1:"Réalisation d'EIES et de plans d'action de réinstallation (PAR)",
+      faisons_c9_li2:"Élaboration de CGES et de manuels de procédures",
+      faisons_c9_li3:"Audits de conformité environnementale et sociale",
+      faisons_c9_li4:"Alignement aux standards CES/NES (Banque mondiale) et SSI (BAD)",
+      faisons_c9_li5:"Identification des dangers et évaluation des risques (HIRA)",
+      faisons_c9_li6:"Surveillance E&amp;S de chantiers et gestion des mécanismes de plaintes (MGP)",
       faisons_callout_eyebrow:"Une offre modulable",
       faisons_callout_text:"Chaque service peut être mobilisé isolément ou combiné dans le cadre d'un accompagnement de bout en bout — de la conception du projet jusqu'à la capitalisation des résultats.",
       faisons_cta:"Discuter de votre projet",
@@ -4870,8 +4998,8 @@ window.Isostasy = window.Isostasy || {};
       philosophie_v6_title:"Impact", philosophie_v6_text:"Transformer les connaissances en actions concrètes.",
       philosophie_callout2_eyebrow:"Principe fondateur",
       philosophie_callout2_text:"L'impact visible dépend toujours de la qualité du travail invisible.",
-      expertises_h1_eyebrow:"Ce que nous faisons", expertises_h1_title:"Deux expertises phares, quatorze capacités complémentaires",
-      expertises_h1_text:"Isostasy Consulting est avant tout identifié pour deux expertises : le suivi‑évaluation (MEAL) et l'analyse de données / tableaux de bord. C'est là que se concentre l'essentiel du savoir‑faire démontré du cabinet, y compris à travers la marque de formation Tedjunior. Les quatorze autres pôles présentés plus bas sont mobilisables en complément — mais ne sont pas mis en avant à égalité : un cabinet identifié pour une chose précise inspire davantage confiance qu'un cabinet qui affiche tout au même niveau.",
+      expertises_h1_eyebrow:"Ce que nous faisons", expertises_h1_title:"Deux expertises phares, quinze capacités complémentaires",
+      expertises_h1_text:"Isostasy Consulting est avant tout identifié pour deux expertises : le suivi‑évaluation (MEAL) et l'analyse de données / tableaux de bord. C'est là que se concentre l'essentiel du savoir‑faire démontré du cabinet, y compris à travers la marque de formation Tedjunior. Les quinze autres pôles présentés plus bas sont mobilisables en complément — mais ne sont pas mis en avant à égalité : un cabinet identifié pour une chose précise inspire davantage confiance qu'un cabinet qui affiche tout au même niveau.",
       expertises_flag1_tag:"Expertise phare 01", expertises_flag1_title:"Suivi‑évaluation / MEAL",
       expertises_flag1_text:"Systèmes MEAL, cadres logiques, gestion axée sur les résultats (GAR), indicateurs désagrégés et sensibles au genre, mécanismes de redevabilité, capitalisation et rapports de performance.",
       expertises_flag2_tag:"Expertise phare 02",
@@ -4882,6 +5010,8 @@ window.Isostasy = window.Isostasy || {};
       expertises_p7:"Intelligence artificielle", expertises_p8:"Solutions blockchain", expertises_p9:"Développement web",
       expertises_p10:"Mapping &amp; géolocalisation (SIG)", expertises_p11:"Infrastructure &amp; aménagement",
       expertises_p12:"Conception &amp; gestion de projets", expertises_p13:"Marketing &amp; positionnement", expertises_p14:"Renforcement de capacités",
+      expertises_p15:"Gestion financière",
+      expertises_p16:"Sauvegardes E&amp;S",
       expertises_callout_eyebrow:"Principe de l'offre intégrée",
       expertises_callout_text:"Le cabinet peut intervenir sur une mission ciblée — le plus souvent MEAL ou data — ou accompagner un projet de bout en bout en mobilisant les capacités complémentaires nécessaires : conception, communication, digitalisation, cartographie, reporting.",
       expertises_h2_eyebrow:"Vue d'ensemble", expertises_h2_title:"Nos expertises clés",
@@ -4893,6 +5023,8 @@ window.Isostasy = window.Isostasy || {};
       expertises_k6_title:"Cartographie SIG", expertises_k6_text:"Analyses spatiales et gestion des territoires",
       expertises_k7_title:"Communication", expertises_k7_text:"Stratégie, plaidoyer et communication digitale",
       expertises_k8_title:"Blockchain", expertises_k8_text:"Traçabilité, transparence et solutions décentralisées",
+      expertises_k9_title:"Gestion financière", expertises_k9_text:"Budgétisation, contrôle de gestion et reporting financier",
+      expertises_k10_title:"Sauvegardes E&amp;S", expertises_k10_text:"EIES, plans de réinstallation et conformité environnementale",
       team_eyebrow:"Visages du cabinet", team_title:"Nos experts",
       team_text:"Une équipe pluridisciplinaire, chacun responsable d'un ou plusieurs pôles techniques du cabinet.",
       team_teddy_role:"CEO — Fondateur",
@@ -4949,18 +5081,22 @@ window.Isostasy = window.Isostasy || {};
       methodologie_g3_p1:"Critères CAD/OCDE", methodologie_g3_p2:"UNEG — Normes et standards (2016, complétées 2025)",
       methodologie_g3_p3:"Gestion Axée sur les Résultats (GAR/RBM)", methodologie_g3_p4:"CHS — Norme humanitaire fondamentale",
       organisation_h1_eyebrow:"Comment nous sommes organisés", organisation_h1_title:"Organisation",
-      organisation_h1_text:"<span class=\"hi-line\">L'équipe d'Isostasy Consulting est structurée en cinq pôles techniques complémentaires. Cette organisation permet de mobiliser rapidement la bonne</span><br><span class=\"hi-line\">combinaison de compétences selon la nature de chaque mission, plutôt que de dépendre d'un profil généraliste unique.</span>",
+      organisation_h1_text:"<span class=\"hi-line\">L'équipe d'Isostasy Consulting est structurée en sept pôles techniques complémentaires. Cette organisation permet de mobiliser rapidement la bonne</span><br><span class=\"hi-line\">combinaison de compétences selon la nature de chaque mission, plutôt que de dépendre d'un profil généraliste unique.</span>",
       organisation_svg1a:"Études &amp;", organisation_svg1b:"suivi‑évaluation",
       organisation_svg2a:"Data &amp;", organisation_svg2b:"dashboards",
       organisation_svg3a:"Communication", organisation_svg3b:"&amp; design",
       organisation_svg4a:"Digital,", organisation_svg4b:"apps &amp; IA",
       organisation_svg5a:"Mapping &amp;", organisation_svg5b:"cartographie",
-      organisation_svg_center1:"5 pôles", organisation_svg_center2:"complémentaires",
+      organisation_svg_center1:"7 pôles", organisation_svg_center2:"complémentaires",
+      organisation_svg6a:"Gestion", organisation_svg6b:"financière",
+      organisation_svg7a:"Sauvegardes", organisation_svg7b:"E&amp;S",
       organisation_c1_title:"Études, enquêtes et suivi‑évaluation", organisation_c1_text:"Études, évaluations, enquêtes, systèmes MEAL, indicateurs, rapports et capitalisation.",
       organisation_c2_title:"Data, statistiques et tableaux de bord", organisation_c2_text:"Analyse de données, visualisation, dashboards, reporting analytique et bases de données.",
       organisation_c3_title:"Communication, design et infographie", organisation_c3_text:"Plans de communication, supports visuels, campagnes, infographies et présentations.",
       organisation_c4_title:"Digital, applications et IA", organisation_c4_text:"Applications, digitalisation, automatisation, assistants IA et outils numériques de gestion.",
       organisation_c5_title:"Mapping et cartographie", organisation_c5_text:"Géolocalisation, SIG, cartes thématiques, suivi spatial et analyse cartographique.",
+      organisation_c6_title:"Gestion financière", organisation_c6_text:"Budgétisation, comptabilité de projet, contrôle de gestion et reporting financier bailleurs.",
+      organisation_c7_title:"Sauvegardes E&amp;S", organisation_c7_text:"EIES, plans de réinstallation, CGES et conformité aux standards environnementaux et sociaux.",
       organisation_h1b_eyebrow:"Qui intervient sur vos missions", organisation_h1b_title:"Équipe type mobilisable",
       organisation_team1:"Expert en suivi‑évaluation / MEAL · statisticien · data analyst · spécialiste enquêtes.",
       organisation_team2:"Spécialiste en gestion de projets · communicateur · graphiste / infographiste.",
@@ -4985,11 +5121,13 @@ window.Isostasy = window.Isostasy || {};
       organisation_grp4_title:"Communication et design", organisation_grp4_p1:"Plans de communication", organisation_grp4_p2:"Affiches", organisation_grp4_p3:"Brochures", organisation_grp4_p4:"Infographies", organisation_grp4_p5:"Visuels", organisation_grp4_p6:"Fiches projets",
       organisation_grp5_title:"Cartographie", organisation_grp5_p1:"Cartes thématiques", organisation_grp5_p2:"Bases GPS", organisation_grp5_p3:"Cartographie des interventions", organisation_grp5_p4:"Cartographie des bénéficiaires et risques",
       organisation_grp6_title:"Digital et IA", organisation_grp6_p1:"Applications", organisation_grp6_p2:"Plateformes", organisation_grp6_p3:"Assistants IA", organisation_grp6_p4:"Outils d'automatisation", organisation_grp6_p5:"Guides d'utilisation",
+      organisation_grp7_title:"Finance", organisation_grp7_p1:"Budgets prévisionnels", organisation_grp7_p2:"Rapports financiers bailleurs", organisation_grp7_p3:"Plans de trésorerie", organisation_grp7_p4:"Outils de contrôle de gestion",
+      organisation_grp8_title:"Sauvegardes E&amp;S", organisation_grp8_p1:"EIES", organisation_grp8_p2:"Plans d'action de réinstallation (PAR)", organisation_grp8_p3:"CGES", organisation_grp8_p4:"Certificats de conformité environnementale",
       organisation_h4_eyebrow:"Aller plus loin", organisation_h4_title:"Documentation à télécharger",
       organisation_h4_text:"Le profil institutionnel complet du cabinet, incluant la charte graphique officielle.",
       organisation_dl_title:"Profil institutionnel — Isostasy Consulting", organisation_dl_text:"Note conceptuelle et charte graphique officielle (PDF).", organisation_dl_link:"Télécharger le PDF →",
-      domaines_h1_eyebrow:"Où nous intervenons", domaines_h1_title:"Neuf secteurs, trois familles complémentaires",
-      domaines_h1_text:"Isostasy Consulting intervient dans les secteurs où les données, l'innovation, la communication et la qualité de gestion des projets sont essentielles pour produire un impact durable. Ces neuf domaines ne sont pas cloisonnés : un même projet en combine souvent plusieurs — par exemple une évaluation en éducation intégrant une composante cartographique, ou un diagnostic agricole s'appuyant sur une enquête de résilience communautaire.",
+      domaines_h1_eyebrow:"Où nous intervenons", domaines_h1_title:"Onze secteurs, trois familles complémentaires",
+      domaines_h1_text:"Isostasy Consulting intervient dans les secteurs où les données, l'innovation, la communication et la qualité de gestion des projets sont essentielles pour produire un impact durable. Ces onze domaines ne sont pas cloisonnés : un même projet en combine souvent plusieurs — par exemple une évaluation en éducation intégrant une composante cartographique, ou un diagnostic agricole s'appuyant sur une enquête de résilience communautaire.",
       domaines_fam1:"Sociale et humaine", domaines_fam2:"Territoriale et environnementale", domaines_fam3:"Institutionnelle et économique",
       domaines_d1_title:"Développement social", domaines_d1_odd:"ODD 1 · ODD 10", domaines_d1_text:"Études, enquêtes, suivi des bénéficiaires, évaluation des résultats, capitalisation.",
       domaines_d2_title:"Éducation et santé communautaire", domaines_d2_odd:"ODD 3 · ODD 4", domaines_d2_text:"Enquêtes, analyses de performance, tableaux de bord et supports de sensibilisation.",
@@ -5000,11 +5138,13 @@ window.Isostasy = window.Isostasy || {};
       domaines_d7_title:"Gouvernance et résilience", domaines_d7_odd:"ODD 16", domaines_d7_text:"Diagnostics, planification, suivi institutionnel, gestion des risques et leçons apprises.",
       domaines_d8_title:"Marketing", domaines_d8_odd:"ODD 8", domaines_d8_text:"Études de marché, stratégies de communication, campagnes digitales, analyse d'audience.",
       domaines_d9_title:"Blockchain", domaines_d9_odd:"ODD 9 · ODD 16", domaines_d9_text:"Traçabilité, certification numérique des données, registres décentralisés, vote sécurisé.",
+      domaines_d10_title:"Finance", domaines_d10_odd:"ODD 1 · ODD 8", domaines_d10_text:"Budgétisation, contrôle de gestion, reporting financier bailleurs et plans de trésorerie.",
+      domaines_d11_title:"Sauvegardes environnementales &amp; sociales", domaines_d11_odd:"ODD 13 · ODD 16", domaines_d11_text:"EIES, plans de réinstallation, CGES et conformité aux standards des bailleurs (Banque mondiale, BAD).",
       domaines_h2_eyebrow:"Redevabilité internationale", domaines_h2_title:"Alignement sur les Objectifs de Développement Durable",
       domaines_h2_text:"Chaque domaine d'intervention est relié à un ou plusieurs ODD des Nations Unies. Cet alignement n'est pas un exercice de communication : il structure la manière dont les indicateurs de suivi‑évaluation sont définis dès la conception de chaque mission, pour que les résultats produits puissent être rapportés aux cadres de redevabilité nationaux et internationaux des partenaires techniques et financiers.",
       domaines_callout_eyebrow:"Deux ODD transversaux",
       domaines_callout_text:"L'ODD 5 (Égalité entre les sexes) et l'ODD 17 (Partenariats pour la réalisation des objectifs) s'appliquent à l'ensemble des domaines d'intervention : chaque mission intègre une analyse sensible au genre, et privilégie une approche partenariale plutôt qu'une logique de prestataire isolé.",
-      domaines_closing:"Ces neuf domaines se regroupent en réalité en trois grandes familles qui structurent la manière dont Isostasy Consulting aborde un projet. La première, sociale et humaine, rassemble le développement social, l'éducation et la santé communautaire, et l'action humanitaire : elle place les bénéficiaires et leur redevabilité au centre de l'intervention. La deuxième, territoriale et environnementale, réunit l'environnement, l'agriculture et l'infrastructure : elle s'appuie fortement sur la cartographie et les diagnostics techniques. La troisième, institutionnelle et économique, regroupe la gouvernance, le marketing et la blockchain : elle répond aux besoins de transparence, de positionnement et de confiance numérique des organisations. Cette lecture en trois familles aide à identifier rapidement, face à un nouveau besoin client, quels pôles techniques et quels profils sectoriels mobiliser en priorité.",
+      domaines_closing:"Ces onze domaines se regroupent en réalité en trois grandes familles qui structurent la manière dont Isostasy Consulting aborde un projet. La première, sociale et humaine, rassemble le développement social, l'éducation et la santé communautaire, et l'action humanitaire : elle place les bénéficiaires et leur redevabilité au centre de l'intervention. La deuxième, territoriale et environnementale, réunit l'environnement, l'agriculture, l'infrastructure et les sauvegardes environnementales et sociales : elle s'appuie fortement sur la cartographie, les diagnostics techniques et la conformité aux standards des bailleurs. La troisième, institutionnelle et économique, regroupe la gouvernance, le marketing, la blockchain et la finance : elle répond aux besoins de transparence, de positionnement, de confiance numérique et de rigueur financière des organisations. Cette lecture en trois familles aide à identifier rapidement, face à un nouveau besoin client, quels pôles techniques et quels profils sectoriels mobiliser en priorité.",
       temoignages_h1_eyebrow:"Ce que nos partenaires en disent", temoignages_h1_title:"Témoignages",
       temoignages_h1_text:"Retours anonymisés d'organisations accompagnées par Isostasy Consulting.",
       temoignages_q1:"« Le système MEAL mis en place a considérablement clarifié notre pilotage. L'équipe a livré un outil que nous utilisons encore aujourd'hui, en autonomie complète. »",
@@ -5240,6 +5380,8 @@ window.Isostasy = window.Isostasy || {};
       home_offer_pill1:"Monitoring & Evaluation (MEAL)", home_offer_pill2:"Data & digitalization",
       home_offer_pill3:"Studies & reports", home_offer_pill4:"Project management",
       home_offer_pill5:"Mapping & GIS", home_offer_pill6:"Training & support",
+      home_offer_pill7:"Finance", home_offer_pill8:"Communication & infographics",
+      home_offer_pill9:"Safeguards (E&amp;S)",
       home_offer_cta:"See our full offer →",
       disc1_title:"Open data", disc1_text:"Health, education, economy, demographics... 12 areas, quantified and sourced, filterable by country.", disc1_link:"Explore the dashboard →",
       disc2_title:"News", disc2_text:"World news summarized and continuously updated, in the style of RFI or France 24.", disc2_link:"Follow the news →",
@@ -5280,6 +5422,28 @@ window.Isostasy = window.Isostasy || {};
       faisons_c6_title:"Studies & reports",
       faisons_c6_li1:"Conducting various studies", faisons_c6_li2:"Writing study, evaluation and project reports",
       faisons_c6_li3:"Experience capitalization and lessons-learned notes",
+      faisons_c7_title:"Finance",
+      faisons_c7_li1:"Financial and organizational audits",
+      faisons_c7_li2:"Project budgeting and financial planning",
+      faisons_c7_li3:"Project accounting and expense tracking",
+      faisons_c7_li4:"Management control and cost analysis",
+      faisons_c7_li5:"Preparation of donor financial reports",
+      faisons_c7_li6:"Cash flow plans and budget forecasts",
+      faisons_c7_li7:"Support with financial compliance (donor procedures)",
+      faisons_c8_title:"Communication &amp; infographics",
+      faisons_c8_li1:"Designing infographics and data visuals",
+      faisons_c8_li2:"Creating communication materials (posters, brochures, project sheets)",
+      faisons_c8_li3:"Designing presentations and illustrated reports",
+      faisons_c8_li4:"Visual design of institutional documents",
+      faisons_c8_li5:"Producing visual content for social media",
+      faisons_c8_li6:"Brand guidelines and visual identity",
+      faisons_c9_title:"Environmental &amp; Social Safeguards",
+      faisons_c9_li1:"Conducting ESIAs and resettlement action plans (RAP)",
+      faisons_c9_li2:"Developing ESMFs and procedure manuals",
+      faisons_c9_li3:"Environmental and social compliance audits",
+      faisons_c9_li4:"Alignment with World Bank ESF/ESS and AfDB ISS standards",
+      faisons_c9_li5:"Hazard identification and risk assessment (HIRA)",
+      faisons_c9_li6:"E&amp;S site monitoring and grievance mechanism (GRM) management",
       faisons_callout_eyebrow:"A modular offer",
       faisons_callout_text:"Each service can be mobilized on its own or combined as part of end-to-end support — from project design through to results capitalization.",
       faisons_cta:"Discuss your project",
@@ -5468,8 +5632,8 @@ window.Isostasy = window.Isostasy || {};
       philosophie_v6_title:"Impact", philosophie_v6_text:"Turning knowledge into concrete action.",
       philosophie_callout2_eyebrow:"Founding principle",
       philosophie_callout2_text:"Visible impact always depends on the quality of invisible work.",
-      expertises_h1_eyebrow:"What we do", expertises_h1_title:"Two flagship areas of expertise, fourteen complementary capabilities",
-      expertises_h1_text:"Isostasy Consulting is best known for two areas of expertise: monitoring & evaluation (MEAL) and data analysis / dashboards. That's where most of the firm's demonstrated know-how is concentrated, including through the Tedjunior training brand. The fourteen other units listed below can be mobilized as a complement — but aren't presented on equal footing: a firm known for one clear thing inspires more confidence than one that presents everything at the same level.",
+      expertises_h1_eyebrow:"What we do", expertises_h1_title:"Two flagship areas of expertise, fifteen complementary capabilities",
+      expertises_h1_text:"Isostasy Consulting is best known for two areas of expertise: monitoring & evaluation (MEAL) and data analysis / dashboards. That's where most of the firm's demonstrated know-how is concentrated, including through the Tedjunior training brand. The fifteen other units listed below can be mobilized as a complement — but aren't presented on equal footing: a firm known for one clear thing inspires more confidence than one that presents everything at the same level.",
       expertises_flag1_tag:"Flagship expertise 01", expertises_flag1_title:"Monitoring &amp; evaluation / MEAL",
       expertises_flag1_text:"MEAL systems, logical frameworks, results-based management (RBM), disaggregated and gender-sensitive indicators, accountability mechanisms, capitalization and performance reports.",
       expertises_flag2_tag:"Flagship expertise 02",
@@ -5480,6 +5644,8 @@ window.Isostasy = window.Isostasy || {};
       expertises_p7:"Artificial intelligence", expertises_p8:"Blockchain solutions", expertises_p9:"Web development",
       expertises_p10:"Mapping &amp; geolocation (GIS)", expertises_p11:"Infrastructure &amp; planning",
       expertises_p12:"Project design &amp; management", expertises_p13:"Marketing &amp; positioning", expertises_p14:"Capacity building",
+      expertises_p15:"Financial management",
+      expertises_p16:"Safeguards (E&amp;S)",
       expertises_callout_eyebrow:"Integrated offer principle",
       expertises_callout_text:"The firm can work on a targeted assignment — most often MEAL or data — or support a project end to end by mobilizing the necessary complementary capabilities: design, communication, digitalization, mapping, reporting.",
       expertises_h2_eyebrow:"Overview", expertises_h2_title:"Our key expertise",
@@ -5491,6 +5657,8 @@ window.Isostasy = window.Isostasy || {};
       expertises_k6_title:"GIS Mapping", expertises_k6_text:"Spatial analysis and territory management",
       expertises_k7_title:"Communication", expertises_k7_text:"Strategy, advocacy and digital communication",
       expertises_k8_title:"Blockchain", expertises_k8_text:"Traceability, transparency and decentralized solutions",
+      expertises_k9_title:"Financial management", expertises_k9_text:"Budgeting, management control and financial reporting",
+      expertises_k10_title:"Safeguards (E&amp;S)", expertises_k10_text:"ESIAs, resettlement action plans and environmental compliance",
       team_eyebrow:"The people behind the firm", team_title:"Our experts",
       team_text:"A multidisciplinary team, each responsible for one or more of the firm's technical units.",
       team_teddy_role:"CEO — Founder",
@@ -5547,18 +5715,22 @@ window.Isostasy = window.Isostasy || {};
       methodologie_g3_p1:"OECD/DAC criteria", methodologie_g3_p2:"UNEG — Norms and Standards (2016, updated 2025)",
       methodologie_g3_p3:"Results-Based Management (RBM)", methodologie_g3_p4:"CHS — Core Humanitarian Standard",
       organisation_h1_eyebrow:"How we're organized", organisation_h1_title:"Organization",
-      organisation_h1_text:"<span class=\"hi-line\">The Isostasy Consulting team is organized into five complementary technical units. This structure makes it possible to quickly mobilize the right</span><br><span class=\"hi-line\">mix of skills depending on the nature of each assignment, rather than relying on a single generalist profile.</span>",
+      organisation_h1_text:"<span class=\"hi-line\">The Isostasy Consulting team is organized into seven complementary technical units. This structure makes it possible to quickly mobilize the right</span><br><span class=\"hi-line\">mix of skills depending on the nature of each assignment, rather than relying on a single generalist profile.</span>",
       organisation_svg1a:"Studies &amp;", organisation_svg1b:"M&amp;E",
       organisation_svg2a:"Data &amp;", organisation_svg2b:"dashboards",
       organisation_svg3a:"Communication", organisation_svg3b:"&amp; design",
       organisation_svg4a:"Digital,", organisation_svg4b:"apps &amp; AI",
       organisation_svg5a:"Mapping &amp;", organisation_svg5b:"GIS",
-      organisation_svg_center1:"5 units", organisation_svg_center2:"complementary",
+      organisation_svg_center1:"7 units", organisation_svg_center2:"complementary",
+      organisation_svg6a:"Financial", organisation_svg6b:"management",
+      organisation_svg7a:"Safeguards", organisation_svg7b:"(E&amp;S)",
       organisation_c1_title:"Studies, surveys and M&amp;E", organisation_c1_text:"Studies, evaluations, surveys, MEAL systems, indicators, reports and capitalization.",
       organisation_c2_title:"Data, statistics and dashboards", organisation_c2_text:"Data analysis, visualization, dashboards, analytical reporting and databases.",
       organisation_c3_title:"Communication, design and infographics", organisation_c3_text:"Communication plans, visual materials, campaigns, infographics and presentations.",
       organisation_c4_title:"Digital, applications and AI", organisation_c4_text:"Applications, digitalization, automation, AI assistants and digital management tools.",
       organisation_c5_title:"Mapping and GIS", organisation_c5_text:"Geolocation, GIS, thematic maps, spatial monitoring and mapping analysis.",
+      organisation_c6_title:"Financial management", organisation_c6_text:"Budgeting, project accounting, management control and donor financial reporting.",
+      organisation_c7_title:"Safeguards (E&amp;S)", organisation_c7_text:"ESIAs, resettlement action plans, ESMFs and compliance with environmental and social standards.",
       organisation_h1b_eyebrow:"Who works on your assignments", organisation_h1b_title:"Typical team that can be mobilized",
       organisation_team1:"Monitoring &amp; evaluation / MEAL expert · statistician · data analyst · survey specialist.",
       organisation_team2:"Project management specialist · communications officer · graphic/infographic designer.",
@@ -5583,11 +5755,13 @@ window.Isostasy = window.Isostasy || {};
       organisation_grp4_title:"Communication and design", organisation_grp4_p1:"Communication plans", organisation_grp4_p2:"Posters", organisation_grp4_p3:"Brochures", organisation_grp4_p4:"Infographics", organisation_grp4_p5:"Visuals", organisation_grp4_p6:"Project fact sheets",
       organisation_grp5_title:"Mapping", organisation_grp5_p1:"Thematic maps", organisation_grp5_p2:"GPS datasets", organisation_grp5_p3:"Intervention mapping", organisation_grp5_p4:"Beneficiary and risk mapping",
       organisation_grp6_title:"Digital and AI", organisation_grp6_p1:"Applications", organisation_grp6_p2:"Platforms", organisation_grp6_p3:"AI assistants", organisation_grp6_p4:"Automation tools", organisation_grp6_p5:"User guides",
+      organisation_grp7_title:"Finance", organisation_grp7_p1:"Projected budgets", organisation_grp7_p2:"Donor financial reports", organisation_grp7_p3:"Cash flow plans", organisation_grp7_p4:"Management control tools",
+      organisation_grp8_title:"Safeguards (E&amp;S)", organisation_grp8_p1:"ESIAs", organisation_grp8_p2:"Resettlement action plans (RAP)", organisation_grp8_p3:"ESMFs", organisation_grp8_p4:"Environmental compliance certificates",
       organisation_h4_eyebrow:"Go further", organisation_h4_title:"Documentation to download",
       organisation_h4_text:"The firm's complete institutional profile, including the official brand guidelines.",
       organisation_dl_title:"Institutional profile — Isostasy Consulting", organisation_dl_text:"Concept note and official brand guidelines (PDF).", organisation_dl_link:"Download the PDF →",
-      domaines_h1_eyebrow:"Where we work", domaines_h1_title:"Nine sectors, three complementary families",
-      domaines_h1_text:"Isostasy Consulting works in sectors where data, innovation, communication and strong project management are essential to delivering lasting impact. These nine domains aren't siloed: a single project often combines several of them — for example, an education evaluation with a mapping component, or an agricultural diagnostic backed by a community resilience survey.",
+      domaines_h1_eyebrow:"Where we work", domaines_h1_title:"Eleven sectors, three complementary families",
+      domaines_h1_text:"Isostasy Consulting works in sectors where data, innovation, communication and strong project management are essential to delivering lasting impact. These eleven domains aren't siloed: a single project often combines several of them — for example, an education evaluation with a mapping component, or an agricultural diagnostic backed by a community resilience survey.",
       domaines_fam1:"Social and human", domaines_fam2:"Territorial and environmental", domaines_fam3:"Institutional and economic",
       domaines_d1_title:"Social development", domaines_d1_odd:"SDG 1 · SDG 10", domaines_d1_text:"Studies, surveys, beneficiary monitoring, results evaluation, capitalization.",
       domaines_d2_title:"Education and community health", domaines_d2_odd:"SDG 3 · SDG 4", domaines_d2_text:"Surveys, performance analysis, dashboards and awareness materials.",
@@ -5598,11 +5772,13 @@ window.Isostasy = window.Isostasy || {};
       domaines_d7_title:"Governance and resilience", domaines_d7_odd:"SDG 16", domaines_d7_text:"Diagnostics, planning, institutional monitoring, risk management and lessons learned.",
       domaines_d8_title:"Marketing", domaines_d8_odd:"SDG 8", domaines_d8_text:"Market studies, communication strategies, digital campaigns, audience analysis.",
       domaines_d9_title:"Blockchain", domaines_d9_odd:"SDG 9 · SDG 16", domaines_d9_text:"Traceability, digital data certification, decentralized ledgers, secure voting.",
+      domaines_d10_title:"Finance", domaines_d10_odd:"SDG 1 · SDG 8", domaines_d10_text:"Budgeting, management control, donor financial reporting and cash flow plans.",
+      domaines_d11_title:"Environmental &amp; Social Safeguards", domaines_d11_odd:"SDG 13 · SDG 16", domaines_d11_text:"ESIAs, resettlement action plans, ESMFs and compliance with donor standards (World Bank, AfDB).",
       domaines_h2_eyebrow:"International accountability", domaines_h2_title:"Alignment with the Sustainable Development Goals",
       domaines_h2_text:"Each area of intervention is linked to one or more UN Sustainable Development Goals. This alignment isn't a communication exercise: it shapes how monitoring & evaluation indicators are defined from the design of each assignment, so results can be reported against partners' national and international accountability frameworks.",
       domaines_callout_eyebrow:"Two cross-cutting SDGs",
       domaines_callout_text:"SDG 5 (Gender Equality) and SDG 17 (Partnerships for the Goals) apply across all areas of intervention: every assignment includes gender-sensitive analysis and favors a partnership-based approach over that of an isolated service provider.",
-      domaines_closing:"These nine domains actually fall into three broad families that shape how Isostasy Consulting approaches a project. The first, social and human, brings together social development, education and community health, and humanitarian action: it places beneficiaries and their accountability at the center of the intervention. The second, territorial and environmental, combines environment, agriculture and infrastructure: it relies heavily on mapping and technical diagnostics. The third, institutional and economic, groups governance, marketing and blockchain: it addresses organizations' needs for transparency, positioning and digital trust. This three-family lens helps quickly identify, when facing a new client need, which technical units and sector profiles to mobilize first.",
+      domaines_closing:"These eleven domains actually fall into three broad families that shape how Isostasy Consulting approaches a project. The first, social and human, brings together social development, education and community health, and humanitarian action: it places beneficiaries and their accountability at the center of the intervention. The second, territorial and environmental, combines environment, agriculture, infrastructure and environmental and social safeguards: it relies heavily on mapping, technical diagnostics and compliance with donor standards. The third, institutional and economic, groups governance, marketing, blockchain and finance: it addresses organizations' needs for transparency, positioning, digital trust and financial rigor. This three-family lens helps quickly identify, when facing a new client need, which technical units and sector profiles to mobilize first.",
       temoignages_h1_eyebrow:"What our partners say", temoignages_h1_title:"Testimonials",
       temoignages_h1_text:"Anonymized feedback from organizations supported by Isostasy Consulting.",
       temoignages_q1:"\"The MEAL system put in place considerably clarified our steering. The team delivered a tool we still use today, fully independently.\"",
@@ -9869,6 +10045,52 @@ window.Isostasy = window.Isostasy || {};
   var inputEl = document.getElementById('chatInput');
   var sendBtn = document.getElementById('chatSendBtn');
   if(!widget || !toggleBtn || !msgForm) return;
+
+  // Inverse les couleurs du bouton flottant quand il survole une zone au fond sombre (bleu marine)
+  function relativeLuminance(rgb){
+    var a = rgb.map(function(v){
+      v = v / 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2];
+  }
+  function parseRGB(str){
+    var m = str && str.match(/rgba?\(([^)]+)\)/);
+    if(!m) return null;
+    var parts = m[1].split(',').map(function(s){ return parseFloat(s); });
+    if(parts.length >= 4 && parts[3] === 0) return null;
+    return parts.slice(0, 3);
+  }
+  function backgroundColorAt(x, y){
+    var prevPE = widget.style.pointerEvents;
+    widget.style.pointerEvents = 'none';
+    var el = document.elementFromPoint(x, y);
+    widget.style.pointerEvents = prevPE;
+    while(el && el !== document.documentElement){
+      var rgb = parseRGB(getComputedStyle(el).backgroundColor);
+      if(rgb) return rgb;
+      el = el.parentElement;
+    }
+    return [255, 255, 255];
+  }
+  function updateInvertState(){
+    if(widget.classList.contains('open')) return;
+    var rect = toggleBtn.getBoundingClientRect();
+    var x = rect.left + rect.width / 2;
+    var y = rect.top + rect.height / 2;
+    if(x < 0 || y < 0 || x > window.innerWidth || y > window.innerHeight) return;
+    var rgb = backgroundColorAt(x, y);
+    widget.classList.toggle('inverted', relativeLuminance(rgb) < 0.35);
+  }
+  var invertTicking = false;
+  function scheduleInvertUpdate(){
+    if(invertTicking) return;
+    invertTicking = true;
+    requestAnimationFrame(function(){ updateInvertState(); invertTicking = false; });
+  }
+  window.addEventListener('scroll', scheduleInvertUpdate, { passive: true });
+  window.addEventListener('resize', scheduleInvertUpdate);
+  setTimeout(updateInvertState, 400);
 
   toggleBtn.addEventListener('click', function(){
     var isOpen = widget.classList.toggle('open');
