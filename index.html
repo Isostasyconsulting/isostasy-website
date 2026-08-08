@@ -355,7 +355,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   transition:.2s;
 }
 .about-cta a:hover{background:#e6ac00;transform:translateY(-2px);}
-@media (max-width:640px){.about-cta{left:16px;bottom:calc(24px + env(safe-area-inset-bottom, 0px));}.about-cta a span.long{display:none;}}
+@media (max-width:640px){.about-cta{left:16px;bottom:calc(24px + env(safe-area-inset-bottom, 0px));}.about-cta a span.long{display:none;}.about-cta a{padding:.6em .8em;box-shadow:0 4px 14px rgba(0,0,0,.28);}}
 
 /* --- Sélecteur + visionneuse de documents institutionnels --- */
 .about-cta button{
@@ -1261,6 +1261,11 @@ section.alt::before{
 @media (max-width:600px){.wa-float{right:14px;bottom:14px;width:52px;height:52px;}.wa-float svg{width:26px;height:26px;}}
 
 .chat-widget{position:fixed;right:20px;bottom:20px;z-index:900;font-family:'Open Sans',sans-serif;}
+@media (max-width:640px){
+  .chat-widget{right:16px;bottom:calc(24px + env(safe-area-inset-bottom, 0px));}
+  .chat-toggle{width:48px;height:48px;}
+  .chat-toggle svg{width:22px;height:22px;}
+}
 .chat-toggle{width:58px;height:58px;border-radius:50%;background:var(--navy);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.28);transition:transform .2s ease,background .2s ease;position:relative;}
 .chat-toggle:hover{transform:scale(1.08);}
 .chat-toggle svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;position:absolute;transition:opacity .15s ease,transform .15s ease,stroke .2s ease;}
