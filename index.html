@@ -426,6 +426,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .admin-msg.success{color:var(--green);}
 .admin-hint{font-size:var(--fs-xs);color:var(--texte-3);}
 .admin-userbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-family:'Montserrat',sans-serif;font-size:var(--fs-sm);color:var(--navy);font-weight:700;}
+.admin-volet-menu{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:24px;}
+@media (min-width:640px){.admin-volet-menu{grid-template-columns:repeat(3,1fr);}}
+.admin-volet-btn{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:14px 12px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:var(--fs-xs);color:var(--navy);cursor:pointer;text-align:left;transition:.15s;}
+.admin-volet-btn:hover{border-color:var(--sky);background:var(--pale);}
+.admin-volet-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
 .admin-article-list{display:flex;flex-direction:column;gap:0;}
 .admin-article-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);}
 .admin-article-row:last-child{border-bottom:none;}
@@ -3845,7 +3850,23 @@ window.Isostasy = window.Isostasy || {};
         <button type="button" class="btn btn-outline-navy btn-sm" id="adminLogoutBtn">Se déconnecter</button>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-volet-menu" id="adminVoletMenu">
+        <button type="button" class="admin-volet-btn" data-volet="demandes">💬 Demandes reçues</button>
+        <button type="button" class="admin-volet-btn" data-volet="audience">📊 Audience du site</button>
+        <button type="button" class="admin-volet-btn" data-volet="nouvel-article">✍️ Publier un article</button>
+        <button type="button" class="admin-volet-btn" data-volet="formations">🎓 Formations</button>
+        <button type="button" class="admin-volet-btn" data-volet="tous-articles">📚 Tous les articles</button>
+        <button type="button" class="admin-volet-btn" data-volet="certificats">🏅 Certificats</button>
+        <button type="button" class="admin-volet-btn" data-volet="stats-ouvertes">📈 Statistiques (Données ouvertes)</button>
+        <button type="button" class="admin-volet-btn" data-volet="rapports-synthese">📑 Rapports de synthèse</button>
+        <button type="button" class="admin-volet-btn" data-volet="image-blog">🖼️ Image du blog</button>
+        <button type="button" class="admin-volet-btn" data-volet="graphiques-demo">🧮 Graphiques démographiques</button>
+        <button type="button" class="admin-volet-btn" data-volet="bandeaux">🎨 Bandeaux défilants</button>
+        <button type="button" class="admin-volet-btn" data-volet="abonnes">✉️ Abonnés newsletter</button>
+        <button type="button" class="admin-volet-btn" data-volet="contenus-pages">🧩 Contenus des pages</button>
+      </div>
+
+      <div class="admin-box reveal" id="volet-demandes" style="display:none;">
         <div class="aud-head">
           <div>
             <h3 style="margin:0;">Demandes reçues</h3>
@@ -3859,7 +3880,7 @@ window.Isostasy = window.Isostasy || {};
         <div id="msgListe"></div>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-audience" style="display:none;">
         <div class="aud-head">
           <div>
             <h3 style="margin:0;">Audience du site</h3>
@@ -3875,7 +3896,7 @@ window.Isostasy = window.Isostasy || {};
         <div id="audContenu"><p class="admin-hint">Chargement…</p></div>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-nouvel-article" style="display:none;">
         <h3 id="adminFormTitle" style="margin-top:0;">Publier un nouvel article</h3>
         <form id="adminArticleForm">
           <input type="hidden" id="articleId" value="">
@@ -3927,7 +3948,7 @@ window.Isostasy = window.Isostasy || {};
         </form>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-formations" style="display:none;">
         <div class="aud-head">
           <h3 style="margin:0;">Formations</h3>
           <button type="button" class="btn btn-primary btn-sm" id="formationAdminOpenBtn">+ Insérer une formation</button>
@@ -4017,14 +4038,14 @@ window.Isostasy = window.Isostasy || {};
         </div>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-tous-articles" style="display:none;">
         <h3 style="margin-top:0;">Tous les articles</h3>
         <div id="adminArticleList" class="admin-article-list">
           <p class="admin-hint">Chargement…</p>
         </div>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-certificats" style="display:none;">
         <h3 style="margin-top:0;">Portail des certifications</h3>
         <p class="admin-hint" style="margin-bottom:14px;">Ajoutez un certificat pour qu'un participant puisse le retrouver via son numéro matricule sur la page Formations.</p>
         <form id="certAdminForm">
@@ -4056,7 +4077,7 @@ window.Isostasy = window.Isostasy || {};
         </div>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-stats-ouvertes" style="display:none;">
         <h3 style="margin-top:0;">Statistiques (Données ouvertes)</h3>
         <p class="admin-hint" style="margin-bottom:14px;">Ajoutez ou complétez des statistiques pour un pays/une zone et un secteur. Un pays sans aucune statistique ici reste affiché comme "non couvert" sur le site.</p>
         <form id="statAdminForm">
@@ -4110,7 +4131,7 @@ window.Isostasy = window.Isostasy || {};
         </div>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-rapports-synthese" style="display:none;">
         <h3 style="margin-top:0;">Rapports de synthèse par domaine</h3>
         <p class="admin-hint" style="margin-bottom:14px;">Publiez un rapport de synthèse (PDF) associé à l'un des 13 secteurs de Données ouvertes.</p>
         <form id="dataReportForm">
@@ -4164,7 +4185,7 @@ window.Isostasy = window.Isostasy || {};
         </div>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-image-blog" style="display:none;">
         <h3 style="margin-top:0;">Image principale du blog</h3>
         <p class="admin-hint" style="margin-bottom:14px;">Cette photo s'affiche en haut de la page Blog, à la place de l'icône par défaut.</p>
         <div id="blogHeroImgPreviewWrap" style="margin-bottom:14px;display:none;">
@@ -4178,7 +4199,7 @@ window.Isostasy = window.Isostasy || {};
         <button type="button" class="btn btn-primary btn-sm" id="blogHeroImgSaveBtn">Enregistrer l'image</button>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-graphiques-demo" style="display:none;">
         <h3 style="margin-top:0;">Graphiques démographiques (Données ouvertes)</h3>
         <p class="admin-hint" style="margin-bottom:14px;">Par défaut, ces 3 graphiques sont générés automatiquement à partir des chiffres du site. Vous pouvez remplacer n'importe lequel par votre propre image (ex. export Excel/PowerBI) — l'image uploadée prend le dessus immédiatement.</p>
 
@@ -4210,7 +4231,7 @@ window.Isostasy = window.Isostasy || {};
         </div>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-bandeaux" style="display:none;">
         <h3 style="margin-top:0;">Bandeaux défilants (image de remplacement)</h3>
         <p class="admin-hint" style="margin-bottom:14px;">Par défaut, les bandeaux "Données ouvertes" et "Sommets" affichent du texte défilant. Vous pouvez remplacer chacun par une image fixe.</p>
 
@@ -4233,13 +4254,13 @@ window.Isostasy = window.Isostasy || {};
         </div>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-abonnes" style="display:none;">
         <h3 style="margin-top:0;">Abonnés au bulletin d'information</h3>
         <p class="admin-hint" style="margin-bottom:14px;" id="newsletterCountLabel">Chargement…</p>
         <div id="newsletterAdminList" class="admin-article-list"></div>
       </div>
 
-      <div class="admin-box reveal">
+      <div class="admin-box reveal" id="volet-contenus-pages" style="display:none;">
         <h3 style="margin-top:0;">Contenus des pages</h3>
         <p class="admin-hint" style="margin-bottom:14px;">Titres et paragraphes principaux des différentes pages du site. Modifiez un champ puis cliquez sur "Enregistrer" — le changement apparaît immédiatement sur le site.</p>
         <div id="contentBlocksList">
@@ -8234,6 +8255,29 @@ window.Isostasy = window.Isostasy || {};
     if(!confirm('Supprimer définitivement "' + a.title + '" ?')) return;
     const { error } = await sb.from('articles').delete().eq('id', a.id);
     if(!error){ loadAdminArticles(); refreshPublicArticles(); }
+  }
+
+  /* ===== Menu de volets de l'espace équipe (un seul volet ouvert à la fois) ===== */
+  const adminVoletMenu = document.getElementById('adminVoletMenu');
+  if(adminVoletMenu){
+    adminVoletMenu.querySelectorAll('.admin-volet-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cible = 'volet-' + btn.dataset.volet;
+        const panneau = document.getElementById(cible);
+        if(!panneau) return;
+        const dejaOuvert = panneau.style.display !== 'none';
+
+        // Referme tous les volets et désactive tous les boutons
+        adminVoletMenu.querySelectorAll('.admin-volet-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('[id^="volet-"]').forEach(p => { p.style.display = 'none'; });
+
+        if(!dejaOuvert){
+          panneau.style.display = '';
+          btn.classList.add('active');
+          window.scrollTo({ top: panneau.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+        }
+      });
+    });
   }
 
   /* ===== Gestion dédiée des formations (table `formations`) ===== */
