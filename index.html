@@ -977,6 +977,9 @@ section.alt::before{
 @media (max-width:900px){.timeline[style]{grid-template-columns:1fr 1fr !important;}}
 @media (max-width:480px){.timeline[style]{grid-template-columns:1fr !important;}}
 .tl-step{background:#fff;border:1px solid var(--line);border-top:3px solid var(--pale);border-radius:var(--r-md);padding:20px 16px;position:relative;}
+.timeline-compact .tl-step{padding:14px 16px;}
+.timeline-compact .tl-step .n{font-size:var(--fs-lg);margin-bottom:4px;}
+.timeline-compact .tl-step h4{margin-bottom:4px;}
 .tl-step .n{font-family:'Montserrat',sans-serif;font-weight:800;font-size:var(--fs-xl);color:var(--pale);display:block;margin-bottom:8px;}
 .tl-step h4{font-size:var(--fs-sm);margin-bottom:6px;}
 .tl-step p{font-size:var(--fs-xs);color:var(--texte-2);margin:0;}
@@ -1028,6 +1031,15 @@ section.alt::before{
 .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
 @media (max-width:940px){.card-grid{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:640px){.card-grid{grid-template-columns:1fr;}}
+.formation-item{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:opacity .2s ease;}
+.formation-item:hover{opacity:.75;}
+.formation-item-thumb{width:88px;height:88px;flex:0 0 88px;border-radius:var(--r-sm);overflow:hidden;background:var(--pale);}
+.formation-item-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.formation-item-thumb .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+.formation-item-body{flex:1;min-width:0;}
+.formation-item-title{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--navy);font-size:var(--fs-sm);line-height:1.3;margin:0 0 8px;}
+.formation-item-meta{display:flex;align-items:center;gap:6px;font-size:var(--fs-2xs);color:var(--texte-2);}
+.formation-item-meta .dot{width:8px;height:8px;border-radius:50%;flex:0 0 8px;}
 .card{
   background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
   padding:24px;display:flex;flex-direction:column;gap:10px;
@@ -1159,6 +1171,39 @@ section.alt::before{
 .tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px;}
 .formations-filtre{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 24px;}
 .formations-filtre-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:var(--fs-sm);color:var(--navy);margin-right:4px;}
+/* Page de détail d'une formation */
+.fdetail-wrap{display:grid;grid-template-columns:2fr 1fr;gap:28px;align-items:start;}
+@media (max-width:860px){.fdetail-wrap{grid-template-columns:1fr;}}
+.fdetail-main{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-1);}
+.fdetail-hero{width:100%;aspect-ratio:16/8;overflow:hidden;background:var(--pale);}
+.fdetail-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.fdetail-body{padding:26px 28px;}
+.fdetail-body h1{margin:0 0 6px;font-size:var(--fs-xl);}
+.fdetail-soustitre{background:var(--pale-2, #eef6fb);border-left:4px solid var(--sky);padding:12px 16px;border-radius:6px;font-size:var(--fs-sm);color:var(--navy);margin:14px 0 20px;}
+.fdetail-cta-row{text-align:center;margin:18px 0;}
+.fdetail-dates{text-align:center;color:var(--texte-2);font-size:var(--fs-xs);margin-bottom:22px;}
+.fdetail-section-title{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--navy);font-size:var(--fs-sm);margin:26px 0 12px;}
+.fdetail-programme{margin:0;padding-left:22px;}
+.fdetail-programme li{margin-bottom:6px;font-size:var(--fs-sm);color:var(--ink);}
+.fdetail-table{border-top:1px solid var(--line);margin-top:10px;}
+.fdetail-table-row{display:flex;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--fs-sm);}
+.fdetail-table-row .k{flex:0 0 160px;font-weight:700;color:var(--navy);}
+.fdetail-table-row .v{flex:1;color:var(--ink);}
+.fdetail-table-row .v.prix{font-weight:800;color:var(--navy);}
+.fdetail-notes{margin:10px 0 0;padding-left:20px;font-size:var(--fs-xs);color:var(--texte-2);}
+.fdetail-notes li{margin-bottom:4px;}
+.fdetail-conditions{margin:10px 0 0;padding-left:20px;font-size:var(--fs-sm);}
+.fdetail-conditions li{margin-bottom:6px;}
+.fdetail-reserve-row{text-align:center;margin-top:26px;}
+.fdetail-back-row{text-align:center;margin-top:14px;}
+.fdetail-sidebar{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:18px;}
+.fdetail-sidebar h4{margin:0 0 12px;font-family:'Montserrat',sans-serif;font-size:var(--fs-sm);color:var(--navy);}
+.fdetail-recente{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;}
+.fdetail-recente:last-child{border-bottom:none;}
+.fdetail-recente-thumb{width:44px;height:44px;flex:0 0 44px;border-radius:6px;overflow:hidden;background:var(--pale);}
+.fdetail-recente-thumb img{width:100%;height:100%;object-fit:cover;}
+.fdetail-recente-titre{font-size:var(--fs-2xs);font-weight:700;color:var(--navy);line-height:1.3;margin:0 0 4px;}
+.fdetail-recente-meta{font-size:var(--fs-3xs);color:var(--texte-2);}
 .tab-btn{
   font-family:'Montserrat',sans-serif;font-weight:700;font-size:var(--fs-xs);
   padding:.6em 1.15em;border-radius:var(--r-full);border:1px solid var(--line);
@@ -3276,10 +3321,15 @@ window.Isostasy = window.Isostasy || {};
     </div>
 
     <!-- SECTION 1 — Notre approche -->
-    <div class="section-head reveal" style="margin-top:8px;">
-      <h2 class="obj-box-title" data-i18n="formations_approche_title">Notre approche</h2>
+    <div class="reveal" style="margin-top:8px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+      <button type="button" class="btn btn-primary btn-sm" id="formationsDemanderBtn1" data-i18n="formations_demander_programme_btn">Demander un programme</button>
+      <button type="button" class="btn btn-outline-navy btn-sm" id="formationsVoirBtn" data-i18n="formations_voir_btn">Catalogue des formations</button>
+      <button type="button" class="btn btn-outline-navy btn-sm" id="formationsCertBtn" data-i18n="formations_cert_btn2">Votre certificat</button>
     </div>
-    <div class="timeline reveal-stagger" style="grid-template-columns:repeat(4,1fr);margin-bottom:34px;">
+    <div class="section-head reveal" style="margin-top:20px;">
+      <h2 class="obj-box-title" style="margin:0;" data-i18n="formations_approche_title">Notre approche</h2>
+    </div>
+    <div class="timeline timeline-compact reveal-stagger" style="grid-template-columns:repeat(4,1fr);margin-bottom:34px;">
       <div class="tl-step tl-donnees"><span class="n">01</span><h4 data-i18n="formations_step1_title">Catalogue</h4><p data-i18n="formations_step1_text">Parcourez les sessions proposées et leurs objectifs pédagogiques ci‑dessous.</p></div>
       <div class="tl-step tl-donnees"><span class="n">02</span><h4 data-i18n="formations_step2_title">Calendrier</h4><p data-i18n="formations_step2_text">Les dates de chaque session sont confirmées par mail après votre demande — sessions hybrides Bangui / en ligne.</p></div>
       <div class="tl-step tl-donnees"><span class="n">03</span><h4 data-i18n="formations_step3_title">Inscription</h4><p data-i18n="formations_step3_text">Un échange rapide pour cadrer vos besoins avant la confirmation de votre place.</p></div>
@@ -3301,10 +3351,6 @@ window.Isostasy = window.Isostasy || {};
       </div>
     </div>
 
-    <div style="text-align:center;margin-bottom:40px;">
-      <button type="button" class="btn btn-primary" id="formationsDemanderBtn2" data-i18n="formations_demander_programme_btn">Demander un programme</button>
-    </div>
-
     <!-- Filtre par statut (partagé entre section 2 et 3) -->
     <div class="formations-filtre reveal" id="formationsFiltre">
       <span class="formations-filtre-label" data-i18n="formations_filter_label">Filtrer :</span>
@@ -3314,22 +3360,29 @@ window.Isostasy = window.Isostasy || {};
       <button type="button" class="tab-btn" data-filtre="terminee" data-i18n="formations_filter_terminee">Terminée</button>
     </div>
 
-    <!-- SECTION 2 — Formations en cours et à venir -->
+    <!-- SECTION 2 — Formations en cours -->
     <div class="section-head reveal" id="formationsSection2Head" style="margin-top:24px;">
-      <h2 class="obj-box-title" data-i18n="formations_section2_title">Formations en cours et à venir</h2>
+      <h2 class="obj-box-title" data-i18n="formations_section2_title">Formations en cours</h2>
     </div>
     <div class="card-grid live-articles" id="formationsLive" style="margin-bottom:12px;"></div>
-    <p class="admin-hint" id="formationsEmpty2" style="display:none;text-align:center;" data-i18n="formations_empty_encours">Aucune formation en cours ou à venir pour le moment.</p>
+    <p class="admin-hint" id="formationsEmpty2" style="display:none;text-align:center;" data-i18n="formations_empty_encours">Aucune formation en cours pour le moment.</p>
 
-    <!-- SECTION 3 — Formations clôturées -->
+    <!-- SECTION 3 — Formations programmées -->
+    <div class="section-head reveal" id="formationsSection2bHead" style="margin-top:40px;">
+      <h2 class="obj-box-title" data-i18n="formations_section2b_title">Formations programmées</h2>
+    </div>
+    <div class="card-grid live-articles" id="formationsProgrammeesLive" style="margin-bottom:12px;"></div>
+    <p class="admin-hint" id="formationsEmpty2b" style="display:none;text-align:center;" data-i18n="formations_empty_programmee">Aucune formation programmée pour le moment.</p>
+
+    <!-- SECTION 4 — Formations clôturées -->
     <div class="section-head reveal" id="formationsSection3Head" style="margin-top:40px;">
       <h2 class="obj-box-title" data-i18n="formations_section3_title">Formations clôturées</h2>
     </div>
     <div class="card-grid live-articles" id="formationsClotureesLive" style="margin-bottom:12px;"></div>
     <p class="admin-hint" id="formationsEmpty3" style="display:none;text-align:center;" data-i18n="formations_empty_terminee">Aucune formation clôturée pour le moment.</p>
 
-    <!-- SECTION 4 — Portail des certifications -->
-    <div class="cert-portal reveal" style="margin-top:40px;">
+    <!-- SECTION 5 — Portail des certifications -->
+    <div class="cert-portal reveal" id="formationsCertPortal" style="margin-top:40px;">
       <div class="cert-portal-head">
         <span class="cert-portal-ico">🎓</span>
         <div>
@@ -3345,6 +3398,59 @@ window.Isostasy = window.Isostasy || {};
         </div>
       </form>
       <div id="certResult"></div>
+    </div>
+  </div>
+</section>
+
+<section id="formation-detail" class="page-view">
+  <div class="wrap">
+    <div class="fdetail-back-row" style="margin-bottom:18px;">
+      <a href="#formations" class="btn btn-outline-navy btn-sm">← Retour aux formations</a>
+    </div>
+    <div class="fdetail-wrap">
+      <div class="fdetail-main">
+        <div class="fdetail-hero" id="fdHero" style="display:none;"><img id="fdImage" src="" alt=""></div>
+        <div class="fdetail-body">
+          <h1 id="fdTitre">—</h1>
+          <div class="fdetail-soustitre" id="fdSousTitreWrap" style="display:none;"><span id="fdSousTitre"></span></div>
+
+          <div class="fdetail-cta-row">
+            <button type="button" class="btn btn-primary" id="fdInscrireBtn1">INSCRIVEZ-VOUS</button>
+          </div>
+          <p class="fdetail-dates" id="fdDatesWrap" style="display:none;">Session : <b id="fdDates"></b></p>
+
+          <div id="fdProgrammeWrap" style="display:none;">
+            <div class="fdetail-section-title">Contenus de cette formation :</div>
+            <ol class="fdetail-programme" id="fdProgramme"></ol>
+          </div>
+
+          <div class="fdetail-section-title">Informations pratiques</div>
+          <div class="fdetail-table" id="fdTable"></div>
+
+          <div id="fdNotesWrap" style="display:none;">
+            <div class="fdetail-section-title">NB :</div>
+            <ul class="fdetail-notes" id="fdNotes"></ul>
+          </div>
+
+          <div id="fdConditionsWrap" style="display:none;">
+            <div class="fdetail-section-title" style="color:#c0392b;">INSCRIVEZ-VOUS ICI</div>
+            <p style="font-size:var(--fs-xs);color:var(--texte-2);margin:0 0 6px;">Condition de participation :</p>
+            <ul class="fdetail-conditions" id="fdConditions"></ul>
+          </div>
+
+          <div class="fdetail-reserve-row">
+            <button type="button" class="btn btn-primary" id="fdInscrireBtn2" style="background:#c0392b;">🔒 RÉSERVEZ VOTRE PLACE MAINTENANT</button>
+          </div>
+          <div class="fdetail-back-row">
+            <a href="#formations" class="btn btn-outline-navy btn-sm">Voir plus de formations</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fdetail-sidebar">
+        <h4>Formations récentes</h4>
+        <div id="fdRecentes"><p class="admin-hint">Chargement…</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -3780,17 +3886,8 @@ window.Isostasy = window.Isostasy || {};
               <option value="rapports">Rapports</option>
               <option value="annonces">Annonces</option>
               <option value="appels">Appels des organisations</option>
-              <option value="formations">Formations</option>
               <option value="boutique">Boutique &amp; services</option>
               <option value="temoignages">Témoignages</option>
-            </select>
-          </div>
-          <div class="admin-field" id="formationStatutField" style="display:none;">
-            <label for="articleFormationStatut">Statut de la formation</label>
-            <select id="articleFormationStatut">
-              <option value="en_cours">En cours</option>
-              <option value="programmee">Programmée</option>
-              <option value="terminee">Terminée</option>
             </select>
           </div>
           <div class="admin-field">
@@ -3828,6 +3925,96 @@ window.Isostasy = window.Isostasy || {};
             <button type="button" class="btn btn-outline-navy btn-sm" id="articleCancelBtn" style="display:none;">Annuler la modification</button>
           </div>
         </form>
+      </div>
+
+      <div class="admin-box reveal">
+        <div class="aud-head">
+          <h3 style="margin:0;">Formations</h3>
+          <button type="button" class="btn btn-primary btn-sm" id="formationAdminOpenBtn">+ Insérer une formation</button>
+        </div>
+        <form id="formationAdminForm" style="display:none;margin-top:18px;">
+          <input type="hidden" id="fmId" value="">
+          <div class="admin-field">
+            <label for="fmTitre">Titre de la formation</label>
+            <input type="text" id="fmTitre" required maxlength="180">
+          </div>
+          <div class="admin-field">
+            <label for="fmSousTitre">Sous-titre / accroche</label>
+            <input type="text" id="fmSousTitre" maxlength="200" placeholder="Ex. : Gestion de bases de données, analyse et visualisation des données">
+          </div>
+          <div class="admin-field">
+            <label for="fmStatut">Statut</label>
+            <select id="fmStatut">
+              <option value="en_cours">En cours</option>
+              <option value="programmee">Programmée</option>
+              <option value="terminee">Terminée</option>
+            </select>
+          </div>
+          <div class="admin-field">
+            <label for="fmDates">Dates de la session</label>
+            <input type="text" id="fmDates" maxlength="160" placeholder="Ex. : Du 13 au 25 juillet 2026">
+          </div>
+          <div class="admin-field">
+            <label for="fmImage">Image (optionnelle)</label>
+            <input type="file" id="fmImage" accept="image/*">
+            <span id="fmImageCurrent" class="admin-hint"></span>
+          </div>
+          <div class="admin-field">
+            <label for="fmProgramme">Contenus de la formation (un point par ligne)</label>
+            <textarea id="fmProgramme" rows="6" placeholder="Rappel des bases d'Excel&#10;Introduction aux fonctions logiques&#10;..."></textarea>
+          </div>
+          <div class="admin-field">
+            <label for="fmMode">Mode</label>
+            <input type="text" id="fmMode" maxlength="160" placeholder="Ex. : En présentiel et en ligne (via Google Meet)">
+          </div>
+          <div class="admin-field">
+            <label for="fmTelephone">Téléphone</label>
+            <input type="text" id="fmTelephone" maxlength="80">
+          </div>
+          <div class="admin-field">
+            <label for="fmWhatsapp">WhatsApp</label>
+            <input type="text" id="fmWhatsapp" maxlength="80">
+          </div>
+          <div class="admin-field">
+            <label for="fmEmail">E-mail</label>
+            <input type="email" id="fmEmail" maxlength="160">
+          </div>
+          <div class="admin-field">
+            <label for="fmFraisInscription">Frais d'inscription</label>
+            <input type="text" id="fmFraisInscription" maxlength="80" placeholder="Ex. : 5$">
+          </div>
+          <div class="admin-field">
+            <label for="fmFraisParticipation">Frais de participation</label>
+            <input type="text" id="fmFraisParticipation" maxlength="80" placeholder="Ex. : 100$">
+          </div>
+          <div class="admin-field">
+            <label for="fmAdresse">Adresse</label>
+            <textarea id="fmAdresse" rows="2"></textarea>
+          </div>
+          <div class="admin-field">
+            <label for="fmNotes">NB (un point par ligne)</label>
+            <textarea id="fmNotes" rows="3" placeholder="Les frais d'inscription sont à payer avant le début de la formation&#10;..."></textarea>
+          </div>
+          <div class="admin-field">
+            <label for="fmConditions">Conditions de participation (un point par ligne)</label>
+            <textarea id="fmConditions" rows="3" placeholder="Avoir un ordinateur portable&#10;..."></textarea>
+          </div>
+          <div class="admin-field">
+            <label for="fmVisibilite">Visibilité</label>
+            <select id="fmVisibilite">
+              <option value="brouillon">Brouillon (non visible sur le site)</option>
+              <option value="publie">Publié (visible sur le site)</option>
+            </select>
+          </div>
+          <p id="formationAdminMsg" class="admin-msg"></p>
+          <div style="display:flex;gap:10px;">
+            <button type="submit" class="btn btn-primary btn-sm" id="fmSubmitBtn">Enregistrer la formation</button>
+            <button type="button" class="btn btn-outline-navy btn-sm" id="fmCancelBtn">Annuler</button>
+          </div>
+        </form>
+        <div id="adminFormationList" class="admin-article-list" style="margin-top:18px;">
+          <p class="admin-hint">Chargement…</p>
+        </div>
       </div>
 
       <div class="admin-box reveal">
@@ -4577,7 +4764,7 @@ window.Isostasy = window.Isostasy || {};
   }
 
   // ===== Routeur de vues (une seule section visible à la fois) =====
-  const pageIds = ['accueil','apropos','philosophie','expertises','ce-que-nous-faisons','methodologie','organisation','domaines','rapports','appels','donnees-ouvertes','newsday','sommets','formations','boutique','annonces','notions','blog','accreditations','temoignages','rejoignez-nous','cas-usage','partenaires','contact','admin'];
+  const pageIds = ['accueil','apropos','philosophie','expertises','ce-que-nous-faisons','methodologie','organisation','domaines','rapports','appels','donnees-ouvertes','newsday','sommets','formations','formation-detail','boutique','annonces','notions','blog','accreditations','temoignages','rejoignez-nous','cas-usage','partenaires','contact','admin'];
   const headerEl = document.querySelector('header');
 
   function switchView(id, opts){
@@ -4790,10 +4977,10 @@ window.Isostasy = window.Isostasy || {};
       formations_c3_cta:"Demander un programme",
       formations_cert_title:"Portail des certifications", formations_cert_text:"Vérifiez et téléchargez votre certificat en entrant votre numéro matricule.",
       formations_cert_label:"Votre numéro matricule", formations_cert_placeholder:"Ex : ISO-RCA-25-XXXX", formations_cert_btn:"🔍 Rechercher mon certificat",
-      formations_approche_title:"Notre approche", formations_demander_programme_btn:"Demander un programme",
+      formations_approche_title:"Notre approche", formations_demander_programme_btn:"Demander un programme", formations_voir_btn:"Catalogue des formations", formations_cert_btn2:"Votre certificat",
       formations_filter_label:"Filtrer :", formations_filter_all:"Toutes", formations_filter_encours:"En cours", formations_filter_programmee:"Programmée", formations_filter_terminee:"Terminée",
-      formations_section2_title:"Formations en cours et à venir", formations_section3_title:"Formations clôturées",
-      formations_empty_encours:"Aucune formation en cours ou à venir pour le moment.", formations_empty_terminee:"Aucune formation clôturée pour le moment.",
+      formations_section2_title:"Formations en cours", formations_section2b_title:"Formations programmées", formations_section3_title:"Formations clôturées",
+      formations_empty_encours:"Aucune formation en cours pour le moment.", formations_empty_programmee:"Aucune formation programmée pour le moment.", formations_empty_terminee:"Aucune formation clôturée pour le moment.",
       formations_badge_encours:"En cours", formations_badge_programmee:"Programmée", formations_badge_terminee:"Terminée",
       appels_h1_eyebrow:"Opportunités", appels_h1_title:"Publication des appels des organisations",
       appels_h1_text:"Appels d'offres, appels à consultants et opportunités relayés pour nos partenaires — ou publiés directement par toute organisation externe.",
@@ -5432,10 +5619,10 @@ window.Isostasy = window.Isostasy || {};
       formations_c3_cta:"Request a program",
       formations_cert_title:"Certification portal", formations_cert_text:"Check and download your certificate by entering your registration number.",
       formations_cert_label:"Your registration number", formations_cert_placeholder:"E.g.: ISO-RCA-25-XXXX", formations_cert_btn:"🔍 Find my certificate",
-      formations_approche_title:"Our approach", formations_demander_programme_btn:"Request a program",
+      formations_approche_title:"Our approach", formations_demander_programme_btn:"Request a program", formations_voir_btn:"Training catalog", formations_cert_btn2:"Your certificate",
       formations_filter_label:"Filter:", formations_filter_all:"All", formations_filter_encours:"Ongoing", formations_filter_programmee:"Scheduled", formations_filter_terminee:"Completed",
-      formations_section2_title:"Ongoing and upcoming training", formations_section3_title:"Completed training",
-      formations_empty_encours:"No ongoing or upcoming training at the moment.", formations_empty_terminee:"No completed training at the moment.",
+      formations_section2_title:"Ongoing training", formations_section2b_title:"Scheduled training", formations_section3_title:"Completed training",
+      formations_empty_encours:"No ongoing training at the moment.", formations_empty_programmee:"No scheduled training at the moment.", formations_empty_terminee:"No completed training at the moment.",
       formations_badge_encours:"Ongoing", formations_badge_programmee:"Scheduled", formations_badge_terminee:"Completed",
       appels_h1_eyebrow:"Opportunities", appels_h1_title:"Organizations' calls & tenders",
       appels_h1_text:"Tenders, calls for consultants and opportunities relayed for our partners — or published directly by any outside organization.",
@@ -7844,20 +8031,14 @@ window.Isostasy = window.Isostasy || {};
     rapports: "Ex. : échéance, prix, horaire ou auteur selon la section.",
     annonces: "Ex. : échéance, prix, horaire ou auteur selon la section.",
     appels: "Ex. : Clôture : 28 juil. 2026",
-    formations: "Ex. : Hybride · Bangui / en ligne",
     boutique: "Ex. : 20 000 FCFA / demi-journée",
     temoignages: "Ex. : Coordinateur MEAL, agence onusienne"
   };
   const articleSectionSelect = document.getElementById('articleSection');
   const articleMetaHint = document.getElementById('articleMetaHint');
-  const formationStatutField = document.getElementById('formationStatutField');
-  function toggleFormationStatutField(section){
-    if(formationStatutField) formationStatutField.style.display = (section === 'formations') ? '' : 'none';
-  }
   if(articleSectionSelect){
     articleSectionSelect.addEventListener('change', () => {
       articleMetaHint.textContent = metaHints[articleSectionSelect.value] || '';
-      toggleFormationStatutField(articleSectionSelect.value);
     });
   }
 
@@ -7912,6 +8093,7 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('adminUserLabel').textContent =
       'Connecté(e) en tant que ' + currentProfile.full_name + ' (' + currentProfile.role + ')';
     loadAdminArticles();
+    loadAdminFormations();
     loadContentBlocksAdmin();
     loadCertAdminList();
     loadBlogHeroImgPreview();
@@ -7935,7 +8117,6 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('articleId').value = '';
     document.getElementById('articleImageCurrent').textContent = '';
     articleMetaHint.textContent = metaHints.blog;
-    toggleFormationStatutField('blog');
     articleFormTitle.textContent = 'Publier un nouvel article';
     articleSubmitBtn.textContent = 'Publier';
     articleCancelBtn.style.display = 'none';
@@ -7961,9 +8142,6 @@ window.Isostasy = window.Isostasy || {};
           body: document.getElementById('articleBody').value.trim(),
           status: document.getElementById('articleStatus').value,
         };
-        if(payload.section === 'formations'){
-          payload.formation_statut = document.getElementById('articleFormationStatut').value;
-        }
         if(payload.status === 'publie') payload.published_at = new Date().toISOString();
 
         const fileInput = document.getElementById('articleImage');
@@ -8035,8 +8213,6 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('articleExcerpt').value = a.excerpt || '';
     document.getElementById('articleMeta').value = a.meta_label || '';
     articleMetaHint.textContent = metaHints[a.section] || '';
-    toggleFormationStatutField(a.section);
-    document.getElementById('articleFormationStatut').value = a.formation_statut || 'en_cours';
     document.getElementById('articleBody').value = a.body;
     document.getElementById('articleStatus').value = a.status;
     document.getElementById('articleImageCurrent').textContent = a.image_url ? 'Image actuelle conservée si vous n\'en choisissez pas de nouvelle.' : '';
@@ -8058,6 +8234,168 @@ window.Isostasy = window.Isostasy || {};
     if(!confirm('Supprimer définitivement "' + a.title + '" ?')) return;
     const { error } = await sb.from('articles').delete().eq('id', a.id);
     if(!error){ loadAdminArticles(); refreshPublicArticles(); }
+  }
+
+  /* ===== Gestion dédiée des formations (table `formations`) ===== */
+  const fmOpenBtn = document.getElementById('formationAdminOpenBtn');
+  const fmForm = document.getElementById('formationAdminForm');
+  const fmCancelBtn = document.getElementById('fmCancelBtn');
+  const fmSubmitBtn = document.getElementById('fmSubmitBtn');
+  const fmMsg = document.getElementById('formationAdminMsg');
+
+  function resetFormationForm(){
+    if(!fmForm) return;
+    fmForm.reset();
+    document.getElementById('fmId').value = '';
+    document.getElementById('fmImageCurrent').textContent = '';
+    fmSubmitBtn.textContent = 'Enregistrer la formation';
+    fmMsg.textContent = '';
+    fmMsg.className = 'admin-msg';
+  }
+
+  if(fmOpenBtn && fmForm){
+    fmOpenBtn.addEventListener('click', () => {
+      const visible = fmForm.style.display !== 'none';
+      if(visible){
+        fmForm.style.display = 'none';
+      } else {
+        resetFormationForm();
+        fmForm.style.display = '';
+        window.scrollTo({ top: fmForm.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+      }
+    });
+  }
+  if(fmCancelBtn){
+    fmCancelBtn.addEventListener('click', () => { resetFormationForm(); fmForm.style.display = 'none'; });
+  }
+
+  function lignesVersListe(texte){
+    return (texte || '').split('\n').map(l => l.trim()).filter(Boolean);
+  }
+
+  if(fmForm){
+    fmForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      fmSubmitBtn.disabled = true;
+      fmMsg.textContent = '';
+      fmMsg.className = 'admin-msg';
+      try {
+        const id = document.getElementById('fmId').value || null;
+        const payload = {
+          titre: document.getElementById('fmTitre').value.trim(),
+          sous_titre: document.getElementById('fmSousTitre').value.trim(),
+          statut: document.getElementById('fmStatut').value,
+          dates_session: document.getElementById('fmDates').value.trim(),
+          programme: document.getElementById('fmProgramme').value.trim(),
+          mode: document.getElementById('fmMode').value.trim(),
+          telephone: document.getElementById('fmTelephone').value.trim(),
+          whatsapp: document.getElementById('fmWhatsapp').value.trim(),
+          email: document.getElementById('fmEmail').value.trim(),
+          frais_inscription: document.getElementById('fmFraisInscription').value.trim(),
+          frais_participation: document.getElementById('fmFraisParticipation').value.trim(),
+          adresse: document.getElementById('fmAdresse').value.trim(),
+          notes: document.getElementById('fmNotes').value.trim(),
+          conditions: document.getElementById('fmConditions').value.trim(),
+          status: document.getElementById('fmVisibilite').value,
+        };
+        if(payload.status === 'publie') payload.published_at = new Date().toISOString();
+
+        const fileInput = document.getElementById('fmImage');
+        if(fileInput.files && fileInput.files[0]){
+          const file = fileInput.files[0];
+          const path = 'formations/' + Date.now() + '-' + file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
+          const { error: uploadError } = await sb.storage.from('articles').upload(path, file);
+          if(uploadError) throw uploadError;
+          const { data: publicUrlData } = sb.storage.from('articles').getPublicUrl(path);
+          payload.image_url = publicUrlData.publicUrl;
+        }
+
+        if(id){
+          const { error } = await sb.from('formations').update(payload).eq('id', id);
+          if(error) throw error;
+        } else {
+          const { error } = await sb.from('formations').insert(payload);
+          if(error) throw error;
+        }
+
+        fmMsg.className = 'admin-msg success';
+        fmMsg.textContent = 'Formation enregistrée.';
+        resetFormationForm();
+        loadAdminFormations();
+        if(window.isostasyRefreshPublicArticles) window.isostasyRefreshPublicArticles();
+      } catch(err){
+        fmMsg.className = 'admin-msg error';
+        fmMsg.textContent = err.message || "Erreur lors de l'enregistrement.";
+      } finally {
+        fmSubmitBtn.disabled = false;
+      }
+    });
+  }
+
+  function editFormation(f){
+    document.getElementById('fmId').value = f.id;
+    document.getElementById('fmTitre').value = f.titre || '';
+    document.getElementById('fmSousTitre').value = f.sous_titre || '';
+    document.getElementById('fmStatut').value = f.statut || 'en_cours';
+    document.getElementById('fmDates').value = f.dates_session || '';
+    document.getElementById('fmProgramme').value = f.programme || '';
+    document.getElementById('fmMode').value = f.mode || '';
+    document.getElementById('fmTelephone').value = f.telephone || '';
+    document.getElementById('fmWhatsapp').value = f.whatsapp || '';
+    document.getElementById('fmEmail').value = f.email || '';
+    document.getElementById('fmFraisInscription').value = f.frais_inscription || '';
+    document.getElementById('fmFraisParticipation').value = f.frais_participation || '';
+    document.getElementById('fmAdresse').value = f.adresse || '';
+    document.getElementById('fmNotes').value = f.notes || '';
+    document.getElementById('fmConditions').value = f.conditions || '';
+    document.getElementById('fmVisibilite').value = f.status || 'brouillon';
+    document.getElementById('fmImageCurrent').textContent = f.image_url ? 'Image actuelle conservée si vous n\'en choisissez pas de nouvelle.' : '';
+    fmSubmitBtn.textContent = 'Enregistrer les modifications';
+    fmForm.style.display = '';
+    window.scrollTo({ top: fmForm.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+  }
+
+  async function toggleFormationStatus(f){
+    const newStatus = f.status === 'publie' ? 'brouillon' : 'publie';
+    const payload = { status: newStatus };
+    if(newStatus === 'publie') payload.published_at = new Date().toISOString();
+    const { error } = await sb.from('formations').update(payload).eq('id', f.id);
+    if(!error){ loadAdminFormations(); if(window.isostasyRefreshPublicArticles) window.isostasyRefreshPublicArticles(); }
+  }
+
+  async function deleteFormation(f){
+    if(!confirm('Supprimer définitivement la formation "' + f.titre + '" ?')) return;
+    const { error } = await sb.from('formations').delete().eq('id', f.id);
+    if(!error){ loadAdminFormations(); if(window.isostasyRefreshPublicArticles) window.isostasyRefreshPublicArticles(); }
+  }
+
+  async function loadAdminFormations(){
+    const listEl = document.getElementById('adminFormationList');
+    if(!listEl) return;
+    listEl.innerHTML = '<p class="admin-hint">Chargement…</p>';
+    const { data, error } = await sb.from('formations').select('*').order('created_at', { ascending: false });
+    if(error){ listEl.innerHTML = '<p class="admin-hint">Erreur de chargement.</p>'; return; }
+    if(!data || !data.length){ listEl.innerHTML = '<p class="admin-hint">Aucune formation pour le moment.</p>'; return; }
+
+    listEl.innerHTML = '';
+    data.forEach(f => {
+      const row = document.createElement('div');
+      row.className = 'admin-article-row';
+      row.innerHTML =
+        '<div class="admin-article-info">' +
+          '<b>' + escapeHtml(f.titre) + '</b>' +
+          '<span class="admin-article-meta">' + (f.statut || 'en_cours') + ' · <span class="admin-status-pill ' + f.status + '">' + f.status + '</span></span>' +
+        '</div>' +
+        '<div class="admin-article-actions">' +
+          '<button type="button" data-action="edit">Modifier</button>' +
+          '<button type="button" data-action="toggle">' + (f.status === 'publie' ? 'Dépublier' : 'Publier') + '</button>' +
+          '<button type="button" data-action="delete" class="danger">Supprimer</button>' +
+        '</div>';
+      row.querySelector('[data-action="edit"]').addEventListener('click', () => editFormation(f));
+      row.querySelector('[data-action="toggle"]').addEventListener('click', () => toggleFormationStatus(f));
+      row.querySelector('[data-action="delete"]').addEventListener('click', () => deleteFormation(f));
+      listEl.appendChild(row);
+    });
   }
 
   function escapeHtml(str){
@@ -8149,21 +8487,30 @@ window.Isostasy = window.Isostasy || {};
     if(statut === 'programmee') return d.formations_badge_programmee;
     return d.formations_badge_encours;
   }
-  function renderFormationCard(a){
-    const statut = a.formation_statut || 'en_cours';
-    const thumb = a.image_url ? '<div class="train-thumb"><img src="' + escapeHtml(a.image_url) + '" alt="" loading="lazy" decoding="async"></div>' : '';
-    return '<div class="train-card" data-statut="' + statut + '">' +
-      thumb +
-      '<div class="train-top">' +
-        '<div><h4 style="margin:0;">' + escapeHtml(a.title) + '</h4>' +
-        (a.meta_label ? '<span class="meta">' + escapeHtml(a.meta_label) + '</span>' : '') + '</div>' +
-        '<span class="badge ' + formationBadgeClass(statut) + '">' + formationBadgeLabel(statut) + '</span>' +
-      '</div>' +
-      '<div class="train-body">' +
-        '<p style="font-size:var(--fs-sm);color:var(--texte-2);">' + escapeHtml(a.excerpt || a.body.slice(0,160)) + '</p>' +
-        '<a href="#contact" class="btn btn-primary btn-sm">' + curDict().formations_c1_cta + '</a>' +
-      '</div></div>';
+  function formationDotColor(statut){
+    if(statut === 'terminee') return 'var(--grey-mid)';
+    if(statut === 'programmee') return 'var(--orange-dark)';
+    return 'var(--green)';
   }
+  function renderFormationCard(f){
+    const statut = f.statut || 'en_cours';
+    const thumb = f.image_url
+      ? '<img src="' + escapeHtml(f.image_url) + '" alt="" loading="lazy" decoding="async">'
+      : '<span class="ph">🎓</span>';
+    return '<a href="#formation-detail" class="formation-item" data-statut="' + statut + '" data-id="' + escapeHtml(f.id) + '">' +
+      '<div class="formation-item-thumb">' + thumb + '</div>' +
+      '<div class="formation-item-body">' +
+        '<h4 class="formation-item-title">' + escapeHtml(f.titre) + '</h4>' +
+        '<div class="formation-item-meta"><span class="dot" style="background:' + formationDotColor(statut) + '"></span>' + formationBadgeLabel(statut) + '</div>' +
+      '</div></a>';
+  }
+  document.addEventListener('click', function(e){
+    var item = e.target.closest('.formation-item');
+    if(!item) return;
+    e.preventDefault();
+    var id = item.getAttribute('data-id');
+    if(id && window.ouvrirFormationDetail) window.ouvrirFormationDetail(id);
+  });
 
   function renderBoutiqueCard(a){
     return '<div class="shop-card">' +
@@ -8254,22 +8601,27 @@ window.Isostasy = window.Isostasy || {};
 
   async function loadFormationsSplit(){
     const elEnCours = document.getElementById('formationsLive');
+    const elProgrammees = document.getElementById('formationsProgrammeesLive');
     const elCloturees = document.getElementById('formationsClotureesLive');
     const emptyEnCours = document.getElementById('formationsEmpty2');
+    const emptyProgrammees = document.getElementById('formationsEmpty2b');
     const emptyCloturees = document.getElementById('formationsEmpty3');
-    if(!elEnCours || !elCloturees) return;
+    if(!elEnCours || !elProgrammees || !elCloturees) return;
 
-    const { data, error } = await sb.from('articles')
-      .select('*').eq('section', 'formations').eq('status', 'publie')
+    const { data, error } = await sb.from('formations')
+      .select('*').eq('status', 'publie')
       .order('published_at', { ascending: false });
 
     const toutes = (error || !data) ? [] : data;
-    const enCours = toutes.filter(a => (a.formation_statut || 'en_cours') !== 'terminee');
-    const cloturees = toutes.filter(a => a.formation_statut === 'terminee');
+    const enCours = toutes.filter(f => (f.statut || 'en_cours') === 'en_cours');
+    const programmees = toutes.filter(f => f.statut === 'programmee');
+    const cloturees = toutes.filter(f => f.statut === 'terminee');
 
     elEnCours.innerHTML = enCours.map(renderFormationCard).join('');
+    elProgrammees.innerHTML = programmees.map(renderFormationCard).join('');
     elCloturees.innerHTML = cloturees.map(renderFormationCard).join('');
     if(emptyEnCours) emptyEnCours.style.display = enCours.length ? 'none' : '';
+    if(emptyProgrammees) emptyProgrammees.style.display = programmees.length ? 'none' : '';
     if(emptyCloturees) emptyCloturees.style.display = cloturees.length ? 'none' : '';
 
     applyFormationsFiltre();
@@ -8278,18 +8630,25 @@ window.Isostasy = window.Isostasy || {};
   function applyFormationsFiltre(){
     const filtreBar = document.getElementById('formationsFiltre');
     const filtre = filtreBar ? (filtreBar.querySelector('.tab-btn.active') || {}).dataset?.filtre || 'tous' : 'tous';
-    const cartes = document.querySelectorAll('#formationsLive .train-card, #formationsClotureesLive .train-card');
-    cartes.forEach(c => {
-      c.style.display = (filtre === 'tous' || c.dataset.statut === filtre) ? '' : 'none';
+
+    const groupes = {
+      en_cours: ['formationsSection2Head', 'formationsLive', 'formationsEmpty2'],
+      programmee: ['formationsSection2bHead', 'formationsProgrammeesLive', 'formationsEmpty2b'],
+      terminee: ['formationsSection3Head', 'formationsClotureesLive', 'formationsEmpty3'],
+    };
+    Object.keys(groupes).forEach(cle => {
+      const visible = (filtre === 'tous' || filtre === cle);
+      groupes[cle].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.style.display = visible ? '' : 'none';
+      });
+      // Ne pas ré-afficher un message "vide" masqué par le chargement s'il n'y a pas de contenu
+      if(visible){
+        const grille = document.getElementById(groupes[cle][1]);
+        const empty = document.getElementById(groupes[cle][2]);
+        if(grille && empty) empty.style.display = grille.children.length ? 'none' : '';
+      }
     });
-    const section2Head = document.getElementById('formationsSection2Head');
-    const section3Head = document.getElementById('formationsSection3Head');
-    if(section2Head) section2Head.style.display = (filtre === 'terminee') ? 'none' : '';
-    if(section3Head) section3Head.style.display = (filtre === 'en_cours' || filtre === 'programmee') ? 'none' : '';
-    const elEnCours = document.getElementById('formationsLive');
-    const elCloturees = document.getElementById('formationsClotureesLive');
-    if(elEnCours) elEnCours.style.display = (filtre === 'terminee') ? 'none' : '';
-    if(elCloturees) elCloturees.style.display = (filtre === 'en_cours' || filtre === 'programmee') ? 'none' : '';
   }
 
   const formationsFiltreBar = document.getElementById('formationsFiltre');
@@ -8303,11 +8662,117 @@ window.Isostasy = window.Isostasy || {};
     });
   }
 
-  const formationsDemanderBtn2 = document.getElementById('formationsDemanderBtn2');
-  if(formationsDemanderBtn2){
-    formationsDemanderBtn2.addEventListener('click', () => {
+  /* ===== Page de détail d'une formation ===== */
+  async function ouvrirFormationDetail(id){
+    const { data: f, error } = await sb.from('formations').select('*').eq('id', id).single();
+    if(error || !f){
+      alert("Cette formation n'est plus disponible.");
+      return;
+    }
+
+    document.getElementById('fdTitre').textContent = f.titre || '';
+
+    const sousTitreWrap = document.getElementById('fdSousTitreWrap');
+    if(f.sous_titre){ document.getElementById('fdSousTitre').textContent = f.sous_titre; sousTitreWrap.style.display = ''; }
+    else sousTitreWrap.style.display = 'none';
+
+    const hero = document.getElementById('fdHero');
+    if(f.image_url){ document.getElementById('fdImage').src = f.image_url; hero.style.display = ''; }
+    else hero.style.display = 'none';
+
+    const datesWrap = document.getElementById('fdDatesWrap');
+    if(f.dates_session){ document.getElementById('fdDates').textContent = f.dates_session; datesWrap.style.display = ''; }
+    else datesWrap.style.display = 'none';
+
+    const progWrap = document.getElementById('fdProgrammeWrap');
+    const progList = lignesVersListe(f.programme);
+    if(progList.length){
+      document.getElementById('fdProgramme').innerHTML = progList.map(l => '<li>' + escapeHtml(l) + '</li>').join('');
+      progWrap.style.display = '';
+    } else progWrap.style.display = 'none';
+
+    const lignesInfo = [
+      ['Mode', f.mode],
+      ['Téléphone', f.telephone],
+      ['WhatsApp', f.whatsapp],
+      ['E-mail', f.email],
+      ["Frais d'inscription", f.frais_inscription],
+      ['Frais de participation', f.frais_participation],
+      ['Adresse', f.adresse],
+    ].filter(l => l[1]);
+    document.getElementById('fdTable').innerHTML = lignesInfo.map(l =>
+      '<div class="fdetail-table-row"><span class="k">' + escapeHtml(l[0]) + '</span><span class="v">' + escapeHtml(l[1]) + '</span></div>'
+    ).join('');
+
+    const notesWrap = document.getElementById('fdNotesWrap');
+    const notesList = lignesVersListe(f.notes);
+    if(notesList.length){
+      document.getElementById('fdNotes').innerHTML = notesList.map(l => '<li>' + escapeHtml(l) + '</li>').join('');
+      notesWrap.style.display = '';
+    } else notesWrap.style.display = 'none';
+
+    const condWrap = document.getElementById('fdConditionsWrap');
+    const condList = lignesVersListe(f.conditions);
+    if(condList.length){
+      document.getElementById('fdConditions').innerHTML = condList.map(l => '<li>' + escapeHtml(l) + '</li>').join('');
+      condWrap.style.display = '';
+    } else condWrap.style.display = 'none';
+
+    const ouvrirInscription = () => {
+      if(window.prefillContact) window.prefillContact('Formation', 'Concernant : ' + f.titre);
+      else location.hash = '#contact';
+    };
+    document.getElementById('fdInscrireBtn1').onclick = ouvrirInscription;
+    document.getElementById('fdInscrireBtn2').onclick = ouvrirInscription;
+
+    // Formations récentes (sidebar), à l'exclusion de la formation courante
+    const sideEl = document.getElementById('fdRecentes');
+    sideEl.innerHTML = '<p class="admin-hint">Chargement…</p>';
+    const { data: recentes } = await sb.from('formations')
+      .select('*').eq('status', 'publie').neq('id', id)
+      .order('published_at', { ascending: false }).limit(4);
+    if(recentes && recentes.length){
+      sideEl.innerHTML = recentes.map(r => {
+        const thumb = r.image_url ? '<img src="' + escapeHtml(r.image_url) + '" alt="">' : '<span class="ph" style="display:flex;align-items:center;justify-content:center;height:100%;">🎓</span>';
+        return '<div class="fdetail-recente" data-id="' + escapeHtml(r.id) + '">' +
+          '<div class="fdetail-recente-thumb">' + thumb + '</div>' +
+          '<div><p class="fdetail-recente-titre">' + escapeHtml(r.titre) + '</p>' +
+          '<span class="fdetail-recente-meta">' + formationBadgeLabel(r.statut || 'en_cours') + '</span></div>' +
+        '</div>';
+      }).join('');
+      sideEl.querySelectorAll('.fdetail-recente').forEach(el => {
+        el.addEventListener('click', () => ouvrirFormationDetail(el.getAttribute('data-id')));
+      });
+    } else {
+      sideEl.innerHTML = '<p class="admin-hint">Aucune autre formation pour le moment.</p>';
+    }
+
+    switchView('formation-detail');
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+  window.ouvrirFormationDetail = ouvrirFormationDetail;
+
+  const formationsDemanderBtn1 = document.getElementById('formationsDemanderBtn1');
+  if(formationsDemanderBtn1){
+    formationsDemanderBtn1.addEventListener('click', () => {
       if(window.prefillContact) window.prefillContact('Formation', '');
       else location.hash = '#contact';
+    });
+  }
+
+  const formationsVoirBtn = document.getElementById('formationsVoirBtn');
+  if(formationsVoirBtn){
+    formationsVoirBtn.addEventListener('click', () => {
+      const cible = document.getElementById('formationsFiltre');
+      if(cible) cible.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  const formationsCertBtn = document.getElementById('formationsCertBtn');
+  if(formationsCertBtn){
+    formationsCertBtn.addEventListener('click', () => {
+      const cible = document.getElementById('formationsCertPortal');
+      if(cible) cible.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }
 
