@@ -1748,12 +1748,14 @@ window.Isostasy = window.Isostasy || {};
   <h1 class="sr-only" data-i18n="hero_h1">Cabinet centrafricain de suivi-évaluation digitalisé et de pilotage de projets de développement</h1>
   <div class="hero-dash-ticker">
     <div class="ticker-track">
+      <span>🌐 <span data-i18n="dash_visites">Visites totales du site :</span> <b id="dashVisites">…</b></span>
+      <span>👁️ <span data-i18n="dash_pagesvues">Pages vues au total :</span> <b id="dashPagesVues">…</b></span>
+      <span>✉️ <span data-i18n="dash_abonnes">Abonnés au bulletin :</span> <b id="dashAbonnes">…</b></span>
       <span>🎓 <span data-i18n="dash_formations">Formations proposées :</span> <b id="dashFormations">…</b></span>
       <span>👥 <span data-i18n="dash_personnes">Personnes formées :</span> <b id="dashPersonnes">…</b></span>
       <span>📋 <span data-i18n="dash_certificats">Certificats délivrés :</span> <b id="dashCertificats">…</b></span>
       <span>📄 <span data-i18n="dash_appels">Appels d'offres publiés :</span> <b id="dashAppels">…</b></span>
       <span>📑 <span data-i18n="dash_rapports">Rapports publiés :</span> <b id="dashRapports">…</b></span>
-      <span>✉️ <span data-i18n="dash_abonnes">Abonnés au bulletin :</span> <b id="dashAbonnes">…</b></span>
     </div>
   </div>
   <div class="banner-carousel" id="bannerCarousel">
@@ -4761,6 +4763,7 @@ window.Isostasy = window.Isostasy || {};
       foot_email_placeholder:"Votre e-mail", foot_subscribe_btn:"S'abonner",
       foot_copyright:"© 2026 Isostasy Consulting. Tous droits réservés.",
       foot_cookie_link:"Gérer les cookies", foot_cookie_location:" · Bangui, République Centrafricaine",
+      dash_visites:"Visites totales du site :", dash_pagesvues:"Pages vues au total :",
       dash_formations:"Formations proposées :", dash_personnes:"Personnes formées :",
       dash_certificats:"Certificats délivrés :", dash_appels:"Appels d'offres publiés :",
       dash_rapports:"Rapports publiés :", dash_abonnes:"Abonnés au bulletin :",
@@ -5395,6 +5398,7 @@ window.Isostasy = window.Isostasy || {};
       foot_email_placeholder:"Your email", foot_subscribe_btn:"Subscribe",
       foot_copyright:"© 2026 Isostasy Consulting. All rights reserved.",
       foot_cookie_link:"Manage cookies", foot_cookie_location:" · Bangui, Central African Republic",
+      dash_visites:"Total site visits:", dash_pagesvues:"Total pages viewed:",
       dash_formations:"Training courses offered:", dash_personnes:"People trained:",
       dash_certificats:"Certificates issued:", dash_appels:"Tenders published:",
       dash_rapports:"Reports published:", dash_abonnes:"Newsletter subscribers:",
@@ -8196,6 +8200,8 @@ window.Isostasy = window.Isostasy || {};
 
   async function loadHomeDashboard(){
     const els = {
+      visites: document.getElementById('dashVisites'),
+      pagesVues: document.getElementById('dashPagesVues'),
       formations: document.getElementById('dashFormations'),
       personnes: document.getElementById('dashPersonnes'),
       certificats: document.getElementById('dashCertificats'),
@@ -8213,7 +8219,17 @@ window.Isostasy = window.Isostasy || {};
       } catch(e){ return null; }
     };
 
-    const [formations, personnes, certificats, appels, rapportsArticles, rapportsData, abonnes] = await Promise.all([
+    const chargerAudienceTotale = async () => {
+      try {
+        const { data, error } = await sb.from('audience_events').select('visite').eq('type', 'vue').limit(100000);
+        if(error || !data) return { visites: null, pagesVues: null };
+        const visitesUniques = new Set(data.map(r => r.visite));
+        return { visites: visitesUniques.size, pagesVues: data.length };
+      } catch(e){ return { visites: null, pagesVues: null }; }
+    };
+
+    const [audienceTotale, formations, personnes, certificats, appels, rapportsArticles, rapportsData, abonnes] = await Promise.all([
+      chargerAudienceTotale(),
       safeCount(() => sb.from('articles').select('*', { count: 'exact', head: true }).eq('section', 'formations').eq('status', 'publie')),
       safeCount(() => sb.from('messages').select('*', { count: 'exact', head: true }).eq('objet', 'Formation')),
       safeCount(() => sb.from('certificats').select('*', { count: 'exact', head: true })),
@@ -8224,6 +8240,8 @@ window.Isostasy = window.Isostasy || {};
     ]);
 
     const setVal = (el, v) => { if(el) el.textContent = (v === null) ? '—' : v; };
+    setVal(els.visites, audienceTotale.visites);
+    setVal(els.pagesVues, audienceTotale.pagesVues);
     setVal(els.formations, formations);
     setVal(els.personnes, personnes);
     setVal(els.certificats, certificats);
