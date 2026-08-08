@@ -425,9 +425,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .admin-msg.error{color:var(--erreur);}
 .admin-msg.success{color:var(--green);}
 .admin-hint{font-size:var(--fs-xs);color:var(--texte-3);}
-.admin-userbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-family:'Montserrat',sans-serif;font-size:var(--fs-sm);color:var(--navy);font-weight:700;}
+#adminDashboard{position:relative;padding-top:46px;}
+#adminLogoutBtn{position:absolute;top:0;right:0;}
 .admin-volet-menu{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:24px;}
 @media (min-width:640px){.admin-volet-menu{grid-template-columns:repeat(3,1fr);}}
+.admin-volet-groupe{margin-bottom:22px;}
+.admin-volet-groupe.admin-volet-solo{margin-bottom:22px;}
+.admin-volet-groupe.admin-volet-solo .admin-volet-btn{width:100%;}
+.admin-volet-titre{font-family:'Montserrat',sans-serif;font-size:var(--fs-2xs);text-transform:uppercase;letter-spacing:.06em;color:var(--texte-2);margin:0 0 10px;}
 .admin-volet-btn{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:14px 12px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:var(--fs-xs);color:var(--navy);cursor:pointer;text-align:left;transition:.15s;}
 .admin-volet-btn:hover{border-color:var(--sky);background:var(--pale);}
 .admin-volet-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
@@ -3845,25 +3850,40 @@ window.Isostasy = window.Isostasy || {};
 
     <!-- Tableau de bord (visible une fois connecté) -->
     <div id="adminDashboard" style="display:none;">
-      <div class="admin-userbar">
-        <span id="adminUserLabel"></span>
-        <button type="button" class="btn btn-outline-navy btn-sm" id="adminLogoutBtn">Se déconnecter</button>
+      <button type="button" class="btn btn-outline-navy btn-sm" id="adminLogoutBtn">Se déconnecter</button>
+
+      <div class="admin-volet-groupe admin-volet-solo">
+        <button type="button" class="admin-volet-btn" data-volet="demandes">💬 Demandes reçues</button>
       </div>
 
-      <div class="admin-volet-menu" id="adminVoletMenu">
-        <button type="button" class="admin-volet-btn" data-volet="demandes">💬 Demandes reçues</button>
-        <button type="button" class="admin-volet-btn" data-volet="audience">📊 Audience du site</button>
-        <button type="button" class="admin-volet-btn" data-volet="nouvel-article">✍️ Publier un article</button>
-        <button type="button" class="admin-volet-btn" data-volet="formations">🎓 Formations</button>
-        <button type="button" class="admin-volet-btn" data-volet="tous-articles">📚 Tous les articles</button>
-        <button type="button" class="admin-volet-btn" data-volet="certificats">🏅 Certificats</button>
-        <button type="button" class="admin-volet-btn" data-volet="stats-ouvertes">📈 Statistiques (Données ouvertes)</button>
-        <button type="button" class="admin-volet-btn" data-volet="rapports-synthese">📑 Rapports de synthèse</button>
-        <button type="button" class="admin-volet-btn" data-volet="image-blog">🖼️ Image du blog</button>
-        <button type="button" class="admin-volet-btn" data-volet="graphiques-demo">🧮 Graphiques démographiques</button>
-        <button type="button" class="admin-volet-btn" data-volet="bandeaux">🎨 Bandeaux défilants</button>
-        <button type="button" class="admin-volet-btn" data-volet="abonnes">✉️ Abonnés newsletter</button>
-        <button type="button" class="admin-volet-btn" data-volet="contenus-pages">🧩 Contenus des pages</button>
+      <div class="admin-volet-groupe">
+        <h4 class="admin-volet-titre">Offres &amp; opportunités</h4>
+        <div class="admin-volet-menu">
+          <button type="button" class="admin-volet-btn" data-volet="formations">🎓 Formations</button>
+          <button type="button" class="admin-volet-btn" data-volet="nouvel-article">✍️ Publier un article</button>
+          <button type="button" class="admin-volet-btn" data-volet="tous-articles">📚 Tous les articles</button>
+          <button type="button" class="admin-volet-btn" data-volet="certificats">🏅 Certificats</button>
+        </div>
+      </div>
+
+      <div class="admin-volet-groupe">
+        <h4 class="admin-volet-titre">Données &amp; statistiques</h4>
+        <div class="admin-volet-menu">
+          <button type="button" class="admin-volet-btn" data-volet="audience">📊 Audience du site</button>
+          <button type="button" class="admin-volet-btn" data-volet="stats-ouvertes">📈 Statistiques (Données ouvertes)</button>
+          <button type="button" class="admin-volet-btn" data-volet="rapports-synthese">📑 Rapports de synthèse</button>
+          <button type="button" class="admin-volet-btn" data-volet="graphiques-demo">🧮 Graphiques démographiques</button>
+        </div>
+      </div>
+
+      <div class="admin-volet-groupe">
+        <h4 class="admin-volet-titre">Site &amp; communication</h4>
+        <div class="admin-volet-menu">
+          <button type="button" class="admin-volet-btn" data-volet="image-blog">🖼️ Image du blog</button>
+          <button type="button" class="admin-volet-btn" data-volet="bandeaux">🎨 Bandeaux défilants</button>
+          <button type="button" class="admin-volet-btn" data-volet="contenus-pages">🧩 Contenus des pages</button>
+          <button type="button" class="admin-volet-btn" data-volet="abonnes">✉️ Abonnés newsletter</button>
+        </div>
       </div>
 
       <div class="admin-box reveal" id="volet-demandes" style="display:none;">
@@ -8111,8 +8131,6 @@ window.Isostasy = window.Isostasy || {};
     currentProfile = profile || { id: session.user.id, full_name: session.user.email, role: 'editeur' };
     authBox.style.display = 'none';
     dashboard.style.display = '';
-    document.getElementById('adminUserLabel').textContent =
-      'Connecté(e) en tant que ' + currentProfile.full_name + ' (' + currentProfile.role + ')';
     loadAdminArticles();
     loadAdminFormations();
     loadContentBlocksAdmin();
@@ -8258,9 +8276,9 @@ window.Isostasy = window.Isostasy || {};
   }
 
   /* ===== Menu de volets de l'espace équipe (un seul volet ouvert à la fois) ===== */
-  const adminVoletMenu = document.getElementById('adminVoletMenu');
-  if(adminVoletMenu){
-    adminVoletMenu.querySelectorAll('.admin-volet-btn').forEach(btn => {
+  const tousLesVoletsBtn = document.querySelectorAll('.admin-volet-btn');
+  if(tousLesVoletsBtn.length){
+    tousLesVoletsBtn.forEach(btn => {
       btn.addEventListener('click', () => {
         const cible = 'volet-' + btn.dataset.volet;
         const panneau = document.getElementById(cible);
@@ -8268,7 +8286,7 @@ window.Isostasy = window.Isostasy || {};
         const dejaOuvert = panneau.style.display !== 'none';
 
         // Referme tous les volets et désactive tous les boutons
-        adminVoletMenu.querySelectorAll('.admin-volet-btn').forEach(b => b.classList.remove('active'));
+        tousLesVoletsBtn.forEach(b => b.classList.remove('active'));
         document.querySelectorAll('[id^="volet-"]').forEach(p => { p.style.display = 'none'; });
 
         if(!dejaOuvert){
