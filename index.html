@@ -129,7 +129,7 @@
 }
 </script>
 <link rel="preconnect" href="https://rocoldiadeicmnygcufu.supabase.co">
-<link rel="preload" as="image" fetchpriority="high" href="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp">
+<link rel="preload" as="image" fetchpriority="high" href="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp" imagesrcset="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2-mobile.webp 900w, https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp 1933w" imagesizes="100vw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap">
@@ -1757,8 +1757,8 @@ window.Isostasy = window.Isostasy || {};
     </div>
   </div>
   <div class="banner-carousel" id="bannerCarousel">
-    <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp" data-src-fr="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp" data-src-en="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2-en.webp" class="banner-slide active" alt="Isostasy Consulting — Des données, des solutions, de l'impact" loading="eager">
-    <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau.webp" data-src-fr="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau.webp" data-src-en="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-en.webp" class="banner-slide" alt="Isostasy Consulting — Des données, des solutions, de l'impact" loading="lazy">
+    <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp" srcset="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2-mobile.webp 900w, https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp 1933w" sizes="100vw" data-src-fr="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp" data-src-en="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2-en.webp" data-srcset-fr="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2-mobile.webp 900w, https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2.webp 1933w" data-srcset-en="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2-en-mobile.webp 900w, https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-2-en.webp 1933w" class="banner-slide active" alt="Isostasy Consulting — Des données, des solutions, de l'impact" loading="eager">
+    <img src="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau.webp" srcset="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-mobile.webp 900w, https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau.webp 1933w" sizes="100vw" data-src-fr="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau.webp" data-src-en="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-en.webp" data-srcset-fr="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-mobile.webp 900w, https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau.webp 1933w" data-srcset-en="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-en-mobile.webp 900w, https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/bandeaux/bandeau-nouveau-en.webp 1933w" class="banner-slide" alt="Isostasy Consulting — Des données, des solutions, de l'impact" loading="lazy">
   </div>
   <div class="wrap">
     <div class="hero-grid">
@@ -6017,6 +6017,8 @@ window.Isostasy = window.Isostasy || {};
     document.querySelectorAll('.banner-slide[data-src-fr]').forEach(img => {
       const src = lang === 'en' ? img.getAttribute('data-src-en') : img.getAttribute('data-src-fr');
       if(src && img.getAttribute('src') !== src) img.setAttribute('src', src);
+      const srcset = lang === 'en' ? img.getAttribute('data-srcset-en') : img.getAttribute('data-srcset-fr');
+      if(srcset && img.getAttribute('srcset') !== srcset) img.setAttribute('srcset', srcset);
     });
     document.documentElement.setAttribute('lang', lang);
     document.documentElement.setAttribute('dir', 'ltr');
