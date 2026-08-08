@@ -3821,6 +3821,7 @@ window.Isostasy = window.Isostasy || {};
             <button type="button" data-jours="7" class="active">7 jours</button>
             <button type="button" data-jours="30">30 jours</button>
             <button type="button" data-jours="90">90 jours</button>
+            <button type="button" data-jours="0">Tout</button>
           </div>
         </div>
         <div id="audContenu"><p class="admin-hint">Chargement…</p></div>
@@ -9485,10 +9486,14 @@ window.Isostasy = window.Isostasy || {};
 
   async function charger(jours){
     contenu.innerHTML = '<p class="admin-hint">Chargement…</p>';
-    var depuis = new Date(Date.now() - jours * 86400000).toISOString();
+    var requete = sb.from('audience_events').select('*');
+    if(jours > 0){
+      var depuis = new Date(Date.now() - jours * 86400000).toISOString();
+      requete = requete.gte('cree_le', depuis);
+    }
     var res;
     try {
-      res = await sb.from('audience_events').select('*').gte('cree_le', depuis).limit(20000);
+      res = await requete.limit(100000);
     } catch(e){
       res = { error: e };
     }
