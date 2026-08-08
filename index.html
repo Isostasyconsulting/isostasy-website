@@ -904,6 +904,7 @@ section.alt::before{
 .nowrap-title{white-space:nowrap;font-size:clamp(1.1rem,3.2vw,2.15rem);}
 @media (max-width:600px){.nowrap-title{white-space:normal;}}
 .obj-box-title{color:var(--navy);font-size:var(--fs-lg);margin:8px 0 10px;}
+#formations .obj-box-title{font-size:var(--fs-xl);font-family:'Montserrat',sans-serif;font-weight:800;}
 .iceberg-diagram{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:30px;align-items:center;margin-bottom:50px;}
 @media (max-width:860px){.iceberg-diagram{grid-template-columns:1fr;text-align:center;}}
 .iceberg-col-title{font-size:var(--fs-md);letter-spacing:.06em;text-transform:uppercase;color:var(--navy);margin-bottom:2px;}
@@ -1043,12 +1044,13 @@ section.alt::before{
 @media (max-width:640px){.card-grid{grid-template-columns:1fr;}}
 .formation-item{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:opacity .2s ease;}
 .formation-item:hover{opacity:.75;}
-.formation-item-thumb{width:88px;height:88px;flex:0 0 88px;border-radius:var(--r-sm);overflow:hidden;background:var(--pale);}
-.formation-item-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.formation-item-thumb{width:88px;height:88px;flex:0 0 88px;border-radius:var(--r-sm);overflow:hidden;background:var(--pale);border:1px solid var(--line);}
+.formation-item-thumb img{width:100%;height:100%;object-fit:contain;display:block;}
 .formation-item-thumb .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
 .formation-item-body{flex:1;min-width:0;}
 .formation-item-title{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--navy);font-size:var(--fs-sm);line-height:1.3;margin:0 0 8px;}
-.formation-item-meta{display:flex;align-items:center;gap:6px;font-size:var(--fs-2xs);color:var(--texte-2);}
+.formation-item-meta{display:flex;align-items:center;gap:6px;font-size:var(--fs-2xs);color:var(--texte-2);margin-bottom:4px;}
+.formation-item-meta:last-child{margin-bottom:0;}
 .formation-item-meta .dot{width:8px;height:8px;border-radius:50%;flex:0 0 8px;}
 .card{
   background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
@@ -4009,12 +4011,11 @@ window.Isostasy = window.Isostasy || {};
             <input type="text" id="fmMode" maxlength="160" placeholder="Ex. : En présentiel et en ligne (via Google Meet)">
           </div>
           <div class="admin-field">
-            <label for="fmTelephone">Téléphone</label>
-            <input type="text" id="fmTelephone" maxlength="80">
-          </div>
-          <div class="admin-field">
             <label for="fmWhatsapp">WhatsApp</label>
-            <input type="text" id="fmWhatsapp" maxlength="80">
+            <div style="display:flex;gap:8px;align-items:center;">
+              <span style="flex:0 0 auto;padding:10px 12px;background:var(--pale);border-radius:var(--r-sm);font-weight:700;color:var(--navy);">+236</span>
+              <input type="text" id="fmWhatsapp" maxlength="60" placeholder="74 25 71 21" value="74 25 71 21" style="flex:1;">
+            </div>
           </div>
           <div class="admin-field">
             <label for="fmEmail">E-mail</label>
@@ -8350,8 +8351,7 @@ window.Isostasy = window.Isostasy || {};
           dates_session: document.getElementById('fmDates').value.trim(),
           programme: document.getElementById('fmProgramme').value.trim(),
           mode: document.getElementById('fmMode').value.trim(),
-          telephone: document.getElementById('fmTelephone').value.trim(),
-          whatsapp: document.getElementById('fmWhatsapp').value.trim(),
+          whatsapp: '+236 ' + document.getElementById('fmWhatsapp').value.trim(),
           email: document.getElementById('fmEmail').value.trim(),
           frais_inscription: document.getElementById('fmFraisInscription').value.trim(),
           frais_participation: document.getElementById('fmFraisParticipation').value.trim(),
@@ -8402,8 +8402,7 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmDates').value = f.dates_session || '';
     document.getElementById('fmProgramme').value = f.programme || '';
     document.getElementById('fmMode').value = f.mode || '';
-    document.getElementById('fmTelephone').value = f.telephone || '';
-    document.getElementById('fmWhatsapp').value = f.whatsapp || '';
+    document.getElementById('fmWhatsapp').value = (f.whatsapp || '+236 74 25 71 21').replace(/^\+236\s*/, '');
     document.getElementById('fmEmail').value = f.email || '';
     document.getElementById('fmFraisInscription').value = f.frais_inscription || '';
     document.getElementById('fmFraisParticipation').value = f.frais_participation || '';
@@ -8554,16 +8553,27 @@ window.Isostasy = window.Isostasy || {};
     if(statut === 'programmee') return 'var(--orange-dark)';
     return 'var(--green)';
   }
+  function formatCompteur(n){
+    n = Number(n) || 0;
+    if(n < 1000) return String(n);
+    const v = Math.round(n / 100) / 10;
+    return (Number.isInteger(v) ? v.toFixed(0) : v.toFixed(1)) + 'k';
+  }
   function renderFormationCard(f){
     const statut = f.statut || 'en_cours';
     const thumb = f.image_url
       ? '<img src="' + escapeHtml(f.image_url) + '" alt="" loading="lazy" decoding="async">'
       : '<span class="ph">🎓</span>';
-    return '<a href="#formation-detail" class="formation-item" data-statut="' + statut + '" data-id="' + escapeHtml(f.id) + '">' +
+    const periode = f.dates_session ? '<div class="formation-item-meta">📅 ' + escapeHtml(f.dates_session) + '</div>' : '';
+    const cout = f.frais_participation ? '<div class="formation-item-meta">💰 ' + escapeHtml(f.frais_participation) + '</div>' : '';
+    const vues = (f.vues >= 100) ? '👁️ ' + formatCompteur(f.vues) + '  -  ' : '';
+    const inscrits = (f.inscriptions >= 10) ? '✅ ' + formatCompteur(f.inscriptions) + '  -  ' : '';
+    return '<a href="#formation-detail" class="formation-item" data-statut="' + statut + '" data-id="' + escapeHtml(f.id) + '" title="Cliquez sur la formation pour plus de détail et inscription">' +
       '<div class="formation-item-thumb">' + thumb + '</div>' +
       '<div class="formation-item-body">' +
         '<h4 class="formation-item-title">' + escapeHtml(f.titre) + '</h4>' +
-        '<div class="formation-item-meta"><span class="dot" style="background:' + formationDotColor(statut) + '"></span>' + formationBadgeLabel(statut) + '</div>' +
+        periode + cout +
+        '<div class="formation-item-meta">' + vues + inscrits + '<span class="dot" style="background:' + formationDotColor(statut) + '"></span>' + formationBadgeLabel(statut) + '</div>' +
       '</div></a>';
   }
   document.addEventListener('click', function(e){
@@ -8734,6 +8744,9 @@ window.Isostasy = window.Isostasy || {};
 
     document.getElementById('fdTitre').textContent = f.titre || '';
 
+    // Incrémente le compteur de vues (sans bloquer l'affichage)
+    sb.rpc('incrementer_vues_formation', { p_id: id }).then(() => {});
+
     const sousTitreWrap = document.getElementById('fdSousTitreWrap');
     if(f.sous_titre){ document.getElementById('fdSousTitre').textContent = f.sous_titre; sousTitreWrap.style.display = ''; }
     else sousTitreWrap.style.display = 'none';
@@ -8755,7 +8768,6 @@ window.Isostasy = window.Isostasy || {};
 
     const lignesInfo = [
       ['Mode', f.mode],
-      ['Téléphone', f.telephone],
       ['WhatsApp', f.whatsapp],
       ['E-mail', f.email],
       ["Frais d'inscription", f.frais_inscription],
@@ -8781,6 +8793,7 @@ window.Isostasy = window.Isostasy || {};
     } else condWrap.style.display = 'none';
 
     const ouvrirInscription = () => {
+      sb.rpc('incrementer_inscriptions_formation', { p_id: id }).then(() => {});
       if(window.prefillContact) window.prefillContact('Formation', 'Concernant : ' + f.titre);
       else location.hash = '#contact';
     };
