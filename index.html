@@ -1756,6 +1756,10 @@ window.Isostasy = window.Isostasy || {};
       <span>📋 <span data-i18n="dash_certificats">Certificats délivrés :</span> <b id="dashCertificats">…</b></span>
       <span>📄 <span data-i18n="dash_appels">Appels d'offres publiés :</span> <b id="dashAppels">…</b></span>
       <span>📑 <span data-i18n="dash_rapports">Rapports publiés :</span> <b id="dashRapports">…</b></span>
+      <span>💡 <span data-i18n="dash_notions">Notions publiées :</span> <b id="dashNotions">…</b></span>
+      <span>📰 <span data-i18n="dash_infos">Informations partagées :</span> <b id="dashInfos">…</b></span>
+      <span>🌍 <span data-i18n="dash_sommets">Sommets suivis :</span> <b id="dashSommets">…</b></span>
+      <span>📊 <span data-i18n="dash_donnees">Données ouvertes :</span> <b id="dashDonnees">…</b></span>
     </div>
   </div>
   <div class="banner-carousel" id="bannerCarousel">
@@ -4767,6 +4771,8 @@ window.Isostasy = window.Isostasy || {};
       dash_formations:"Formations proposées :", dash_personnes:"Personnes formées :",
       dash_certificats:"Certificats délivrés :", dash_appels:"Appels d'offres publiés :",
       dash_rapports:"Rapports publiés :", dash_abonnes:"Abonnés au bulletin :",
+      dash_notions:"Notions publiées :", dash_infos:"Informations partagées :",
+      dash_sommets:"Sommets suivis :", dash_donnees:"Données ouvertes :",
       faisons_eyebrow:"Notre offre", faisons_h1:"Ce que nous faisons",
       faisons_intro:"De la conception à l'évaluation, en passant par la digitalisation et la formation, Isostasy Consulting met à votre service un ensemble complet de compétences pour concevoir, piloter, mesurer et valoriser vos projets.",
       faisons_c1_title:"Gestion de projet",
@@ -5402,6 +5408,8 @@ window.Isostasy = window.Isostasy || {};
       dash_formations:"Training courses offered:", dash_personnes:"People trained:",
       dash_certificats:"Certificates issued:", dash_appels:"Tenders published:",
       dash_rapports:"Reports published:", dash_abonnes:"Newsletter subscribers:",
+      dash_notions:"Notions published:", dash_infos:"Shared updates:",
+      dash_sommets:"Summits tracked:", dash_donnees:"Open data points:",
       faisons_eyebrow:"Our offer", faisons_h1:"What we do",
       faisons_intro:"From design to evaluation, including digitalization and training, Isostasy Consulting puts a full range of skills at your service to design, manage, measure and showcase your projects.",
       faisons_c1_title:"Project management",
@@ -8208,8 +8216,19 @@ window.Isostasy = window.Isostasy || {};
       appels: document.getElementById('dashAppels'),
       rapports: document.getElementById('dashRapports'),
       abonnes: document.getElementById('dashAbonnes'),
+      notions: document.getElementById('dashNotions'),
+      infos: document.getElementById('dashInfos'),
+      sommets: document.getElementById('dashSommets'),
+      donnees: document.getElementById('dashDonnees'),
     };
     if(!els.formations) return;
+
+    // Programme "Notion du jour" (16 domaines x 7 notions) et page Sommets
+    // (12 passés + 12 à venir + 5 bilatéraux) : contenu éditorial fixe,
+    // pas une table qui grandit — valeurs constantes, à ajuster ici si le
+    // programme est un jour étendu.
+    const NOTIONS_TOTAL = 112;
+    const SOMMETS_TOTAL = 29;
 
     const safeCount = async (queryFn) => {
       try {
@@ -8228,7 +8247,7 @@ window.Isostasy = window.Isostasy || {};
       } catch(e){ return { visites: null, pagesVues: null }; }
     };
 
-    const [audienceTotale, formations, personnes, certificats, appels, rapportsArticles, rapportsData, abonnes] = await Promise.all([
+    const [audienceTotale, formations, personnes, certificats, appels, rapportsArticles, rapportsData, abonnes, infos, donnees] = await Promise.all([
       chargerAudienceTotale(),
       safeCount(() => sb.from('articles').select('*', { count: 'exact', head: true }).eq('section', 'formations').eq('status', 'publie')),
       safeCount(() => sb.from('messages').select('*', { count: 'exact', head: true }).eq('objet', 'Formation')),
@@ -8237,6 +8256,8 @@ window.Isostasy = window.Isostasy || {};
       safeCount(() => sb.from('articles').select('*', { count: 'exact', head: true }).eq('section', 'rapports').eq('status', 'publie')),
       safeCount(() => sb.from('data_reports').select('*', { count: 'exact', head: true }).eq('status', 'publie')),
       safeCount(() => sb.from('newsletter_subscribers').select('*', { count: 'exact', head: true })),
+      safeCount(() => sb.from('actualite_live').select('*', { count: 'exact', head: true })),
+      safeCount(() => sb.from('data_stats').select('*', { count: 'exact', head: true })),
     ]);
 
     const setVal = (el, v) => { if(el) el.textContent = (v === null) ? '—' : v; };
@@ -8248,6 +8269,10 @@ window.Isostasy = window.Isostasy || {};
     setVal(els.appels, appels);
     setVal(els.rapports, (rapportsArticles === null && rapportsData === null) ? null : (rapportsArticles || 0) + (rapportsData || 0));
     setVal(els.abonnes, abonnes);
+    setVal(els.notions, NOTIONS_TOTAL);
+    setVal(els.infos, infos);
+    setVal(els.sommets, SOMMETS_TOTAL);
+    setVal(els.donnees, donnees);
   }
 
   function refreshPublicArticles(){
