@@ -8652,13 +8652,17 @@ window.Isostasy = window.Isostasy || {};
     if(statut === 'programmee') return 'var(--orange-dark)';
     return 'var(--green)';
   }
-  // Insère automatiquement le titre de la formation dans le lien Google Forms
-  // prérempli (champ "Titre de la formation" = entry.4930721).
-  function lienInscriptionAvecTitre(lien, titre){
+  // Insère automatiquement les infos de la formation dans le lien Google Forms
+  // prérempli : Titre (entry.4930721), Sous-titre (entry.1353353996),
+  // But (entry.970600615), Dates de la session (entry.768864297).
+  function lienInscriptionAvecTitre(lien, f){
     try {
       const url = new URL(lien);
       url.searchParams.set('usp', 'pp_url');
-      url.searchParams.set('entry.4930721', titre || '');
+      url.searchParams.set('entry.4930721', f.titre || '');
+      url.searchParams.set('entry.1353353996', f.sous_titre || '');
+      url.searchParams.set('entry.970600615', f.but || '');
+      url.searchParams.set('entry.768864297', f.dates_session || '');
       return url.toString();
     } catch(e){
       return lien;
@@ -8809,7 +8813,7 @@ window.Isostasy = window.Isostasy || {};
       document.getElementById('pubPopupInscrireBtn').onclick = (e) => {
         e.stopPropagation();
         sb.rpc('incrementer_inscriptions_formation', { p_id: f.id }).then(() => {});
-        if(f.lien_inscription) window.open(lienInscriptionAvecTitre(f.lien_inscription, f.titre), '_blank', 'noopener');
+        if(f.lien_inscription) window.open(lienInscriptionAvecTitre(f.lien_inscription, f), '_blank', 'noopener');
         else if(window.prefillContact) window.prefillContact('Formation', 'Concernant : ' + f.titre);
         else location.hash = '#contact';
       };
@@ -8986,7 +8990,7 @@ window.Isostasy = window.Isostasy || {};
     const ouvrirInscription = () => {
       sb.rpc('incrementer_inscriptions_formation', { p_id: id }).then(() => {});
       if(f.lien_inscription){
-        window.open(lienInscriptionAvecTitre(f.lien_inscription, f.titre), '_blank', 'noopener');
+        window.open(lienInscriptionAvecTitre(f.lien_inscription, f), '_blank', 'noopener');
       } else if(window.prefillContact){
         window.prefillContact('Formation', 'Concernant : ' + f.titre);
       } else {
@@ -9013,7 +9017,7 @@ window.Isostasy = window.Isostasy || {};
         document.getElementById('fdAdInscrireBtn').onclick = (e) => {
           e.stopPropagation();
           sb.rpc('incrementer_inscriptions_formation', { p_id: item.id }).then(() => {});
-          if(item.lien_inscription) window.open(lienInscriptionAvecTitre(item.lien_inscription, item.titre), '_blank', 'noopener');
+          if(item.lien_inscription) window.open(lienInscriptionAvecTitre(item.lien_inscription, item), '_blank', 'noopener');
           else if(window.prefillContact) window.prefillContact('Formation', 'Concernant : ' + item.titre);
           else location.hash = '#contact';
         };
