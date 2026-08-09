@@ -425,17 +425,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .admin-msg.error{color:var(--erreur);}
 .admin-msg.success{color:var(--green);}
 .admin-hint{font-size:var(--fs-xs);color:var(--texte-3);}
-#adminDashboard{position:relative;padding-top:46px;}
-#adminLogoutBtn{position:absolute;top:0;right:0;}
-.admin-volet-menu{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:24px;}
-@media (min-width:640px){.admin-volet-menu{grid-template-columns:repeat(3,1fr);}}
+#adminDashboard{position:relative;}
+.admin-volet-menu{display:grid;grid-template-columns:1fr;gap:10px;}
+.admin-volet-colonnes{display:grid;grid-template-columns:1fr;gap:32px;margin-bottom:22px;}
+@media (min-width:760px){.admin-volet-colonnes{grid-template-columns:repeat(3,1fr);}}
 .admin-volet-groupe{margin-bottom:22px;}
 .admin-volet-groupe.admin-volet-solo{margin-bottom:22px;}
+.admin-volet-groupe.admin-volet-solo .admin-volet-btn{border-color:var(--blue);border-width:2px;}
 .admin-volet-groupe.admin-volet-solo .admin-volet-btn{width:100%;}
 .admin-volet-titre{font-family:'Montserrat',sans-serif;font-size:var(--fs-2xs);text-transform:uppercase;letter-spacing:.06em;color:var(--texte-2);margin:0 0 10px;}
 .admin-volet-btn{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:14px 12px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:var(--fs-xs);color:var(--navy);cursor:pointer;text-align:left;transition:.15s;}
 .admin-volet-btn:hover{border-color:var(--sky);background:var(--pale);}
 .admin-volet-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+/* Colonnes de l'espace équipe présentées en carte avec en-tête bleu */
+.admin-volet-colonnes .admin-volet-groupe{margin-bottom:0;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;}
+.admin-volet-colonnes .admin-volet-titre{margin:0;padding:14px 16px;background:var(--blue);color:#fff;font-size:var(--fs-xs);letter-spacing:.04em;display:flex;align-items:center;min-height:24px;box-sizing:content-box;}
+.admin-volet-colonnes .admin-volet-menu{padding:14px;gap:10px;}
+.admin-volet-colonnes .admin-volet-btn{background:#0092D1;border-color:#0092D1;color:#fff;}
+.admin-volet-colonnes .admin-volet-btn:hover{background:#00729f;border-color:#00729f;}
+.admin-volet-colonnes .admin-volet-btn.active{background:var(--navy);border-color:var(--navy);}
 .admin-article-list{display:flex;flex-direction:column;gap:0;}
 .admin-article-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);}
 .admin-article-row:last-child{border-bottom:none;}
@@ -1186,8 +1194,9 @@ section.alt::before{
 .formations-filtre{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 24px;}
 .formations-filtre-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:var(--fs-sm);color:var(--navy);margin-right:4px;}
 /* Page de détail d'une formation */
-.fdetail-wrap{display:grid;grid-template-columns:2fr 1fr;gap:28px;align-items:start;}
+.fdetail-wrap{display:grid;grid-template-columns:2fr 1fr;gap:90px;align-items:start;}
 @media (max-width:860px){.fdetail-wrap{grid-template-columns:1fr;}}
+.fdetail-page-titre{margin:0 0 16px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:var(--fs-xl);color:var(--navy);text-align:center;}
 .fdetail-main{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-1);}
 .fdetail-hero{width:100%;overflow:hidden;background:var(--pale);}
 .fdetail-hero img{width:100%;height:auto;display:block;}
@@ -1201,7 +1210,7 @@ section.alt::before{
 .fdetail-programme li{margin-bottom:6px;font-size:var(--fs-sm);color:var(--ink);}
 .fdetail-table{border-top:1px solid var(--line);margin-top:10px;}
 .fdetail-table-row{display:flex;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--fs-sm);}
-.fdetail-table-row .k{flex:0 0 160px;font-weight:700;color:var(--navy);}
+.fdetail-table-row .k{flex:0 0 160px;font-weight:700;color:#0082D1;}
 .fdetail-table-row .v{flex:1;color:var(--ink);}
 .fdetail-table-row .v.prix{font-weight:800;color:var(--navy);}
 .fdetail-notes{margin:10px 0 0;padding-left:20px;font-size:var(--fs-xs);color:var(--texte-2);}
@@ -1210,6 +1219,27 @@ section.alt::before{
 .fdetail-conditions li{margin-bottom:6px;}
 .fdetail-reserve-row{text-align:center;margin-top:26px;}
 .fdetail-back-row{text-align:center;margin-top:14px;}
+.fdetail-sidebar-col{display:flex;flex-direction:column;gap:18px;background:var(--paper);padding:16px;border-radius:var(--r-lg);position:sticky;top:90px;align-self:start;}
+@media (max-width:860px){.fdetail-sidebar-col{position:static;}}
+/* Pop-up publicitaire (accueil) */
+.pub-popup-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,10,25,.55);display:flex;align-items:center;justify-content:flex-end;padding:20px;animation:page-fade .3s ease;}
+.pub-popup-card{position:relative;background:#fff;border-radius:var(--r-lg);overflow:hidden;width:360px;max-width:100%;max-height:90vh;display:flex;flex-direction:column;box-shadow:var(--sh-4, 0 20px 50px rgba(0,0,0,.35));}
+.pub-popup-tag{position:absolute;top:12px;left:12px;z-index:2;background:rgba(0,0,0,.55);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.05em;padding:4px 9px;border-radius:20px;}
+.pub-popup-close{position:absolute;top:10px;right:10px;z-index:2;width:30px;height:30px;border-radius:50%;border:none;background:#fff;color:var(--navy);font-size:.85rem;cursor:pointer;box-shadow:var(--sh-1);}
+.pub-popup-media{width:100%;aspect-ratio:4/5;background-size:cover;background-position:center;background-color:var(--pale);}
+.pub-popup-body{padding:18px;text-align:center;}
+.pub-popup-accroche{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--navy);font-size:var(--fs-sm);margin:0 0 10px;}
+.pub-popup-lien{font-size:var(--fs-xs);color:var(--sky);text-decoration:none;}
+.pub-popup-lien:hover{text-decoration:underline;}
+.fdetail-ad{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;width:320px;max-width:100%;height:494px;display:flex;flex-direction:column;}
+.fdetail-ad-tag{position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:2;background:rgba(0,0,0,.55);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.05em;padding:4px 9px;border-radius:20px;}
+.fdetail-ad-close{position:absolute;top:8px;right:8px;z-index:2;width:26px;height:26px;border-radius:50%;border:none;background:#fff;color:var(--navy);font-size:.75rem;cursor:pointer;box-shadow:var(--sh-1);}
+.fdetail-ad-media{position:relative;flex:1;min-height:0;background-size:contain;background-repeat:no-repeat;background-position:center;background-color:var(--pale);}
+.fdetail-ad-media-texte{position:absolute;left:0;right:0;bottom:0;padding:14px 12px;background:linear-gradient(to top, rgba(0,20,40,.85), rgba(0,20,40,0));}
+.fdetail-ad-media-texte h5{margin:0 0 4px;color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:var(--fs-sm);line-height:1.25;}
+.fdetail-ad-media-texte p{margin:0;color:#dceaf5;font-size:var(--fs-3xs);}
+.fdetail-ad-body{padding:14px;text-align:center;}
+.fdetail-ad-but{font-size:var(--fs-xs);color:var(--ink);margin:0 0 12px;}
 .fdetail-sidebar{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:18px;}
 .fdetail-sidebar h4{margin:0 0 12px;font-family:'Montserrat',sans-serif;font-size:var(--fs-sm);color:var(--navy);}
 .fdetail-recente{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;}
@@ -3418,6 +3448,7 @@ window.Isostasy = window.Isostasy || {};
 
 <section id="formation-detail" class="page-view">
   <div class="wrap">
+    <h2 class="fdetail-page-titre">Détail sur la formation</h2>
     <div class="fdetail-back-row" style="margin-bottom:18px;text-align:left;">
       <button type="button" class="btn btn-outline-navy btn-sm" id="formationBackBtn">← Retour aux formations</button>
     </div>
@@ -3442,13 +3473,12 @@ window.Isostasy = window.Isostasy || {};
           <div class="fdetail-table" id="fdTable"></div>
 
           <div id="fdNotesWrap" style="display:none;">
-            <div class="fdetail-section-title">NB :</div>
+            <div class="fdetail-section-title">Condition de paiement</div>
             <ul class="fdetail-notes" id="fdNotes"></ul>
           </div>
 
           <div id="fdConditionsWrap" style="display:none;">
-            <div class="fdetail-section-title" style="color:#c0392b;">INSCRIVEZ-VOUS ICI</div>
-            <p style="font-size:var(--fs-xs);color:var(--texte-2);margin:0 0 6px;">Condition de participation :</p>
+            <p style="font-size:var(--fs-sm);font-weight:700;color:var(--navy);margin:20px 0 8px;">Condition de participation :</p>
             <ul class="fdetail-conditions" id="fdConditions"></ul>
           </div>
 
@@ -3456,14 +3486,20 @@ window.Isostasy = window.Isostasy || {};
             <button type="button" class="btn btn-primary" id="fdInscrireBtn2" style="background:#c0392b;">🔒 RÉSERVEZ VOTRE PLACE MAINTENANT</button>
           </div>
           <div class="fdetail-back-row">
-            <a href="#formations" class="btn btn-outline-navy btn-sm">Voir plus de formations</a>
+            <button type="button" class="btn btn-outline-navy btn-sm" id="formationBackBtn2">Voir plus de formations</button>
           </div>
         </div>
       </div>
 
-      <div class="fdetail-sidebar">
-        <h4>Formations récentes</h4>
-        <div id="fdRecentes"><p class="admin-hint">Chargement…</p></div>
+      <div class="fdetail-sidebar-col">
+        <div class="fdetail-ad" id="fdAd" style="display:none;">
+          <span class="fdetail-ad-tag">PUBLICITÉ</span>
+          <div class="fdetail-ad-media" id="fdAdMedia"></div>
+          <div class="fdetail-ad-body">
+            <p class="fdetail-ad-but" id="fdAdBut"></p>
+            <button type="button" class="btn btn-primary btn-sm" id="fdAdInscrireBtn">S'INSCRIRE</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -3821,7 +3857,8 @@ window.Isostasy = window.Isostasy || {};
 <!-- CTA + CONTACT -->
 <!-- ESPACE EQUIPE (publication) -->
 <section id="admin" class="page-view">
-  <div class="wrap" style="max-width:760px;">
+  <div class="wrap" style="max-width:760px;position:relative;">
+    <button type="button" class="btn btn-outline-navy btn-sm" id="adminLogoutBtn" style="display:none;position:absolute;top:0;right:0;">Se déconnecter</button>
 
     <div class="section-head reveal">
       <span class="eyebrow">Réservé à l'équipe</span>
@@ -3854,39 +3891,40 @@ window.Isostasy = window.Isostasy || {};
 
     <!-- Tableau de bord (visible une fois connecté) -->
     <div id="adminDashboard" style="display:none;">
-      <button type="button" class="btn btn-outline-navy btn-sm" id="adminLogoutBtn">Se déconnecter</button>
 
       <div class="admin-volet-groupe admin-volet-solo">
         <button type="button" class="admin-volet-btn" data-volet="demandes">💬 Demandes reçues</button>
       </div>
 
-      <div class="admin-volet-groupe">
-        <h4 class="admin-volet-titre">Offres &amp; opportunités</h4>
-        <div class="admin-volet-menu">
-          <button type="button" class="admin-volet-btn" data-volet="formations">🎓 Formations</button>
-          <button type="button" class="admin-volet-btn" data-volet="nouvel-article">✍️ Publier un article</button>
-          <button type="button" class="admin-volet-btn" data-volet="tous-articles">📚 Tous les articles</button>
-          <button type="button" class="admin-volet-btn" data-volet="certificats">🏅 Certificats</button>
+      <div class="admin-volet-colonnes">
+        <div class="admin-volet-groupe">
+          <h4 class="admin-volet-titre">Offres &amp; opportunités</h4>
+          <div class="admin-volet-menu">
+            <button type="button" class="admin-volet-btn" data-volet="formations">🎓 Formations</button>
+            <button type="button" class="admin-volet-btn" data-volet="nouvel-article">✍️ Publier un article</button>
+            <button type="button" class="admin-volet-btn" data-volet="tous-articles">📚 Tous les articles</button>
+            <button type="button" class="admin-volet-btn" data-volet="certificats">🏅 Certificats</button>
+          </div>
         </div>
-      </div>
 
-      <div class="admin-volet-groupe">
-        <h4 class="admin-volet-titre">Données &amp; statistiques</h4>
-        <div class="admin-volet-menu">
-          <button type="button" class="admin-volet-btn" data-volet="audience">📊 Audience du site</button>
-          <button type="button" class="admin-volet-btn" data-volet="stats-ouvertes">📈 Statistiques (Données ouvertes)</button>
-          <button type="button" class="admin-volet-btn" data-volet="rapports-synthese">📑 Rapports de synthèse</button>
-          <button type="button" class="admin-volet-btn" data-volet="graphiques-demo">🧮 Graphiques démographiques</button>
+        <div class="admin-volet-groupe">
+          <h4 class="admin-volet-titre">Données &amp; statistiques</h4>
+          <div class="admin-volet-menu">
+            <button type="button" class="admin-volet-btn" data-volet="audience">📊 Audience du site</button>
+            <button type="button" class="admin-volet-btn" data-volet="stats-ouvertes">📈 Statistiques</button>
+            <button type="button" class="admin-volet-btn" data-volet="rapports-synthese">📑 Synthèse annuelle</button>
+            <button type="button" class="admin-volet-btn" data-volet="graphiques-demo">🧮 Démographie</button>
+          </div>
         </div>
-      </div>
 
-      <div class="admin-volet-groupe">
-        <h4 class="admin-volet-titre">Site &amp; communication</h4>
-        <div class="admin-volet-menu">
-          <button type="button" class="admin-volet-btn" data-volet="image-blog">🖼️ Image du blog</button>
-          <button type="button" class="admin-volet-btn" data-volet="bandeaux">🎨 Bandeaux défilants</button>
-          <button type="button" class="admin-volet-btn" data-volet="contenus-pages">🧩 Contenus des pages</button>
-          <button type="button" class="admin-volet-btn" data-volet="abonnes">✉️ Abonnés newsletter</button>
+        <div class="admin-volet-groupe">
+          <h4 class="admin-volet-titre">Site &amp; communication</h4>
+          <div class="admin-volet-menu">
+            <button type="button" class="admin-volet-btn" data-volet="image-blog">🖼️ Image du blog</button>
+            <button type="button" class="admin-volet-btn" data-volet="bandeaux">🎨 Bandeaux défilants</button>
+            <button type="button" class="admin-volet-btn" data-volet="contenus-pages">🧩 Contenus des pages</button>
+            <button type="button" class="admin-volet-btn" data-volet="abonnes">✉️ Abonnés newsletter</button>
+          </div>
         </div>
       </div>
 
@@ -3977,7 +4015,7 @@ window.Isostasy = window.Isostasy || {};
           <h3 style="margin:0;">Formations</h3>
           <button type="button" class="btn btn-primary btn-sm" id="formationAdminOpenBtn">+ Insérer une formation</button>
         </div>
-        <form id="formationAdminForm" style="display:none;margin-top:18px;">
+        <form id="formationAdminForm" style="display:none;margin-top:18px;background:#d9d9d9;padding:18px;border-radius:var(--r-md);">
           <input type="hidden" id="fmId" value="">
           <div class="admin-field">
             <label for="fmTitre">Titre de la formation</label>
@@ -3986,6 +4024,10 @@ window.Isostasy = window.Isostasy || {};
           <div class="admin-field">
             <label for="fmSousTitre">Sous-titre / accroche</label>
             <input type="text" id="fmSousTitre" maxlength="200" placeholder="Ex. : Gestion de bases de données, analyse et visualisation des données">
+          </div>
+          <div class="admin-field">
+            <label for="fmBut">But de la formation</label>
+            <textarea id="fmBut" rows="2" placeholder="Ex. : Devenir autonome dans l'analyse et la visualisation de données professionnelles"></textarea>
           </div>
           <div class="admin-field">
             <label for="fmStatut">Statut</label>
@@ -4003,6 +4045,7 @@ window.Isostasy = window.Isostasy || {};
             <label for="fmImage">Image (optionnelle)</label>
             <input type="file" id="fmImage" accept="image/*">
             <span id="fmImageCurrent" class="admin-hint"></span>
+            <input type="hidden" id="fmImageUrlActuel" value="">
           </div>
           <div class="admin-field">
             <label for="fmProgramme">Contenus de la formation (un point par ligne)</label>
@@ -8134,12 +8177,14 @@ window.Isostasy = window.Isostasy || {};
       currentProfile = null;
       authBox.style.display = '';
       dashboard.style.display = 'none';
+      if(logoutBtn) logoutBtn.style.display = 'none';
       return;
     }
     const { data: profile } = await sb.from('profiles').select('*').eq('id', session.user.id).single();
     currentProfile = profile || { id: session.user.id, full_name: session.user.email, role: 'editeur' };
     authBox.style.display = 'none';
     dashboard.style.display = '';
+    if(logoutBtn) logoutBtn.style.display = '';
     loadAdminArticles();
     loadAdminFormations();
     loadContentBlocksAdmin();
@@ -8319,9 +8364,16 @@ window.Isostasy = window.Isostasy || {};
     fmForm.reset();
     document.getElementById('fmId').value = '';
     document.getElementById('fmImageCurrent').textContent = '';
+    document.getElementById('fmImageUrlActuel').value = '';
     fmSubmitBtn.textContent = 'Enregistrer la formation';
     fmMsg.textContent = '';
     fmMsg.className = 'admin-msg';
+  }
+
+  function majTexteBoutonFormation(){
+    if(!fmOpenBtn || !fmForm) return;
+    const visible = fmForm.style.display !== 'none';
+    fmOpenBtn.textContent = visible ? 'Masquer le formulaire' : '+ Insérer une formation';
   }
 
   if(fmOpenBtn && fmForm){
@@ -8334,10 +8386,11 @@ window.Isostasy = window.Isostasy || {};
         fmForm.style.display = '';
         window.scrollTo({ top: fmForm.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
       }
+      majTexteBoutonFormation();
     });
   }
   if(fmCancelBtn){
-    fmCancelBtn.addEventListener('click', () => { resetFormationForm(); fmForm.style.display = 'none'; });
+    fmCancelBtn.addEventListener('click', () => { resetFormationForm(); fmForm.style.display = 'none'; majTexteBoutonFormation(); });
   }
 
   function lignesVersListe(texte){
@@ -8355,6 +8408,7 @@ window.Isostasy = window.Isostasy || {};
         const payload = {
           titre: document.getElementById('fmTitre').value.trim(),
           sous_titre: document.getElementById('fmSousTitre').value.trim(),
+          but: document.getElementById('fmBut').value.trim(),
           statut: document.getElementById('fmStatut').value,
           dates_session: document.getElementById('fmDates').value.trim(),
           programme: document.getElementById('fmProgramme').value.trim(),
@@ -8379,6 +8433,11 @@ window.Isostasy = window.Isostasy || {};
           if(uploadError) throw uploadError;
           const { data: publicUrlData } = sb.storage.from('articles').getPublicUrl(path);
           payload.image_url = publicUrlData.publicUrl;
+        } else if(!id){
+          // Nouvel enregistrement (création ou duplication) sans nouvelle image :
+          // on reprend celle de l'original le cas échéant.
+          const imageActuelle = document.getElementById('fmImageUrlActuel').value;
+          if(imageActuelle) payload.image_url = imageActuelle;
         }
 
         if(id){
@@ -8407,6 +8466,7 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmId').value = f.id;
     document.getElementById('fmTitre').value = f.titre || '';
     document.getElementById('fmSousTitre').value = f.sous_titre || '';
+    document.getElementById('fmBut').value = f.but || '';
     document.getElementById('fmStatut').value = f.statut || 'en_cours';
     document.getElementById('fmDates').value = f.dates_session || '';
     document.getElementById('fmProgramme').value = f.programme || '';
@@ -8423,6 +8483,33 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmImageCurrent').textContent = f.image_url ? 'Image actuelle conservée si vous n\'en choisissez pas de nouvelle.' : '';
     fmSubmitBtn.textContent = 'Enregistrer les modifications';
     fmForm.style.display = '';
+    majTexteBoutonFormation();
+    window.scrollTo({ top: fmForm.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+  }
+
+  function duplicateFormation(f){
+    document.getElementById('fmId').value = '';
+    document.getElementById('fmTitre').value = (f.titre || '') + ' (copie)';
+    document.getElementById('fmSousTitre').value = f.sous_titre || '';
+    document.getElementById('fmBut').value = f.but || '';
+    document.getElementById('fmStatut').value = f.statut || 'en_cours';
+    document.getElementById('fmDates').value = f.dates_session || '';
+    document.getElementById('fmProgramme').value = f.programme || '';
+    document.getElementById('fmMode').value = f.mode || '';
+    document.getElementById('fmWhatsapp').value = (f.whatsapp || '+236 74 25 71 21').replace(/^\+236\s*/, '');
+    document.getElementById('fmEmail').value = f.email || '';
+    document.getElementById('fmFraisInscription').value = f.frais_inscription || '';
+    document.getElementById('fmFraisParticipation').value = f.frais_participation || '';
+    document.getElementById('fmAdresse').value = f.adresse || '';
+    document.getElementById('fmNotes').value = f.notes || '';
+    document.getElementById('fmConditions').value = f.conditions || '';
+    document.getElementById('fmLienInscription').value = f.lien_inscription || '';
+    document.getElementById('fmVisibilite').value = 'brouillon';
+    document.getElementById('fmImageCurrent').textContent = f.image_url ? "Image de l'original conservée si vous n'en choisissez pas de nouvelle." : '';
+    document.getElementById('fmImageUrlActuel').value = f.image_url || '';
+    fmSubmitBtn.textContent = 'Enregistrer la formation';
+    fmForm.style.display = '';
+    majTexteBoutonFormation();
     window.scrollTo({ top: fmForm.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
   }
 
@@ -8459,10 +8546,12 @@ window.Isostasy = window.Isostasy || {};
         '</div>' +
         '<div class="admin-article-actions">' +
           '<button type="button" data-action="edit">Modifier</button>' +
+          '<button type="button" data-action="duplicate">Dupliquer</button>' +
           '<button type="button" data-action="toggle">' + (f.status === 'publie' ? 'Dépublier' : 'Publier') + '</button>' +
           '<button type="button" data-action="delete" class="danger">Supprimer</button>' +
         '</div>';
       row.querySelector('[data-action="edit"]').addEventListener('click', () => editFormation(f));
+      row.querySelector('[data-action="duplicate"]').addEventListener('click', () => duplicateFormation(f));
       row.querySelector('[data-action="toggle"]').addEventListener('click', () => toggleFormationStatus(f));
       row.querySelector('[data-action="delete"]').addEventListener('click', () => deleteFormation(f));
       listEl.appendChild(row);
@@ -8671,7 +8760,12 @@ window.Isostasy = window.Isostasy || {};
       safeCount(() => sb.from('data_stats').select('*', { count: 'exact', head: true })),
     ]);
 
-    const setVal = (el, v) => { if(el) el.textContent = (v === null) ? '—' : v; };
+    const setVal = (el, v) => {
+      if(!el) return;
+      el.textContent = (v === null) ? '—' : v;
+      const item = el.parentElement; // <span> conteneur de l'élément du bandeau
+      if(item) item.style.display = (v === 0) ? 'none' : '';
+    };
     setVal(els.visites, audienceTotale.visites);
     setVal(els.pagesVues, audienceTotale.pagesVues);
     setVal(els.formations, formations);
@@ -8685,6 +8779,75 @@ window.Isostasy = window.Isostasy || {};
     setVal(els.sommets, SOMMETS_TOTAL);
     setVal(els.donnees, donnees);
   }
+
+  /* ===== Pop-up publicitaire de l'accueil (30s, une fois par session navigateur) ===== */
+  (function initPubPopup(){
+    if(sessionStorage.getItem('pubFermee') === '1') return;
+
+    let listePub = [];
+    let indexPub = 0;
+    let timerPub = null;
+
+    function appliquerPub(f){
+      document.getElementById('pubPopupAccroche').textContent = f.but || ('Formez-vous en ' + f.titre + ' et devenez un acteur clé');
+      const media = document.getElementById('pubPopupMedia');
+      media.style.backgroundImage = f.image_url ? 'url(' + JSON.stringify(f.image_url).slice(1,-1) + ')' : '';
+
+      document.getElementById('pubPopupInscrireBtn').onclick = (e) => {
+        e.stopPropagation();
+        sb.rpc('incrementer_inscriptions_formation', { p_id: f.id }).then(() => {});
+        if(f.lien_inscription) window.open(f.lien_inscription, '_blank', 'noopener');
+        else if(window.prefillContact) window.prefillContact('Formation', 'Concernant : ' + f.titre);
+        else location.hash = '#contact';
+      };
+
+      const carte = document.getElementById('pubPopupCard');
+      if(carte){
+        carte.style.cursor = 'pointer';
+        carte.onclick = (e) => {
+          if(e.target.closest('#pubPopupClose')) return;
+          fermerPub();
+          if(window.ouvrirFormationDetail) window.ouvrirFormationDetail(f.id);
+        };
+      }
+    }
+
+    async function afficherPub(){
+      if(sessionStorage.getItem('pubFermee') === '1') return;
+      const { data } = await sb.from('formations')
+        .select('*').eq('status', 'publie').in('statut', ['en_cours', 'programmee'])
+        .order('published_at', { ascending: false }).limit(5);
+      if(!data || !data.length) return;
+      listePub = data;
+
+      const overlay = document.getElementById('pubPopupOverlay');
+      if(!overlay) return;
+
+      appliquerPub(listePub[0]);
+      overlay.style.display = 'flex';
+
+      if(listePub.length > 1){
+        timerPub = setInterval(() => {
+          indexPub = (indexPub + 1) % listePub.length;
+          appliquerPub(listePub[indexPub]);
+        }, 6000);
+      }
+    }
+
+    function fermerPub(){
+      const overlay = document.getElementById('pubPopupOverlay');
+      if(overlay) overlay.style.display = 'none';
+      sessionStorage.setItem('pubFermee', '1');
+      if(timerPub){ clearInterval(timerPub); timerPub = null; }
+    }
+
+    document.addEventListener('click', (e) => {
+      if(e.target.closest('#pubPopupClose')){ e.stopPropagation(); fermerPub(); }
+      else if(e.target.id === 'pubPopupOverlay') fermerPub();
+    });
+
+    setTimeout(afficherPub, 5000);
+  })();
 
   async function loadFormationsSplit(){
     const elEnCours = document.getElementById('formationsLive');
@@ -8820,26 +8983,42 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fdInscrireBtn1').onclick = ouvrirInscription;
     document.getElementById('fdInscrireBtn2').onclick = ouvrirInscription;
 
-    // Formations récentes (sidebar), à l'exclusion de la formation courante
-    const sideEl = document.getElementById('fdRecentes');
-    sideEl.innerHTML = '<p class="admin-hint">Chargement…</p>';
-    const { data: recentes } = await sb.from('formations')
-      .select('*').eq('status', 'publie').neq('id', id)
-      .order('published_at', { ascending: false }).limit(4);
-    if(recentes && recentes.length){
-      sideEl.innerHTML = recentes.map(r => {
-        const thumb = r.image_url ? '<img src="' + escapeHtml(r.image_url) + '" alt="">' : '<span class="ph" style="display:flex;align-items:center;justify-content:center;height:100%;">🎓</span>';
-        return '<div class="fdetail-recente" data-id="' + escapeHtml(r.id) + '">' +
-          '<div class="fdetail-recente-thumb">' + thumb + '</div>' +
-          '<div><p class="fdetail-recente-titre">' + escapeHtml(r.titre) + '</p>' +
-          '<span class="fdetail-recente-meta">' + formationBadgeLabel(r.statut || 'en_cours') + '</span></div>' +
-        '</div>';
-      }).join('');
-      sideEl.querySelectorAll('.fdetail-recente').forEach(el => {
-        el.addEventListener('click', () => ouvrirFormationDetail(el.getAttribute('data-id')));
-      });
-    } else {
-      sideEl.innerHTML = '<p class="admin-hint">Aucune autre formation pour le moment.</p>';
+    // Encart "publicité" de la barre latérale : défile entre les formations
+    // en cours/programmées (jusqu'à 5), comme le bandeau défilant de l'accueil.
+    if(window._fdAdTimer){ clearInterval(window._fdAdTimer); window._fdAdTimer = null; }
+    const adEl = document.getElementById('fdAd');
+    if(adEl){
+      const { data: pubs } = await sb.from('formations')
+        .select('*').eq('status', 'publie').in('statut', ['en_cours', 'programmee'])
+        .order('published_at', { ascending: false }).limit(5);
+      const listeAd = (pubs && pubs.length) ? pubs : [f];
+
+      const appliquerAd = (item) => {
+        document.getElementById('fdAdBut').textContent = item.but || '';
+        const adMedia = document.getElementById('fdAdMedia');
+        adMedia.style.backgroundImage = item.image_url ? 'url(' + JSON.stringify(item.image_url).slice(1,-1) + ')' : '';
+        document.getElementById('fdAdInscrireBtn').onclick = (e) => {
+          e.stopPropagation();
+          sb.rpc('incrementer_inscriptions_formation', { p_id: item.id }).then(() => {});
+          if(item.lien_inscription) window.open(item.lien_inscription, '_blank', 'noopener');
+          else if(window.prefillContact) window.prefillContact('Formation', 'Concernant : ' + item.titre);
+          else location.hash = '#contact';
+        };
+        adEl.style.cursor = 'pointer';
+        adEl.onclick = () => {
+          if(item.id !== id && window.ouvrirFormationDetail) window.ouvrirFormationDetail(item.id);
+        };
+      };
+
+      let indexAd = 0;
+      appliquerAd(listeAd[0]);
+      adEl.style.display = '';
+      if(listeAd.length > 1){
+        window._fdAdTimer = setInterval(() => {
+          indexAd = (indexAd + 1) % listeAd.length;
+          appliquerAd(listeAd[indexAd]);
+        }, 6000);
+      }
     }
 
     switchView('formation-detail');
@@ -8863,14 +9042,15 @@ window.Isostasy = window.Isostasy || {};
     });
   }
 
-  const formationBackBtn = document.getElementById('formationBackBtn');
-  if(formationBackBtn){
-    formationBackBtn.addEventListener('click', () => {
-      switchView('formations', { noScroll: true });
-      const cible = document.getElementById('formationsFiltre');
-      if(cible) cible.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+  function retourCatalogueFormations(){
+    switchView('formations', { noScroll: true });
+    const cible = document.getElementById('formationsFiltre');
+    if(cible) cible.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+  const formationBackBtn = document.getElementById('formationBackBtn');
+  if(formationBackBtn) formationBackBtn.addEventListener('click', retourCatalogueFormations);
+  const formationBackBtn2 = document.getElementById('formationBackBtn2');
+  if(formationBackBtn2) formationBackBtn2.addEventListener('click', retourCatalogueFormations);
 
   const formationsCertBtn = document.getElementById('formationsCertBtn');
   if(formationsCertBtn){
@@ -10808,5 +10988,18 @@ window.Isostasy = window.Isostasy || {};
   });
 })();
 </script>
+<!-- Pop-up publicitaire (accueil, 30s après ouverture, une fois par session navigateur) -->
+<div class="pub-popup-overlay" id="pubPopupOverlay" style="display:none;">
+  <div class="fdetail-ad" id="pubPopupCard">
+    <button type="button" class="pub-popup-close" id="pubPopupClose" aria-label="Fermer">✕</button>
+    <span class="fdetail-ad-tag">PUBLICITÉ</span>
+    <div class="fdetail-ad-media" id="pubPopupMedia"></div>
+    <div class="fdetail-ad-body">
+      <p class="fdetail-ad-but" id="pubPopupAccroche"></p>
+      <button type="button" class="btn btn-primary btn-sm" id="pubPopupInscrireBtn">S'INSCRIRE</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
