@@ -9250,8 +9250,9 @@ window.Isostasy = window.Isostasy || {};
     // qui est à l'intérieur d'un tableau (jamais un vrai titre de section).
     const estUnTitre = (el) => el && (/^H[1-3]$/.test(el.tagName) || el.classList.contains('fdetail-extracted-subheading'));
     const estVide = (el) => !el.textContent.trim();
+    const estDansUneCelluleTableau = (el) => el.parentElement && el.parentElement.tagName === 'TD';
     document.querySelectorAll('#fdContenuDetaille h1, #fdContenuDetaille h2, #fdContenuDetaille h3, #fdContenuDetaille p.fdetail-extracted-subheading').forEach(titre => {
-      if(titre.closest('table')) return;
+      if(estDansUneCelluleTableau(titre)) return;
       let suivant = titre.nextElementSibling;
       while(suivant && estVide(suivant) && !estUnTitre(suivant)) suivant = suivant.nextElementSibling;
       if(!suivant || estUnTitre(suivant)) titre.remove();
@@ -9260,7 +9261,7 @@ window.Isostasy = window.Isostasy || {};
     // Encadre le contenu de chaque section (tout ce qui suit un titre,
     // jusqu'au titre suivant ou jusqu'à un tableau) dans une boîte bleu clair.
     document.querySelectorAll('#fdContenuDetaille h1, #fdContenuDetaille h2, #fdContenuDetaille h3').forEach(titre => {
-      if(titre.closest('table')) return;
+      if(estDansUneCelluleTableau(titre)) return;
       const boite = document.createElement('div');
       boite.className = 'fdetail-section-box';
       let noeud = titre.nextElementSibling;
