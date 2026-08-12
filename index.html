@@ -9014,8 +9014,10 @@ window.Isostasy = window.Isostasy || {};
     const { data: f, error } = await sb.from('formations').select('*').eq('id', id).single();
     if(error || !f){
       alert("Cette formation n'est plus disponible.");
+      try { sessionStorage.removeItem('dernierFormationId'); } catch(e){}
       return;
     }
+    try { sessionStorage.setItem('dernierFormationId', id); } catch(e){}
 
     document.getElementById('fdTopTitre').textContent = f.titre || '';
 
@@ -9128,6 +9130,19 @@ window.Isostasy = window.Isostasy || {};
     window.scrollTo({ top: 0, behavior: 'auto' });
   }
   window.ouvrirFormationDetail = ouvrirFormationDetail;
+
+  // Après un rechargement de page sur la vue "formation-detail", l'identifiant
+  // de la formation n'est pas dans l'adresse du site : on le récupère depuis
+  // la mémoire du navigateur pour réafficher automatiquement la bonne fiche.
+  (function restaurerFormationApresRechargement(){
+    const pageActuelle = (location.hash || '#accueil').replace('#', '') || 'accueil';
+    if(pageActuelle !== 'formation-detail') return;
+    let dernierId = null;
+    try { dernierId = sessionStorage.getItem('dernierFormationId'); } catch(e){}
+    if(dernierId) ouvrirFormationDetail(dernierId);
+    else location.hash = '#formations';
+  })();
+
 
   const formationsDemanderBtn1 = document.getElementById('formationsDemanderBtn1');
   if(formationsDemanderBtn1){
