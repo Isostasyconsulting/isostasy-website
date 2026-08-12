@@ -136,6 +136,7 @@
 <link rel="stylesheet" media="print" onload="this.media='all';this.onload=null" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap"></noscript>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mammoth/mammoth.browser.min.js"></script>
 <link rel="icon" href="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/images/logo-isostasy-fc692a53.webp"  data-ancien-src-id="fc692a534a">
 <style>
 /* =====================================================================
@@ -4106,6 +4107,9 @@ window.Isostasy = window.Isostasy || {};
             <input type="file" id="fmFichierDetail" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
             <span id="fmFichierDetailCurrent" class="admin-hint"></span>
             <input type="hidden" id="fmFichierDetailUrlActuel" value="">
+            <input type="hidden" id="fmContenuDetailleHtml" value="">
+            <input type="hidden" id="fmContenuDetailleHtmlActuel" value="">
+            <span id="fmContenuExtractionStatut" class="admin-hint"></span>
           </div>
           <div class="admin-field">
             <label for="fmImage">Image</label>
@@ -8429,6 +8433,9 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmImageUrlActuel').value = '';
     document.getElementById('fmFichierDetailCurrent').textContent = '';
     document.getElementById('fmFichierDetailUrlActuel').value = '';
+    document.getElementById('fmContenuDetailleHtml').value = '';
+    document.getElementById('fmContenuDetailleHtmlActuel').value = '';
+    document.getElementById('fmContenuExtractionStatut').textContent = '';
     document.getElementById('fmProgrammePedagogiqueCurrent').textContent = '';
     document.getElementById('fmProgrammePedagogiqueUrlActuel').value = '';
     document.getElementById('fmPlanningGlobalCurrent').textContent = '';
@@ -8463,6 +8470,64 @@ window.Isostasy = window.Isostasy || {};
 
   function lignesVersListe(texte){
     return (texte || '').split('\n').map(l => l.trim()).filter(Boolean);
+  }
+
+  // Nettoie le HTML issu du Word : retire la page de garde et la page de fin
+  // (1er et dernier tableau du document), ainsi que la section "Calendrier
+  // détaillé de la formation" et tout son contenu (jusqu'au titre suivant).
+  function nettoyerContenuDetaille(html){
+    const div = document.createElement('div');
+    div.innerHTML = html;
+
+    const tables = div.querySelectorAll('table');
+    if(tables.length >= 2){
+      tables[0].remove();
+      tables[tables.length - 1].remove();
+    }
+
+    const titres = div.querySelectorAll('h1, h2, h3, p > strong');
+    let debutCalendrier = null;
+    div.querySelectorAll('h1, h2, h3').forEach(h => {
+      if(/calendrier d.taill.e/i.test(h.textContent)) debutCalendrier = h;
+    });
+    if(debutCalendrier){
+      let n = debutCalendrier.nextSibling;
+      const aSupprimer = [debutCalendrier];
+      while(n && !/^H[1-3]$/.test(n.nodeName)){
+        aSupprimer.push(n);
+        n = n.nextSibling;
+      }
+      aSupprimer.forEach(el => el.remove && el.remove());
+    }
+
+    return div.innerHTML.trim();
+  }
+
+  const fmFichierDetailInput = document.getElementById('fmFichierDetail');
+  if(fmFichierDetailInput){
+    fmFichierDetailInput.addEventListener('change', async () => {
+      const statutEl = document.getElementById('fmContenuExtractionStatut');
+      const file = fmFichierDetailInput.files && fmFichierDetailInput.files[0];
+      if(!file) return;
+      const estDocx = /\.docx$/i.test(file.name) || file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+      if(!estDocx){
+        statutEl.textContent = "Extraction automatique disponible uniquement pour les fichiers .docx (PDF : téléchargement seul, pas d'extraction).";
+        document.getElementById('fmContenuDetailleHtml').value = '';
+        return;
+      }
+      statutEl.textContent = 'Lecture du document en cours...';
+      try {
+        const arrayBuffer = await file.arrayBuffer();
+        const resultat = await mammoth.convertToHtml({ arrayBuffer });
+        const htmlNettoye = nettoyerContenuDetaille(resultat.value);
+        document.getElementById('fmContenuDetailleHtml').value = htmlNettoye;
+        statutEl.textContent = 'Contenu extrait avec succès depuis le document.';
+      } catch(err){
+        console.error(err);
+        statutEl.textContent = "Impossible d'extraire automatiquement le contenu de ce document.";
+        document.getElementById('fmContenuDetailleHtml').value = '';
+      }
+    });
   }
 
   if(fmForm){
@@ -8520,6 +8585,14 @@ window.Isostasy = window.Isostasy || {};
           fmMsg.textContent = 'Merci d\'ajouter une photo pour : ' + manquants.join(', ') + '.';
           fmSubmitBtn.disabled = false;
           return;
+        }
+
+        const contenuDetailleHtml = document.getElementById('fmContenuDetailleHtml').value;
+        if(contenuDetailleHtml){
+          payload.contenu_detaille_html = contenuDetailleHtml;
+        } else if(!id){
+          const contenuActuel = document.getElementById('fmContenuDetailleHtmlActuel').value;
+          if(contenuActuel) payload.contenu_detaille_html = contenuActuel;
         }
 
         const fileInput = document.getElementById('fmImage');
@@ -8632,6 +8705,9 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmImageCurrent').textContent = f.image_url ? 'Image actuelle conservée si vous n\'en choisissez pas de nouvelle.' : '';
     document.getElementById('fmFichierDetailCurrent').textContent = f.fichier_detail_url ? 'Document actuel conservé si vous n\'en choisissez pas de nouveau.' : '';
     document.getElementById('fmFichierDetailUrlActuel').value = f.fichier_detail_url || '';
+    document.getElementById('fmContenuDetailleHtmlActuel').value = f.contenu_detaille_html || '';
+    document.getElementById('fmContenuDetailleHtml').value = '';
+    document.getElementById('fmContenuExtractionStatut').textContent = f.contenu_detaille_html ? 'Contenu déjà extrait et enregistré pour cette formation.' : '';
     document.getElementById('fmProgrammePedagogiqueCurrent').textContent = f.programme_pedagogique_url ? 'Photo actuelle conservée si vous n\'en choisissez pas de nouvelle.' : '';
     document.getElementById('fmProgrammePedagogiqueUrlActuel').value = f.programme_pedagogique_url || '';
     document.getElementById('fmPlanningGlobalCurrent').textContent = f.planning_global_url ? 'Photo actuelle conservée si vous n\'en choisissez pas de nouvelle.' : '';
@@ -8676,6 +8752,9 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmImageUrlActuel').value = f.image_url || '';
     document.getElementById('fmFichierDetailCurrent').textContent = f.fichier_detail_url ? "Document de l'original conservé si vous n'en choisissez pas de nouveau." : '';
     document.getElementById('fmFichierDetailUrlActuel').value = f.fichier_detail_url || '';
+    document.getElementById('fmContenuDetailleHtmlActuel').value = f.contenu_detaille_html || '';
+    document.getElementById('fmContenuDetailleHtml').value = '';
+    document.getElementById('fmContenuExtractionStatut').textContent = f.contenu_detaille_html ? "Contenu de l'original conservé si vous ne téléversez pas un nouveau document." : '';
     document.getElementById('fmProgrammePedagogiqueCurrent').textContent = f.programme_pedagogique_url ? "Photo de l'original conservée si vous n'en choisissez pas de nouvelle." : '';
     document.getElementById('fmProgrammePedagogiqueUrlActuel').value = f.programme_pedagogique_url || '';
     document.getElementById('fmPlanningGlobalCurrent').textContent = f.planning_global_url ? "Photo de l'original conservée si vous n'en choisissez pas de nouvelle." : '';
@@ -9134,6 +9213,9 @@ window.Isostasy = window.Isostasy || {};
     if(f.frais_participation){ document.getElementById('fdFraisParticipation').textContent = f.frais_participation; fraisWrap.style.display = ''; }
     else fraisWrap.style.display = 'none';
 
+    if(f.contenu_detaille_html){
+      document.getElementById('fdSections').innerHTML = f.contenu_detaille_html;
+    } else {
     // 17 sections du document détaillé de formation, rendues dans l'ordre,
     // chacune masquée automatiquement si son contenu n'a pas été renseigné.
     const infosPratiques = [
@@ -9196,6 +9278,7 @@ window.Isostasy = window.Isostasy || {};
         + '<p style="font-size:var(--fs-sm);color:var(--ink);margin:0 0 16px;">' + escapeHtml(s.contenu) + '</p>';
     }).join('');
     document.getElementById('fdSections').innerHTML = sectionHtml;
+    }
 
     const ouvrirInscription = () => {
       sb.rpc('incrementer_inscriptions_formation', { p_id: id }).then(() => {});
