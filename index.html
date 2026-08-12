@@ -1195,7 +1195,7 @@ section.alt::before{
 .formations-filtre{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 24px;}
 .formations-filtre-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:var(--fs-sm);color:var(--navy);margin-right:4px;}
 /* Page de détail d'une formation */
-.fdetail-wrap{display:grid;grid-template-columns:2fr 1fr;gap:90px;align-items:start;}
+.fdetail-wrap{display:grid;grid-template-columns:1fr 352px;gap:32px;align-items:start;}
 @media (max-width:860px){.fdetail-wrap{grid-template-columns:1fr;}}
 .fdetail-page-titre{margin:0 0 16px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:var(--fs-xl);color:var(--navy);text-align:center;}
 .fdetail-main{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-1);}
@@ -1224,7 +1224,7 @@ section.alt::before{
 #fdContenuDetaille ul, #fdContenuDetaille ol{margin:0 0 14px;padding-left:22px;color:var(--ink);line-height:1.6;}
 #fdContenuDetaille p.fdetail-extracted-highlight{background:var(--pale);border-left:4px solid #0082D1;padding:14px 16px;border-radius:6px;margin:16px 0;color:var(--navy);}
 #fdContenuDetaille p.fdetail-extracted-subheading{color:var(--navy);font-weight:700;font-size:1.05em;margin:22px 0 8px;}
-#fdContenuDetaille p.fdetail-extracted-bullet{position:relative;padding-left:20px;margin:0 0 10px;color:var(--ink);line-height:1.6;}
+#fdContenuDetaille p.fdetail-extracted-bullet{position:relative;padding-left:20px;margin:0;line-height:1.5;color:var(--ink);}
 #fdContenuDetaille p.fdetail-extracted-bullet::before{content:"•";position:absolute;left:4px;color:#0082D1;font-weight:700;}
 .fdetail-notes{margin:10px 0 0;padding-left:20px;font-size:var(--fs-xs);color:var(--texte-2);}
 .fdetail-notes li{margin-bottom:4px;}
@@ -9115,6 +9115,9 @@ window.Isostasy = window.Isostasy || {};
     else fraisWrap.style.display = 'none';
 
     document.getElementById('fdContenuDetaille').innerHTML = f.contenu_detaille_html || '';
+    document.querySelectorAll('#fdContenuDetaille p, #fdContenuDetaille div').forEach(el => {
+      if(!el.textContent.trim() && el.children.length === 0) el.remove();
+    });
     document.querySelectorAll('#fdContenuDetaille table tr').forEach(tr => {
       const cellules = tr.querySelectorAll('td');
       if(!cellules.length) return;
@@ -9125,6 +9128,7 @@ window.Isostasy = window.Isostasy || {};
       if(toutesEnGras) tr.classList.add('fdetail-row-highlight');
     });
     document.querySelectorAll('#fdContenuDetaille p').forEach(p => {
+      if(p.closest('table')) return;
       const enfants = Array.from(p.childNodes).filter(n => !(n.nodeType === 3 && !n.textContent.trim()));
       if(enfants.length !== 1 || enfants[0].nodeType !== 1 || enfants[0].tagName !== 'STRONG') return;
       const texte = p.textContent.trim();
@@ -9143,10 +9147,12 @@ window.Isostasy = window.Isostasy || {};
     // Retire les titres (vrais <h1-h3> ou faux titres en gras détectés ci-dessus)
     // qui ne sont suivis d'aucun contenu réel : soit rien du tout, soit un
     // autre titre juste après (en ignorant les éléments vides entre les deux)
-    // — un titre "orphelin" n'apporte aucune information.
+    // — un titre "orphelin" n'apporte aucune information. On ignore tout ce
+    // qui est à l'intérieur d'un tableau (jamais un vrai titre de section).
     const estUnTitre = (el) => el && (/^H[1-3]$/.test(el.tagName) || el.classList.contains('fdetail-extracted-subheading'));
     const estVide = (el) => !el.textContent.trim();
     document.querySelectorAll('#fdContenuDetaille h1, #fdContenuDetaille h2, #fdContenuDetaille h3, #fdContenuDetaille p.fdetail-extracted-subheading').forEach(titre => {
+      if(titre.closest('table')) return;
       let suivant = titre.nextElementSibling;
       while(suivant && estVide(suivant) && !estUnTitre(suivant)) suivant = suivant.nextElementSibling;
       if(!suivant || estUnTitre(suivant)) titre.remove();
