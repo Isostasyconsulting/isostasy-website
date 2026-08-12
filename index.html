@@ -136,7 +136,6 @@
 <link rel="stylesheet" media="print" onload="this.media='all';this.onload=null" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap"></noscript>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mammoth/mammoth.browser.min.js"></script>
 <link rel="icon" href="https://rocoldiadeicmnygcufu.supabase.co/storage/v1/object/public/site-assets/images/logo-isostasy-fc692a53.webp"  data-ancien-src-id="fc692a534a">
 <style>
 /* =====================================================================
@@ -3470,7 +3469,23 @@ window.Isostasy = window.Isostasy || {};
           <p class="fdetail-dates" id="fdDatesWrap" style="display:none;"><span id="fdFraisWrap" style="display:none;">Frais de participation : <b id="fdFraisParticipation"></b>&nbsp;&nbsp;•&nbsp;&nbsp;</span>Session : <b id="fdDates"></b></p>
           <h1 id="fdTitre">Détail sur la formation</h1>
 
-          <div id="fdSections"></div>
+          <div id="fdProgrammeWrap" style="display:none;">
+            <div class="fdetail-section-title">Contenus de cette formation :</div>
+            <ol class="fdetail-programme" id="fdProgramme"></ol>
+          </div>
+
+          <div class="fdetail-section-title">Informations pratiques</div>
+          <div class="fdetail-table" id="fdTable"></div>
+
+          <div id="fdNotesWrap" style="display:none;">
+            <div class="fdetail-section-title">Condition de paiement</div>
+            <ul class="fdetail-notes" id="fdNotes"></ul>
+          </div>
+
+          <div id="fdConditionsWrap" style="display:none;">
+            <p style="font-size:var(--fs-sm);font-weight:700;color:var(--navy);margin:20px 0 8px;">Condition de participation :</p>
+            <ul class="fdetail-conditions" id="fdConditions"></ul>
+          </div>
 
           <div class="fdetail-reserve-row">
             <button type="button" class="btn btn-primary" id="fdInscrireBtn2" style="background:#c0392b;">🔒 RÉSERVEZ VOTRE PLACE MAINTENANT</button>
@@ -4027,70 +4042,6 @@ window.Isostasy = window.Isostasy || {};
             <textarea id="fmBut" rows="2" placeholder="Ex. : Être capable de collecter, nettoyer, analyser et visualiser des données terrain"></textarea>
           </div>
           <div class="admin-field">
-            <label for="fmPourquoi">Pourquoi cette formation ?</label>
-            <textarea id="fmPourquoi" rows="3" placeholder="Contexte et raison d'être de la formation..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmObjectifsSpecifiques">Objectifs spécifiques (un point par ligne)</label>
-            <textarea id="fmObjectifsSpecifiques" rows="4" placeholder="Concevoir un outil de collecte adapté à un besoin réel&#10;..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmPublicCible">À qui s'adresse cette formation ?</label>
-            <textarea id="fmPublicCible" rows="2" placeholder="Ex. : Managers, responsables MEAL, gestionnaires de projet..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmPrerequis">Prérequis (un point par ligne)</label>
-            <textarea id="fmPrerequis" rows="3" placeholder="Disposer d'un ordinateur portable&#10;..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmParcoursApprentissage">Parcours d'apprentissage (un module par ligne, format : Module — Compétences — Résultat)</label>
-            <textarea id="fmParcoursApprentissage" rows="4" placeholder="Collecter avec KoboToolbox — Concevoir un formulaire — Formulaire fonctionnel&#10;..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmOutilsProgramme">Les outils au programme (un point par ligne)</label>
-            <textarea id="fmOutilsProgramme" rows="3" placeholder="KoboToolbox : collecte de données terrain&#10;..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmApprochePedagogique">Approche pédagogique</label>
-            <textarea id="fmApprochePedagogique" rows="2" placeholder="Comprendre → Pratiquer → Produire → Interpréter"></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmWorkflow">Le workflow que vous apprendrez à maîtriser</label>
-            <textarea id="fmWorkflow" rows="2" placeholder="Besoin d'information → Formulaire → Collecte → Nettoyage → Analyse → Visualisation → Décision"></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmResultatAttendu">Résultat concret attendu (un point par ligne)</label>
-            <textarea id="fmResultatAttendu" rows="3" placeholder="Identifier les données nécessaires&#10;..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmEvaluationAcquis">Évaluation des acquis</label>
-            <textarea id="fmEvaluationAcquis" rows="2" placeholder="Modalités d'évaluation des participants..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmConditionsParticipation">Conditions de participation (un point par ligne)</label>
-            <textarea id="fmConditionsParticipation" rows="3" placeholder="Avoir un ordinateur portable&#10;..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmModalitesPratiquesExtra">Modalités pratiques complémentaires (un point par ligne, format : Clé : Valeur)</label>
-            <textarea id="fmModalitesPratiquesExtra" rows="4" placeholder="Webinaire d'orientation : Une semaine avant le début&#10;Certification : Disponible après validation&#10;..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmInclusFormation">Ce qui est inclus / se poursuit après la formation (un point par ligne)</label>
-            <textarea id="fmInclusFormation" rows="4" placeholder="Un accompagnement pendant toute la durée&#10;..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmParticipantPrevoir">Ce que le participant doit prévoir (un point par ligne)</label>
-            <textarea id="fmParticipantPrevoir" rows="3" placeholder="Un ordinateur portable et son chargeur&#10;..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmTarifDetails">Tarif et facilités de paiement (détails)</label>
-            <textarea id="fmTarifDetails" rows="2" placeholder="Paiement possible en plusieurs tranches, réduction si soldé en une fois..."></textarea>
-          </div>
-          <div class="admin-field">
-            <label for="fmMessageEssentiel">Message essentiel</label>
-            <textarea id="fmMessageEssentiel" rows="3" placeholder="Le message clé à retenir sur cette formation..."></textarea>
-          </div>
-          <div class="admin-field">
             <label for="fmStatut">Statut</label>
             <select id="fmStatut">
               <option value="en_cours">En cours</option>
@@ -4107,9 +4058,6 @@ window.Isostasy = window.Isostasy || {};
             <input type="file" id="fmFichierDetail" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
             <span id="fmFichierDetailCurrent" class="admin-hint"></span>
             <input type="hidden" id="fmFichierDetailUrlActuel" value="">
-            <input type="hidden" id="fmContenuDetailleHtml" value="">
-            <input type="hidden" id="fmContenuDetailleHtmlActuel" value="">
-            <span id="fmContenuExtractionStatut" class="admin-hint"></span>
           </div>
           <div class="admin-field">
             <label for="fmImage">Image</label>
@@ -8433,9 +8381,6 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmImageUrlActuel').value = '';
     document.getElementById('fmFichierDetailCurrent').textContent = '';
     document.getElementById('fmFichierDetailUrlActuel').value = '';
-    document.getElementById('fmContenuDetailleHtml').value = '';
-    document.getElementById('fmContenuDetailleHtmlActuel').value = '';
-    document.getElementById('fmContenuExtractionStatut').textContent = '';
     document.getElementById('fmProgrammePedagogiqueCurrent').textContent = '';
     document.getElementById('fmProgrammePedagogiqueUrlActuel').value = '';
     document.getElementById('fmPlanningGlobalCurrent').textContent = '';
@@ -8472,64 +8417,6 @@ window.Isostasy = window.Isostasy || {};
     return (texte || '').split('\n').map(l => l.trim()).filter(Boolean);
   }
 
-  // Nettoie le HTML issu du Word : retire la page de garde et la page de fin
-  // (1er et dernier tableau du document), ainsi que la section "Calendrier
-  // détaillé de la formation" et tout son contenu (jusqu'au titre suivant).
-  function nettoyerContenuDetaille(html){
-    const div = document.createElement('div');
-    div.innerHTML = html;
-
-    const tables = div.querySelectorAll('table');
-    if(tables.length >= 2){
-      tables[0].remove();
-      tables[tables.length - 1].remove();
-    }
-
-    const titres = div.querySelectorAll('h1, h2, h3, p > strong');
-    let debutCalendrier = null;
-    div.querySelectorAll('h1, h2, h3').forEach(h => {
-      if(/calendrier d.taill.e/i.test(h.textContent)) debutCalendrier = h;
-    });
-    if(debutCalendrier){
-      let n = debutCalendrier.nextSibling;
-      const aSupprimer = [debutCalendrier];
-      while(n && !/^H[1-3]$/.test(n.nodeName)){
-        aSupprimer.push(n);
-        n = n.nextSibling;
-      }
-      aSupprimer.forEach(el => el.remove && el.remove());
-    }
-
-    return div.innerHTML.trim();
-  }
-
-  const fmFichierDetailInput = document.getElementById('fmFichierDetail');
-  if(fmFichierDetailInput){
-    fmFichierDetailInput.addEventListener('change', async () => {
-      const statutEl = document.getElementById('fmContenuExtractionStatut');
-      const file = fmFichierDetailInput.files && fmFichierDetailInput.files[0];
-      if(!file) return;
-      const estDocx = /\.docx$/i.test(file.name) || file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-      if(!estDocx){
-        statutEl.textContent = "Extraction automatique disponible uniquement pour les fichiers .docx (PDF : téléchargement seul, pas d'extraction).";
-        document.getElementById('fmContenuDetailleHtml').value = '';
-        return;
-      }
-      statutEl.textContent = 'Lecture du document en cours...';
-      try {
-        const arrayBuffer = await file.arrayBuffer();
-        const resultat = await mammoth.convertToHtml({ arrayBuffer });
-        const htmlNettoye = nettoyerContenuDetaille(resultat.value);
-        document.getElementById('fmContenuDetailleHtml').value = htmlNettoye;
-        statutEl.textContent = 'Contenu extrait avec succès depuis le document.';
-      } catch(err){
-        console.error(err);
-        statutEl.textContent = "Impossible d'extraire automatiquement le contenu de ce document.";
-        document.getElementById('fmContenuDetailleHtml').value = '';
-      }
-    });
-  }
-
   if(fmForm){
     fmForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -8542,22 +8429,6 @@ window.Isostasy = window.Isostasy || {};
           titre: document.getElementById('fmTitre').value.trim(),
           sous_titre: document.getElementById('fmSousTitre').value.trim(),
           but: document.getElementById('fmBut').value.trim(),
-          pourquoi: document.getElementById('fmPourquoi').value.trim(),
-          objectifs_specifiques: document.getElementById('fmObjectifsSpecifiques').value.trim(),
-          public_cible: document.getElementById('fmPublicCible').value.trim(),
-          prerequis: document.getElementById('fmPrerequis').value.trim(),
-          parcours_apprentissage: document.getElementById('fmParcoursApprentissage').value.trim(),
-          outils_programme: document.getElementById('fmOutilsProgramme').value.trim(),
-          approche_pedagogique: document.getElementById('fmApprochePedagogique').value.trim(),
-          workflow: document.getElementById('fmWorkflow').value.trim(),
-          resultat_attendu: document.getElementById('fmResultatAttendu').value.trim(),
-          evaluation_acquis: document.getElementById('fmEvaluationAcquis').value.trim(),
-          conditions_participation: document.getElementById('fmConditionsParticipation').value.trim(),
-          modalites_pratiques_extra: document.getElementById('fmModalitesPratiquesExtra').value.trim(),
-          inclus_formation: document.getElementById('fmInclusFormation').value.trim(),
-          participant_prevoir: document.getElementById('fmParticipantPrevoir').value.trim(),
-          tarif_details: document.getElementById('fmTarifDetails').value.trim(),
-          message_essentiel: document.getElementById('fmMessageEssentiel').value.trim(),
           statut: document.getElementById('fmStatut').value,
           dates_session: document.getElementById('fmDates').value.trim(),
           mode: document.getElementById('fmMode').value.trim(),
@@ -8585,14 +8456,6 @@ window.Isostasy = window.Isostasy || {};
           fmMsg.textContent = 'Merci d\'ajouter une photo pour : ' + manquants.join(', ') + '.';
           fmSubmitBtn.disabled = false;
           return;
-        }
-
-        const contenuDetailleHtml = document.getElementById('fmContenuDetailleHtml').value;
-        if(contenuDetailleHtml){
-          payload.contenu_detaille_html = contenuDetailleHtml;
-        } else if(!id){
-          const contenuActuel = document.getElementById('fmContenuDetailleHtmlActuel').value;
-          if(contenuActuel) payload.contenu_detaille_html = contenuActuel;
         }
 
         const fileInput = document.getElementById('fmImage');
@@ -8677,22 +8540,6 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmTitre').value = f.titre || '';
     document.getElementById('fmSousTitre').value = f.sous_titre || '';
     document.getElementById('fmBut').value = f.but || '';
-    document.getElementById('fmPourquoi').value = f.pourquoi || '';
-    document.getElementById('fmObjectifsSpecifiques').value = f.objectifs_specifiques || '';
-    document.getElementById('fmPublicCible').value = f.public_cible || '';
-    document.getElementById('fmPrerequis').value = f.prerequis || '';
-    document.getElementById('fmParcoursApprentissage').value = f.parcours_apprentissage || '';
-    document.getElementById('fmOutilsProgramme').value = f.outils_programme || '';
-    document.getElementById('fmApprochePedagogique').value = f.approche_pedagogique || '';
-    document.getElementById('fmWorkflow').value = f.workflow || '';
-    document.getElementById('fmResultatAttendu').value = f.resultat_attendu || '';
-    document.getElementById('fmEvaluationAcquis').value = f.evaluation_acquis || '';
-    document.getElementById('fmConditionsParticipation').value = f.conditions_participation || '';
-    document.getElementById('fmModalitesPratiquesExtra').value = f.modalites_pratiques_extra || '';
-    document.getElementById('fmInclusFormation').value = f.inclus_formation || '';
-    document.getElementById('fmParticipantPrevoir').value = f.participant_prevoir || '';
-    document.getElementById('fmTarifDetails').value = f.tarif_details || '';
-    document.getElementById('fmMessageEssentiel').value = f.message_essentiel || '';
     document.getElementById('fmStatut').value = f.statut || 'en_cours';
     document.getElementById('fmDates').value = f.dates_session || '';
     document.getElementById('fmMode').value = f.mode || '';
@@ -8705,9 +8552,6 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmImageCurrent').textContent = f.image_url ? 'Image actuelle conservée si vous n\'en choisissez pas de nouvelle.' : '';
     document.getElementById('fmFichierDetailCurrent').textContent = f.fichier_detail_url ? 'Document actuel conservé si vous n\'en choisissez pas de nouveau.' : '';
     document.getElementById('fmFichierDetailUrlActuel').value = f.fichier_detail_url || '';
-    document.getElementById('fmContenuDetailleHtmlActuel').value = f.contenu_detaille_html || '';
-    document.getElementById('fmContenuDetailleHtml').value = '';
-    document.getElementById('fmContenuExtractionStatut').textContent = f.contenu_detaille_html ? 'Contenu déjà extrait et enregistré pour cette formation.' : '';
     document.getElementById('fmProgrammePedagogiqueCurrent').textContent = f.programme_pedagogique_url ? 'Photo actuelle conservée si vous n\'en choisissez pas de nouvelle.' : '';
     document.getElementById('fmProgrammePedagogiqueUrlActuel').value = f.programme_pedagogique_url || '';
     document.getElementById('fmPlanningGlobalCurrent').textContent = f.planning_global_url ? 'Photo actuelle conservée si vous n\'en choisissez pas de nouvelle.' : '';
@@ -8723,22 +8567,6 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmTitre').value = (f.titre || '') + ' (copie)';
     document.getElementById('fmSousTitre').value = f.sous_titre || '';
     document.getElementById('fmBut').value = f.but || '';
-    document.getElementById('fmPourquoi').value = f.pourquoi || '';
-    document.getElementById('fmObjectifsSpecifiques').value = f.objectifs_specifiques || '';
-    document.getElementById('fmPublicCible').value = f.public_cible || '';
-    document.getElementById('fmPrerequis').value = f.prerequis || '';
-    document.getElementById('fmParcoursApprentissage').value = f.parcours_apprentissage || '';
-    document.getElementById('fmOutilsProgramme').value = f.outils_programme || '';
-    document.getElementById('fmApprochePedagogique').value = f.approche_pedagogique || '';
-    document.getElementById('fmWorkflow').value = f.workflow || '';
-    document.getElementById('fmResultatAttendu').value = f.resultat_attendu || '';
-    document.getElementById('fmEvaluationAcquis').value = f.evaluation_acquis || '';
-    document.getElementById('fmConditionsParticipation').value = f.conditions_participation || '';
-    document.getElementById('fmModalitesPratiquesExtra').value = f.modalites_pratiques_extra || '';
-    document.getElementById('fmInclusFormation').value = f.inclus_formation || '';
-    document.getElementById('fmParticipantPrevoir').value = f.participant_prevoir || '';
-    document.getElementById('fmTarifDetails').value = f.tarif_details || '';
-    document.getElementById('fmMessageEssentiel').value = f.message_essentiel || '';
     document.getElementById('fmStatut').value = f.statut || 'en_cours';
     document.getElementById('fmDates').value = f.dates_session || '';
     document.getElementById('fmMode').value = f.mode || '';
@@ -8752,9 +8580,6 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmImageUrlActuel').value = f.image_url || '';
     document.getElementById('fmFichierDetailCurrent').textContent = f.fichier_detail_url ? "Document de l'original conservé si vous n'en choisissez pas de nouveau." : '';
     document.getElementById('fmFichierDetailUrlActuel').value = f.fichier_detail_url || '';
-    document.getElementById('fmContenuDetailleHtmlActuel').value = f.contenu_detaille_html || '';
-    document.getElementById('fmContenuDetailleHtml').value = '';
-    document.getElementById('fmContenuExtractionStatut').textContent = f.contenu_detaille_html ? "Contenu de l'original conservé si vous ne téléversez pas un nouveau document." : '';
     document.getElementById('fmProgrammePedagogiqueCurrent').textContent = f.programme_pedagogique_url ? "Photo de l'original conservée si vous n'en choisissez pas de nouvelle." : '';
     document.getElementById('fmProgrammePedagogiqueUrlActuel').value = f.programme_pedagogique_url || '';
     document.getElementById('fmPlanningGlobalCurrent').textContent = f.planning_global_url ? "Photo de l'original conservée si vous n'en choisissez pas de nouvelle." : '';
@@ -9213,72 +9038,37 @@ window.Isostasy = window.Isostasy || {};
     if(f.frais_participation){ document.getElementById('fdFraisParticipation').textContent = f.frais_participation; fraisWrap.style.display = ''; }
     else fraisWrap.style.display = 'none';
 
-    if(f.contenu_detaille_html){
-      document.getElementById('fdSections').innerHTML = f.contenu_detaille_html;
-    } else {
-    // 17 sections du document détaillé de formation, rendues dans l'ordre,
-    // chacune masquée automatiquement si son contenu n'a pas été renseigné.
-    const infosPratiques = [
+    const progWrap = document.getElementById('fdProgrammeWrap');
+    const progList = lignesVersListe(f.programme);
+    if(progList.length){
+      document.getElementById('fdProgramme').innerHTML = progList.map(l => '<li>' + escapeHtml(l) + '</li>').join('');
+      progWrap.style.display = '';
+    } else progWrap.style.display = 'none';
+
+    const lignesInfo = [
       ['Mode', f.mode],
       ['WhatsApp', f.whatsapp],
       ['E-mail', f.email],
       ['Frais de participation', f.frais_participation],
       ['Adresse', f.adresse],
     ].filter(l => l[1]);
-    const modalitesExtra = lignesVersListe(f.modalites_pratiques_extra).map(l => {
-      const idx = l.indexOf(':');
-      return idx > -1 ? [l.slice(0, idx).trim(), l.slice(idx + 1).trim()] : [l, ''];
-    });
+    document.getElementById('fdTable').innerHTML = lignesInfo.map(l =>
+      '<div class="fdetail-table-row"><span class="k">' + escapeHtml(l[0]) + '</span><span class="v">' + escapeHtml(l[1]) + '</span></div>'
+    ).join('');
 
-    const sections = [
-      { titre: 'Objectif', type: 'p', contenu: f.but },
-      { titre: 'Pourquoi cette formation ?', type: 'p', contenu: f.pourquoi },
-      { titre: 'Objectifs spécifiques', type: 'ul', contenu: f.objectifs_specifiques },
-      { titre: "À qui s'adresse cette formation ?", type: 'p', contenu: f.public_cible },
-      { titre: 'Prérequis', type: 'ul', contenu: f.prerequis },
-      { titre: "Parcours d'apprentissage", type: 'table3', contenu: f.parcours_apprentissage },
-      { titre: 'Les outils au programme', type: 'ul', contenu: f.outils_programme },
-      { titre: 'Approche pédagogique', type: 'p', contenu: f.approche_pedagogique },
-      { titre: 'Le workflow que vous apprendrez à maîtriser', type: 'p', contenu: f.workflow },
-      { titre: 'Résultat concret attendu', type: 'ul', contenu: f.resultat_attendu },
-      { titre: 'Évaluation des acquis', type: 'p', contenu: f.evaluation_acquis },
-      { titre: 'Conditions de participation', type: 'ul', contenu: f.conditions_participation },
-      { titre: 'Modalités pratiques', type: 'table2', contenu: infosPratiques.concat(modalitesExtra) },
-      { titre: 'Ce qui est inclus et ce qui se poursuit après la formation', type: 'ul', contenu: f.inclus_formation },
-      { titre: 'Ce que le participant doit prévoir', type: 'ul', contenu: f.participant_prevoir },
-      { titre: 'Tarif et facilités de paiement', type: 'p', contenu: f.tarif_details },
-      { titre: 'Message essentiel', type: 'p', contenu: f.message_essentiel },
-    ];
+    const notesWrap = document.getElementById('fdNotesWrap');
+    const notesList = lignesVersListe(f.notes);
+    if(notesList.length){
+      document.getElementById('fdNotes').innerHTML = notesList.map(l => '<li>' + escapeHtml(l) + '</li>').join('');
+      notesWrap.style.display = '';
+    } else notesWrap.style.display = 'none';
 
-    const sectionHtml = sections.map(s => {
-      if(s.type === 'table2'){
-        if(!s.contenu.length) return '';
-        return '<div class="fdetail-section-title">' + escapeHtml(s.titre) + '</div>'
-          + '<div class="fdetail-table">' + s.contenu.map(l =>
-              '<div class="fdetail-table-row"><span class="k">' + escapeHtml(l[0]) + '</span><span class="v">' + escapeHtml(l[1]) + '</span></div>'
-            ).join('') + '</div>';
-      }
-      if(s.type === 'table3'){
-        const rows = lignesVersListe(s.contenu).map(l => l.split('—').map(x => x.trim()));
-        if(!rows.length) return '';
-        return '<div class="fdetail-section-title">' + escapeHtml(s.titre) + '</div>'
-          + '<div class="fdetail-table">' + rows.map(r =>
-              '<div class="fdetail-table-row"><span class="k">' + escapeHtml(r[0] || '') + '</span><span class="v">' + escapeHtml([r[1], r[2]].filter(Boolean).join(' — ')) + '</span></div>'
-            ).join('') + '</div>';
-      }
-      if(s.type === 'ul'){
-        const items = lignesVersListe(s.contenu);
-        if(!items.length) return '';
-        return '<div class="fdetail-section-title">' + escapeHtml(s.titre) + '</div>'
-          + '<ul class="fdetail-conditions">' + items.map(l => '<li>' + escapeHtml(l) + '</li>').join('') + '</ul>';
-      }
-      // paragraphe
-      if(!s.contenu) return '';
-      return '<div class="fdetail-section-title">' + escapeHtml(s.titre) + '</div>'
-        + '<p style="font-size:var(--fs-sm);color:var(--ink);margin:0 0 16px;">' + escapeHtml(s.contenu) + '</p>';
-    }).join('');
-    document.getElementById('fdSections').innerHTML = sectionHtml;
-    }
+    const condWrap = document.getElementById('fdConditionsWrap');
+    const condList = lignesVersListe(f.conditions);
+    if(condList.length){
+      document.getElementById('fdConditions').innerHTML = condList.map(l => '<li>' + escapeHtml(l) + '</li>').join('');
+      condWrap.style.display = '';
+    } else condWrap.style.display = 'none';
 
     const ouvrirInscription = () => {
       sb.rpc('incrementer_inscriptions_formation', { p_id: id }).then(() => {});
