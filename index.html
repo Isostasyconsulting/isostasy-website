@@ -1228,6 +1228,14 @@ section.alt::before{
 #fdContenuDetaille ul, #fdContenuDetaille ol{margin:0 0 14px;padding-left:22px;color:var(--ink);line-height:1.6;}
 #fdContenuDetaille p.fdetail-extracted-highlight{background:var(--pale);border-left:4px solid #0082D1;padding:14px 16px;border-radius:6px;margin:16px 0;color:var(--navy);}
 #fdContenuDetaille .fdetail-section-box{background:var(--pale);border-left:4px solid #0082D1;padding:14px 16px;border-radius:6px;margin:8px 0 20px;}
+#fdContenuDetaille .fdetail-section-box.fdetail-section-box-alt{background:var(--paper);border:1px solid #0092D1;border-left:4px solid var(--sky);border-radius:var(--r-md);}
+#fdContenuDetaille table.fdetail-table-callout.fdetail-callout-special{border-collapse:separate!important;border-radius:var(--r-md)!important;overflow:hidden!important;}
+#fdContenuDetaille table.fdetail-table-callout.fdetail-callout-special, #fdContenuDetaille table.fdetail-table-callout.fdetail-callout-special td{background:var(--paper)!important;}
+#fdContenuDetaille table.fdetail-table-callout.fdetail-callout-special td{border:1px solid #0092D1!important;border-left:4px solid var(--sky)!important;border-radius:var(--r-md)!important;color:var(--texte-2)!important;}
+#fdContenuDetaille table.fdetail-table-callout.fdetail-callout-special p:first-child{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy)!important;}
+#fdContenuDetaille table.fdetail-table-callout.fdetail-table-callout-alt{border-collapse:separate!important;border-radius:var(--r-md)!important;overflow:hidden!important;background:var(--paper)!important;}
+#fdContenuDetaille table.fdetail-table-callout.fdetail-table-callout-alt td{background:var(--paper)!important;border:1px solid #0092D1!important;border-left:4px solid var(--sky)!important;border-radius:var(--r-md)!important;color:var(--texte-2)!important;}
+#fdContenuDetaille table.fdetail-table-callout.fdetail-table-callout-alt p:first-child{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--navy)!important;}
 #fdContenuDetaille .fdetail-section-box p, #fdContenuDetaille .fdetail-section-box ul, #fdContenuDetaille .fdetail-section-box ol{margin:0 0 12px;}
 #fdContenuDetaille .fdetail-section-box p:last-child, #fdContenuDetaille .fdetail-section-box ul:last-child, #fdContenuDetaille .fdetail-section-box ol:last-child{margin-bottom:0;}
 #fdContenuDetaille .fdetail-section-box p.fdetail-extracted-highlight, #fdContenuDetaille .fdetail-section-box p.fdetail-extracted-subheading{background:none;border:none;padding:0;color:var(--navy);}
@@ -9215,6 +9223,9 @@ window.Isostasy = window.Isostasy || {};
         premiereLigne.classList.add('fdetail-table-entete');
       } else if(lignes.length === 1 && premiereLigne && premiereLigne.querySelectorAll('td').length === 1){
         table.classList.add('fdetail-table-callout');
+        if(/le fil principal de la formation/i.test(table.textContent)){
+          table.classList.add('fdetail-callout-special');
+        }
       }
     });
     document.querySelectorAll('#fdContenuDetaille table tr').forEach(tr => {
@@ -9260,7 +9271,7 @@ window.Isostasy = window.Isostasy || {};
 
     // Encadre le contenu de chaque section (tout ce qui suit un titre,
     // jusqu'au titre suivant ou jusqu'à un tableau) dans une boîte bleu clair.
-    document.querySelectorAll('#fdContenuDetaille h1, #fdContenuDetaille h2, #fdContenuDetaille h3').forEach(titre => {
+    document.querySelectorAll('#fdContenuDetaille h1, #fdContenuDetaille h2, #fdContenuDetaille h3, #fdContenuDetaille p.fdetail-extracted-subheading').forEach(titre => {
       if(estDansUneCelluleTableau(titre)) return;
       const boite = document.createElement('div');
       boite.className = 'fdetail-section-box';
@@ -9273,6 +9284,29 @@ window.Isostasy = window.Isostasy || {};
       if(!aDeplacer.length) return;
       titre.after(boite);
       aDeplacer.forEach(el => boite.appendChild(el));
+    });
+
+    // Garantit une vraie alternance entre encadrés (jamais 2 encadrés du même
+    // style à la suite), en se basant sur leur ordre réel dans le DOM plutôt
+    // que sur un simple compteur de titres (peu fiable à cause des sous-titres
+    // imbriqués qui ne génèrent pas toujours leur propre boîte). L'encadré
+    // spécial "Le fil principal" garde toujours son style fixe (contour fin) ;
+    // les autres boîtes s'adaptent autour de lui pour ne jamais se répéter.
+    let dernierStyleEncadre = 'contour';
+    document.querySelectorAll('#fdContenuDetaille .fdetail-section-box, #fdContenuDetaille table.fdetail-table-callout').forEach(encadre => {
+      const estSpecial = encadre.classList.contains('fdetail-callout-special');
+      if(estSpecial){
+        dernierStyleEncadre = 'contour';
+        return;
+      }
+      const classeAlt = encadre.tagName === 'TABLE' ? 'fdetail-table-callout-alt' : 'fdetail-section-box-alt';
+      encadre.classList.remove(classeAlt);
+      if(dernierStyleEncadre === 'contour'){
+        dernierStyleEncadre = 'plein';
+      } else {
+        encadre.classList.add(classeAlt);
+        dernierStyleEncadre = 'contour';
+      }
     });
 
     const ouvrirInscription = () => {
