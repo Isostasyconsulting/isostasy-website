@@ -9128,7 +9128,7 @@ window.Isostasy = window.Isostasy || {};
       const enTete = table.querySelector('tr');
       if(!enTete) return;
       const texteEntete = enTete.textContent;
-      if(/\bDate\b/i.test(texteEntete) && /Module\s*\/\s*s.ance/i.test(texteEntete)){
+      if(/\bDate\b/i.test(texteEntete) && (/Module/i.test(texteEntete) || /R.sultat attendu/i.test(texteEntete))){
         const precedent = table.previousElementSibling;
         table.remove();
         if(precedent && /calendrier d.taill.e/i.test(precedent.textContent) && precedent.textContent.trim().length < 60){
