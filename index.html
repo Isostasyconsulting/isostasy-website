@@ -1219,6 +1219,10 @@ section.alt::before{
 #fdContenuDetaille table td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink);}
 #fdContenuDetaille table tr:nth-child(even) td{background:var(--pale);}
 #fdContenuDetaille table tr.fdetail-row-highlight td{background:var(--navy);color:#fff;}
+#fdContenuDetaille table tr.fdetail-table-entete td{background:#004976!important;vertical-align:middle;}
+#fdContenuDetaille table tr.fdetail-table-entete td, #fdContenuDetaille table tr.fdetail-table-entete td *{color:#fff!important;font-weight:700;}
+#fdContenuDetaille table.fdetail-table-callout, #fdContenuDetaille table.fdetail-table-callout td{background:var(--pale);border:none;}
+#fdContenuDetaille table.fdetail-table-callout td{padding:14px 16px;color:var(--navy);border-left:4px solid #0082D1;border-radius:6px;}
 #fdContenuDetaille h1, #fdContenuDetaille h2, #fdContenuDetaille h3{color:var(--navy);margin:28px 0 10px;}
 #fdContenuDetaille p{color:var(--ink);line-height:1.6;margin:0 0 14px;}
 #fdContenuDetaille ul, #fdContenuDetaille ol{margin:0 0 14px;padding-left:22px;color:var(--ink);line-height:1.6;}
@@ -9118,9 +9122,32 @@ window.Isostasy = window.Isostasy || {};
     document.querySelectorAll('#fdContenuDetaille p, #fdContenuDetaille div').forEach(el => {
       if(!el.textContent.trim() && el.children.length === 0) el.remove();
     });
+    // Retire le tableau "Calendrier détaillé" (colonnes Date / Module-séance)
+    // s'il a échappé au nettoyage effectué au moment du téléversement.
+    document.querySelectorAll('#fdContenuDetaille table').forEach(table => {
+      const enTete = table.querySelector('tr');
+      if(!enTete) return;
+      const texteEntete = enTete.textContent;
+      if(/\bDate\b/i.test(texteEntete) && /Module\s*\/\s*s.ance/i.test(texteEntete)){
+        const precedent = table.previousElementSibling;
+        table.remove();
+        if(precedent && /calendrier d.taill.e/i.test(precedent.textContent) && precedent.textContent.trim().length < 60){
+          precedent.remove();
+        }
+      }
+    });
+    document.querySelectorAll('#fdContenuDetaille table').forEach(table => {
+      const lignes = table.querySelectorAll('tr');
+      const premiereLigne = lignes[0];
+      if(premiereLigne && premiereLigne.querySelectorAll('td').length > 1){
+        premiereLigne.classList.add('fdetail-table-entete');
+      } else if(lignes.length === 1 && premiereLigne && premiereLigne.querySelectorAll('td').length === 1){
+        table.classList.add('fdetail-table-callout');
+      }
+    });
     document.querySelectorAll('#fdContenuDetaille table tr').forEach(tr => {
       const cellules = tr.querySelectorAll('td');
-      if(!cellules.length) return;
+      if(!cellules.length || tr.classList.contains('fdetail-table-entete')) return;
       const toutesEnGras = Array.from(cellules).every(td => {
         const enfants = Array.from(td.childNodes).filter(n => !(n.nodeType === 3 && !n.textContent.trim()));
         return enfants.length === 1 && enfants[0].nodeType === 1 && enfants[0].tagName === 'STRONG';
