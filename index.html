@@ -1227,6 +1227,10 @@ section.alt::before{
 #fdContenuDetaille p{color:var(--ink);line-height:1.6;margin:0 0 14px;}
 #fdContenuDetaille ul, #fdContenuDetaille ol{margin:0 0 14px;padding-left:22px;color:var(--ink);line-height:1.6;}
 #fdContenuDetaille p.fdetail-extracted-highlight{background:var(--pale);border-left:4px solid #0082D1;padding:14px 16px;border-radius:6px;margin:16px 0;color:var(--navy);}
+#fdContenuDetaille .fdetail-section-box{background:var(--pale);border-left:4px solid #0082D1;padding:14px 16px;border-radius:6px;margin:8px 0 20px;}
+#fdContenuDetaille .fdetail-section-box p, #fdContenuDetaille .fdetail-section-box ul, #fdContenuDetaille .fdetail-section-box ol{margin:0 0 12px;}
+#fdContenuDetaille .fdetail-section-box p:last-child, #fdContenuDetaille .fdetail-section-box ul:last-child, #fdContenuDetaille .fdetail-section-box ol:last-child{margin-bottom:0;}
+#fdContenuDetaille .fdetail-section-box p.fdetail-extracted-highlight, #fdContenuDetaille .fdetail-section-box p.fdetail-extracted-subheading{background:none;border:none;padding:0;color:var(--navy);}
 #fdContenuDetaille p.fdetail-extracted-subheading{color:var(--navy);font-weight:700;font-size:1.05em;margin:22px 0 8px;}
 #fdContenuDetaille p.fdetail-extracted-bullet{position:relative;padding-left:20px;margin:0;line-height:1.5;color:var(--ink);}
 #fdContenuDetaille p.fdetail-extracted-bullet::before{content:"•";position:absolute;left:4px;color:#0082D1;font-weight:700;}
@@ -1236,6 +1240,11 @@ section.alt::before{
 .fdetail-conditions li{margin-bottom:6px;}
 .fdetail-reserve-row{text-align:center;margin-top:26px;}
 .fdetail-back-row{text-align:center;margin-top:14px;}
+.fd-image-modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,20,40,.72);display:flex;align-items:center;justify-content:center;padding:24px;}
+.fd-image-modal{position:relative;background:#fff;border-radius:var(--r-lg);padding:20px;max-width:min(700px,92vw);max-height:90vh;overflow:auto;box-shadow:var(--sh-1);}
+.fd-image-modal-titre{font-weight:700;color:var(--navy);margin:0 0 12px;text-align:center;font-size:var(--fs-md);}
+.fd-image-modal img{display:block;width:100%;height:auto;border-radius:8px;}
+.fd-image-modal-close{position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;border:none;background:rgba(0,0,0,.55);color:#fff;font-size:1rem;cursor:pointer;line-height:1;}
 .fdetail-sidebar-col{display:flex;flex-direction:column;gap:18px;background:var(--paper);padding:16px;border-radius:var(--r-lg);position:sticky;top:90px;align-self:start;}
 @media (max-width:860px){.fdetail-sidebar-col{position:static;}}
 /* Pop-up publicitaire (accueil) */
@@ -3471,8 +3480,23 @@ window.Isostasy = window.Isostasy || {};
 <section id="formation-detail" class="page-view">
   <div class="wrap">
     <h2 class="fdetail-page-titre" id="fdTopTitre">—</h2>
-    <div class="fdetail-back-row" style="margin-bottom:18px;text-align:left;">
+    <div class="fdetail-back-row" style="margin-bottom:18px;text-align:left;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
       <button type="button" class="btn btn-outline-navy btn-sm" id="formationBackBtn">← Retour aux formations</button>
+      <button type="button" class="btn btn-outline-navy btn-sm" id="fdBtnProgrammePedagogique" style="display:none;">Programme pédagogique</button>
+      <button type="button" class="btn btn-outline-navy btn-sm" id="fdBtnPlanningGlobal" style="display:none;">Planning global</button>
+    </div>
+    <div id="fdImageModalOverlay" class="fd-image-modal-overlay" style="display:none;">
+      <div class="fd-image-modal">
+        <button type="button" class="fd-image-modal-close" id="fdImageModalClose" aria-label="Fermer">✕</button>
+        <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:12px;">
+          <p class="fd-image-modal-titre" id="fdImageModalTitre" style="margin:0;"></p>
+          <a href="#" id="fdImageModalTelechargerHaut" download class="btn btn-primary btn-sm">⬇ Télécharger</a>
+        </div>
+        <img id="fdImageModalImg" src="" alt="">
+        <div style="text-align:center;margin-top:14px;">
+          <a href="#" id="fdImageModalTelecharger" download class="btn btn-primary btn-sm">⬇ Télécharger</a>
+        </div>
+      </div>
     </div>
     <div class="fdetail-wrap">
       <div class="fdetail-main">
@@ -9088,6 +9112,46 @@ window.Isostasy = window.Isostasy || {};
   }
 
   /* ===== Page de détail d'une formation ===== */
+  function ouvrirImageModal(url, titre){
+    if(!url) return;
+    document.getElementById('fdImageModalImg').src = url;
+    document.getElementById('fdImageModalTitre').textContent = titre;
+    document.getElementById('fdImageModalOverlay').style.display = 'flex';
+    const gererTelechargement = async (e) => {
+      e.preventDefault();
+      try {
+        const reponse = await fetch(url);
+        const blob = await reponse.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        const extension = (url.split('.').pop() || 'jpg').split('?')[0];
+        a.href = blobUrl;
+        a.download = titre.replace(/[^a-zA-Z0-9]+/g, '_') + '.' + extension;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(blobUrl);
+      } catch(err){
+        window.open(url, '_blank');
+      }
+    };
+    ['fdImageModalTelecharger', 'fdImageModalTelechargerHaut'].forEach(id => {
+      const lien = document.getElementById(id);
+      lien.href = url;
+      lien.onclick = gererTelechargement;
+    });
+  }
+  function fermerImageModal(){
+    document.getElementById('fdImageModalOverlay').style.display = 'none';
+    document.getElementById('fdImageModalImg').src = '';
+  }
+  const fdImageModalOverlayEl = document.getElementById('fdImageModalOverlay');
+  if(fdImageModalOverlayEl){
+    document.getElementById('fdImageModalClose').addEventListener('click', fermerImageModal);
+    fdImageModalOverlayEl.addEventListener('click', (e) => { if(e.target === fdImageModalOverlayEl) fermerImageModal(); });
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') fermerImageModal(); });
+  }
+
   async function ouvrirFormationDetail(id){
     const { data: f, error } = await sb.from('formations').select('*').eq('id', id).single();
     if(error || !f){
@@ -9117,6 +9181,14 @@ window.Isostasy = window.Isostasy || {};
     const fraisWrap = document.getElementById('fdFraisWrap');
     if(f.frais_participation){ document.getElementById('fdFraisParticipation').textContent = f.frais_participation; fraisWrap.style.display = ''; }
     else fraisWrap.style.display = 'none';
+
+    const btnProgramme = document.getElementById('fdBtnProgrammePedagogique');
+    btnProgramme.style.display = f.programme_pedagogique_url ? '' : 'none';
+    btnProgramme.onclick = () => ouvrirImageModal(f.programme_pedagogique_url, 'Programme pédagogique');
+
+    const btnPlanning = document.getElementById('fdBtnPlanningGlobal');
+    btnPlanning.style.display = f.planning_global_url ? '' : 'none';
+    btnPlanning.onclick = () => ouvrirImageModal(f.planning_global_url, 'Planning global');
 
     document.getElementById('fdContenuDetaille').innerHTML = f.contenu_detaille_html || '';
     document.querySelectorAll('#fdContenuDetaille p, #fdContenuDetaille div').forEach(el => {
@@ -9183,6 +9255,23 @@ window.Isostasy = window.Isostasy || {};
       let suivant = titre.nextElementSibling;
       while(suivant && estVide(suivant) && !estUnTitre(suivant)) suivant = suivant.nextElementSibling;
       if(!suivant || estUnTitre(suivant)) titre.remove();
+    });
+
+    // Encadre le contenu de chaque section (tout ce qui suit un titre,
+    // jusqu'au titre suivant ou jusqu'à un tableau) dans une boîte bleu clair.
+    document.querySelectorAll('#fdContenuDetaille h1, #fdContenuDetaille h2, #fdContenuDetaille h3').forEach(titre => {
+      if(titre.closest('table')) return;
+      const boite = document.createElement('div');
+      boite.className = 'fdetail-section-box';
+      let noeud = titre.nextElementSibling;
+      const aDeplacer = [];
+      while(noeud && !estUnTitre(noeud) && noeud.tagName !== 'TABLE'){
+        aDeplacer.push(noeud);
+        noeud = noeud.nextElementSibling;
+      }
+      if(!aDeplacer.length) return;
+      titre.after(boite);
+      aDeplacer.forEach(el => boite.appendChild(el));
     });
 
     const ouvrirInscription = () => {
