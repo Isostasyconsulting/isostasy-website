@@ -771,6 +771,7 @@ html[dir="rtl"] .lang-menu{right:auto;left:0;}
 
 /* SECTION generic */
 section{padding:60px 0;}
+#appel-detail{padding-top:20px;}
 .page-view{display:none;}
 .page-view.active-view{display:block;animation:page-fade .45s cubic-bezier(.16,1,.3,1);}
 @keyframes page-fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
@@ -1197,6 +1198,10 @@ section.alt::before{
 .pv-liste{border-top:1px solid var(--line);}
 .pv-row{border-bottom:1px solid var(--line);padding:20px 0;}
 .pv-row-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;cursor:pointer;}
+.pv-row-thumb{width:64px;height:64px;flex:0 0 64px;border-radius:var(--r-sm);overflow:hidden;background:var(--pale);}
+.pv-row-thumb img{width:100%;height:100%;object-fit:contain;display:block;}
+.pv-row-thumb .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
+.pv-row-head-texte{flex:1;min-width:0;}
 .pv-row-titre{margin:0 0 6px;font-size:var(--fs-lg);font-weight:800;color:#0092D1;}
 .pv-row:hover .pv-row-titre{color:var(--navy);}
 .pv-row-meta{margin:0;font-size:var(--fs-sm);color:var(--texte-2);}
@@ -1236,9 +1241,16 @@ section.alt::before{
 .pv-row.ouvert .pv-row-detail{display:block;}
 .pv-row-detail h5{margin:14px 0 4px;color:var(--navy);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.03em;}
 .pv-row-detail h5:first-child{margin-top:0;}
-.pv-row-detail p{margin:0;color:var(--texte-2);font-size:var(--fs-sm);white-space:pre-line;line-height:1.6;}
+.pv-row-detail p{margin:0 0 1em;color:var(--texte-2);font-size:var(--fs-sm);white-space:pre-line;line-height:1.6;}
 .pv-row-detail table{width:100%;border-collapse:collapse;margin-top:4px;font-size:var(--fs-sm);}
 .pv-row-detail table td{padding:4px 10px 4px 0;color:var(--texte-2);}
+#adContenu h5{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--navy);font-size:var(--fs-base);margin:26px 0 10px;}
+#adContenu h5:first-child{margin-top:0;}
+#adContenu .fdetail-section-box{background:var(--pale);border-left:4px solid #0082D1;padding:14px 16px;border-radius:6px;margin:0 0 20px;}
+#adContenu .fdetail-section-box.fdetail-section-box-alt{background:var(--paper);border:1px solid #0092D1;border-left:4px solid var(--sky);border-radius:var(--r-md);}
+#adContenu .fdetail-section-box p{margin:0;color:var(--ink);line-height:1.6;white-space:pre-line;}
+#adContenu table{width:100%;border-collapse:collapse;margin:0 0 20px;font-size:var(--fs-sm);}
+#adContenu table td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink);}
 .pv-recherche{
   display:flex;align-items:stretch;margin-top:22px;
   border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:#fff;
@@ -3361,6 +3373,51 @@ window.Isostasy = window.Isostasy || {};
   </div>
 </section>
 
+<!-- DÉTAIL D'UNE OFFRE / APPEL D'OFFRES -->
+<section id="appel-detail" class="page-view">
+  <div class="wrap">
+    <div class="fdetail-back-row" style="margin-bottom:18px;text-align:left;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <button type="button" class="btn btn-outline-navy btn-sm" id="appelBackBtn" data-i18n="adetail_back">← Retour aux offres</button>
+    </div>
+    <div class="fdetail-wrap">
+      <div class="fdetail-main">
+        <div class="fdetail-hero" id="adHero" style="display:none;"><img id="adImage" src="" alt=""></div>
+        <div class="fdetail-body">
+          <p class="fdetail-dates" id="adMeta"></p>
+          <h1 id="adTitre" style="text-align:center;"></h1>
+          <div id="adContenu"></div>
+
+          <div class="fdetail-cta-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+            <button type="button" class="btn btn-primary" id="adPostulerBtn" data-i18n="adetail_postuler">Postuler</button>
+            <a href="#" id="adTelechargerBtn" download class="btn btn-outline-navy" style="display:none;" data-i18n="adetail_telecharger">⬇ Télécharger le document</a>
+          </div>
+          <div class="fdetail-back-row">
+            <button type="button" class="btn btn-outline-navy btn-sm" id="appelBackBtn2" data-i18n="adetail_voir_plus">Voir plus d'offres</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="fdetail-sidebar-col">
+        <div class="fdetail-ad" id="adAd" style="display:none;">
+          <span class="fdetail-ad-tag" data-i18n="fdetail_publicite">PUBLICITÉ</span>
+          <div class="fdetail-ad-media" id="adAdMedia">
+            <div class="fdetail-ad-topinfo" id="adAdTopInfo">
+              <p class="fdetail-ad-topinfo-l1" id="adAdInfo"></p>
+            </div>
+            <div class="fdetail-ad-image" id="adAdImage"></div>
+            <p class="fdetail-ad-subtitle" id="adAdSubtitle"></p>
+          </div>
+          <div class="fdetail-ad-body">
+            <p class="fdetail-ad-but" id="adAdBut"></p>
+            <p class="fdetail-ad-dates-body" id="adAdDates"></p>
+            <button type="button" class="btn btn-primary btn-sm" id="adAdPostulerBtn" data-i18n="adetail_postuler">Postuler</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- STATISTIQUES MONDIALES -->
 <section id="donnees-ouvertes" class="page-view">
   <div class="wrap">
@@ -4335,6 +4392,10 @@ window.Isostasy = window.Isostasy || {};
               <option value="Externe" selected>Externe</option>
               <option value="Interne">Interne</option>
             </select>
+            <label style="display:flex;align-items:center;gap:8px;margin-top:8px;font-weight:400;">
+              <input type="checkbox" id="apDiffusionPrioritaire" style="width:auto;">
+              Diffusion prioritaire
+            </label>
           </div>
           <div class="admin-field" id="articleTitleField">
             <label for="articleTitle" id="articleTitleLabel">Titre</label>
@@ -5733,7 +5794,7 @@ window.Isostasy = window.Isostasy || {};
 
   // ===== Routeur de vues (une seule section visible à la fois) =====
   if('scrollRestoration' in history){ history.scrollRestoration = 'manual'; }
-  const pageIds = ['accueil','apropos','philosophie','expertises','ce-que-nous-faisons','methodologie','organisation','domaines','rapports','appels','donnees-ouvertes','newsday','sommets','formations','formation-detail','boutique','annonces','notions','blog','accreditations','temoignages','rejoignez-nous','cas-usage','partenaires','contact','admin'];
+  const pageIds = ['accueil','apropos','philosophie','expertises','ce-que-nous-faisons','methodologie','organisation','domaines','rapports','appels','appel-detail','donnees-ouvertes','newsday','sommets','formations','formation-detail','boutique','annonces','notions','blog','accreditations','temoignages','rejoignez-nous','cas-usage','partenaires','contact','admin'];
   const headerEl = document.querySelector('header');
 
   function switchView(id, opts){
@@ -9252,6 +9313,7 @@ window.Isostasy = window.Isostasy || {};
           payload.niveau_contrat = document.getElementById('apNiveauContrat').value.trim();
           payload.duree_contrat = document.getElementById('apDureeContrat').value.trim();
           payload.renouvelable = document.getElementById('apRenouvelable').checked;
+          payload.diffusion_prioritaire = document.getElementById('apDiffusionPrioritaire').checked;
           payload.theme = document.getElementById('apTheme').value;
           payload.a_propos_organisation = document.getElementById('apAProposOrganisation').value.trim();
           payload.poste_detail = document.getElementById('apPosteDetail').value.trim();
@@ -9408,6 +9470,7 @@ window.Isostasy = window.Isostasy || {};
     if(a.section === 'appels'){
       if(appelsAdminOpenBtn) appelsAdminOpenBtn.textContent = 'Masquer le formulaire';
       document.getElementById('apTypePublication').value = a.type_publication || 'Externe';
+      document.getElementById('apDiffusionPrioritaire').checked = !!a.diffusion_prioritaire;
       definirOrganisationFormulaire(a.organisation || '');
       document.getElementById('apOrgType').value = a.org_type || 'ONG';
       document.getElementById('apDatePublication').value = a.date_publication || '';
@@ -9465,6 +9528,7 @@ window.Isostasy = window.Isostasy || {};
     if(a.section === 'appels'){
       if(appelsAdminOpenBtn) appelsAdminOpenBtn.textContent = 'Masquer le formulaire';
       document.getElementById('apTypePublication').value = a.type_publication || 'Externe';
+      document.getElementById('apDiffusionPrioritaire').checked = !!a.diffusion_prioritaire;
       definirOrganisationFormulaire(a.organisation || '');
       document.getElementById('apOrgType').value = a.org_type || 'ONG';
       document.getElementById('apDatePublication').value = a.date_publication || '';
@@ -10284,38 +10348,20 @@ window.Isostasy = window.Isostasy || {};
     const meta = [a.type_publication, a.lieu_affectation || a.pays, a.organisation, a.classification_poste || a.categorie_emploi, a.date_cloture ? formatDateCourte(a.date_cloture) : null]
       .filter(Boolean).map(escapeHtml).join(' &nbsp;•&nbsp; ');
     const idLigne = 'pvRow' + idx;
-    const urlOffre = location.href.split('#')[0] + '#appels'; // TODO : remplacer par le lien dynamic-processor une fois la fonction correctement déployée (voir conversation Claude)
+    const urlOffre = a.lien_offre || (location.href.split('#')[0] + '#appels');
     const sujet = encodeURIComponent(a.title);
-    const detailsHtml = [
-      ['Organisation', [a.organisation, a.org_type].filter(Boolean).join(' — ')],
-      ["À propos de l'organisation", a.a_propos_organisation],
-      ['Détail du poste', a.poste_detail],
-      ['Rôle / Responsabilités', a.poste_role_responsabilites],
-      ['Qualifications / Compétences', a.poste_qualifications],
-      ["Exigences en matière d'éducation", a.poste_exigences_education],
-      ['Informations complémentaires', a.informations_complementaires],
-      ['Termes et conditions', a.termes_conditions],
-      ['Comment postuler', a.comment_postuler]
-    ].filter(([, val]) => val).map(([label, val]) =>
-      '<h5>' + escapeHtml(label) + '</h5><p>' + escapeHtml(val) + '</p>'
-    ).join('');
-    const langues = a.poste_exigences_linguistiques || [];
-    const languesHtml = langues.length ? '<h5>Exigences linguistiques</h5><table>' +
-      langues.map(l => '<tr><td>' + escapeHtml(l.langue || '') + '</td><td>' + escapeHtml(l.niveau || '') + '</td><td>' + escapeHtml(l.exigence || '') + '</td></tr>').join('') +
-      '</table>' : '';
-    const liensHtml = [
-      a.lien_offre ? '<a href="' + escapeHtml(a.lien_offre) + '" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm" style="margin-right:8px;">Lien de l\'offre ↗</a>' : '',
-      a.fichier_offre_url ? '<a href="' + escapeHtml(a.fichier_offre_url) + '" target="_blank" rel="noopener" download class="btn btn-outline-navy btn-sm">⬇ Télécharger le document</a>' : ''
-    ].filter(Boolean).join('');
-    const liensBloc = liensHtml ? '<div style="margin-top:14px;">' + liensHtml + '</div>' : '';
+    const thumb = a.image_url
+      ? '<img src="' + escapeHtml(a.image_url) + '" alt="" loading="lazy" decoding="async">'
+      : '<span class="ph">📢</span>';
 
     return '<div class="pv-row" id="' + idLigne + '">' +
-      '<div class="pv-row-head" data-toggle="' + idLigne + '">' +
-        '<div><h4 class="pv-row-titre">' + escapeHtml(a.title) + '</h4><p class="pv-row-meta">' + meta + '</p></div>' +
-        '<button type="button" class="pv-row-chevron" data-toggle="' + idLigne + '">⌄</button>' +
+      '<div class="pv-row-head" data-abrir="' + escapeHtml(a.id) + '">' +
+        '<div class="pv-row-thumb">' + thumb + '</div>' +
+        '<div class="pv-row-head-texte"><h4 class="pv-row-titre">' + escapeHtml(a.title) + '</h4><p class="pv-row-meta">' + meta + '</p></div>' +
+        '<button type="button" class="pv-row-chevron" data-abrir="' + escapeHtml(a.id) + '">→</button>' +
       '</div>' +
       '<div class="pv-row-actions">' +
-        '<button type="button" class="pv-row-apply" data-postuler="' + idLigne + '" data-lien="' + escapeHtml(a.lien_offre || '') + '">Postuler</button>' +
+        '<button type="button" class="pv-row-apply" data-postuler="' + idLigne + '" data-id="' + escapeHtml(a.id) + '" data-lien="' + escapeHtml(a.lien_offre || '') + '">Postuler</button>' +
         '<div class="pv-row-share">' +
           '<button type="button" class="pv-row-share-btn" data-share="' + idLigne + '">↗ Partager</button>' +
           '<div class="pv-share-menu" id="shareMenu-' + idLigne + '">' +
@@ -10337,7 +10383,6 @@ window.Isostasy = window.Isostasy || {};
           '</div>' +
         '</div>' +
       '</div>' +
-      '<div class="pv-row-detail">' + detailsHtml + languesHtml + liensBloc + '</div>' +
     '</div>';
   }
 
@@ -10394,24 +10439,20 @@ window.Isostasy = window.Isostasy || {};
       }
     }
 
-    // Actions : ouverture/fermeture du détail, bouton Postuler, menu Partager
-    conteneur.querySelectorAll('[data-toggle]').forEach(el => {
+    // Actions : ouverture du détail (page dédiée), bouton Postuler, menu Partager
+    conteneur.querySelectorAll('[data-abrir]').forEach(el => {
       el.addEventListener('click', () => {
-        const ligne = document.getElementById(el.dataset.toggle);
-        if(ligne) ligne.classList.toggle('ouvert');
+        if(window.ouvrirAppelDetail) window.ouvrirAppelDetail(el.dataset.abrir);
       });
     });
     conteneur.querySelectorAll('[data-postuler]').forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         if(btn.dataset.lien){
           window.open(btn.dataset.lien, '_blank', 'noopener');
           return;
         }
-        const ligne = document.getElementById(btn.dataset.postuler);
-        if(!ligne) return;
-        ligne.classList.add('ouvert');
-        const cibleTexte = ligne.querySelector('.pv-row-detail h5:last-of-type');
-        (cibleTexte || ligne).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if(window.ouvrirAppelDetail) window.ouvrirAppelDetail(btn.dataset.id);
       });
     });
     conteneur.querySelectorAll('[data-share]').forEach(btn => {
@@ -10522,6 +10563,139 @@ window.Isostasy = window.Isostasy || {};
     document.querySelectorAll('.pv-share-menu.ouvert').forEach(m => m.classList.remove('ouvert'));
   });
 
+  async function ouvrirAppelDetail(id, appelPreCharge){
+    let a, error;
+    if(appelPreCharge && appelPreCharge.id === id){
+      a = appelPreCharge;
+    } else {
+      ({ data: a, error } = await sb.from('articles').select('*').eq('id', id).eq('section', 'appels').single());
+    }
+    if(error || !a){
+      alert("Cette offre n'est plus disponible.");
+      try { sessionStorage.removeItem('dernierAppelId'); } catch(e){}
+      return;
+    }
+    try { sessionStorage.setItem('dernierAppelId', id); } catch(e){}
+
+    document.getElementById('adTitre').textContent = a.title;
+
+    const adHero = document.getElementById('adHero');
+    if(a.image_url){ document.getElementById('adImage').src = a.image_url; adHero.style.display = ''; }
+    else adHero.style.display = 'none';
+
+    const meta = [a.type_publication, a.lieu_affectation || a.pays, a.organisation, a.classification_poste || a.categorie_emploi, a.date_cloture ? formatDateCourte(a.date_cloture) : null]
+      .filter(Boolean).map(escapeHtml).join(' &nbsp;•&nbsp; ');
+    document.getElementById('adMeta').innerHTML = meta;
+
+    const compacterTexte = (val) => (val || '').replace(/\n{2,}/g, '\n').trim();
+    const sections = [
+      ['Organisation', [a.organisation, a.org_type].filter(Boolean).join(' — ')],
+      ["À propos de l'organisation", a.a_propos_organisation],
+      ['Détail du poste', a.poste_detail],
+      ['Rôle / Responsabilités', a.poste_role_responsabilites],
+      ['Qualifications / Compétences', a.poste_qualifications],
+      ["Exigences en matière d'éducation", a.poste_exigences_education],
+      ['Informations complémentaires', a.informations_complementaires],
+      ['Termes et conditions', a.termes_conditions],
+      ['Comment postuler', a.comment_postuler]
+    ].filter(([, val]) => val);
+    const langues = a.poste_exigences_linguistiques || [];
+    if(langues.length) sections.push(['Exigences linguistiques', null, langues]);
+
+    // Alterne les 2 styles d'encadré (plein bleu pâle / contour fin), jamais
+    // 2 identiques à la suite — même logique que la page Détail formation.
+    let dernierStyle = 'contour';
+    document.getElementById('adContenu').innerHTML = sections.map(([label, val, langues]) => {
+      const classeAlt = dernierStyle === 'contour' ? '' : ' fdetail-section-box-alt';
+      dernierStyle = dernierStyle === 'contour' ? 'plein' : 'contour';
+      const corps = langues
+        ? '<table>' + langues.map(l => '<tr><td>' + escapeHtml(l.langue || '') + '</td><td>' + escapeHtml(l.niveau || '') + '</td><td>' + escapeHtml(l.exigence || '') + '</td></tr>').join('') + '</table>'
+        : '<p>' + escapeHtml(compacterTexte(val)) + '</p>';
+      return '<h5>' + escapeHtml(label) + '</h5><div class="fdetail-section-box' + classeAlt + '">' + corps + '</div>';
+    }).join('');
+
+    const ouvrirCandidature = (item) => {
+      if(item.lien_offre){ window.open(item.lien_offre, '_blank', 'noopener'); return; }
+      if(window.prefillContact) window.prefillContact('Appels d\'offres', item.title);
+      else location.hash = '#contact';
+    };
+    const postulerBtn = document.getElementById('adPostulerBtn');
+    postulerBtn.onclick = () => ouvrirCandidature(a);
+
+    const telechargerBtn = document.getElementById('adTelechargerBtn');
+    if(a.fichier_offre_url){ telechargerBtn.href = a.fichier_offre_url; telechargerBtn.style.display = ''; }
+    else telechargerBtn.style.display = 'none';
+
+    // Encart "publicité" de la barre latérale : défile entre les appels
+    // d'offres marqués "Diffusion prioritaire" (jusqu'à 5), comme la fiche
+    // publicité de la page Détail formation.
+    if(window._adAdTimer){ clearInterval(window._adAdTimer); window._adAdTimer = null; }
+    const adAdEl = document.getElementById('adAd');
+    if(adAdEl){
+      const { data: pubs } = await sb.from('articles')
+        .select('*').eq('section', 'appels').eq('status', 'publie').eq('diffusion_prioritaire', true)
+        .order('published_at', { ascending: false }).limit(5);
+      const listeAd = (pubs && pubs.length) ? pubs : [];
+
+      if(listeAd.length){
+        const appliquerAd = (item) => {
+          document.getElementById('adAdInfo').textContent = [item.pays, item.lieu_affectation].filter(Boolean).join(' • ');
+          const adMedia = document.getElementById('adAdImage');
+          adMedia.style.backgroundImage = item.image_url ? 'url(' + JSON.stringify(item.image_url).slice(1,-1) + ')' : '';
+          document.getElementById('adAdSubtitle').textContent = item.organisation || '';
+          document.getElementById('adAdBut').textContent = item.title;
+          document.getElementById('adAdDates').textContent = item.date_cloture ? 'Clôture : ' + formatDateCourte(item.date_cloture) : '';
+          document.getElementById('adAdPostulerBtn').onclick = (e) => {
+            e.stopPropagation();
+            ouvrirCandidature(item);
+          };
+          adAdEl.style.cursor = 'pointer';
+          adAdEl.onclick = () => {
+            if(item.id !== id) ouvrirAppelDetail(item.id);
+          };
+        };
+
+        let indexAd = 0;
+        appliquerAd(listeAd[0]);
+        adAdEl.style.display = '';
+        if(listeAd.length > 1){
+          window._adAdTimer = setInterval(() => {
+            indexAd = (indexAd + 1) % listeAd.length;
+            appliquerAd(listeAd[indexAd]);
+          }, 6000);
+        }
+      } else {
+        adAdEl.style.display = 'none';
+      }
+    }
+
+    switchView('appel-detail');
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+  window.ouvrirAppelDetail = ouvrirAppelDetail;
+
+  // Après un rechargement de page sur la vue "appel-detail", l'identifiant de
+  // l'offre n'est pas dans l'adresse du site : on le récupère depuis la
+  // mémoire du navigateur pour réafficher automatiquement la bonne fiche.
+  (function restaurerAppelApresRechargement(){
+    const pageActuelle = (location.hash || '#accueil').replace('#', '') || 'accueil';
+    if(pageActuelle !== 'appel-detail') return;
+    let dernierId = null;
+    try { dernierId = sessionStorage.getItem('dernierAppelId'); } catch(e){}
+    if(dernierId) ouvrirAppelDetail(dernierId);
+    else location.hash = '#appels';
+  })();
+
+  function retourCatalogueAppels(){
+    switchView('appels', { noScroll: true });
+    const cible = document.getElementById('postesVacantsTitre');
+    if(cible) cible.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  const appelBackBtn = document.getElementById('appelBackBtn');
+  if(appelBackBtn) appelBackBtn.addEventListener('click', retourCatalogueAppels);
+  const appelBackBtn2 = document.getElementById('appelBackBtn2');
+  if(appelBackBtn2) appelBackBtn2.addEventListener('click', retourCatalogueAppels);
+
   function appliquerFiltresPostesVacants(){
     const conteneur = document.getElementById('postesVacantsListe');
     if(!conteneur) return;
@@ -10577,7 +10751,7 @@ window.Isostasy = window.Isostasy || {};
     } else if(tri === 'cloture'){
       resultats.sort((a, b) => (a.date_cloture || '9999') < (b.date_cloture || '9999') ? -1 : 1);
     } else {
-      resultats.sort((a, b) => new Date(b.published_at || 0) - new Date(a.published_at || 0));
+      resultats.sort((a, b) => new Date(b.date_publication || b.published_at || 0) - new Date(a.date_publication || a.published_at || 0));
     }
 
     pvResultatsFiltres = resultats;
