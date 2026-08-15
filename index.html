@@ -4263,6 +4263,19 @@ window.Isostasy = window.Isostasy || {};
   </div>
 </div>
 
+<div class="modal-overlay" id="postulerAbonnementModal">
+  <div class="modal-box" style="max-width:440px;">
+    <button class="modal-close" id="postulerAbonnementModalClose" aria-label="Fermer">✕</button>
+    <h3 data-i18n="postuler_abo_titre">Restez informé(e) des offres</h3>
+    <p class="modal-sub" data-i18n="postuler_abo_sub">Indiquez votre e-mail pour vous abonner à la newsletter des offres et poursuivre votre candidature.</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <input type="email" id="postulerAbonnementEmail" aria-label="Adresse e-mail" placeholder="Adresse e-mail" data-i18n-placeholder="postuler_abo_ph_email" style="padding:.8em 1em;border-radius:8px;border:1px solid var(--line);font-family:'Open Sans',sans-serif;">
+      <p id="postulerAbonnementMsg" style="margin:0;font-size:var(--fs-xs);"></p>
+      <button class="btn btn-primary" id="postulerAbonnementValider" style="justify-content:center;" data-i18n="postuler_abo_valider">S'abonner et continuer</button>
+    </div>
+  </div>
+</div>
+
 <!-- CTA + CONTACT -->
 <!-- ESPACE EQUIPE (publication) -->
 <section id="admin" class="page-view">
@@ -10333,6 +10346,85 @@ window.Isostasy = window.Isostasy || {};
     if(champNewsletter && champNewsletter.value && champNewsletter.value.includes('@')) return champNewsletter.value.trim();
     return null;
   }
+  let postulerApresAbonnementCallback = null;
+
+  function assurerAbonnementPuis(callbackApresAbonnement){
+    // Même logique/indicateur que le menu "Partager" : si déjà confirmé sur
+    // cet appareil, on ne redemande rien.
+    if(localStorage.getItem('isostasy_partage_abonne')){
+      callbackApresAbonnement();
+      return;
+    }
+    const emailConnu = obtenirEmailConnu();
+    if(emailConnu){
+      (async () => {
+        try {
+          const { data } = await sb.from('newsletter_subscribers').select('id').eq('email', emailConnu).maybeSingle();
+          if(data){
+            try { localStorage.setItem('isostasy_partage_abonne', '1'); } catch(err){}
+            callbackApresAbonnement();
+            return;
+          }
+        } catch(err){ console.error('Vérification abonnement indisponible :', err); }
+        ouvrirModaleAbonnementPostuler(emailConnu, callbackApresAbonnement);
+      })();
+      return;
+    }
+    ouvrirModaleAbonnementPostuler(null, callbackApresAbonnement);
+  }
+
+  function ouvrirModaleAbonnementPostuler(emailAPreremplir, callbackApresAbonnement){
+    postulerApresAbonnementCallback = callbackApresAbonnement;
+    const overlay = document.getElementById('postulerAbonnementModal');
+    const emailInput = document.getElementById('postulerAbonnementEmail');
+    const msgEl = document.getElementById('postulerAbonnementMsg');
+    emailInput.value = emailAPreremplir || '';
+    msgEl.textContent = '';
+    overlay.classList.add('open');
+    if(!emailAPreremplir) emailInput.focus({ preventScroll: true });
+  }
+
+  document.getElementById('postulerAbonnementModalClose').addEventListener('click', () => {
+    document.getElementById('postulerAbonnementModal').classList.remove('open');
+    postulerApresAbonnementCallback = null;
+  });
+  document.getElementById('postulerAbonnementModal').addEventListener('click', (e) => {
+    if(e.target.id === 'postulerAbonnementModal'){
+      e.currentTarget.classList.remove('open');
+      postulerApresAbonnementCallback = null;
+    }
+  });
+  document.getElementById('postulerAbonnementValider').addEventListener('click', async () => {
+    const btn = document.getElementById('postulerAbonnementValider');
+    const emailInput = document.getElementById('postulerAbonnementEmail');
+    const msgEl = document.getElementById('postulerAbonnementMsg');
+    const email = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(email)){
+      msgEl.style.color = '#c0392b';
+      msgEl.textContent = 'Merci de saisir une adresse e-mail valide.';
+      return;
+    }
+    btn.disabled = true;
+    msgEl.style.color = 'var(--texte-2)';
+    msgEl.textContent = 'Inscription en cours…';
+    const { error } = await sb.from('newsletter_subscribers').insert({ email });
+    btn.disabled = false;
+    if(error && !(error.message && error.message.includes('duplicate'))){
+      msgEl.style.color = '#c0392b';
+      msgEl.textContent = "Erreur lors de l'inscription. Réessayez.";
+      return;
+    }
+    try {
+      localStorage.setItem('isostasy_partage_abonne', '1');
+      localStorage.setItem('isostasy_email_connu', email);
+    } catch(err){}
+    document.getElementById('postulerAbonnementModal').classList.remove('open');
+    const callback = postulerApresAbonnementCallback;
+    postulerApresAbonnementCallback = null;
+    if(callback) callback();
+  });
+
   let pvPageActuelle = 1;
   const PV_PAR_PAGE = 6;
 
@@ -10448,11 +10540,13 @@ window.Isostasy = window.Isostasy || {};
     conteneur.querySelectorAll('[data-postuler]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        if(btn.dataset.lien){
-          window.open(btn.dataset.lien, '_blank', 'noopener');
-          return;
-        }
-        if(window.ouvrirAppelDetail) window.ouvrirAppelDetail(btn.dataset.id);
+        assurerAbonnementPuis(() => {
+          if(btn.dataset.lien){
+            window.open(btn.dataset.lien, '_blank', 'noopener');
+            return;
+          }
+          if(window.ouvrirAppelDetail) window.ouvrirAppelDetail(btn.dataset.id);
+        });
       });
     });
     conteneur.querySelectorAll('[data-share]').forEach(btn => {
@@ -10620,7 +10714,7 @@ window.Isostasy = window.Isostasy || {};
       else location.hash = '#contact';
     };
     const postulerBtn = document.getElementById('adPostulerBtn');
-    postulerBtn.onclick = () => ouvrirCandidature(a);
+    postulerBtn.onclick = () => assurerAbonnementPuis(() => ouvrirCandidature(a));
 
     const telechargerBtn = document.getElementById('adTelechargerBtn');
     if(a.fichier_offre_url){ telechargerBtn.href = a.fichier_offre_url; telechargerBtn.style.display = ''; }
@@ -10647,7 +10741,7 @@ window.Isostasy = window.Isostasy || {};
           document.getElementById('adAdDates').textContent = item.date_cloture ? 'Clôture : ' + formatDateCourte(item.date_cloture) : '';
           document.getElementById('adAdPostulerBtn').onclick = (e) => {
             e.stopPropagation();
-            ouvrirCandidature(item);
+            assurerAbonnementPuis(() => ouvrirCandidature(item));
           };
           adAdEl.style.cursor = 'pointer';
           adAdEl.onclick = () => {
