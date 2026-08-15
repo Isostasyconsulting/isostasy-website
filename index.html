@@ -799,6 +799,8 @@ section.alt::before{
 .section-head p{color:var(--texte-2);font-size:var(--fs-md);}
 .one-line-p{white-space:nowrap;font-size:clamp(.78rem,1.3vw,1rem);}
 @media (max-width:900px){.one-line-p{white-space:normal;}}
+.one-line-h1{white-space:nowrap;font-size:clamp(1.15rem,2.6vw,2.15rem);}
+@media (max-width:640px){.one-line-h1{white-space:normal;}}
 .head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:22px;}
 .head-row .section-head{margin-bottom:0;}
 
@@ -1159,21 +1161,119 @@ section.alt::before{
 
 /* Publish CTA (tarifs de publication externe) */
 .publish-cta{
-  margin-top:36px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);
-  padding:30px;display:grid;grid-template-columns:1.2fr auto auto;gap:24px;align-items:center;
+  margin-top:20px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:18px 24px;display:grid;grid-template-columns:1.2fr auto auto;gap:18px;align-items:center;
 }
 @media (max-width:860px){.publish-cta{grid-template-columns:1fr;}}
-.publish-cta h3{font-size:var(--fs-base);margin-bottom:.4em;}
+.publish-cta h3{font-size:var(--fs-base);margin-bottom:.3em;}
 .publish-cta p{font-size:var(--fs-sm);color:var(--texte-2);margin:0;max-width:46ch;}
-.publish-plans{display:flex;gap:12px;flex-wrap:wrap;}
+.publish-plans{display:flex;gap:10px;flex-wrap:wrap;}
+.pagination-bar{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  border-top:1px solid var(--line);padding-top:16px;margin:6px 0 28px;
+  font-size:var(--fs-sm);color:var(--texte-2);
+}
+.pagination-pages{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+.pagination-pages button{
+  background:none;border:none;color:var(--sky-texte);font-weight:700;cursor:pointer;
+  padding:4px 8px;border-radius:var(--r-sm);font-size:var(--fs-sm);
+}
+.pagination-pages button:hover:not(:disabled){background:var(--pale);}
+.pagination-pages button.active{color:var(--navy);}
+.pagination-pages button:disabled{color:var(--line);cursor:default;}
+.pv-filtres{
+  display:flex;flex-wrap:wrap;gap:12px;align-items:end;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:16px;margin:18px 0 22px;
+}
+.pv-champ{display:flex;flex-direction:column;gap:4px;min-width:150px;flex:1 1 150px;}
+.pv-champ label{font-size:var(--fs-3xs);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.03em;}
+.pv-champ select,.pv-champ input{
+  padding:8px 10px;border:1px solid var(--line);border-radius:var(--r-sm);font-size:var(--fs-sm);
+  background:#fff;color:var(--texte-1);
+}
+.pv-champ-btn{flex:0 0 auto;min-width:0;}
+
+.pv-liste{border-top:1px solid var(--line);}
+.pv-row{border-bottom:1px solid var(--line);padding:20px 0;}
+.pv-row-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;cursor:pointer;}
+.pv-row-titre{margin:0 0 6px;font-size:var(--fs-lg);font-weight:800;color:#0092D1;}
+.pv-row:hover .pv-row-titre{color:var(--navy);}
+.pv-row-meta{margin:0;font-size:var(--fs-sm);color:var(--texte-2);}
+.pv-row-chevron{background:none;border:none;font-size:1.3em;color:var(--navy);cursor:pointer;transition:transform .2s;flex:0 0 auto;line-height:1;}
+.pv-row.ouvert .pv-row-chevron{transform:rotate(180deg);}
+.pv-row-actions{display:flex;justify-content:space-between;align-items:center;margin-top:14px;position:relative;}
+.pv-row-apply{
+  background:#cfeaf7;color:var(--navy);border:none;border-radius:var(--r-sm);
+  font-weight:800;padding:.6em 1.4em;cursor:pointer;font-size:var(--fs-sm);
+}
+.pv-row-apply:hover{background:#b8dff1;}
+.pv-row-share-btn{background:none;border:none;color:#0092D1;font-weight:700;cursor:pointer;font-size:var(--fs-sm);display:flex;align-items:center;gap:6px;}
+.pv-share-menu{
+  display:none;position:absolute;right:0;bottom:calc(100% + 8px);background:#fff;border:1px solid var(--line);
+  border-radius:var(--r-md);box-shadow:0 8px 24px rgba(0,0,0,.14);padding:14px;z-index:20;width:260px;
+}
+.pv-share-menu.ouvert{display:block;}
+.pv-share-consent p{margin:0 0 10px;font-size:var(--fs-xs);color:var(--texte-2);line-height:1.5;}
+.pv-share-consent input{
+  width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:var(--r-sm);font-size:var(--fs-sm);margin-bottom:8px;
+}
+.pv-share-consent-msg{color:#c0392b!important;font-size:var(--fs-3xs)!important;margin:-4px 0 8px!important;}
+.pv-share-consent-btns{display:flex;gap:8px;}
+.pv-share-consent-btns button{flex:1;}
+.pv-share-icons{display:none;gap:10px;justify-content:center;}
+.pv-share-icons.actif{display:flex;}
+.pv-share-consent.masque{display:none;}
+.pv-share-menu a{
+  width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:15px;text-decoration:none;font-weight:700;
+}
+.pv-share-mail{background:#5A5C5E;}
+.pv-share-fb{background:#1877F2;}
+.pv-share-x{background:#000;border-radius:8px!important;}
+.pv-share-in{background:#0A66C2;border-radius:8px!important;}
+.pv-row-detail{display:none;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line);}
+.pv-row.ouvert .pv-row-detail{display:block;}
+.pv-row-detail h5{margin:14px 0 4px;color:var(--navy);font-size:var(--fs-sm);text-transform:uppercase;letter-spacing:.03em;}
+.pv-row-detail h5:first-child{margin-top:0;}
+.pv-row-detail p{margin:0;color:var(--texte-2);font-size:var(--fs-sm);white-space:pre-line;line-height:1.6;}
+.pv-row-detail table{width:100%;border-collapse:collapse;margin-top:4px;font-size:var(--fs-sm);}
+.pv-row-detail table td{padding:4px 10px 4px 0;color:var(--texte-2);}
+.pv-recherche{
+  display:flex;align-items:stretch;margin-top:22px;
+  border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:#fff;
+}
+.pv-recherche input{
+  flex:1;border:none;padding:16px 20px;font-size:var(--fs-md);font-style:italic;color:var(--texte-2);outline:none;
+}
+.pv-recherche button{
+  border:none;background:var(--navy);color:#fff;font-weight:700;padding:0 34px;cursor:pointer;
+  font-size:var(--fs-md);
+  clip-path:polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%);
+}
+.pv-recherche button:hover{background:#0092D1;}
+.pv-recherche-reset{
+  border:none;border-left:1px solid rgba(255,255,255,.3);background:var(--navy);color:#fff;
+  font-weight:700;padding:0 20px;cursor:pointer;font-size:var(--fs-sm);
+}
+.pv-recherche-reset:hover{background:#003a5e;}
+.appels-offres-flottant{
+  position:fixed;top:96px;right:24px;z-index:99;
+  box-shadow:0 4px 14px rgba(0,0,0,.18);
+}
+.appels-offres-flottant.mode-haut{background:#0092D1;border-color:#0092D1;}
+@media (max-width:760px){
+  .appels-offres-flottant{top:auto;bottom:20px;right:16px;}
+}
 .plan-card{
-  background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:14px 18px;min-width:150px;
-  display:flex;flex-direction:column;gap:2px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:9px 16px;min-width:150px;
+  display:flex;flex-direction:column;gap:1px;
 }
 .plan-card.featured{border-color:var(--orange-1);background:var(--orange-3);}
 .plan-name{font-family:'Montserrat',sans-serif;font-size:var(--fs-3xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sky-texte);}
 .plan-card.featured .plan-name{color:var(--orange-dark);}
 .plan-price{font-family:'Montserrat',sans-serif;font-weight:800;font-size:var(--fs-lg);color:var(--navy);}
+.plan-price-usd{font-size:var(--fs-3xs);color:var(--texte-2);}
 .plan-detail{font-size:var(--fs-2xs);color:var(--texte-2);}
 
 /* Boutique & services */
@@ -3024,16 +3124,16 @@ window.Isostasy = window.Isostasy || {};
 <!-- APPELS DES ORGANISATIONS -->
 <section id="appels" class="alt page-view">
   <div class="wrap">
-    <div class="head-row">
+    <div class="head-row" style="align-items:flex-start;">
       <div class="section-head reveal max-w-1180">
       <span class="eyebrow" data-content-key="appels_h1_eyebrow" data-i18n="appels_h1_eyebrow">Opportunités</span>
-      <h1 data-content-key="appels_h1_title" data-i18n="appels_h1_title">Publication des appels des organisations</h1>
+      <h1 class="one-line-h1" data-content-key="appels_h1_title" data-i18n="appels_h1_title">Publication des appels des organisations</h1>
       <p data-content-key="appels_h1_text" class="one-line-p" data-i18n="appels_h1_text">Appels d'offres, appels à consultants et opportunités relayés pour nos partenaires — ou publiés directement par toute organisation externe.</p>
       </div>
+      <button type="button" class="btn btn-primary btn-sm appels-offres-flottant" id="appelsAfficherOffresBtn" data-i18n="appels_afficher_offres_btn">Afficher les offres →</button>
     </div>
 
-    <div class="card-grid live-articles" id="appelsLive" style="display:none;margin-bottom:22px;"></div>
-
+    
     <div class="publish-cta">
       <div>
         <h3 data-i18n="appels_publish_title">Publiez votre appel sur notre plateforme</h3>
@@ -3042,17 +3142,222 @@ window.Isostasy = window.Isostasy || {};
       <div class="publish-plans">
         <div class="plan-card">
           <span class="plan-name" data-i18n="appels_plan1_name">Standard</span>
-          <span class="plan-price">15 000 FCFA</span>
-          <span class="plan-detail" data-i18n="appels_plan1_detail">Mise en ligne 30 jours</span>
+          <span class="plan-price">10 000 FCFA</span>
+          <span class="plan-price-usd" id="appelsPlan1PriceUsd"></span>
+          <span class="plan-detail" data-i18n="appels_plan1_detail">Mise en ligne jusqu'à la date d'expiration</span>
         </div>
         <div class="plan-card featured">
           <span class="plan-name" data-i18n="appels_plan2_name">Mise en avant</span>
-          <span class="plan-price">30 000 FCFA</span>
+          <span class="plan-price">15 000 FCFA</span>
+          <span class="plan-price-usd" id="appelsPlan2PriceUsd"></span>
           <span class="plan-detail" data-i18n="appels_plan2_detail">+ relai réseaux sociaux</span>
         </div>
       </div>
-      <a href="#contact" class="btn btn-primary btn-sm" data-i18n="appels_publish_cta">Publier un appel →</a>
+      <a href="#contact" class="btn btn-primary btn-sm" id="appelsPublishCtaBtn" data-i18n="appels_publish_cta">Faire une demande →</a>
     </div>
+
+    <div class="section-head center reveal" id="postesVacantsTitre" style="margin-top:40px;">
+      <span class="eyebrow" data-i18n="postes_vacants_slogan">Construisons l'impact, ensemble.</span>
+      <h2 data-i18n="postes_vacants_title">Postes vacants</h2>
+    </div>
+
+    <div class="pv-recherche">
+      <input type="text" id="pvfMotCle" placeholder="Recherche d'emplois par mots-clés">
+      <button type="button" id="pvfRechercheBtn">Recherche</button>
+      <button type="button" id="pvfReinitialiser" class="pv-recherche-reset">Réinitialiser</button>
+    </div>
+
+    <div id="pvFiltres" class="pv-filtres">
+      <div class="pv-champ">
+        <label for="pvfOrganisation">Organisation</label>
+        <select id="pvfOrganisation">
+          <option value="">Toutes</option>
+        </select>
+      </div>
+      <div class="pv-champ">
+        <label for="pvfOrgType">Type d'organisation</label>
+        <select id="pvfOrgType">
+          <option value="">Toutes</option>
+          <option value="ONG">ONG</option>
+          <option value="UN et Agence UN">UN et Agence UN</option>
+          <option value="Média">Média</option>
+        </select>
+      </div>
+      <div class="pv-champ">
+        <label for="pvfDateClotureFrom">Date de clôture (de)</label>
+        <input type="date" id="pvfDateClotureFrom">
+      </div>
+      <div class="pv-champ">
+        <label for="pvfDateClotureTo">Date de clôture (à)</label>
+        <input type="date" id="pvfDateClotureTo">
+      </div>
+      <div class="pv-champ">
+        <label for="pvfTypePoste">Type de poste</label>
+        <select id="pvfTypePoste">
+          <option value="">Tous</option>
+          <option value="National">National</option>
+          <option value="International">International</option>
+        </select>
+      </div>
+      <div class="pv-champ">
+        <label for="pvfPays">Pays</label>
+        <input type="text" id="pvfPays" placeholder="Tous">
+      </div>
+      <div class="pv-champ">
+        <label for="pvfCategoriePoste">Catégorie du poste</label>
+        <select id="pvfCategoriePoste">
+          <option value="">Toutes</option>
+          <option value="Administration/Finance">Administration/Finance</option>
+          <option value="Communication">Communication</option>
+          <option value="Suivi&Evaluation">Suivi &amp; Évaluation</option>
+          <option value="Gestion de projet">Gestion de projet</option>
+          <option value="Logistique">Logistique</option>
+          <option value="Ressources humaines">Ressources humaines</option>
+          <option value="Technologie">Technologie</option>
+          <option value="Autre">Autre</option>
+        </select>
+      </div>
+      <div class="pv-champ">
+        <label for="pvfClassificationPoste">Classification du poste</label>
+        <select id="pvfClassificationPoste">
+          <option value="">Toutes</option>
+          <option value="Consultant">Consultant</option>
+          <option value="Plein temps">Plein temps</option>
+          <option value="Temps partiel">Temps partiel</option>
+        </select>
+      </div>
+      <div class="pv-champ">
+        <label for="pvfCategorieEmploi">Catégorie d'emploi</label>
+        <select id="pvfCategorieEmploi">
+          <option value="">Toutes</option>
+          <option value="Emploi">Emploi</option>
+          <option value="Stage">Stage</option>
+          <option value="Consultation">Consultation</option>
+        </select>
+      </div>
+      <div class="pv-champ">
+        <label for="pvfExperience">Expérience</label>
+        <select id="pvfExperience">
+          <option value="">Toutes</option>
+          <option value="1 an">1 an</option>
+          <option value="2 ans">2 ans</option>
+          <option value="3 ans">3 ans</option>
+          <option value="4 ans">4 ans</option>
+          <option value="5 ans">5 ans</option>
+          <option value="6 ans">6 ans</option>
+          <option value="7 ans">7 ans</option>
+          <option value="8 ans">8 ans</option>
+          <option value="9 ans">9 ans</option>
+          <option value="10 ans">10 ans</option>
+          <option value="11 ans">11 ans</option>
+          <option value="12 ans">12 ans</option>
+          <option value="13 ans">13 ans</option>
+          <option value="14 ans">14 ans</option>
+          <option value="15 ans">15 ans</option>
+          <option value="16 ans">16 ans</option>
+          <option value="17 ans">17 ans</option>
+          <option value="18 ans">18 ans</option>
+          <option value="19 ans">19 ans</option>
+          <option value="20 ans">20 ans</option>
+          <option value="21 ans">21 ans</option>
+          <option value="22 ans">22 ans</option>
+          <option value="23 ans">23 ans</option>
+          <option value="24 ans">24 ans</option>
+          <option value="25 ans">25 ans</option>
+          <option value="26 ans">26 ans</option>
+          <option value="27 ans">27 ans</option>
+          <option value="28 ans">28 ans</option>
+          <option value="29 ans">29 ans</option>
+          <option value="30 ans">30 ans</option>
+          <option value="31 ans">31 ans</option>
+          <option value="32 ans">32 ans</option>
+          <option value="33 ans">33 ans</option>
+          <option value="34 ans">34 ans</option>
+          <option value="35 ans">35 ans</option>
+          <option value="36 ans">36 ans</option>
+          <option value="37 ans">37 ans</option>
+          <option value="38 ans">38 ans</option>
+          <option value="39 ans">39 ans</option>
+          <option value="40 ans">40 ans</option>
+          <option value="41 ans">41 ans</option>
+          <option value="42 ans">42 ans</option>
+          <option value="43 ans">43 ans</option>
+          <option value="44 ans">44 ans</option>
+          <option value="45 ans">45 ans</option>
+          <option value="46 ans">46 ans</option>
+          <option value="47 ans">47 ans</option>
+          <option value="48 ans">48 ans</option>
+          <option value="49 ans">49 ans</option>
+          <option value="50 ans">50 ans</option>
+        </select>
+      </div>
+      <div class="pv-champ">
+        <label for="pvfDureeContrat">Durée du contrat</label>
+        <select id="pvfDureeContrat">
+          <option value="">Toutes</option>
+          <option value="1 an">1 an</option>
+          <option value="2 ans">2 ans</option>
+          <option value="3 ans">3 ans</option>
+          <option value="4 ans">4 ans</option>
+          <option value="5 ans">5 ans</option>
+          <option value="+10 ans">+10 ans</option>
+          <option value="CDI">CDI</option>
+        </select>
+      </div>
+      <div class="pv-champ">
+        <label for="pvfTheme">Thème</label>
+        <select id="pvfTheme">
+          <option value="">Tous</option>
+          <option value="Santé">Santé</option>
+          <option value="Education">Éducation</option>
+          <option value="Agriculture">Agriculture</option>
+          <option value="Genre">Genre</option>
+          <option value="Climat">Climat</option>
+          <option value="Environnement">Environnement</option>
+          <option value="Alimentation/Nutrition">Alimentation/Nutrition</option>
+          <option value="Mine">Mine</option>
+          <option value="Maintien et consolidation de la paix, cohésion sociale">Maintien et consolidation de la paix, cohésion sociale</option>
+          <option value="Protection et droit de l'homme">Protection et droit de l'homme</option>
+          <option value="Infrastructure">Infrastructure</option>
+          <option value="Sureté et sécurité">Sûreté et sécurité</option>
+          <option value="WASH">WASH (Eau, Assainissement, Hygiène)</option>
+        </select>
+      </div>
+      <div class="pv-champ">
+        <label for="pvfLangue">Exigences linguistiques — Langue</label>
+        <select id="pvfLangue">
+          <option value="">Toutes</option>
+          <option value="Anglais">Anglais</option>
+          <option value="Français">Français</option>
+        </select>
+      </div>
+      <div class="pv-champ" id="pvfExigenceWrap">
+        <label for="pvfExigence">Exigence</label>
+        <select id="pvfExigence">
+          <option value="">Toutes</option>
+          <option value="Requis">Requis</option>
+          <option value="Souhaitable">Souhaitable</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="pvResultatsBar" class="pagination-bar" style="display:none;border-top:none;padding-top:0;margin-top:24px;">
+      <span id="pvResultatsTexte"></span>
+      <span style="display:flex;align-items:center;gap:8px;">
+        <label for="pvTri" style="font-weight:700;color:var(--navy);">Trier par</label>
+        <select id="pvTri">
+          <option value="recent">Plus récent</option>
+          <option value="cloture">Date de clôture</option>
+          <option value="titre">Titre (A-Z)</option>
+        </select>
+      </span>
+    </div>
+
+    <div id="postesVacantsListe" class="pv-liste">
+      <p class="admin-hint" data-i18n="postes_vacants_vide">Aucun poste vacant pour le moment — revenez bientôt, ou envoyez-nous une candidature spontanée.</p>
+    </div>
+
+    <div id="pvPagination" class="pagination-bar" style="display:none;"></div>
   </div>
 </section>
 
@@ -3533,7 +3838,7 @@ window.Isostasy = window.Isostasy || {};
 
       <div class="fdetail-sidebar-col">
         <div class="fdetail-ad" id="fdAd" style="display:none;">
-          <span class="fdetail-ad-tag">PUBLICITÉ</span>
+          <span class="fdetail-ad-tag" data-i18n="fdetail_publicite">PUBLICITÉ</span>
           <div class="fdetail-ad-media" id="fdAdMedia">
             <div class="fdetail-ad-topinfo" id="fdAdTopInfo">
               <p class="fdetail-ad-topinfo-l1" id="fdAdFraisMode"></p>
@@ -3544,7 +3849,7 @@ window.Isostasy = window.Isostasy || {};
           <div class="fdetail-ad-body">
             <p class="fdetail-ad-but" id="fdAdBut"></p>
             <p class="fdetail-ad-dates-body" id="fdAdDates"></p>
-            <button type="button" class="btn btn-primary btn-sm" id="fdAdInscrireBtn">S'INSCRIRE</button>
+            <button type="button" class="btn btn-primary btn-sm" id="fdAdInscrireBtn" data-i18n="fdetail_ad_sinscrire">S'INSCRIRE</button>
           </div>
         </div>
       </div>
@@ -3948,9 +4253,10 @@ window.Isostasy = window.Isostasy || {};
           <h4 class="admin-volet-titre">Offres &amp; opportunités</h4>
           <div class="admin-volet-menu">
             <button type="button" class="admin-volet-btn" data-volet="formations">🎓 Formations</button>
-            <button type="button" class="admin-volet-btn" data-volet="nouvel-article">✍️ Publier un article</button>
-            <button type="button" class="admin-volet-btn" data-volet="tous-articles">📚 Tous les articles</button>
             <button type="button" class="admin-volet-btn" data-volet="certificats">🏅 Certificats</button>
+            <button type="button" class="admin-volet-btn" data-volet="appels">📢 Appels d'offres</button>
+            <button type="button" class="admin-volet-btn" data-volet="nouvel-article" data-section="boutique">🛍️ Boutique</button>
+            <button type="button" class="admin-volet-btn" data-volet="nouvel-article" data-section="annonces">📣 Annonces</button>
           </div>
         </div>
 
@@ -4009,7 +4315,7 @@ window.Isostasy = window.Isostasy || {};
         <h3 id="adminFormTitle" style="margin-top:0;">Publier un nouvel article</h3>
         <form id="adminArticleForm">
           <input type="hidden" id="articleId" value="">
-          <div class="admin-field">
+          <div class="admin-field" id="articleSectionField">
             <label for="articleSection">Section</label>
             <select id="articleSection" required>
               <option value="blog">Blog</option>
@@ -4020,20 +4326,458 @@ window.Isostasy = window.Isostasy || {};
               <option value="temoignages">Témoignages</option>
             </select>
           </div>
-          <div class="admin-field">
-            <label for="articleTitle">Titre</label>
+          <div class="admin-field" id="articleTitleField">
+            <label for="articleTitle" id="articleTitleLabel">Titre</label>
             <input type="text" id="articleTitle" required maxlength="180">
           </div>
-          <div class="admin-field">
+
+          <div id="appelsFieldsWrap" style="display:none;">
+            <div class="admin-field">
+              <label for="apOrganisation">Organisation</label>
+              <select id="apOrganisation">
+                <option value="">— Sélectionner —</option>
+                <option value="__autre__">Autre (préciser)…</option>
+              </select>
+              <input type="text" id="apOrganisationAutre" maxlength="180" placeholder="Nom de l'organisation" style="display:none;margin-top:8px;">
+            </div>
+            <div class="admin-field">
+              <label for="apOrgType">Type d'organisation</label>
+              <select id="apOrgType">
+                <option value="ONG">ONG</option>
+                <option value="UN et Agence UN">UN et Agence UN</option>
+                <option value="Média">Média</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="apDatePublication">Date de publication</label>
+              <input type="date" id="apDatePublication">
+            </div>
+            <div class="admin-field">
+              <label for="apDateCloture">Date de clôture</label>
+              <input type="date" id="apDateCloture">
+            </div>
+            <div class="admin-field">
+              <label for="apDateDebutEstimee">Date de début estimée</label>
+              <input type="date" id="apDateDebutEstimee">
+            </div>
+            <div class="admin-field">
+              <label for="apTypePoste">Type de poste</label>
+              <select id="apTypePoste">
+                <option value="National">National</option>
+                <option value="International">International</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="apPays">Pays</label>
+              <select id="apPays">
+                <option value="">— Sélectionner —</option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Afrique du Sud">Afrique du Sud</option>
+                <option value="Albanie">Albanie</option>
+                <option value="Algérie">Algérie</option>
+                <option value="Allemagne">Allemagne</option>
+                <option value="Andorre">Andorre</option>
+                <option value="Angola">Angola</option>
+                <option value="Antigua-et-Barbuda">Antigua-et-Barbuda</option>
+                <option value="Arabie saoudite">Arabie saoudite</option>
+                <option value="Argentine">Argentine</option>
+                <option value="Arménie">Arménie</option>
+                <option value="Australie">Australie</option>
+                <option value="Autriche">Autriche</option>
+                <option value="Azerbaïdjan">Azerbaïdjan</option>
+                <option value="Bahamas">Bahamas</option>
+                <option value="Bahreïn">Bahreïn</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Barbade">Barbade</option>
+                <option value="Belgique">Belgique</option>
+                <option value="Belize">Belize</option>
+                <option value="Bénin">Bénin</option>
+                <option value="Bhoutan">Bhoutan</option>
+                <option value="Biélorussie">Biélorussie</option>
+                <option value="Birmanie">Birmanie</option>
+                <option value="Bolivie">Bolivie</option>
+                <option value="Bosnie-Herzégovine">Bosnie-Herzégovine</option>
+                <option value="Botswana">Botswana</option>
+                <option value="Brésil">Brésil</option>
+                <option value="Brunei">Brunei</option>
+                <option value="Bulgarie">Bulgarie</option>
+                <option value="Burkina Faso">Burkina Faso</option>
+                <option value="Burundi">Burundi</option>
+                <option value="Cabo Verde">Cabo Verde</option>
+                <option value="Cambodge">Cambodge</option>
+                <option value="Cameroun">Cameroun</option>
+                <option value="Canada">Canada</option>
+                <option value="Chili">Chili</option>
+                <option value="Chine">Chine</option>
+                <option value="Chypre">Chypre</option>
+                <option value="Colombie">Colombie</option>
+                <option value="Comores">Comores</option>
+                <option value="Congo-Brazzaville">Congo-Brazzaville</option>
+                <option value="Congo-Kinshasa (RDC)">Congo-Kinshasa (RDC)</option>
+                <option value="Corée du Nord">Corée du Nord</option>
+                <option value="Corée du Sud">Corée du Sud</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                <option value="Croatie">Croatie</option>
+                <option value="Cuba">Cuba</option>
+                <option value="Danemark">Danemark</option>
+                <option value="Djibouti">Djibouti</option>
+                <option value="Dominique">Dominique</option>
+                <option value="Égypte">Égypte</option>
+                <option value="Émirats arabes unis">Émirats arabes unis</option>
+                <option value="Équateur">Équateur</option>
+                <option value="Érythrée">Érythrée</option>
+                <option value="Espagne">Espagne</option>
+                <option value="Estonie">Estonie</option>
+                <option value="Eswatini">Eswatini</option>
+                <option value="États-Unis">États-Unis</option>
+                <option value="Éthiopie">Éthiopie</option>
+                <option value="Fidji">Fidji</option>
+                <option value="Finlande">Finlande</option>
+                <option value="France">France</option>
+                <option value="Gabon">Gabon</option>
+                <option value="Gambie">Gambie</option>
+                <option value="Géorgie">Géorgie</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Grèce">Grèce</option>
+                <option value="Grenade">Grenade</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Guinée">Guinée</option>
+                <option value="Guinée-Bissau">Guinée-Bissau</option>
+                <option value="Guinée équatoriale">Guinée équatoriale</option>
+                <option value="Guyana">Guyana</option>
+                <option value="Haïti">Haïti</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Hongrie">Hongrie</option>
+                <option value="Îles Marshall">Îles Marshall</option>
+                <option value="Îles Salomon">Îles Salomon</option>
+                <option value="Inde">Inde</option>
+                <option value="Indonésie">Indonésie</option>
+                <option value="Irak">Irak</option>
+                <option value="Iran">Iran</option>
+                <option value="Irlande">Irlande</option>
+                <option value="Islande">Islande</option>
+                <option value="Israël">Israël</option>
+                <option value="Italie">Italie</option>
+                <option value="Jamaïque">Jamaïque</option>
+                <option value="Japon">Japon</option>
+                <option value="Jordanie">Jordanie</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Kirghizistan">Kirghizistan</option>
+                <option value="Kiribati">Kiribati</option>
+                <option value="Kosovo">Kosovo</option>
+                <option value="Koweït">Koweït</option>
+                <option value="Laos">Laos</option>
+                <option value="Lesotho">Lesotho</option>
+                <option value="Lettonie">Lettonie</option>
+                <option value="Liban">Liban</option>
+                <option value="Liberia">Liberia</option>
+                <option value="Libye">Libye</option>
+                <option value="Liechtenstein">Liechtenstein</option>
+                <option value="Lituanie">Lituanie</option>
+                <option value="Luxembourg">Luxembourg</option>
+                <option value="Macédoine du Nord">Macédoine du Nord</option>
+                <option value="Madagascar">Madagascar</option>
+                <option value="Malaisie">Malaisie</option>
+                <option value="Malawi">Malawi</option>
+                <option value="Maldives">Maldives</option>
+                <option value="Mali">Mali</option>
+                <option value="Malte">Malte</option>
+                <option value="Maroc">Maroc</option>
+                <option value="Maurice">Maurice</option>
+                <option value="Mauritanie">Mauritanie</option>
+                <option value="Mexique">Mexique</option>
+                <option value="Micronésie">Micronésie</option>
+                <option value="Moldavie">Moldavie</option>
+                <option value="Monaco">Monaco</option>
+                <option value="Mongolie">Mongolie</option>
+                <option value="Monténégro">Monténégro</option>
+                <option value="Mozambique">Mozambique</option>
+                <option value="Namibie">Namibie</option>
+                <option value="Nauru">Nauru</option>
+                <option value="Népal">Népal</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Niger">Niger</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Norvège">Norvège</option>
+                <option value="Nouvelle-Zélande">Nouvelle-Zélande</option>
+                <option value="Oman">Oman</option>
+                <option value="Ouganda">Ouganda</option>
+                <option value="Ouzbékistan">Ouzbékistan</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Palaos">Palaos</option>
+                <option value="Palestine">Palestine</option>
+                <option value="Panama">Panama</option>
+                <option value="Papouasie-Nouvelle-Guinée">Papouasie-Nouvelle-Guinée</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Pays-Bas">Pays-Bas</option>
+                <option value="Pérou">Pérou</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Pologne">Pologne</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Qatar">Qatar</option>
+                <option value="République centrafricaine">République centrafricaine</option>
+                <option value="République dominicaine">République dominicaine</option>
+                <option value="République tchèque">République tchèque</option>
+                <option value="Roumanie">Roumanie</option>
+                <option value="Royaume-Uni">Royaume-Uni</option>
+                <option value="Russie">Russie</option>
+                <option value="Rwanda">Rwanda</option>
+                <option value="Saint-Christophe-et-Niévès">Saint-Christophe-et-Niévès</option>
+                <option value="Saint-Marin">Saint-Marin</option>
+                <option value="Saint-Vincent-et-les-Grenadines">Saint-Vincent-et-les-Grenadines</option>
+                <option value="Sainte-Lucie">Sainte-Lucie</option>
+                <option value="Salvador">Salvador</option>
+                <option value="Samoa">Samoa</option>
+                <option value="Sao Tomé-et-Principe">Sao Tomé-et-Principe</option>
+                <option value="Sénégal">Sénégal</option>
+                <option value="Serbie">Serbie</option>
+                <option value="Seychelles">Seychelles</option>
+                <option value="Sierra Leone">Sierra Leone</option>
+                <option value="Singapour">Singapour</option>
+                <option value="Slovaquie">Slovaquie</option>
+                <option value="Slovénie">Slovénie</option>
+                <option value="Somalie">Somalie</option>
+                <option value="Soudan">Soudan</option>
+                <option value="Soudan du Sud">Soudan du Sud</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+                <option value="Suède">Suède</option>
+                <option value="Suisse">Suisse</option>
+                <option value="Suriname">Suriname</option>
+                <option value="Syrie">Syrie</option>
+                <option value="Tadjikistan">Tadjikistan</option>
+                <option value="Tanzanie">Tanzanie</option>
+                <option value="Tchad">Tchad</option>
+                <option value="Thaïlande">Thaïlande</option>
+                <option value="Timor oriental">Timor oriental</option>
+                <option value="Togo">Togo</option>
+                <option value="Tonga">Tonga</option>
+                <option value="Trinité-et-Tobago">Trinité-et-Tobago</option>
+                <option value="Tunisie">Tunisie</option>
+                <option value="Turkménistan">Turkménistan</option>
+                <option value="Turquie">Turquie</option>
+                <option value="Tuvalu">Tuvalu</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Vanuatu">Vanuatu</option>
+                <option value="Vatican">Vatican</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Viêt Nam">Viêt Nam</option>
+                <option value="Yémen">Yémen</option>
+                <option value="Zambie">Zambie</option>
+                <option value="Zimbabwe">Zimbabwe</option>
+                <option value="Régional / Multi-pays">Régional / Multi-pays</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="apLieuAffectation">Lieu d'affectation</label>
+              <input type="text" id="apLieuAffectation" maxlength="180">
+            </div>
+            <div class="admin-field">
+              <label for="apCategoriePoste">Catégorie du poste</label>
+              <select id="apCategoriePoste">
+                <option value="Administration/Finance">Administration/Finance</option>
+                <option value="Communication">Communication</option>
+                <option value="Suivi&Evaluation">Suivi &amp; Évaluation</option>
+                <option value="Gestion de projet">Gestion de projet</option>
+                <option value="Logistique">Logistique</option>
+                <option value="Ressources humaines">Ressources humaines</option>
+                <option value="Technologie">Technologie</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="apClassificationPoste">Classification du poste</label>
+              <select id="apClassificationPoste">
+                <option value="Consultant">Consultant</option>
+                <option value="Plein temps">Plein temps</option>
+                <option value="Temps partiel">Temps partiel</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="apCategorieEmploi">Catégorie d'emploi</label>
+              <select id="apCategorieEmploi">
+                <option value="Emploi">Emploi</option>
+                <option value="Stage">Stage</option>
+                <option value="Consultation">Consultation</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="apExperience">Expérience</label>
+              <select id="apExperience">
+                <option value="">— Sélectionner —</option>
+                <option value="1 an">1 an</option>
+                <option value="2 ans">2 ans</option>
+                <option value="3 ans">3 ans</option>
+                <option value="4 ans">4 ans</option>
+                <option value="5 ans">5 ans</option>
+                <option value="6 ans">6 ans</option>
+                <option value="7 ans">7 ans</option>
+                <option value="8 ans">8 ans</option>
+                <option value="9 ans">9 ans</option>
+                <option value="10 ans">10 ans</option>
+                <option value="11 ans">11 ans</option>
+                <option value="12 ans">12 ans</option>
+                <option value="13 ans">13 ans</option>
+                <option value="14 ans">14 ans</option>
+                <option value="15 ans">15 ans</option>
+                <option value="16 ans">16 ans</option>
+                <option value="17 ans">17 ans</option>
+                <option value="18 ans">18 ans</option>
+                <option value="19 ans">19 ans</option>
+                <option value="20 ans">20 ans</option>
+                <option value="21 ans">21 ans</option>
+                <option value="22 ans">22 ans</option>
+                <option value="23 ans">23 ans</option>
+                <option value="24 ans">24 ans</option>
+                <option value="25 ans">25 ans</option>
+                <option value="26 ans">26 ans</option>
+                <option value="27 ans">27 ans</option>
+                <option value="28 ans">28 ans</option>
+                <option value="29 ans">29 ans</option>
+                <option value="30 ans">30 ans</option>
+                <option value="31 ans">31 ans</option>
+                <option value="32 ans">32 ans</option>
+                <option value="33 ans">33 ans</option>
+                <option value="34 ans">34 ans</option>
+                <option value="35 ans">35 ans</option>
+                <option value="36 ans">36 ans</option>
+                <option value="37 ans">37 ans</option>
+                <option value="38 ans">38 ans</option>
+                <option value="39 ans">39 ans</option>
+                <option value="40 ans">40 ans</option>
+                <option value="41 ans">41 ans</option>
+                <option value="42 ans">42 ans</option>
+                <option value="43 ans">43 ans</option>
+                <option value="44 ans">44 ans</option>
+                <option value="45 ans">45 ans</option>
+                <option value="46 ans">46 ans</option>
+                <option value="47 ans">47 ans</option>
+                <option value="48 ans">48 ans</option>
+                <option value="49 ans">49 ans</option>
+                <option value="50 ans">50 ans</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="apNiveauContrat">Niveau du contrat</label>
+              <input type="text" id="apNiveauContrat" maxlength="120">
+            </div>
+            <div class="admin-field">
+              <label for="apDureeContrat">Durée du contrat</label>
+              <select id="apDureeContrat">
+                <option value="">— Sélectionner —</option>
+                <option value="1 an">1 an</option>
+                <option value="2 ans">2 ans</option>
+                <option value="3 ans">3 ans</option>
+                <option value="4 ans">4 ans</option>
+                <option value="5 ans">5 ans</option>
+                <option value="+10 ans">+10 ans</option>
+                <option value="CDI">CDI</option>
+              </select>
+              <label style="display:flex;align-items:center;gap:8px;margin-top:8px;font-weight:400;">
+                <input type="checkbox" id="apRenouvelable" style="width:auto;">
+                Renouvelable
+              </label>
+            </div>
+            <div class="admin-field">
+              <label for="apTheme">Thème</label>
+              <select id="apTheme">
+                <option value="Santé">Santé</option>
+                <option value="Education">Éducation</option>
+                <option value="Agriculture">Agriculture</option>
+                <option value="Genre">Genre</option>
+                <option value="Climat">Climat</option>
+                <option value="Environnement">Environnement</option>
+                <option value="Alimentation/Nutrition">Alimentation/Nutrition</option>
+                <option value="Mine">Mine</option>
+                <option value="Maintien et consolidation de la paix, cohésion sociale">Maintien et consolidation de la paix, cohésion sociale</option>
+                <option value="Protection et droit de l'homme">Protection et droit de l'homme</option>
+                <option value="Infrastructure">Infrastructure</option>
+                <option value="Sureté et sécurité">Sûreté et sécurité</option>
+                <option value="WASH">WASH (Eau, Assainissement, Hygiène)</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label for="apAProposOrganisation">À propos de l'organisation</label>
+              <textarea id="apAProposOrganisation" rows="3"></textarea>
+            </div>
+
+            <h4 class="admin-volet-titre" style="margin-bottom:2px;">Description du poste</h4>
+            <div class="admin-field">
+              <label for="apPosteDetail">Détail du poste</label>
+              <textarea id="apPosteDetail" rows="3"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="apPosteRole">Rôle / Responsabilités</label>
+              <textarea id="apPosteRole" rows="3"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="apPosteQualifications">Qualifications / Compétences</label>
+              <textarea id="apPosteQualifications" rows="3"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="apPosteExigencesEducation">Exigences en matière d'éducation</label>
+              <textarea id="apPosteExigencesEducation" rows="2"></textarea>
+            </div>
+
+            <div class="admin-field">
+              <label>Exigences linguistiques</label>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:.85em;font-weight:700;color:var(--navy);margin-bottom:4px;">
+                <span>Langue</span><span>Niveau</span><span>Exigence</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:center;margin-bottom:6px;">
+                <span style="font-weight:600;">Anglais</span>
+                <select id="apLangueAnglaisNiveau">
+                  <option value="">—</option>
+                  <option value="Basique">Basique</option>
+                  <option value="Courant">Courant</option>
+                </select>
+                <select id="apLangueAnglaisExigence">
+                  <option value="">—</option>
+                  <option value="Requis">Requis</option>
+                  <option value="Souhaitable">Souhaitable</option>
+                </select>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:center;">
+                <span style="font-weight:600;">Français</span>
+                <select id="apLangueFrancaisNiveau">
+                  <option value="">—</option>
+                  <option value="Basique">Basique</option>
+                  <option value="Courant">Courant</option>
+                </select>
+                <select id="apLangueFrancaisExigence">
+                  <option value="">—</option>
+                  <option value="Requis">Requis</option>
+                  <option value="Souhaitable">Souhaitable</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="admin-field">
+              <label for="apInformationsComplementaires">Informations complémentaires (optionnel)</label>
+              <textarea id="apInformationsComplementaires" rows="2"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="apTermesConditions">Termes et conditions</label>
+              <textarea id="apTermesConditions" rows="3"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="apCommentPostuler">Comment postuler</label>
+              <textarea id="apCommentPostuler" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="admin-field" id="articleExcerptField">
             <label for="articleExcerpt">Résumé court (affiché dans les listes)</label>
             <input type="text" id="articleExcerpt" maxlength="240">
           </div>
-          <div class="admin-field">
+          <div class="admin-field" id="articleMetaField">
             <label for="articleMeta">Information complémentaire (optionnelle)</label>
             <input type="text" id="articleMeta" maxlength="120">
             <span class="admin-hint" id="articleMetaHint">Ex. : échéance, prix, horaire ou auteur selon la section.</span>
           </div>
-          <div class="admin-field">
+          <div class="admin-field" id="articleBodyField">
             <label for="articleBody">Contenu</label>
             <textarea id="articleBody" rows="6" required></textarea>
           </div>
@@ -4071,6 +4815,8 @@ window.Isostasy = window.Isostasy || {};
           <div class="admin-field">
             <label for="fmTitreEn">Titre de la formation (anglais, facultatif)</label>
             <input type="text" id="fmTitreEn" maxlength="180" placeholder="Ex. : Data Analytics Training">
+            <span id="fmTitreEnStatut" class="admin-hint"></span>
+            <button type="button" class="btn btn-outline-navy btn-sm" id="fmTitreEnTraduireBtn" style="margin-left:8px;padding:.3em .8em;font-size:.75em;">Traduire</button>
           </div>
           <div class="admin-field">
             <label for="fmSousTitre">But</label>
@@ -4079,6 +4825,8 @@ window.Isostasy = window.Isostasy || {};
           <div class="admin-field">
             <label for="fmSousTitreEn">But (anglais, facultatif)</label>
             <input type="text" id="fmSousTitreEn" maxlength="200" placeholder="Ex. : Become autonomous in professional data analysis and visualization">
+            <span id="fmSousTitreEnStatut" class="admin-hint"></span>
+            <button type="button" class="btn btn-outline-navy btn-sm" id="fmSousTitreEnTraduireBtn" style="margin-left:8px;padding:.3em .8em;font-size:.75em;">Traduire</button>
           </div>
           <div class="admin-field">
             <label for="fmBut">Objectif</label>
@@ -4087,6 +4835,8 @@ window.Isostasy = window.Isostasy || {};
           <div class="admin-field">
             <label for="fmButEn">Objectif (anglais, facultatif)</label>
             <textarea id="fmButEn" rows="2" placeholder="Ex. : Be able to collect, clean, analyze and visualize field data"></textarea>
+            <span id="fmButEnStatut" class="admin-hint"></span>
+            <button type="button" class="btn btn-outline-navy btn-sm" id="fmButEnTraduireBtn" style="margin-left:8px;padding:.3em .8em;font-size:.75em;">Traduire</button>
           </div>
           <div class="admin-field">
             <label for="fmStatut">Statut</label>
@@ -4103,6 +4853,8 @@ window.Isostasy = window.Isostasy || {};
           <div class="admin-field">
             <label for="fmDatesEn">Dates de la session (anglais, facultatif)</label>
             <input type="text" id="fmDatesEn" maxlength="160" placeholder="Ex. : July 13–25, 2026">
+            <span id="fmDatesEnStatut" class="admin-hint"></span>
+            <button type="button" class="btn btn-outline-navy btn-sm" id="fmDatesEnTraduireBtn" style="margin-left:8px;padding:.3em .8em;font-size:.75em;">Traduire</button>
           </div>
           <div class="admin-field">
             <label for="fmFichierDetail">Document détaillé sur la formation (Word ou PDF)</label>
@@ -4146,6 +4898,8 @@ window.Isostasy = window.Isostasy || {};
           <div class="admin-field">
             <label for="fmModeEn">Mode (anglais, facultatif)</label>
             <input type="text" id="fmModeEn" maxlength="160" placeholder="Ex. : In person and online (via Google Meet)">
+            <span id="fmModeEnStatut" class="admin-hint"></span>
+            <button type="button" class="btn btn-outline-navy btn-sm" id="fmModeEnTraduireBtn" style="margin-left:8px;padding:.3em .8em;font-size:.75em;">Traduire</button>
           </div>
           <div class="admin-field">
             <label for="fmWhatsapp">WhatsApp</label>
@@ -4165,6 +4919,8 @@ window.Isostasy = window.Isostasy || {};
           <div class="admin-field">
             <label for="fmFraisParticipationEn">Frais de participation (anglais, facultatif)</label>
             <input type="text" id="fmFraisParticipationEn" maxlength="80" placeholder="Ex. : $100">
+            <span id="fmFraisParticipationEnStatut" class="admin-hint"></span>
+            <button type="button" class="btn btn-outline-navy btn-sm" id="fmFraisParticipationEnTraduireBtn" style="margin-left:8px;padding:.3em .8em;font-size:.75em;">Traduire</button>
           </div>
           <div class="admin-field">
             <label for="fmAdresse">Adresse</label>
@@ -4173,6 +4929,8 @@ window.Isostasy = window.Isostasy || {};
           <div class="admin-field">
             <label for="fmAdresseEn">Adresse (anglais, facultatif)</label>
             <textarea id="fmAdresseEn" rows="2"></textarea>
+            <span id="fmAdresseEnStatut" class="admin-hint"></span>
+            <button type="button" class="btn btn-outline-navy btn-sm" id="fmAdresseEnTraduireBtn" style="margin-left:8px;padding:.3em .8em;font-size:.75em;">Traduire</button>
           </div>
           <div class="admin-field">
             <label for="fmLienInscription">Lien d'inscription (formulaire externe, ex. Google Forms)</label>
@@ -4200,6 +4958,16 @@ window.Isostasy = window.Isostasy || {};
       <div class="admin-box reveal" id="volet-tous-articles" style="display:none;">
         <h3 style="margin-top:0;">Tous les articles</h3>
         <div id="adminArticleList" class="admin-article-list">
+          <p class="admin-hint">Chargement…</p>
+        </div>
+      </div>
+
+      <div class="admin-box reveal" id="volet-appels" style="display:none;">
+        <div class="aud-head">
+          <h3 style="margin:0;">Appels d'offres</h3>
+          <button type="button" class="btn btn-primary btn-sm" id="appelsAdminOpenBtn">+ Insérer un appel d'offre</button>
+        </div>
+        <div id="adminAppelsList" class="admin-article-list" style="margin-top:18px;">
           <p class="admin-hint">Chargement…</p>
         </div>
       </div>
@@ -5168,6 +5936,7 @@ window.Isostasy = window.Isostasy || {};
       appels_h1_text:"Appels d'offres, appels à consultants et opportunités relayés pour nos partenaires — ou publiés directement par toute organisation externe.",
       appels_source_internal:"Relayé par Isostasy", appels_source_external:"Publication externe",
       appels_badge_open:"Ouvert", appels_badge_paid:"Payant", appels_view_link:"Voir l'appel →",
+      pagination_de:"sur", pagination_resultats:"résultats", pagination_prev:"Précédent", pagination_next:"Suivant",
       appels_c1_meta:"Clôture : 28 juil. 2026", appels_c1_title:"Consultant(e) national(e) — Enquête sur la sécurité alimentaire",
       appels_c1_text:"Organisation internationale de développement · Mission de 45 jours, Bangui et provinces.", appels_c1_org:"ONG internationale",
       appels_c2_meta:"Clôture : 05 août 2026", appels_c2_title:"Appel d'offres — Mise en place d'un système de suivi digitalisé",
@@ -5176,9 +5945,11 @@ window.Isostasy = window.Isostasy || {};
       appels_c3_text:"Bailleur institutionnel externe · Recherche de cabinets nationaux pour consortium régional.", appels_c3_org:"Organisation externe",
       appels_publish_title:"Publiez votre appel sur notre plateforme",
       appels_publish_text:"Les appels de nos partenaires sont relayés gracieusement. Toute autre organisation peut publier son appel d'offres ou de consultants moyennant une contribution.",
-      appels_plan1_name:"Standard", appels_plan1_detail:"Mise en ligne 30 jours",
+      appels_plan1_name:"Standard", appels_plan1_detail:"Mise en ligne jusqu'à la date d'expiration",
       appels_plan2_name:"Mise en avant", appels_plan2_detail:"+ relai réseaux sociaux",
-      appels_publish_cta:"Publier un appel →",
+      appels_publish_cta:"Faire une demande →",
+      appels_afficher_offres_btn:"Afficher les offres →",
+      appels_aller_debut_btn:"Aller au début",
       boutique_h1_eyebrow:"Marketplace", boutique_h1_title:"Boutique & services",
       boutique_h1_text:"Produits numériques, prestations à la carte et location d'espaces ou d'équipements — réservables directement auprès de notre équipe.",
       boutique_badge_location:"Location", boutique_badge_digital:"Produit numérique", boutique_badge_service:"Service",
@@ -5566,6 +6337,9 @@ window.Isostasy = window.Isostasy || {};
       rejoignez_partner_text:"Cabinet, organisation ou bailleur : proposez une collaboration, un consortium ou une alliance de marque avec Isostasy Consulting.",
       rejoignez_partner_text2:"Décrivez-nous brièvement votre structure et votre proposition de collaboration ; notre équipe reviendra vers vous pour en discuter.",
       rejoignez_partner_cta:"Proposer un partenariat",
+      postes_vacants_title:"Postes vacants",
+      postes_vacants_vide:"Aucun poste vacant pour le moment — revenez bientôt, ou envoyez-nous une candidature spontanée.",
+      postes_vacants_slogan:"Construisons l'impact, ensemble.",
       casusage_h1_eyebrow:"Preuves par l'exemple", casusage_h1_title:"Démonstrations de capacité",
       casusage_h1_text:"Les deux fiches ci-dessous présentent des travaux réalisés en pilote interne, avant toute mission bailleur formalisée. Elles ne remplacent pas des références clients, mais donnent une preuve concrète et vérifiable du niveau technique du cabinet sur ses deux expertises phares.",
       casusage_c1_title:"Tableau de bord KPI marketing &amp; ventes",
@@ -5693,6 +6467,7 @@ window.Isostasy = window.Isostasy || {};
       apropos_footer_note:"À cela s'ajoutent trois engagements transversaux détaillés plus loin sur le site : l'intégration de l'intelligence artificielle dans nos outils (page <a href=\"#expertises\">Expertises</a>), un transfert de compétences systématique en fin de mission (page <a href=\"#methodologie\">Méthodologie</a>), et la conformité aux standards internationaux d'évaluation (page <a href=\"#methodologie\">Référentiels appliqués</a>).",
       fdetail_back:"← Retour aux formations", fdetail_btn_programme:"Programme pédagogique", fdetail_btn_planning:"Planning global",
       fdetail_telecharger:"⬇ Télécharger", fdetail_inscrivez:"INSCRIVEZ-VOUS", fdetail_frais_label:"Frais de participation : ",
+      fdetail_publicite:"PUBLICITÉ", fdetail_ad_sinscrire:"S'INSCRIRE",
       fdetail_session_label:"Session : ", fdetail_titre_page:"Détail sur la formation", fdetail_reservez:"🔒 RÉSERVEZ VOTRE PLACE MAINTENANT",
       fdetail_voir_plus:"Voir plus de formations",
       formation_encours_modal_titre:"Inscriptions closes", formation_encours_modal_texte:"Cette formation a déjà démarré et n'accepte plus de nouvelles inscriptions. Consultez nos formations programmées pour vous inscrire à une prochaine session.", formation_encours_modal_btn:"Formation programmée",
@@ -5816,6 +6591,7 @@ window.Isostasy = window.Isostasy || {};
       appels_h1_text:"Tenders, calls for consultants and opportunities relayed for our partners — or published directly by any outside organization.",
       appels_source_internal:"Relayed by Isostasy", appels_source_external:"External posting",
       appels_badge_open:"Open", appels_badge_paid:"Paid", appels_view_link:"View the call →",
+      pagination_de:"of", pagination_resultats:"results", pagination_prev:"Prev", pagination_next:"Next",
       appels_c1_meta:"Deadline: July 28, 2026", appels_c1_title:"National Consultant — Food Security Survey",
       appels_c1_text:"International development organization · 45-day assignment, Bangui and the provinces.", appels_c1_org:"International NGO",
       appels_c2_meta:"Deadline: August 5, 2026", appels_c2_title:"Tender — Setting up a digitalized monitoring system",
@@ -5824,9 +6600,11 @@ window.Isostasy = window.Isostasy || {};
       appels_c3_text:"External institutional donor · Seeking national firms for a regional consortium.", appels_c3_org:"External organization",
       appels_publish_title:"Publish your call on our platform",
       appels_publish_text:"Our partners' calls are relayed free of charge. Any other organization can publish its tender or consultant call for a fee.",
-      appels_plan1_name:"Standard", appels_plan1_detail:"Live for 30 days",
+      appels_plan1_name:"Standard", appels_plan1_detail:"Live until the expiration date",
       appels_plan2_name:"Featured", appels_plan2_detail:"+ social media relay",
-      appels_publish_cta:"Publish a call →",
+      appels_publish_cta:"Make a request →",
+      appels_afficher_offres_btn:"Show job openings →",
+      appels_aller_debut_btn:"Back to top",
       boutique_h1_eyebrow:"Marketplace", boutique_h1_title:"Shop & services",
       boutique_h1_text:"Digital products, à la carte services, and space or equipment rental — bookable directly with our team.",
       boutique_badge_location:"Rental", boutique_badge_digital:"Digital product", boutique_badge_service:"Service",
@@ -6214,6 +6992,9 @@ window.Isostasy = window.Isostasy || {};
       rejoignez_partner_text:"Firm, organization or donor: propose a collaboration, a consortium or a brand alliance with Isostasy Consulting.",
       rejoignez_partner_text2:"Briefly describe your organization and your collaboration proposal; our team will get back to you to discuss it.",
       rejoignez_partner_cta:"Propose a partnership",
+      postes_vacants_title:"Open positions",
+      postes_vacants_vide:"No open positions at the moment — check back soon, or send us a spontaneous application.",
+      postes_vacants_slogan:"Building impact, together.",
       casusage_h1_eyebrow:"Proof by example", casusage_h1_title:"Capability demonstrations",
       casusage_h1_text:"The two sheets below present work carried out as an internal pilot, ahead of any formal donor assignment. They don't replace client references, but offer concrete, verifiable proof of the firm's technical level in its two flagship areas of expertise.",
       casusage_c1_title:"Marketing &amp; sales KPI dashboard",
@@ -6341,6 +7122,7 @@ window.Isostasy = window.Isostasy || {};
       apropos_footer_note:"To this we add three cross-cutting commitments detailed further on the site: integrating artificial intelligence into our tools (<a href=\"#expertises\">Expertise</a> page), systematic skills transfer at the end of each assignment (<a href=\"#methodologie\">Methodology</a> page), and compliance with international evaluation standards (<a href=\"#methodologie\">Applied Standards</a> page).",
       fdetail_back:"← Back to training programs", fdetail_btn_programme:"Program outline", fdetail_btn_planning:"Overall schedule",
       fdetail_telecharger:"⬇ Download", fdetail_inscrivez:"REGISTER NOW", fdetail_frais_label:"Participation fee: ",
+      fdetail_publicite:"ADVERTISEMENT", fdetail_ad_sinscrire:"REGISTER",
       fdetail_session_label:"Session: ", fdetail_titre_page:"Training program details", fdetail_reservez:"🔒 RESERVE YOUR SPOT NOW",
       fdetail_voir_plus:"See more training programs",
       formation_encours_modal_titre:"Registration closed", formation_encours_modal_texte:"This training has already started and is no longer accepting new registrations. Check our scheduled training programs to sign up for an upcoming session.", formation_encours_modal_btn:"Scheduled trainings",
@@ -8230,9 +9012,93 @@ window.Isostasy = window.Isostasy || {};
   };
   const articleSectionSelect = document.getElementById('articleSection');
   const articleMetaHint = document.getElementById('articleMetaHint');
+  const SECTIONS_AVEC_PANNEAU_DEDIE = ['appels', 'boutique', 'annonces'];
+
+  /* Liste d'organisations/agences ONU proposée par défaut dans le formulaire
+     "Appel d'offre", enrichie automatiquement des organisations déjà saisies
+     manuellement (via "Autre") pour toute future saisie — sans back-office
+     supplémentaire : la liste se construit à partir des appels déjà publiés. */
+  const ORGANISATIONS_BASE = [
+    "UNICEF", "PNUD (UNDP)", "HCR (UNHCR)", "PAM (WFP)", "OMS (WHO)", "UNFPA",
+    "UNESCO", "FAO", "OIT (ILO)", "OIM (IOM)", "OCHA", "ONU Femmes", "PNUE (UNEP)",
+    "ONUDC", "MINUSCA", "Banque mondiale", "FMI", "Union Africaine", "Union Européenne",
+    "USAID", "CICR (Croix-Rouge)", "Croix-Rouge Centrafricaine", "Save the Children",
+    "Oxfam", "Plan International", "World Vision", "Care International",
+    "Médecins Sans Frontières", "Humanity & Inclusion", "Norwegian Refugee Council (NRC)",
+    "International Rescue Committee (IRC)", "ACTED", "Solidarités International",
+    "GIZ", "Coopération Suisse", "Ambassade de France", "Banque Africaine de Développement"
+  ];
+  let organisationsConnues = [...ORGANISATIONS_BASE];
+
+  async function chargerOrganisationsConnues(){
+    try {
+      const { data } = await sb.from('articles').select('organisation').eq('section', 'appels').not('organisation', 'is', null);
+      const depuisBase = (data || []).map(r => (r.organisation || '').trim()).filter(Boolean);
+      organisationsConnues = Array.from(new Set([...ORGANISATIONS_BASE, ...depuisBase])).sort((a, b) => a.localeCompare(b, 'fr'));
+    } catch(e){ console.error("Chargement des organisations indisponible :", e); }
+    remplirListeOrganisationsAdmin();
+  }
+
+  function remplirListeOrganisationsAdmin(){
+    const select = document.getElementById('apOrganisation');
+    if(!select) return;
+    const valeurActuelle = select.value;
+    select.innerHTML = '<option value="">— Sélectionner —</option>' +
+      organisationsConnues.map(o => '<option value="' + escapeHtml(o) + '">' + escapeHtml(o) + '</option>').join('') +
+      '<option value="__autre__">Autre (préciser)…</option>';
+    if(valeurActuelle) select.value = valeurActuelle;
+  }
+
+  function definirOrganisationFormulaire(nom){
+    const select = document.getElementById('apOrganisation');
+    const champAutre = document.getElementById('apOrganisationAutre');
+    if(!select || !champAutre) return;
+    select.value = nom;
+    if(select.value === nom && nom !== ''){
+      champAutre.style.display = 'none';
+      champAutre.value = '';
+    } else if(nom){
+      select.value = '__autre__';
+      champAutre.value = nom;
+      champAutre.style.display = '';
+    } else {
+      select.value = '';
+      champAutre.style.display = 'none';
+      champAutre.value = '';
+    }
+  }
+
+  const apOrganisationSelect = document.getElementById('apOrganisation');
+  const apOrganisationAutre = document.getElementById('apOrganisationAutre');
+  if(apOrganisationSelect && apOrganisationAutre){
+    apOrganisationSelect.addEventListener('change', () => {
+      const estAutre = apOrganisationSelect.value === '__autre__';
+      apOrganisationAutre.style.display = estAutre ? '' : 'none';
+      if(estAutre) apOrganisationAutre.focus();
+    });
+  }
+  chargerOrganisationsConnues();
+
+  function majVisibiliteSectionField(){
+    const champ = document.getElementById('articleSectionField');
+    if(!champ || !articleSectionSelect) return;
+    champ.style.display = SECTIONS_AVEC_PANNEAU_DEDIE.includes(articleSectionSelect.value) ? 'none' : '';
+  }
+  function majChampsAppel(){
+    if(!articleSectionSelect) return;
+    const estAppel = articleSectionSelect.value === 'appels';
+    document.getElementById('appelsFieldsWrap').style.display = estAppel ? '' : 'none';
+    document.getElementById('articleExcerptField').style.display = estAppel ? 'none' : '';
+    document.getElementById('articleMetaField').style.display = estAppel ? 'none' : '';
+    document.getElementById('articleBodyField').style.display = estAppel ? 'none' : '';
+    document.getElementById('articleBody').required = !estAppel;
+    document.getElementById('articleTitleLabel').textContent = estAppel ? 'Intitulé du poste' : 'Titre';
+  }
   if(articleSectionSelect){
     articleSectionSelect.addEventListener('change', () => {
       articleMetaHint.textContent = metaHints[articleSectionSelect.value] || '';
+      majVisibiliteSectionField();
+      majChampsAppel();
     });
   }
 
@@ -8288,6 +9154,7 @@ window.Isostasy = window.Isostasy || {};
     if(logoutBtn) logoutBtn.style.display = '';
     loadAdminArticles();
     loadAdminFormations();
+    loadAdminAppels();
     loadContentBlocksAdmin();
     loadCertAdminList();
     loadBlogHeroImgPreview();
@@ -8314,6 +9181,10 @@ window.Isostasy = window.Isostasy || {};
     articleFormTitle.textContent = 'Publier un nouvel article';
     articleSubmitBtn.textContent = 'Publier';
     articleCancelBtn.style.display = 'none';
+    majVisibiliteSectionField();
+    majChampsAppel();
+    const champAutreOrg = document.getElementById('apOrganisationAutre');
+    if(champAutreOrg){ champAutreOrg.style.display = 'none'; champAutreOrg.value = ''; }
   }
 
   if(articleCancelBtn) articleCancelBtn.addEventListener('click', resetArticleForm);
@@ -8338,6 +9209,42 @@ window.Isostasy = window.Isostasy || {};
         };
         if(payload.status === 'publie') payload.published_at = new Date().toISOString();
 
+        if(payload.section === 'appels'){
+          const orgSelect = document.getElementById('apOrganisation').value;
+          payload.organisation = orgSelect === '__autre__' ? document.getElementById('apOrganisationAutre').value.trim() : orgSelect;
+          payload.org_type = document.getElementById('apOrgType').value;
+          payload.date_publication = document.getElementById('apDatePublication').value || null;
+          payload.date_cloture = document.getElementById('apDateCloture').value || null;
+          payload.date_debut_estimee = document.getElementById('apDateDebutEstimee').value || null;
+          payload.type_poste = document.getElementById('apTypePoste').value;
+          payload.pays = document.getElementById('apPays').value.trim();
+          payload.lieu_affectation = document.getElementById('apLieuAffectation').value.trim();
+          payload.categorie_poste = document.getElementById('apCategoriePoste').value;
+          payload.classification_poste = document.getElementById('apClassificationPoste').value;
+          payload.categorie_emploi = document.getElementById('apCategorieEmploi').value;
+          payload.experience = document.getElementById('apExperience').value.trim();
+          payload.niveau_contrat = document.getElementById('apNiveauContrat').value.trim();
+          payload.duree_contrat = document.getElementById('apDureeContrat').value.trim();
+          payload.renouvelable = document.getElementById('apRenouvelable').checked;
+          payload.theme = document.getElementById('apTheme').value;
+          payload.a_propos_organisation = document.getElementById('apAProposOrganisation').value.trim();
+          payload.poste_detail = document.getElementById('apPosteDetail').value.trim();
+          payload.poste_role_responsabilites = document.getElementById('apPosteRole').value.trim();
+          payload.poste_qualifications = document.getElementById('apPosteQualifications').value.trim();
+          payload.poste_exigences_education = document.getElementById('apPosteExigencesEducation').value.trim();
+          payload.informations_complementaires = document.getElementById('apInformationsComplementaires').value.trim();
+          payload.termes_conditions = document.getElementById('apTermesConditions').value.trim();
+          payload.comment_postuler = document.getElementById('apCommentPostuler').value.trim();
+
+          const langues = [];
+          [['Anglais', 'Anglais'], ['Francais', 'Français']].forEach(([suffixeId, langue]) => {
+            const niveau = document.getElementById('apLangue' + suffixeId + 'Niveau').value;
+            const exigence = document.getElementById('apLangue' + suffixeId + 'Exigence').value;
+            if(niveau || exigence) langues.push({ langue, niveau, exigence });
+          });
+          payload.poste_exigences_linguistiques = langues;
+        }
+
         const fileInput = document.getElementById('articleImage');
         if(fileInput.files && fileInput.files[0]){
           const file = fileInput.files[0];
@@ -8361,6 +9268,8 @@ window.Isostasy = window.Isostasy || {};
         articleMsg.textContent = 'Article enregistré.';
         resetArticleForm();
         loadAdminArticles();
+        loadAdminAppels();
+        chargerOrganisationsConnues();
         refreshPublicArticles();
       } catch(err){
         articleMsg.className = 'admin-msg error';
@@ -8369,6 +9278,16 @@ window.Isostasy = window.Isostasy || {};
         articleSubmitBtn.disabled = false;
       }
     });
+  }
+
+  function ouvrirVoletAdmin(idVolet){
+    document.querySelectorAll('.admin-volet-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('[id^="volet-"]').forEach(p => { p.style.display = 'none'; });
+    const panneau = document.getElementById('volet-' + idVolet);
+    if(panneau) panneau.style.display = '';
+    const btn = document.querySelector('.admin-volet-btn[data-volet="' + idVolet + '"]');
+    if(btn) btn.classList.add('active');
+    return panneau;
   }
 
   async function loadAdminArticles(){
@@ -8390,25 +9309,145 @@ window.Isostasy = window.Isostasy || {};
         '</div>' +
         '<div class="admin-article-actions">' +
           '<button type="button" data-action="edit">Modifier</button>' +
+          '<button type="button" data-action="duplicate">Dupliquer</button>' +
           '<button type="button" data-action="toggle">' + (a.status === 'publie' ? 'Dépublier' : 'Publier') + '</button>' +
           '<button type="button" data-action="delete" class="danger">Supprimer</button>' +
         '</div>';
       row.querySelector('[data-action="edit"]').addEventListener('click', () => editArticle(a));
+      row.querySelector('[data-action="duplicate"]').addEventListener('click', () => duplicateArticle(a));
       row.querySelector('[data-action="toggle"]').addEventListener('click', () => toggleArticleStatus(a));
       row.querySelector('[data-action="delete"]').addEventListener('click', () => deleteArticle(a));
       listEl.appendChild(row);
     });
   }
 
+  async function loadAdminAppels(){
+    const listEl = document.getElementById('adminAppelsList');
+    if(!listEl) return;
+    listEl.innerHTML = '<p class="admin-hint">Chargement…</p>';
+    const { data, error } = await sb.from('articles').select('*').eq('section', 'appels').order('created_at', { ascending: false });
+    if(error){ listEl.innerHTML = '<p class="admin-hint">Erreur de chargement.</p>'; return; }
+    if(!data || !data.length){ listEl.innerHTML = '<p class="admin-hint">Aucun appel d\'offre pour le moment.</p>'; return; }
+
+    listEl.innerHTML = '';
+    data.forEach(a => {
+      const row = document.createElement('div');
+      row.className = 'admin-article-row';
+      const details = [a.organisation, a.date_cloture ? ('clôture : ' + a.date_cloture) : null].filter(Boolean).join(' · ');
+      row.innerHTML =
+        '<div class="admin-article-info">' +
+          '<b>' + escapeHtml(a.title) + '</b>' +
+          '<span class="admin-article-meta">' + (details ? escapeHtml(details) + ' · ' : '') + '<span class="admin-status-pill ' + a.status + '">' + a.status + '</span></span>' +
+        '</div>' +
+        '<div class="admin-article-actions">' +
+          '<button type="button" data-action="edit">Modifier</button>' +
+          '<button type="button" data-action="duplicate">Dupliquer</button>' +
+          '<button type="button" data-action="toggle">' + (a.status === 'publie' ? 'Dépublier' : 'Publier') + '</button>' +
+          '<button type="button" data-action="delete" class="danger">Supprimer</button>' +
+        '</div>';
+      row.querySelector('[data-action="edit"]').addEventListener('click', () => editArticle(a));
+      row.querySelector('[data-action="duplicate"]').addEventListener('click', () => duplicateArticle(a));
+      row.querySelector('[data-action="toggle"]').addEventListener('click', () => toggleArticleStatus(a));
+      row.querySelector('[data-action="delete"]').addEventListener('click', () => deleteArticle(a));
+      listEl.appendChild(row);
+    });
+  }
+
+  function duplicateArticle(a){
+    ouvrirVoletAdmin('nouvel-article');
+    document.getElementById('articleId').value = '';
+    document.getElementById('articleSection').value = a.section;
+    articleMetaHint.textContent = metaHints[a.section] || '';
+    majVisibiliteSectionField();
+    majChampsAppel();
+    document.getElementById('articleTitle').value = (a.title || '') + ' (copie)';
+    document.getElementById('articleExcerpt').value = a.excerpt || '';
+    document.getElementById('articleMeta').value = a.meta_label || '';
+    document.getElementById('articleBody').value = a.body || '';
+    if(a.section === 'appels'){
+      definirOrganisationFormulaire(a.organisation || '');
+      document.getElementById('apOrgType').value = a.org_type || 'ONG';
+      document.getElementById('apDatePublication').value = a.date_publication || '';
+      document.getElementById('apDateCloture').value = a.date_cloture || '';
+      document.getElementById('apDateDebutEstimee').value = a.date_debut_estimee || '';
+      document.getElementById('apTypePoste').value = a.type_poste || 'National';
+      document.getElementById('apPays').value = a.pays || '';
+      document.getElementById('apLieuAffectation').value = a.lieu_affectation || '';
+      document.getElementById('apCategoriePoste').value = a.categorie_poste || 'Administration/Finance';
+      document.getElementById('apClassificationPoste').value = a.classification_poste || 'Consultant';
+      document.getElementById('apCategorieEmploi').value = a.categorie_emploi || 'Emploi';
+      document.getElementById('apExperience').value = a.experience || '';
+      document.getElementById('apNiveauContrat').value = a.niveau_contrat || '';
+      document.getElementById('apDureeContrat').value = a.duree_contrat || '';
+      document.getElementById('apRenouvelable').checked = !!a.renouvelable;
+      document.getElementById('apTheme').value = a.theme || 'Santé';
+      document.getElementById('apAProposOrganisation').value = a.a_propos_organisation || '';
+      document.getElementById('apPosteDetail').value = a.poste_detail || '';
+      document.getElementById('apPosteRole').value = a.poste_role_responsabilites || '';
+      document.getElementById('apPosteQualifications').value = a.poste_qualifications || '';
+      document.getElementById('apPosteExigencesEducation').value = a.poste_exigences_education || '';
+      document.getElementById('apInformationsComplementaires').value = a.informations_complementaires || '';
+      document.getElementById('apTermesConditions').value = a.termes_conditions || '';
+      document.getElementById('apCommentPostuler').value = a.comment_postuler || '';
+      const langues = a.poste_exigences_linguistiques || [];
+      [['Anglais', 'Anglais'], ['Francais', 'Français']].forEach(([suffixeId, langue]) => {
+        const entree = langues.find(l => l.langue === langue) || {};
+        document.getElementById('apLangue' + suffixeId + 'Niveau').value = entree.niveau || '';
+        document.getElementById('apLangue' + suffixeId + 'Exigence').value = entree.exigence || '';
+      });
+    }
+    document.getElementById('articleImageCurrent').textContent = a.image_url ? "Image de l'original conservée si vous n'en choisissez pas de nouvelle." : '';
+    document.getElementById('articleStatus').value = 'brouillon';
+    articleFormTitle.textContent = 'Publier un nouvel article';
+    articleSubmitBtn.textContent = 'Publier';
+    articleCancelBtn.style.display = 'none';
+    window.scrollTo({ top: document.getElementById('adminArticleForm').getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+  }
+
   function editArticle(a){
+    ouvrirVoletAdmin('nouvel-article');
     document.getElementById('articleId').value = a.id;
     document.getElementById('articleSection').value = a.section;
+    articleMetaHint.textContent = metaHints[a.section] || '';
+    majVisibiliteSectionField();
+    majChampsAppel();
     document.getElementById('articleTitle').value = a.title;
     document.getElementById('articleExcerpt').value = a.excerpt || '';
     document.getElementById('articleMeta').value = a.meta_label || '';
-    articleMetaHint.textContent = metaHints[a.section] || '';
     document.getElementById('articleBody').value = a.body;
     document.getElementById('articleStatus').value = a.status;
+    if(a.section === 'appels'){
+      definirOrganisationFormulaire(a.organisation || '');
+      document.getElementById('apOrgType').value = a.org_type || 'ONG';
+      document.getElementById('apDatePublication').value = a.date_publication || '';
+      document.getElementById('apDateCloture').value = a.date_cloture || '';
+      document.getElementById('apDateDebutEstimee').value = a.date_debut_estimee || '';
+      document.getElementById('apTypePoste').value = a.type_poste || 'National';
+      document.getElementById('apPays').value = a.pays || '';
+      document.getElementById('apLieuAffectation').value = a.lieu_affectation || '';
+      document.getElementById('apCategoriePoste').value = a.categorie_poste || 'Administration/Finance';
+      document.getElementById('apClassificationPoste').value = a.classification_poste || 'Consultant';
+      document.getElementById('apCategorieEmploi').value = a.categorie_emploi || 'Emploi';
+      document.getElementById('apExperience').value = a.experience || '';
+      document.getElementById('apNiveauContrat').value = a.niveau_contrat || '';
+      document.getElementById('apDureeContrat').value = a.duree_contrat || '';
+      document.getElementById('apRenouvelable').checked = !!a.renouvelable;
+      document.getElementById('apTheme').value = a.theme || 'Santé';
+      document.getElementById('apAProposOrganisation').value = a.a_propos_organisation || '';
+      document.getElementById('apPosteDetail').value = a.poste_detail || '';
+      document.getElementById('apPosteRole').value = a.poste_role_responsabilites || '';
+      document.getElementById('apPosteQualifications').value = a.poste_qualifications || '';
+      document.getElementById('apPosteExigencesEducation').value = a.poste_exigences_education || '';
+      document.getElementById('apInformationsComplementaires').value = a.informations_complementaires || '';
+      document.getElementById('apTermesConditions').value = a.termes_conditions || '';
+      document.getElementById('apCommentPostuler').value = a.comment_postuler || '';
+      const langues = a.poste_exigences_linguistiques || [];
+      [['Anglais', 'Anglais'], ['Francais', 'Français']].forEach(([suffixeId, langue]) => {
+        const entree = langues.find(l => l.langue === langue) || {};
+        document.getElementById('apLangue' + suffixeId + 'Niveau').value = entree.niveau || '';
+        document.getElementById('apLangue' + suffixeId + 'Exigence').value = entree.exigence || '';
+      });
+    }
     document.getElementById('articleImageCurrent').textContent = a.image_url ? 'Image actuelle conservée si vous n\'en choisissez pas de nouvelle.' : '';
     articleFormTitle.textContent = "Modifier l'article";
     articleSubmitBtn.textContent = 'Enregistrer les modifications';
@@ -8421,16 +9460,29 @@ window.Isostasy = window.Isostasy || {};
     const payload = { status: newStatus };
     if(newStatus === 'publie') payload.published_at = new Date().toISOString();
     const { error } = await sb.from('articles').update(payload).eq('id', a.id);
-    if(!error){ loadAdminArticles(); refreshPublicArticles(); }
+    if(!error){ loadAdminArticles(); loadAdminAppels(); refreshPublicArticles(); }
   }
 
   async function deleteArticle(a){
     if(!confirm('Supprimer définitivement "' + a.title + '" ?')) return;
     const { error } = await sb.from('articles').delete().eq('id', a.id);
-    if(!error){ loadAdminArticles(); refreshPublicArticles(); }
+    if(!error){ loadAdminArticles(); loadAdminAppels(); refreshPublicArticles(); }
   }
 
   /* ===== Menu de volets de l'espace équipe (un seul volet ouvert à la fois) ===== */
+  const appelsAdminOpenBtn = document.getElementById('appelsAdminOpenBtn');
+  if(appelsAdminOpenBtn){
+    appelsAdminOpenBtn.addEventListener('click', () => {
+      ouvrirVoletAdmin('nouvel-article');
+      resetArticleForm();
+      document.getElementById('articleSection').value = 'appels';
+      articleMetaHint.textContent = metaHints['appels'] || '';
+      majVisibiliteSectionField();
+    majChampsAppel();
+      window.scrollTo({ top: document.getElementById('adminArticleForm').getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+    });
+  }
+
   const tousLesVoletsBtn = document.querySelectorAll('.admin-volet-btn');
   if(tousLesVoletsBtn.length){
     tousLesVoletsBtn.forEach(btn => {
@@ -8438,17 +9490,30 @@ window.Isostasy = window.Isostasy || {};
         const cible = 'volet-' + btn.dataset.volet;
         const panneau = document.getElementById(cible);
         if(!panneau) return;
+        const estCeBoutonActif = btn.classList.contains('active');
         const dejaOuvert = panneau.style.display !== 'none';
+
+        // Reclique sur le bouton déjà actif : referme le volet
+        if(dejaOuvert && estCeBoutonActif){
+          btn.classList.remove('active');
+          panneau.style.display = 'none';
+          return;
+        }
 
         // Referme tous les volets et désactive tous les boutons
         tousLesVoletsBtn.forEach(b => b.classList.remove('active'));
         document.querySelectorAll('[id^="volet-"]').forEach(p => { p.style.display = 'none'; });
 
-        if(!dejaOuvert){
-          panneau.style.display = '';
-          btn.classList.add('active');
-          window.scrollTo({ top: panneau.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+        panneau.style.display = '';
+        btn.classList.add('active');
+        if(btn.dataset.section){
+          const sectionSelect = document.getElementById('articleSection');
+          if(sectionSelect){
+            sectionSelect.value = btn.dataset.section;
+            sectionSelect.dispatchEvent(new Event('change'));
+          }
         }
+        window.scrollTo({ top: panneau.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
       });
     });
   }
@@ -8475,6 +9540,10 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('fmContenuDetailleHtmlEn').value = '';
     document.getElementById('fmContenuDetailleHtmlEnActuel').value = '';
     document.getElementById('fmContenuExtractionStatutEn').textContent = '';
+    ['fmTitreEnStatut','fmSousTitreEnStatut','fmButEnStatut','fmDatesEnStatut','fmModeEnStatut','fmFraisParticipationEnStatut','fmAdresseEnStatut'].forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.textContent = '';
+    });
     document.getElementById('fmProgrammePedagogiqueCurrent').textContent = '';
     document.getElementById('fmProgrammePedagogiqueUrlActuel').value = '';
     document.getElementById('fmPlanningGlobalCurrent').textContent = '';
@@ -8594,6 +9663,75 @@ window.Isostasy = window.Isostasy || {};
       }
     });
   }
+
+  /* Traduction automatique fr → en des champs courts de la formation :
+     dès qu'on quitte un champ français rempli, si le champ anglais
+     correspondant est vide, il est traduit et rempli automatiquement.
+     Une valeur anglaise déjà saisie ou corrigée n'est jamais écrasée. */
+  const CHAMPS_A_TRADUIRE_FORMATION = [
+    ['fmTitre', 'fmTitreEn'],
+    ['fmSousTitre', 'fmSousTitreEn'],
+    ['fmBut', 'fmButEn'],
+    ['fmDates', 'fmDatesEn'],
+    ['fmMode', 'fmModeEn'],
+    ['fmFraisParticipation', 'fmFraisParticipationEn'],
+    ['fmAdresse', 'fmAdresseEn'],
+  ];
+
+  async function traduireFrEn(texte){
+    // Service principal : endpoint public Google Traduction (CORS ouvert, très fiable côté navigateur)
+    try {
+      const url1 = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=fr&tl=en&dt=t&q=' + encodeURIComponent(texte);
+      const reponse1 = await fetch(url1);
+      if(reponse1.ok){
+        const data1 = await reponse1.json();
+        const traduit1 = Array.isArray(data1) && Array.isArray(data1[0])
+          ? data1[0].map(segment => segment[0]).join('')
+          : '';
+        if(traduit1.trim()) return traduit1.trim();
+      }
+    } catch(err){ console.error('Traduction (service principal) indisponible :', err); }
+
+    // Service de secours : MyMemory
+    const url2 = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(texte) + '&langpair=fr|en';
+    const reponse2 = await fetch(url2);
+    const data2 = await reponse2.json();
+    const traduit2 = data2 && data2.responseData && data2.responseData.translatedText;
+    if(!traduit2 || /MYMEMORY WARNING/i.test(traduit2)) throw new Error('Traduction indisponible');
+    return traduit2;
+  }
+
+  CHAMPS_A_TRADUIRE_FORMATION.forEach(([idFr, idEn]) => {
+    const champFr = document.getElementById(idFr);
+    const champEn = document.getElementById(idEn);
+    const statutEl = document.getElementById(idEn + 'Statut');
+    const boutonEl = document.getElementById(idEn + 'TraduireBtn');
+    if(!champFr || !champEn) return;
+
+    async function lancerTraduction(forcer){
+      const texte = champFr.value.trim();
+      if(!texte){
+        if(statutEl) statutEl.textContent = "Remplissez d'abord le champ français.";
+        return;
+      }
+      if(!forcer && champEn.value.trim()) return;
+      if(statutEl) statutEl.textContent = 'Traduction automatique en cours...';
+      if(boutonEl) boutonEl.disabled = true;
+      try {
+        const traduit = await traduireFrEn(texte);
+        champEn.value = traduit;
+        if(statutEl) statutEl.textContent = 'Traduit automatiquement — vérifiez et corrigez si besoin avant d\'enregistrer.';
+      } catch(err){
+        console.error(err);
+        if(statutEl) statutEl.textContent = "Traduction automatique indisponible pour le moment — merci de compléter ce champ manuellement.";
+      } finally {
+        if(boutonEl) boutonEl.disabled = false;
+      }
+    }
+
+    champFr.addEventListener('blur', () => lancerTraduction(false));
+    if(boutonEl) boutonEl.addEventListener('click', () => lancerTraduction(true));
+  });
 
   if(fmForm){
     fmForm.addEventListener('submit', async (e) => {
@@ -8881,6 +10019,75 @@ window.Isostasy = window.Isostasy || {};
     return translations[lang] || translations.fr;
   }
 
+  /* Prix des offres "Publier un appel" affichés aussi en dollars, actualisés
+     une fois par jour selon le taux de change réel (mise en cache locale
+     pour éviter de refaire l'appel à chaque visite). */
+  (async function afficherPrixAppelsEnDollars(){
+    const elPlan1 = document.getElementById('appelsPlan1PriceUsd');
+    const elPlan2 = document.getElementById('appelsPlan2PriceUsd');
+    if(!elPlan1 || !elPlan2) return;
+
+    const PRIX_PLAN1_FCFA = 10000;
+    const PRIX_PLAN2_FCFA = 15000;
+    const cleCache = 'isostasy_taux_xaf_usd';
+    const aujourdHui = new Date().toISOString().slice(0, 10);
+
+    function afficher(taux){
+      const dollar1 = (PRIX_PLAN1_FCFA * taux).toFixed(2);
+      const dollar2 = (PRIX_PLAN2_FCFA * taux).toFixed(2);
+      elPlan1.textContent = '≈ ' + dollar1 + ' $';
+      elPlan2.textContent = '≈ ' + dollar2 + ' $';
+    }
+
+    async function recupererTaux(){
+      // Le FCFA est arrimé à l'euro à un taux fixe (1 € = 655,957 FCFA) :
+      // passer par EUR→USD est bien plus fiable qu'une conversion XAF directe,
+      // très peu de services suivant le FCFA nativement.
+      const FCFA_PAR_EURO = 655.957;
+
+      // Source principale : jsDelivr (CDN déjà utilisé par le site pour mammoth.js,
+      // donc connu pour fonctionner même avec des bloqueurs de publicité/traqueurs,
+      // contrairement à des domaines "api.xxx" moins courants souvent filtrés).
+      try {
+        const reponse0 = await fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/eur.json');
+        const data0 = await reponse0.json();
+        const eurUsd0 = data0 && data0.eur && data0.eur.usd;
+        if(eurUsd0) return eurUsd0 / FCFA_PAR_EURO;
+      } catch(e){ console.error('Taux (jsDelivr) indisponible :', e); }
+
+      try {
+        const reponse1 = await fetch('https://api.frankfurter.app/latest?from=EUR&to=USD');
+        const data1 = await reponse1.json();
+        const eurUsd = data1 && data1.rates && data1.rates.USD;
+        if(eurUsd) return eurUsd / FCFA_PAR_EURO;
+      } catch(e){ console.error('Taux (service principal) indisponible :', e); }
+
+      try {
+        const reponse2 = await fetch('https://open.er-api.com/v6/latest/XAF');
+        const data2 = await reponse2.json();
+        const taux2 = data2 && data2.rates && data2.rates.USD;
+        if(taux2) return taux2;
+      } catch(e){ console.error('Taux (service de secours) indisponible :', e); }
+
+      return null;
+    }
+
+    try {
+      const cache = JSON.parse(localStorage.getItem(cleCache) || 'null');
+      if(cache && cache.date === aujourdHui && cache.taux){
+        afficher(cache.taux);
+        return;
+      }
+    } catch(e){}
+
+    const taux = await recupererTaux();
+    if(taux){
+      afficher(taux);
+      try { localStorage.setItem(cleCache, JSON.stringify({ date: aujourdHui, taux })); } catch(e){}
+    }
+    // Repli silencieux si les deux services échouent : seul le FCFA reste affiché.
+  })();
+
   async function loadPublicSection(section, containerId, renderFn){
     const el = document.getElementById(containerId);
     if(!el) return;
@@ -8939,6 +10146,471 @@ window.Isostasy = window.Isostasy || {};
       '<p>' + escapeHtml(a.excerpt || a.body.slice(0,140)) + '</p>' +
       '<div class="card-foot"><span class="meta">' + formatDateFr(a.published_at) + '</span></div>' +
     '</div>';
+  }
+
+  /* Liste publique des Appels d'offres, paginée (6 par page, style
+     "X-Y of Z results" avec numéros de page). */
+  let appelsDonneesPubliques = [];
+  let appelsPageActuelle = 1;
+  const APPELS_PAR_PAGE = 6;
+
+  async function chargerAppelsPublics(){
+    const { data, error } = await sb.from('articles')
+      .select('*').eq('section', 'appels').eq('status', 'publie')
+      .order('published_at', { ascending: false });
+    appelsDonneesPubliques = (!error && data) ? data : [];
+    appelsPageActuelle = 1;
+    afficherPageAppels();
+    remplirFiltreOrganisationsPublic();
+    appliquerFiltresPostesVacants();
+  }
+
+  function remplirFiltreOrganisationsPublic(){
+    const select = document.getElementById('pvfOrganisation');
+    if(!select) return;
+    const valeurActuelle = select.value;
+    const organisations = Array.from(new Set(appelsDonneesPubliques.map(a => a.organisation).filter(Boolean))).sort((a, b) => a.localeCompare(b, 'fr'));
+    select.innerHTML = '<option value="">Toutes</option>' + organisations.map(o => '<option value="' + escapeHtml(o) + '">' + escapeHtml(o) + '</option>').join('');
+    if(organisations.includes(valeurActuelle)) select.value = valeurActuelle;
+  }
+
+  let pvResultatsFiltres = [];
+
+  function obtenirEmailConnu(){
+    try {
+      const stocke = localStorage.getItem('isostasy_email_connu');
+      if(stocke) return stocke;
+    } catch(e){}
+    const champContact = document.getElementById('cfEmail');
+    if(champContact && champContact.value && champContact.value.includes('@')) return champContact.value.trim();
+    const champNewsletter = document.getElementById('newsletterEmail');
+    if(champNewsletter && champNewsletter.value && champNewsletter.value.includes('@')) return champNewsletter.value.trim();
+    return null;
+  }
+  let pvPageActuelle = 1;
+  const PV_PAR_PAGE = 6;
+
+  function formatDateCourte(iso){
+    if(!iso) return '';
+    const d = new Date(iso + 'T00:00:00');
+    if(isNaN(d)) return iso;
+    const lang = document.documentElement.getAttribute('lang') === 'en' ? 'en-US' : 'fr-FR';
+    return d.toLocaleDateString(lang, { day: '2-digit', month: 'short', year: 'numeric' });
+  }
+
+  function renderPosteVacantRow(a, idx){
+    const meta = [a.lieu_affectation || a.pays, a.organisation, a.classification_poste || a.categorie_emploi, a.date_cloture ? formatDateCourte(a.date_cloture) : null]
+      .filter(Boolean).map(escapeHtml).join(' &nbsp;•&nbsp; ');
+    const idLigne = 'pvRow' + idx;
+    const urlOffre = location.href.split('#')[0] + '#appels';
+    const sujet = encodeURIComponent(a.title);
+    const detailsHtml = [
+      ['Organisation', [a.organisation, a.org_type].filter(Boolean).join(' — ')],
+      ["À propos de l'organisation", a.a_propos_organisation],
+      ['Détail du poste', a.poste_detail],
+      ['Rôle / Responsabilités', a.poste_role_responsabilites],
+      ['Qualifications / Compétences', a.poste_qualifications],
+      ["Exigences en matière d'éducation", a.poste_exigences_education],
+      ['Informations complémentaires', a.informations_complementaires],
+      ['Termes et conditions', a.termes_conditions],
+      ['Comment postuler', a.comment_postuler]
+    ].filter(([, val]) => val).map(([label, val]) =>
+      '<h5>' + escapeHtml(label) + '</h5><p>' + escapeHtml(val) + '</p>'
+    ).join('');
+    const langues = a.poste_exigences_linguistiques || [];
+    const languesHtml = langues.length ? '<h5>Exigences linguistiques</h5><table>' +
+      langues.map(l => '<tr><td>' + escapeHtml(l.langue || '') + '</td><td>' + escapeHtml(l.niveau || '') + '</td><td>' + escapeHtml(l.exigence || '') + '</td></tr>').join('') +
+      '</table>' : '';
+
+    return '<div class="pv-row" id="' + idLigne + '">' +
+      '<div class="pv-row-head" data-toggle="' + idLigne + '">' +
+        '<div><h4 class="pv-row-titre">' + escapeHtml(a.title) + '</h4><p class="pv-row-meta">' + meta + '</p></div>' +
+        '<button type="button" class="pv-row-chevron" data-toggle="' + idLigne + '">⌄</button>' +
+      '</div>' +
+      '<div class="pv-row-actions">' +
+        '<button type="button" class="pv-row-apply" data-postuler="' + idLigne + '">Postuler</button>' +
+        '<div class="pv-row-share">' +
+          '<button type="button" class="pv-row-share-btn" data-share="' + idLigne + '">↗ Partager</button>' +
+          '<div class="pv-share-menu" id="shareMenu-' + idLigne + '">' +
+            '<div class="pv-share-consent">' +
+              '<p>En partageant, vous acceptez de vous abonner à la newsletter d\'Isostasy Consulting pour être informé des prochaines offres.</p>' +
+              '<input type="email" class="pv-share-email" placeholder="Votre e-mail">' +
+              '<p class="pv-share-consent-msg"></p>' +
+              '<div class="pv-share-consent-btns">' +
+                '<button type="button" class="btn btn-primary btn-sm pv-share-oui">Oui</button>' +
+                '<button type="button" class="btn btn-outline-navy btn-sm pv-share-non">Non</button>' +
+              '</div>' +
+            '</div>' +
+            '<div class="pv-share-icons">' +
+              '<a class="pv-share-mail" href="mailto:?subject=' + sujet + '&body=' + encodeURIComponent(a.title + ' — ' + urlOffre) + '" title="E-mail">✉</a>' +
+              '<a class="pv-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(urlOffre) + '" target="_blank" rel="noopener" title="Facebook">f</a>' +
+              '<a class="pv-share-x" href="https://twitter.com/intent/tweet?url=' + encodeURIComponent(urlOffre) + '&text=' + sujet + '" target="_blank" rel="noopener" title="X">𝕏</a>' +
+              '<a class="pv-share-in" href="https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(urlOffre) + '" target="_blank" rel="noopener" title="LinkedIn">in</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="pv-row-detail">' + detailsHtml + languesHtml + '</div>' +
+    '</div>';
+  }
+
+  function afficherPagePostesVacants(){
+    const conteneur = document.getElementById('postesVacantsListe');
+    const barreResultats = document.getElementById('pvResultatsBar');
+    const barrePagination = document.getElementById('pvPagination');
+    if(!conteneur) return;
+
+    if(!pvResultatsFiltres.length){
+      conteneur.innerHTML = '<p class="admin-hint">' + escapeHtml(curDict().postes_vacants_vide || 'Aucun poste vacant pour le moment.') + '</p>';
+      if(barreResultats) barreResultats.style.display = 'none';
+      if(barrePagination){ barrePagination.style.display = 'none'; barrePagination.innerHTML = ''; }
+      return;
+    }
+
+    const total = pvResultatsFiltres.length;
+    const totalPages = Math.max(1, Math.ceil(total / PV_PAR_PAGE));
+    if(pvPageActuelle > totalPages) pvPageActuelle = totalPages;
+    const debut = (pvPageActuelle - 1) * PV_PAR_PAGE;
+    const page = pvResultatsFiltres.slice(debut, debut + PV_PAR_PAGE);
+
+    conteneur.innerHTML = page.map((a, i) => renderPosteVacantRow(a, debut + i)).join('');
+
+    if(barreResultats){
+      barreResultats.style.display = 'flex';
+      document.getElementById('pvResultatsTexte').textContent = (debut + 1) + '-' + Math.min(debut + PV_PAR_PAGE, total) + ' sur ' + total + ' résultats';
+    }
+
+    if(barrePagination){
+      if(totalPages <= 1){ barrePagination.style.display = 'none'; barrePagination.innerHTML = ''; }
+      else {
+        let html = '<span></span><span class="pagination-pages">';
+        html += '<button type="button" data-page="prev"' + (pvPageActuelle === 1 ? ' disabled' : '') + '>&laquo;&laquo; Prev</button>';
+        let db = Math.max(1, pvPageActuelle - 2);
+        let df = Math.min(totalPages, db + 5);
+        db = Math.max(1, df - 5);
+        for(let p = db; p <= df; p++){
+          html += '<button type="button" data-page="' + p + '" class="' + (p === pvPageActuelle ? 'active' : '') + '">' + p + '</button>';
+        }
+        html += '<button type="button" data-page="next"' + (pvPageActuelle === totalPages ? ' disabled' : '') + '>Next &raquo;&raquo;</button></span>';
+        barrePagination.innerHTML = html;
+        barrePagination.style.display = 'flex';
+        barrePagination.querySelectorAll('button[data-page]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const val = btn.dataset.page;
+            if(val === 'prev') pvPageActuelle = Math.max(1, pvPageActuelle - 1);
+            else if(val === 'next') pvPageActuelle = Math.min(totalPages, pvPageActuelle + 1);
+            else pvPageActuelle = parseInt(val, 10);
+            afficherPagePostesVacants();
+            conteneur.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+      }
+    }
+
+    // Actions : ouverture/fermeture du détail, bouton Postuler, menu Partager
+    conteneur.querySelectorAll('[data-toggle]').forEach(el => {
+      el.addEventListener('click', () => {
+        const ligne = document.getElementById(el.dataset.toggle);
+        if(ligne) ligne.classList.toggle('ouvert');
+      });
+    });
+    conteneur.querySelectorAll('[data-postuler]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const ligne = document.getElementById(btn.dataset.postuler);
+        if(!ligne) return;
+        ligne.classList.add('ouvert');
+        const cibleTexte = ligne.querySelector('.pv-row-detail h5:last-of-type');
+        (cibleTexte || ligne).scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+    conteneur.querySelectorAll('[data-share]').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        const menu = document.getElementById('shareMenu-' + btn.dataset.share);
+        const dejaOuvert = menu.classList.contains('ouvert');
+        conteneur.querySelectorAll('.pv-share-menu').forEach(m => m.classList.remove('ouvert'));
+        if(dejaOuvert) return;
+
+        menu.classList.add('ouvert');
+        const consentEl = menu.querySelector('.pv-share-consent');
+        const iconesEl = menu.querySelector('.pv-share-icons');
+        const emailInput = menu.querySelector('.pv-share-email');
+        const msgEl = menu.querySelector('.pv-share-consent-msg');
+
+        const afficherIcones = () => {
+          consentEl.classList.add('masque');
+          iconesEl.classList.add('actif');
+        };
+        const afficherConsentement = (emailAPreremplir) => {
+          consentEl.classList.remove('masque');
+          iconesEl.classList.remove('actif');
+          msgEl.textContent = '';
+          if(emailAPreremplir){
+            emailInput.value = emailAPreremplir;
+            emailInput.style.display = 'none';
+          } else {
+            emailInput.value = '';
+            emailInput.style.display = '';
+          }
+        };
+
+        // Déjà confirmé sur ce navigateur (abonnement précédent ou partage précédent) :
+        // aucun besoin de revérifier, on ouvre directement le partage.
+        if(localStorage.getItem('isostasy_partage_abonne')){
+          afficherIcones();
+          return;
+        }
+
+        const emailConnu = obtenirEmailConnu();
+        if(emailConnu){
+          // Un e-mail est connu sur cet appareil : on vérifie en base s'il est
+          // déjà abonné avant de redemander confirmation inutilement.
+          consentEl.classList.remove('masque');
+          iconesEl.classList.remove('actif');
+          emailInput.style.display = 'none';
+          msgEl.style.color = 'var(--texte-2)';
+          msgEl.textContent = 'Vérification…';
+          try {
+            const { data } = await sb.from('newsletter_subscribers').select('id').eq('email', emailConnu).maybeSingle();
+            if(data){
+              try { localStorage.setItem('isostasy_partage_abonne', '1'); } catch(err){}
+              afficherIcones();
+              return;
+            }
+          } catch(err){ console.error('Vérification abonnement indisponible :', err); }
+          afficherConsentement(emailConnu);
+        } else {
+          afficherConsentement(null);
+        }
+      });
+    });
+
+    conteneur.querySelectorAll('.pv-share-menu').forEach(menu => {
+      menu.addEventListener('click', (e) => e.stopPropagation());
+    });
+
+    conteneur.querySelectorAll('.pv-share-non').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const menu = btn.closest('.pv-share-menu');
+        if(menu) menu.classList.remove('ouvert');
+      });
+    });
+
+    conteneur.querySelectorAll('.pv-share-oui').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        const menu = btn.closest('.pv-share-menu');
+        const consentEl = menu.querySelector('.pv-share-consent');
+        const iconesEl = menu.querySelector('.pv-share-icons');
+        const emailInput = menu.querySelector('.pv-share-email');
+        const msgEl = menu.querySelector('.pv-share-consent-msg');
+        const email = emailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailRegex.test(email)){
+          msgEl.textContent = 'Merci de saisir une adresse e-mail valide.';
+          return;
+        }
+        btn.disabled = true;
+        msgEl.style.color = 'var(--texte-2)';
+        msgEl.textContent = 'Inscription en cours…';
+        const { error } = await sb.from('newsletter_subscribers').insert({ email });
+        btn.disabled = false;
+        if(error && !(error.message && error.message.includes('duplicate'))){
+          msgEl.style.color = '#c0392b';
+          msgEl.textContent = "Erreur lors de l'inscription. Réessayez.";
+          return;
+        }
+        try { localStorage.setItem('isostasy_partage_abonne', '1'); } catch(err){}
+        consentEl.classList.add('masque');
+        iconesEl.classList.add('actif');
+      });
+    });
+  }
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.pv-share-menu.ouvert').forEach(m => m.classList.remove('ouvert'));
+  });
+
+  function appliquerFiltresPostesVacants(){
+    const conteneur = document.getElementById('postesVacantsListe');
+    if(!conteneur) return;
+
+    const champ = (id) => document.getElementById(id);
+    const fMotCle = (champ('pvfMotCle') ? champ('pvfMotCle').value : '').trim().toLowerCase();
+    const fOrganisation = (champ('pvfOrganisation').value || '').trim().toLowerCase();
+    const fOrgType = champ('pvfOrgType').value;
+    const fDateFrom = champ('pvfDateClotureFrom').value;
+    const fDateTo = champ('pvfDateClotureTo').value;
+    const fTypePoste = champ('pvfTypePoste').value;
+    const fPays = (champ('pvfPays').value || '').trim().toLowerCase();
+    const fCategoriePoste = champ('pvfCategoriePoste').value;
+    const fClassificationPoste = champ('pvfClassificationPoste').value;
+    const fCategorieEmploi = champ('pvfCategorieEmploi').value;
+    const fExperience = champ('pvfExperience').value;
+    const fDureeContrat = champ('pvfDureeContrat').value;
+    const fTheme = champ('pvfTheme').value;
+    const fLangue = champ('pvfLangue').value;
+    const fExigence = champ('pvfExigence').value;
+
+    let resultats = appelsDonneesPubliques.filter(a => {
+      if(fMotCle){
+        const texteRecherchable = [a.title, a.organisation, a.pays, a.lieu_affectation, a.excerpt, a.body, a.poste_detail, a.poste_role_responsabilites]
+          .filter(Boolean).join(' ').toLowerCase();
+        if(!texteRecherchable.includes(fMotCle)) return false;
+      }
+      if(fOrganisation && !(a.organisation || '').toLowerCase().includes(fOrganisation)) return false;
+      if(fOrgType && a.org_type !== fOrgType) return false;
+      if(fDateFrom && (!a.date_cloture || a.date_cloture < fDateFrom)) return false;
+      if(fDateTo && (!a.date_cloture || a.date_cloture > fDateTo)) return false;
+      if(fTypePoste && a.type_poste !== fTypePoste) return false;
+      if(fPays && !(a.pays || '').toLowerCase().includes(fPays)) return false;
+      if(fCategoriePoste && a.categorie_poste !== fCategoriePoste) return false;
+      if(fClassificationPoste && a.classification_poste !== fClassificationPoste) return false;
+      if(fCategorieEmploi && a.categorie_emploi !== fCategorieEmploi) return false;
+      if(fExperience && a.experience !== fExperience) return false;
+      if(fDureeContrat && a.duree_contrat !== fDureeContrat) return false;
+      if(fTheme && a.theme !== fTheme) return false;
+      if(fLangue || fExigence){
+        const langues = a.poste_exigences_linguistiques || [];
+        const correspond = langues.some(l =>
+          (!fLangue || l.langue === fLangue) && (!fExigence || l.exigence === fExigence)
+        );
+        if(!correspond) return false;
+      }
+      return true;
+    });
+
+    const tri = champ('pvTri') ? champ('pvTri').value : 'recent';
+    if(tri === 'titre'){
+      resultats.sort((a, b) => (a.title || '').localeCompare(b.title || '', 'fr'));
+    } else if(tri === 'cloture'){
+      resultats.sort((a, b) => (a.date_cloture || '9999') < (b.date_cloture || '9999') ? -1 : 1);
+    } else {
+      resultats.sort((a, b) => new Date(b.published_at || 0) - new Date(a.published_at || 0));
+    }
+
+    pvResultatsFiltres = resultats;
+    pvPageActuelle = 1;
+    afficherPagePostesVacants();
+  }
+
+  function initialiserFiltresPostesVacants(){
+    const barre = document.getElementById('pvFiltres');
+    if(!barre) return;
+    barre.querySelectorAll('select, input').forEach(c => {
+      const evt = (c.tagName === 'SELECT' || c.type === 'date') ? 'change' : 'input';
+      c.addEventListener(evt, appliquerFiltresPostesVacants);
+    });
+
+    const pvTri = document.getElementById('pvTri');
+    if(pvTri) pvTri.addEventListener('change', appliquerFiltresPostesVacants);
+
+    const pvfMotCle = document.getElementById('pvfMotCle');
+    const pvfRechercheBtn = document.getElementById('pvfRechercheBtn');
+    const lancerRecherche = () => {
+      appliquerFiltresPostesVacants();
+      const conteneur = document.getElementById('postesVacantsListe');
+      if(conteneur) conteneur.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    if(pvfMotCle){
+      pvfMotCle.addEventListener('input', appliquerFiltresPostesVacants);
+      pvfMotCle.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDefault(); lancerRecherche(); } });
+    }
+    if(pvfRechercheBtn) pvfRechercheBtn.addEventListener('click', lancerRecherche);
+
+    const btnReset = document.getElementById('pvfReinitialiser');
+    if(btnReset){
+      btnReset.addEventListener('click', () => {
+        barre.querySelectorAll('select').forEach(s => { s.value = ''; });
+        barre.querySelectorAll('input').forEach(i => { i.value = ''; });
+        if(pvfMotCle) pvfMotCle.value = '';
+        appliquerFiltresPostesVacants();
+      });
+    }
+  }
+  initialiserFiltresPostesVacants();
+
+  const appelsAfficherOffresBtn = document.getElementById('appelsAfficherOffresBtn');
+  if(appelsAfficherOffresBtn){
+    appelsAfficherOffresBtn.addEventListener('click', () => {
+      const enModeHaut = appelsAfficherOffresBtn.classList.contains('mode-haut');
+      if(enModeHaut){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const cible = document.getElementById('postesVacantsTitre');
+        if(cible) window.scrollTo({ top: cible.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+      }
+    });
+
+    const majBoutonAfficherOffres = () => {
+      const cible = document.getElementById('postesVacantsTitre');
+      const sectionAppels = document.getElementById('appels');
+      if(!cible || !sectionAppels || !sectionAppels.classList.contains('active-view')) return;
+      const dict = curDict();
+      const seuil = cible.getBoundingClientRect().top + window.scrollY - 150;
+      if(window.scrollY >= seuil){
+        appelsAfficherOffresBtn.classList.add('mode-haut');
+        appelsAfficherOffresBtn.textContent = dict.appels_aller_debut_btn || 'Aller au début';
+      } else {
+        appelsAfficherOffresBtn.classList.remove('mode-haut');
+        appelsAfficherOffresBtn.textContent = dict.appels_afficher_offres_btn || 'Afficher les offres →';
+      }
+    };
+    window.addEventListener('scroll', majBoutonAfficherOffres, { passive: true });
+    window.addEventListener('hashchange', () => setTimeout(majBoutonAfficherOffres, 50));
+    majBoutonAfficherOffres();
+  }
+
+  function afficherPageAppels(){
+    const grille = document.getElementById('appelsLive');
+    const pagBar = document.getElementById('appelsPagination');
+    if(!grille || !pagBar) return;
+
+    if(!appelsDonneesPubliques.length){
+      grille.style.display = 'none'; grille.innerHTML = '';
+      pagBar.style.display = 'none'; pagBar.innerHTML = '';
+      return;
+    }
+
+    const total = appelsDonneesPubliques.length;
+    const totalPages = Math.max(1, Math.ceil(total / APPELS_PAR_PAGE));
+    if(appelsPageActuelle > totalPages) appelsPageActuelle = totalPages;
+
+    const debut = (appelsPageActuelle - 1) * APPELS_PAR_PAGE;
+    const pageDonnees = appelsDonneesPubliques.slice(debut, debut + APPELS_PAR_PAGE);
+    grille.innerHTML = pageDonnees.map(renderAppelCard).join('');
+    grille.style.display = '';
+
+    const dict = curDict();
+    const debutAffiche = debut + 1;
+    const finAffiche = Math.min(debut + APPELS_PAR_PAGE, total);
+
+    let html = '<span>' + debutAffiche + '-' + finAffiche + ' ' + (dict.pagination_de || 'of') + ' ' + total + ' ' + (dict.pagination_resultats || 'results') + '</span>';
+    html += '<span class="pagination-pages">';
+    html += '<button type="button" data-page="prev"' + (appelsPageActuelle === 1 ? ' disabled' : '') + '>&laquo;&laquo; ' + (dict.pagination_prev || 'Prev') + '</button>';
+
+    let debutFenetre = Math.max(1, appelsPageActuelle - 2);
+    let finFenetre = Math.min(totalPages, debutFenetre + 5);
+    debutFenetre = Math.max(1, finFenetre - 5);
+    for(let p = debutFenetre; p <= finFenetre; p++){
+      html += '<button type="button" data-page="' + p + '" class="' + (p === appelsPageActuelle ? 'active' : '') + '">' + p + '</button>';
+    }
+    html += '<button type="button" data-page="next"' + (appelsPageActuelle === totalPages ? ' disabled' : '') + '>' + (dict.pagination_next || 'Next') + ' &raquo;&raquo;</button>';
+    html += '</span>';
+
+    pagBar.innerHTML = html;
+    pagBar.style.display = 'flex';
+
+    pagBar.querySelectorAll('button[data-page]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.page;
+        if(val === 'prev') appelsPageActuelle = Math.max(1, appelsPageActuelle - 1);
+        else if(val === 'next') appelsPageActuelle = Math.min(totalPages, appelsPageActuelle + 1);
+        else appelsPageActuelle = parseInt(val, 10);
+        afficherPageAppels();
+        grille.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   }
 
   function formationBadgeClass(statut){
@@ -9600,7 +11272,7 @@ window.Isostasy = window.Isostasy || {};
     loadPublicSection('blog', 'blogLive', renderBlogCard);
     loadPublicSection('rapports', 'rapportsLive', renderRapportCard);
     loadPublicSection('annonces', 'annoncesLive', renderAnnonceItem);
-    loadPublicSection('appels', 'appelsLive', renderAppelCard);
+    chargerAppelsPublics();
     loadFormationsSplit();
     loadPublicSection('boutique', 'boutiqueLive', renderBoutiqueCard);
     loadPublicSection('temoignages', 'temoignagesLive', renderTemoignageCard);
@@ -9953,6 +11625,10 @@ window.Isostasy = window.Isostasy || {};
       } else {
         msgEl.style.color = '#a0dbc1';
         msgEl.textContent = 'Merci ! Votre inscription est confirmée.';
+        try {
+          localStorage.setItem('isostasy_email_connu', email);
+          localStorage.setItem('isostasy_partage_abonne', '1');
+        } catch(err){}
         emailInput.value = '';
       }
       newsletterSubmit.disabled = false;
@@ -10602,6 +12278,7 @@ window.Isostasy = window.Isostasy || {};
         // La table de réception n'existe pas encore : on n'abandonne pas la demande.
         replierSurMail();
       } else {
+        try { localStorage.setItem('isostasy_email_connu', charge.email); } catch(err){}
         form.reset();
         dire('Message envoyé. Nous revenons vers vous sous 48 heures ouvrées.', 'ok');
       }
@@ -11316,6 +12993,17 @@ window.Isostasy = window.Isostasy || {};
      exacte sur laquelle la personne a cliqué. Note : « Commander » (Boutique)
      n'a volontairement aucune correspondance — aucune option du menu ne
      couvre les commandes de la boutique, "Autre" reste le choix le plus juste. */
+  const appelsPublishCtaBtn = document.getElementById('appelsPublishCtaBtn');
+  if(appelsPublishCtaBtn){
+    appelsPublishCtaBtn.addEventListener('click', (e) => {
+      if(window.prefillContact){
+        e.preventDefault();
+        e.stopPropagation();
+        window.prefillContact("Appels d'offres", '');
+      }
+    });
+  }
+
   var OBJETS = {
     'devis': 'Demande de devis',
     'quote': 'Demande de devis',
@@ -11596,7 +13284,7 @@ window.Isostasy = window.Isostasy || {};
 <div class="pub-popup-overlay" id="pubPopupOverlay" style="display:none;">
   <div class="fdetail-ad" id="pubPopupCard">
     <button type="button" class="pub-popup-close" id="pubPopupClose" aria-label="Fermer">✕</button>
-    <span class="fdetail-ad-tag">PUBLICITÉ</span>
+    <span class="fdetail-ad-tag" data-i18n="fdetail_publicite">PUBLICITÉ</span>
     <div class="fdetail-ad-media" id="pubPopupMedia">
       <div class="fdetail-ad-topinfo" id="pubPopupTopInfo">
         <p class="fdetail-ad-topinfo-l1" id="pubPopupFraisMode"></p>
@@ -11607,7 +13295,7 @@ window.Isostasy = window.Isostasy || {};
     <div class="fdetail-ad-body">
       <p class="fdetail-ad-but" id="pubPopupAccroche"></p>
       <p class="fdetail-ad-dates-body" id="pubPopupDates"></p>
-      <button type="button" class="btn btn-primary btn-sm" id="pubPopupInscrireBtn">S'INSCRIRE</button>
+      <button type="button" class="btn btn-primary btn-sm" id="pubPopupInscrireBtn" data-i18n="fdetail_ad_sinscrire">S'INSCRIRE</button>
     </div>
   </div>
 </div>
