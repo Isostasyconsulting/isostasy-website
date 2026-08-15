@@ -4312,7 +4312,10 @@ window.Isostasy = window.Isostasy || {};
       </div>
 
       <div class="admin-box reveal" id="volet-nouvel-article" style="display:none;">
-        <h3 id="adminFormTitle" style="margin-top:0;">Publier un nouvel article</h3>
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:2px;">
+          <h3 id="adminFormTitle" style="margin:0;">Publier un nouvel article</h3>
+          <button type="button" id="masquerArticleFormBtn" class="btn btn-outline-navy btn-sm">Masquer le formulaire</button>
+        </div>
         <form id="adminArticleForm">
           <input type="hidden" id="articleId" value="">
           <div class="admin-field" id="articleSectionField">
@@ -4324,6 +4327,13 @@ window.Isostasy = window.Isostasy || {};
               <option value="appels">Appels des organisations</option>
               <option value="boutique">Boutique &amp; services</option>
               <option value="temoignages">Témoignages</option>
+            </select>
+          </div>
+          <div class="admin-field" id="apTypePublicationField" style="display:none;">
+            <label for="apTypePublication">Type de publication</label>
+            <select id="apTypePublication">
+              <option value="Externe" selected>Externe</option>
+              <option value="Interne">Interne</option>
             </select>
           </div>
           <div class="admin-field" id="articleTitleField">
@@ -4765,6 +4775,16 @@ window.Isostasy = window.Isostasy || {};
             <div class="admin-field">
               <label for="apCommentPostuler">Comment postuler</label>
               <textarea id="apCommentPostuler" rows="3"></textarea>
+            </div>
+            <div class="admin-field">
+              <label for="apLienOffre">Lien de l'offre (facultatif)</label>
+              <input type="url" id="apLienOffre" maxlength="500" placeholder="https://... (page ou formulaire de candidature de l'organisation)">
+            </div>
+            <div class="admin-field">
+              <label for="apFichierOffre">Document de l'appel d'offre (Word ou PDF, facultatif)</label>
+              <input type="file" id="apFichierOffre" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+              <span id="apFichierOffreCurrent" class="admin-hint"></span>
+              <input type="hidden" id="apFichierOffreUrlActuel" value="">
             </div>
           </div>
 
@@ -9087,6 +9107,7 @@ window.Isostasy = window.Isostasy || {};
   function majChampsAppel(){
     if(!articleSectionSelect) return;
     const estAppel = articleSectionSelect.value === 'appels';
+    document.getElementById('apTypePublicationField').style.display = estAppel ? '' : 'none';
     document.getElementById('appelsFieldsWrap').style.display = estAppel ? '' : 'none';
     document.getElementById('articleExcerptField').style.display = estAppel ? 'none' : '';
     document.getElementById('articleMetaField').style.display = estAppel ? 'none' : '';
@@ -9185,6 +9206,10 @@ window.Isostasy = window.Isostasy || {};
     majChampsAppel();
     const champAutreOrg = document.getElementById('apOrganisationAutre');
     if(champAutreOrg){ champAutreOrg.style.display = 'none'; champAutreOrg.value = ''; }
+    const champFichierOffre = document.getElementById('apFichierOffreCurrent');
+    if(champFichierOffre) champFichierOffre.textContent = '';
+    const champFichierOffreUrl = document.getElementById('apFichierOffreUrlActuel');
+    if(champFichierOffreUrl) champFichierOffreUrl.value = '';
   }
 
   if(articleCancelBtn) articleCancelBtn.addEventListener('click', resetArticleForm);
@@ -9210,6 +9235,7 @@ window.Isostasy = window.Isostasy || {};
         if(payload.status === 'publie') payload.published_at = new Date().toISOString();
 
         if(payload.section === 'appels'){
+          payload.type_publication = document.getElementById('apTypePublication').value;
           const orgSelect = document.getElementById('apOrganisation').value;
           payload.organisation = orgSelect === '__autre__' ? document.getElementById('apOrganisationAutre').value.trim() : orgSelect;
           payload.org_type = document.getElementById('apOrgType').value;
@@ -9243,6 +9269,21 @@ window.Isostasy = window.Isostasy || {};
             if(niveau || exigence) langues.push({ langue, niveau, exigence });
           });
           payload.poste_exigences_linguistiques = langues;
+
+          payload.lien_offre = document.getElementById('apLienOffre').value.trim();
+          const fichierOffreInput = document.getElementById('apFichierOffre');
+          if(fichierOffreInput.files && fichierOffreInput.files[0]){
+            const fichier = fichierOffreInput.files[0];
+            const chemin = 'appels/' + Date.now() + '-' + fichier.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
+            const { error: erreurTeleversement } = await sb.storage.from('articles').upload(chemin, fichier);
+            if(erreurTeleversement) throw erreurTeleversement;
+            const { data: urlPubliqueData } = sb.storage.from('articles').getPublicUrl(chemin);
+            payload.fichier_offre_url = urlPubliqueData.publicUrl;
+            payload.fichier_offre_nom = fichier.name;
+          } else if(!id){
+            const urlActuelle = document.getElementById('apFichierOffreUrlActuel').value;
+            if(urlActuelle) payload.fichier_offre_url = urlActuelle;
+          }
         }
 
         const fileInput = document.getElementById('articleImage');
@@ -9365,6 +9406,8 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('articleMeta').value = a.meta_label || '';
     document.getElementById('articleBody').value = a.body || '';
     if(a.section === 'appels'){
+      if(appelsAdminOpenBtn) appelsAdminOpenBtn.textContent = 'Masquer le formulaire';
+      document.getElementById('apTypePublication').value = a.type_publication || 'Externe';
       definirOrganisationFormulaire(a.organisation || '');
       document.getElementById('apOrgType').value = a.org_type || 'ONG';
       document.getElementById('apDatePublication').value = a.date_publication || '';
@@ -9389,6 +9432,9 @@ window.Isostasy = window.Isostasy || {};
       document.getElementById('apInformationsComplementaires').value = a.informations_complementaires || '';
       document.getElementById('apTermesConditions').value = a.termes_conditions || '';
       document.getElementById('apCommentPostuler').value = a.comment_postuler || '';
+      document.getElementById('apLienOffre').value = a.lien_offre || '';
+      document.getElementById('apFichierOffreCurrent').textContent = a.fichier_offre_url ? "Document de l'original conservé si vous n'en choisissez pas de nouveau." : '';
+      document.getElementById('apFichierOffreUrlActuel').value = a.fichier_offre_url || '';
       const langues = a.poste_exigences_linguistiques || [];
       [['Anglais', 'Anglais'], ['Francais', 'Français']].forEach(([suffixeId, langue]) => {
         const entree = langues.find(l => l.langue === langue) || {};
@@ -9417,6 +9463,8 @@ window.Isostasy = window.Isostasy || {};
     document.getElementById('articleBody').value = a.body;
     document.getElementById('articleStatus').value = a.status;
     if(a.section === 'appels'){
+      if(appelsAdminOpenBtn) appelsAdminOpenBtn.textContent = 'Masquer le formulaire';
+      document.getElementById('apTypePublication').value = a.type_publication || 'Externe';
       definirOrganisationFormulaire(a.organisation || '');
       document.getElementById('apOrgType').value = a.org_type || 'ONG';
       document.getElementById('apDatePublication').value = a.date_publication || '';
@@ -9441,6 +9489,9 @@ window.Isostasy = window.Isostasy || {};
       document.getElementById('apInformationsComplementaires').value = a.informations_complementaires || '';
       document.getElementById('apTermesConditions').value = a.termes_conditions || '';
       document.getElementById('apCommentPostuler').value = a.comment_postuler || '';
+      document.getElementById('apLienOffre').value = a.lien_offre || '';
+      document.getElementById('apFichierOffreCurrent').textContent = a.fichier_offre_url ? "Document actuel conservé si vous n'en choisissez pas de nouveau." : '';
+      document.getElementById('apFichierOffreUrlActuel').value = a.fichier_offre_url || '';
       const langues = a.poste_exigences_linguistiques || [];
       [['Anglais', 'Anglais'], ['Francais', 'Français']].forEach(([suffixeId, langue]) => {
         const entree = langues.find(l => l.langue === langue) || {};
@@ -9473,13 +9524,38 @@ window.Isostasy = window.Isostasy || {};
   const appelsAdminOpenBtn = document.getElementById('appelsAdminOpenBtn');
   if(appelsAdminOpenBtn){
     appelsAdminOpenBtn.addEventListener('click', () => {
+      const panneauForm = document.getElementById('volet-nouvel-article');
+      const formulaireOuvert = panneauForm && panneauForm.style.display !== 'none'
+        && document.getElementById('articleSection').value === 'appels';
+      if(formulaireOuvert){
+        ouvrirVoletAdmin('appels');
+        appelsAdminOpenBtn.textContent = "+ Insérer un appel d'offre";
+        return;
+      }
       ouvrirVoletAdmin('nouvel-article');
       resetArticleForm();
       document.getElementById('articleSection').value = 'appels';
       articleMetaHint.textContent = metaHints['appels'] || '';
       majVisibiliteSectionField();
-    majChampsAppel();
+      majChampsAppel();
       window.scrollTo({ top: document.getElementById('adminArticleForm').getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+      appelsAdminOpenBtn.textContent = 'Masquer le formulaire';
+    });
+  }
+
+  const masquerArticleFormBtn = document.getElementById('masquerArticleFormBtn');
+  if(masquerArticleFormBtn){
+    masquerArticleFormBtn.addEventListener('click', () => {
+      const estAppel = document.getElementById('articleSection').value === 'appels';
+      if(appelsAdminOpenBtn) appelsAdminOpenBtn.textContent = "+ Insérer un appel d'offre";
+      if(estAppel){
+        ouvrirVoletAdmin('appels');
+        window.scrollTo({ top: document.getElementById('volet-appels').getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+      } else {
+        const panneauForm = document.getElementById('volet-nouvel-article');
+        if(panneauForm) panneauForm.style.display = 'none';
+        document.querySelectorAll('.admin-volet-btn').forEach(b => b.classList.remove('active'));
+      }
     });
   }
 
@@ -9564,6 +9640,7 @@ window.Isostasy = window.Isostasy || {};
       const visible = fmForm.style.display !== 'none';
       if(visible){
         fmForm.style.display = 'none';
+        window.scrollTo({ top: fmOpenBtn.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
       } else {
         resetFormationForm();
         fmForm.style.display = '';
@@ -9573,7 +9650,12 @@ window.Isostasy = window.Isostasy || {};
     });
   }
   if(fmCancelBtn){
-    fmCancelBtn.addEventListener('click', () => { resetFormationForm(); fmForm.style.display = 'none'; majTexteBoutonFormation(); });
+    fmCancelBtn.addEventListener('click', () => {
+      resetFormationForm();
+      fmForm.style.display = 'none';
+      majTexteBoutonFormation();
+      window.scrollTo({ top: fmOpenBtn.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+    });
   }
 
   function lignesVersListe(texte){
@@ -10199,10 +10281,10 @@ window.Isostasy = window.Isostasy || {};
   }
 
   function renderPosteVacantRow(a, idx){
-    const meta = [a.lieu_affectation || a.pays, a.organisation, a.classification_poste || a.categorie_emploi, a.date_cloture ? formatDateCourte(a.date_cloture) : null]
+    const meta = [a.type_publication, a.lieu_affectation || a.pays, a.organisation, a.classification_poste || a.categorie_emploi, a.date_cloture ? formatDateCourte(a.date_cloture) : null]
       .filter(Boolean).map(escapeHtml).join(' &nbsp;•&nbsp; ');
     const idLigne = 'pvRow' + idx;
-    const urlOffre = location.href.split('#')[0] + '#appels';
+    const urlOffre = location.href.split('#')[0] + '#appels'; // TODO : remplacer par le lien dynamic-processor une fois la fonction correctement déployée (voir conversation Claude)
     const sujet = encodeURIComponent(a.title);
     const detailsHtml = [
       ['Organisation', [a.organisation, a.org_type].filter(Boolean).join(' — ')],
@@ -10221,6 +10303,11 @@ window.Isostasy = window.Isostasy || {};
     const languesHtml = langues.length ? '<h5>Exigences linguistiques</h5><table>' +
       langues.map(l => '<tr><td>' + escapeHtml(l.langue || '') + '</td><td>' + escapeHtml(l.niveau || '') + '</td><td>' + escapeHtml(l.exigence || '') + '</td></tr>').join('') +
       '</table>' : '';
+    const liensHtml = [
+      a.lien_offre ? '<a href="' + escapeHtml(a.lien_offre) + '" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm" style="margin-right:8px;">Lien de l\'offre ↗</a>' : '',
+      a.fichier_offre_url ? '<a href="' + escapeHtml(a.fichier_offre_url) + '" target="_blank" rel="noopener" download class="btn btn-outline-navy btn-sm">⬇ Télécharger le document</a>' : ''
+    ].filter(Boolean).join('');
+    const liensBloc = liensHtml ? '<div style="margin-top:14px;">' + liensHtml + '</div>' : '';
 
     return '<div class="pv-row" id="' + idLigne + '">' +
       '<div class="pv-row-head" data-toggle="' + idLigne + '">' +
@@ -10228,7 +10315,7 @@ window.Isostasy = window.Isostasy || {};
         '<button type="button" class="pv-row-chevron" data-toggle="' + idLigne + '">⌄</button>' +
       '</div>' +
       '<div class="pv-row-actions">' +
-        '<button type="button" class="pv-row-apply" data-postuler="' + idLigne + '">Postuler</button>' +
+        '<button type="button" class="pv-row-apply" data-postuler="' + idLigne + '" data-lien="' + escapeHtml(a.lien_offre || '') + '">Postuler</button>' +
         '<div class="pv-row-share">' +
           '<button type="button" class="pv-row-share-btn" data-share="' + idLigne + '">↗ Partager</button>' +
           '<div class="pv-share-menu" id="shareMenu-' + idLigne + '">' +
@@ -10250,7 +10337,7 @@ window.Isostasy = window.Isostasy || {};
           '</div>' +
         '</div>' +
       '</div>' +
-      '<div class="pv-row-detail">' + detailsHtml + languesHtml + '</div>' +
+      '<div class="pv-row-detail">' + detailsHtml + languesHtml + liensBloc + '</div>' +
     '</div>';
   }
 
@@ -10316,6 +10403,10 @@ window.Isostasy = window.Isostasy || {};
     });
     conteneur.querySelectorAll('[data-postuler]').forEach(btn => {
       btn.addEventListener('click', () => {
+        if(btn.dataset.lien){
+          window.open(btn.dataset.lien, '_blank', 'noopener');
+          return;
+        }
         const ligne = document.getElementById(btn.dataset.postuler);
         if(!ligne) return;
         ligne.classList.add('ouvert');
